@@ -1,0 +1,35 @@
+:root {
+  color-scheme: light;
+  --zx-bg: #f6f7f9;
+  --zx-side: #fcfcfd;
+  --zx-surface: #ffffff;
+  --zx-soft: #eef1f6;
+  --zx-ink: #202737;
+  --zx-secondary: #525e70;
+  --zx-muted: #697587;
+  --zx-line: #e3e7ee;
+  --zx-brand: #405cce;
+  --zx-brand-soft: #edf1ff;
+  --zx-green: #267567;
+  --zx-green-soft: #eaf5f0;
+  --zx-danger: #c2410c;
+  --zx-radius: 12px;
+  --zx-font: 'MiSans', 'MiSans Demibold', 'HarmonyOS Sans SC', '思源黑体 CN', 'Source Han Sans SC', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei UI', 'Microsoft YaHei', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --zx-header: 64px;
+}
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --zx-bg: #141922;
+  --zx-side: #181e28;
+  --zx-surface: #1d2531;
+  --zx-soft: #252f3e;
+  --zx-ink: #e8edf6;
+  --zx-secondary: #b3bfd1;
+  --zx-muted: #97a5ba;
+  --zx-line: #303b4d;
+  --zx-brand: #9aaeff;
+  --zx-brand-soft: #293455;
+  --zx-green: #86c8b3;
+  --zx-green-soft: #243d38;
+  --zx-danger: #f0916b;
+}

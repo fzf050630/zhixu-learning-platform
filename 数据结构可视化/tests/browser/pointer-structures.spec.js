@@ -1,0 +1,33 @@
+const {test,expect}=require('@playwright/test');
+const {pathToFileURL}=require('node:url'),path=require('node:path');
+const url=pathToFileURL(path.resolve(__dirname,'../../index.html')).href;
+test('pointer labels and custom operations remain synchronized on mobile',async({page})=>{
+ await page.clock.install();
+ await page.setViewportSize({width:390,height:900});
+ await page.goto(url+'#/lab/stack-demo');
+ await page.locator('#input-initial').fill('');
+ await page.locator('#input-capacity').fill('2');
+ await page.locator('#input-operations').fill('pop,1,2,3,peek,pop,pop');
+ await page.locator('#applyInputBtn').click();
+ await page.locator('#nextBtn').click();
+ await expect(page.locator('#stepMessage')).toContainText('空栈');
+ await page.locator('#playBtn').click();await page.clock.runFor(10000);
+ await expect(page.locator('#stateTables')).toContainText('-1');
+ await page.goto(url+'#/lab/circular-queue');
+ await page.locator('#input-initial').fill('');
+ await page.locator('#input-capacity').fill('3');
+ await page.locator('#input-operations').fill('1,2,3,dequeue,4');
+ await page.locator('#applyInputBtn').click();
+ await page.locator('#playBtn').click();await page.clock.runFor(10000);
+ await expect(page.locator('#stateTables')).toContainText('2 → 4');
+ await page.screenshot({path:'docs/verification/queue-pointers-mobile.png',fullPage:true});
+ await page.goto(url+'#/lab/linked-reverse');
+ await page.locator('#nextBtn').click();
+ await expect(page.locator('#stateTables')).toContainText('实际指针位置');
+ const before=await page.locator('#stateTables').innerText();
+ await page.locator('#nextBtn').click();await page.locator('#prevBtn').click();
+ expect(await page.locator('#stateTables').innerText()).toBe(before);
+ await page.screenshot({path:'docs/verification/linked-pointers-mobile.png',fullPage:true});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+

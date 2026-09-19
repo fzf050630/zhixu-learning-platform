@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="知序，408 与考研数学交互学习平台。用算法动画与数学图示理解抽象知识。">
+  <title>知序 · 408 与考研数学交互学习</title>
+  <link rel="icon" href="platform/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="platform/tokens.css">
+  <link rel="stylesheet" href="platform/components.css">
+  <link rel="stylesheet" href="platform/portal.css">
+  <script src="platform/subjects.js"></script>
+  <script src="platform/theme.js"></script>
+</head>
+<body class="portal">
+  <div class="portal-layout">
+    <aside class="portal-sidebar" id="portalSidebar" aria-label="平台导航">
+      <div class="side-caption">学习空间</div>
+      <a class="overview-link" href="#overview" aria-current="page"><span aria-hidden="true">▦</span> 学习总览</a>
+      <div id="subjectNav"></div>
+      <div class="sidebar-note"><span class="note-mark">∞</span><strong>理解，从看见开始。</strong><p>把概念变成图形，<br>把过程交给你探索。</p></div>
+      <div class="sidebar-footer">408 + 数学 <span>七科学习空间</span></div>
+    </aside>
+    <button class="portal-scrim" id="portalScrim" aria-label="关闭平台导航" hidden></button>
+    <main class="portal-main">
+      <div class="portal-toolbar"><button type="button" id="portalMenu" aria-label="打开平台导航" aria-controls="portalSidebar" aria-expanded="false">☰</button><span>我的学习空间 <b>/</b> <strong>总览</strong></span><span class="toolbar-note">自主探索 · 交互学习</span></div>
+      <div class="portal-content">
+        <section class="welcome" id="overview" aria-labelledby="welcomeTitle">
+          <div><p class="eyebrow">看见知识之间的联系</p><h1 id="welcomeTitle">让抽象，<br class="small-break">变得<span>可以理解。</span></h1><p class="welcome-copy">在一个空间里，探索 408 与考研数学。<br>动手调整、逐步推演，让每一次理解都有迹可循。</p></div>
+          <div class="coverage" aria-label="平台建设情况"><div><strong>07</strong><span>/ 07</span></div><p>科目已接入</p><div class="coverage-ticks" aria-hidden="true"><i class="ready"></i><i class="ready"></i><i class="ready"></i><i class="ready"></i><i class="ready"></i><i class="ready"></i><i class="ready"></i></div><small>学习版图，持续生长</small></div>
+        </section>
+        <section class="global-search" aria-label="跨科目搜索">
+          <label for="globalSearch" class="zx-sr">搜索全部已接入内容</label><span class="search-symbol" aria-hidden="true">⌕</span><input id="globalSearch" type="search" placeholder="搜索知识点或实验，例如：快速排序、正态分布" autocomplete="off"><kbd>/</kbd>
+        </section>
+        <section id="searchPanel" class="search-panel" aria-label="搜索结果" hidden><div class="section-heading"><h2 id="searchSummary" role="status"></h2><button class="text-button" id="clearSearch">清除搜索</button></div><div id="searchResults"></div></section>
+        <div id="overviewContent">
+          <section class="subjects-section" aria-labelledby="subjectsTitle">
+            <div class="section-heading"><div><h2 id="subjectsTitle">从一门学科开始</h2><p>已开放的内容，现在就能动手探索。</p></div><div class="filter-tabs" role="group" aria-label="筛选科目"><button data-filter="all" aria-pressed="true">全部</button><button data-filter="408" aria-pressed="false">408</button><button data-filter="math" aria-pressed="false">数学</button></div></div>
+            <div class="featured-grid" id="featuredSubjects"></div>
+          </section>
+          <section class="roadmap-section" aria-labelledby="roadmapTitle"><div class="section-heading compact"><h2 id="roadmapTitle">接下来的学习版图</h2><span class="muted">以下科目尚未开放</span></div><div class="planned-grid" id="plannedSubjects"></div></section>
+          <section class="recent-section" aria-labelledby="recentTitle"><div class="section-heading compact"><h2 id="recentTitle">最近探索</h2><span class="muted">保存在当前浏览器</span></div><div id="recentList"></div></section>
+        </div>
+        <footer class="portal-footer"><span>知序 <b>·</b> 让知识有形，让学习有序。</span><span>408 计算机基础 / 考研数学</span></footer>
+      </div>
+    </main>
+  </div>
+  <noscript><p>请启用 JavaScript，以使用交互实验、科目导航与搜索。</p></noscript>
+  <script src="platform/catalog.js"></script>
+  <script src="platform/navigation.js"></script>
+  <script src="platform/portal.js"></script>
+</body>
+</html>

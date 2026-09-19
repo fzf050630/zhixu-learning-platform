@@ -1,0 +1,13 @@
+.multi-input-form { grid-template-columns: repeat(2,minmax(0,1fr)); align-items: start; }
+.input-field { display: grid; gap: 8px; font-size: 14px; min-width: 0; }
+.input-field input,.input-field textarea,.input-field select { width:100%; min-width:0; padding:10px; border:1px solid var(--line-2); border-radius:7px; background:var(--bg); color:var(--ink); font:14px var(--mono),var(--sans); }
+.input-field textarea { min-height:110px; resize:vertical; }
+.input-field :focus-visible { outline:2px solid var(--brand); outline-offset:2px; }
+.multi-input-form .input-hint,.multi-input-form .input-error,.multi-input-form .input-actions { grid-column:1/-1; font-size:13px; }
+.layout-controls { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:12px 0; padding:12px; border:1px solid var(--line); border-radius:10px; background:var(--surface); }
+.layout-controls[hidden] { display:none; }
+.layout-controls select,.layout-controls button { padding:8px; background:var(--bg); color:var(--ink); border:1px solid var(--line); border-radius:6px; font:inherit; }
+.layout-controls p { width:100%; margin:0; color:var(--muted); font-size:13px; }
+@media(max-width:720px){.multi-input-form{grid-template-columns:1fr}.input-actions button{min-height:44px}}
+/* Pointer diagrams must remain fully visible while reading their labels. */
+@media(max-width:720px){.lab-view[data-visualizer='queue'] .transport,.lab-view[data-visualizer='stack'] .transport,.lab-view[data-visualizer='linked'] .transport{position:static}}

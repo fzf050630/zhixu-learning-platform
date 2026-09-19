@@ -1,0 +1,10 @@
+.state-tables { margin-top: 16px; display: grid; gap: 12px; min-width: 0; }
+.state-tables[hidden] { display: none; }
+.state-table-scroll { overflow: auto; max-height: 340px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.state-table-scroll:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.state-tables table { border-collapse: collapse; width: 100%; text-align: left; font-size: 14px; }
+.state-tables caption { text-align: left; padding: 14px 16px; font-weight: 700; color: var(--ink); }
+.state-tables th, .state-tables td { padding: 10px 16px; border-top: 1px solid var(--line); white-space: nowrap; }
+.state-tables th { color: var(--muted); font-weight: 500; background: var(--bg); }
+.state-tables td { font-family: var(--mono), var(--sans); line-height: 1.6; }
+.state-tables tbody tr:hover { background: var(--brand-soft); }

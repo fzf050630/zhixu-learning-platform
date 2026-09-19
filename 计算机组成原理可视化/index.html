@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-subject="computer-organization">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="408 计算机组成原理交互可视化学习系统">
+<title>计算机组成原理 · 交互可视化</title>
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="icon" href="../platform/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../platform/tokens.css">
+<link rel="stylesheet" href="../platform/components.css">
+<link rel="stylesheet" href="../platform/adapters.css">
+<script src="../platform/subjects.js"></script>
+<script src="../platform/theme.js"></script>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===================== 侧边栏 ===================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">CO</div>
+      <div class="brand-text">
+        <strong>组成原理 · 可视化</strong>
+        <span>王道 · 408 知识主线</span>
+      </div>
+    </div>
+
+    <div class="side-search">
+      <input type="search" id="sideSearch" placeholder="搜索知识点…" autocomplete="off">
+      <kbd>/</kbd>
+    </div>
+
+    <nav class="toc" id="toc"><!-- 由 JS 生成 --></nav>
+
+    <div class="side-foot">
+      <button class="icon-btn" id="themeBtn" title="切换深浅色">◐</button>
+      <button class="icon-btn" id="printBtn" title="打印 / 导出 PDF">⎙</button>
+      <button class="icon-btn" id="resetBtn" title="清空学习进度">↺</button>
+    </div>
+  </aside>
+
+  <!-- ===================== 主区域 ===================== -->
+  <main class="main">
+
+    <header class="topbar">
+      <button class="icon-btn only-mobile" id="menuBtn">☰</button>
+      <div class="crumbs" id="crumbs">概览</div>
+      <div class="progress-wrap" title="学习进度（标记为已掌握的知识点比例）">
+        <div class="progress-bar"><i id="progressFill"></i></div>
+        <span id="progressText">0%</span>
+      </div>
+    </header>
+
+    <div class="scroll" id="scroll">
+      <section class="view" id="view"><!-- 由 JS 渲染 --></section>
+    </div>
+
+  </main>
+
+  <div class="scrim" id="scrim"></div>
+</div>
+
+<!-- ===================== 依赖 ===================== -->
+<script src="assets/js/lib/draw.js"></script>
+<script src="assets/js/lib/bits.js"></script>
+<script src="assets/js/widgets/ui.js"></script>
+
+<!-- 可视化组件（Canvas 手绘，无第三方图表库） -->
+<script src="assets/js/widgets/co1.js"></script>
+<script src="assets/js/widgets/co2.js"></script>
+<script src="assets/js/widgets/co3.js"></script>
+<script src="assets/js/widgets/co4.js"></script>
+<script src="assets/js/widgets/co5.js"></script>
+<script src="assets/js/widgets/co6.js"></script>
+<script src="assets/js/widgets/co7.js"></script>
+
+<!-- 内容数据 -->
+<script src="content/syllabus.js"></script>
+<script src="content/ch1.js"></script>
+<script src="content/ch2.js"></script>
+<script src="content/ch3.js"></script>
+<script src="content/ch4.js"></script>
+<script src="content/ch5.js"></script>
+<script src="content/ch6.js"></script>
+<script src="content/ch7.js"></script>
+
+<!-- 应用 -->
+<script src="assets/js/app.js"></script>
+<script src="../platform/catalog.js"></script>
+<script src="../platform/navigation.js"></script>
+
+</body>
+</html>

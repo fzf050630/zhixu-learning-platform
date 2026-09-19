@@ -1,0 +1,16 @@
+{
+  "name": "zhixu-learning-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "408 与考研数学静态交互学习平台",
+  "scripts": {
+    "catalog": "node scripts/catalog.cjs",
+    "build": "node scripts/build.cjs",
+    "dev": "node scripts/build.cjs && node scripts/serve.cjs",
+    "preview": "node scripts/serve.cjs",
+    "audit": "node scripts/audit-content.cjs",
+    "test": "node --test tests/platform.test.cjs",
+    "test:browser": "node 数据结构可视化/node_modules/@playwright/test/cli.js test --config playwright.config.cjs"
+  },
+  "engines": { "node": ">=20" }
+}

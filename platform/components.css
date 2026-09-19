@@ -1,0 +1,27 @@
+.zx-header, .zx-header * { box-sizing: border-box; }
+.zx-header { position: sticky; top: 0; z-index: 45; height: var(--zx-header); padding: 0 28px; display: flex; align-items: center; gap: 22px; border-bottom: 1px solid var(--zx-line); background: var(--zx-surface); color: var(--zx-ink); font: 15px/1.4 var(--zx-font); }
+.zx-wordmark { display: inline-flex; align-items: center; gap: 10px; flex: none; text-decoration: none; color: var(--zx-ink); }
+.zx-logo { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px; background: var(--zx-brand); color: var(--zx-surface); font-weight: 800; font-size: 19px; }
+.zx-wordmark strong { font-size: 21px; font-weight: 800; letter-spacing: .04em; }
+.zx-product { color: var(--zx-muted); font-size: 13px; border-left: 1px solid var(--zx-line); padding-left: 20px; }
+.zx-header-actions { margin-left: auto; display: flex; align-items: center; gap: 12px; min-width: 0; }
+.zx-home { text-decoration: none; color: var(--zx-secondary); white-space: nowrap; }
+.zx-home:hover { color: var(--zx-brand); }
+.zx-select { min-width: 0; width: 190px; height: 36px; padding: 0 9px; border: 1px solid var(--zx-line); border-radius: 7px; background: var(--zx-bg); color: var(--zx-ink); font: inherit; }
+.zx-theme { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--zx-line); border-radius: 8px; background: var(--zx-surface); color: var(--zx-secondary); cursor: pointer; font: 20px var(--zx-font); flex: none; }
+.zx-theme:hover { background: var(--zx-brand-soft); color: var(--zx-brand); }
+.zx-skip { position: fixed; top: -100px; left: 12px; z-index: 100; padding: 10px 18px; background: var(--zx-brand); color: var(--zx-surface); border-radius: 6px; }
+.zx-skip:focus { top: 8px; }
+:where(a, button, input, select, [tabindex]):focus-visible { outline: 3px solid var(--zx-brand); outline-offset: 3px; }
+.zx-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 720px) {
+  :root { --zx-header: 56px; }
+  .zx-header { padding: 0 14px; gap: 10px; }
+  .zx-product, .zx-header .zx-home { display: none; }
+  .zx-wordmark strong { font-size: 18px; }
+  .zx-header-actions { gap: 8px; }
+  .zx-select { width: 152px; font-size: 13px; }
+}
+@media (max-width: 360px) { .zx-select { width: 125px; } .zx-wordmark { gap: 6px; } }
+@media print { .zx-header, .zx-skip { display: none !important; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }

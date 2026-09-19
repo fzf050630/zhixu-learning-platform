@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light" data-subject="data-structures">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="考研数据结构算法步骤可视化">
+  <title>数据结构 · 算法可视化</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/typography.css">
+  <link rel="stylesheet" href="assets/css/state-table.css">
+  <link rel="stylesheet" href="assets/css/inputs.css">
+  <link rel="icon" href="../platform/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../platform/tokens.css">
+  <link rel="stylesheet" href="../platform/components.css">
+  <link rel="stylesheet" href="../platform/adapters.css">
+  <script src="../platform/subjects.js"></script>
+  <script src="../platform/theme.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#/">
+        <span class="brand-mark">DS</span>
+        <span><strong>数据结构 · 可视化</strong><small>2027 考研复习</small></span>
+      </a>
+      <div class="side-search"><span>⌕</span><input id="sideSearch" type="search" placeholder="搜索算法…" autocomplete="off"><kbd>/</kbd></div>
+      <nav id="chapterNav" aria-label="章节导航"></nav>
+      <footer><button id="themeBtn" title="切换深浅色">◐</button><a href="#/" title="返回概览">⌂</a><span class="offline"><i></i>离线</span></footer>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn" aria-controls="sidebar" aria-expanded="false" aria-label="打开目录">目录</button>
+        <div id="crumb">算法实验室</div>
+        <div class="top-progress"><span id="experimentSummary">26 个可视化</span><i><b></b></i></div>
+      </header>
+
+      <section class="home-view" id="homeView">
+        <div class="hero">
+          <p class="eyebrow">2027 考研 · 王道数据结构</p>
+          <h1>数据结构 <em>算法可视化</em><br>学习系统</h1>
+          <p class="hero-copy">把抽象算法拆成可播放的执行步骤：图形状态、C 语言伪代码与操作说明始终同步。</p>
+        </div>
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card"><strong id="chapterCount">6</strong><span>关键章节</span></div>
+          <div class="stat-card"><strong id="experimentCount">26</strong><span>交互可视化</span></div>
+          <div class="stat-card"><strong id="structureCount">8</strong><span>结构类型</span></div>
+          <div class="stat-card"><strong>0</strong><span>外部依赖</span></div>
+        </div>
+        <h2 class="section-title">算法实验目录</h2>
+        <div class="chapter-grid" id="chapterGrid"></div>
+      </section>
+
+      <section class="lab-view" id="labView" hidden>
+        <header class="lab-head">
+          <div><p class="eyebrow" id="labChapter"></p><h1 id="labTitle"></h1></div>
+          <span class="lab-tag" id="labTag"></span>
+        </header>
+        <section id="algoPanel" class="algo-panel" aria-label="算法流程说明" hidden></section>
+        <div id="experimentInput" class="experiment-input" hidden></div>
+        <div id="layoutControls" class="layout-controls" hidden></div>
+        <div class="lab-grid">
+          <div class="stage-panel">
+            <div class="panel-label"><span>VISUAL STATE</span><span id="stepCounter">01 / 01</span></div>
+            <canvas id="stageCanvas" role="img" aria-label="算法执行动画" aria-describedby="stepMessage"></canvas>
+            <div class="state-strip"><span class="pulse"></span><p id="stepMessage" role="status" aria-live="polite" aria-atomic="true"></p></div>
+          </div>
+          <aside class="code-panel">
+            <div class="panel-label"><span>C PSEUDOCODE</span><span>SYNCED</span></div>
+            <ol id="codeList"></ol>
+          </aside>
+        </div>
+        <div class="transport" aria-label="播放控制">
+          <button id="resetBtn" title="重置" aria-label="重置实验">↺</button>
+          <button id="prevBtn">← 上一步</button>
+          <button class="play" id="playBtn">播放</button>
+          <button id="nextBtn">下一步 →</button>
+          <label>速度 <input id="speedRange" type="range" min="180" max="1400" value="760" step="20"><output id="speedText">1.0×</output></label>
+        </div>
+        <section id="stateTables" class="state-tables" aria-label="当前快照数据状态" hidden></section>
+      </section>
+    </main>
+  </div>
+  <div class="scrim" id="scrim"></div>
+
+  <script src="assets/js/core/player.js"></script>
+  <script src="assets/js/core/input-validation.js"></script>
+  <script src="assets/js/algorithms/linear.js"></script>
+  <script src="assets/js/algorithms/stack-queue.js"></script>
+  <script src="assets/js/algorithms/tree.js"></script>
+  <script src="assets/js/algorithms/graph.js"></script>
+  <script src="assets/js/algorithms/graph-safe.js"></script>
+  <script src="assets/js/core/graph-input.js"></script>
+  <script src="assets/js/algorithms/extra-sort.js"></script>
+  <script src="assets/js/algorithms/string.js"></script>
+  <script src="assets/js/algorithms/advanced-trees.js"></script>
+  <script src="assets/js/algorithms/search.js"></script>
+  <script src="assets/js/algorithms/sort.js"></script>
+  <script src="assets/js/algorithms/extra-basics.js"></script>
+  <script src="assets/js/visualizers/canvas-scene.js"></script>
+  <script src="assets/js/visualizers/array-renderer.js"></script>
+  <script src="assets/js/visualizers/linked-renderer.js"></script>
+  <script src="assets/js/visualizers/stack-renderer.js"></script>
+  <script src="assets/js/visualizers/queue-renderer.js"></script>
+  <script src="assets/js/visualizers/tree-renderer.js"></script>
+  <script src="assets/js/visualizers/graph-renderer.js"></script>
+  <script src="assets/js/visualizers/matrix-renderer.js"></script>
+  <script src="assets/js/visualizers/hash-renderer.js"></script>
+  <script src="assets/js/visualizers/renderers.js"></script>
+  <script src="assets/js/visualizers/string-renderer.js"></script>
+  <script src="assets/js/visualizers/adjacency-renderer.js"></script>
+  <script src="assets/js/visualizers/multi-tree-renderer.js"></script>
+  <script src="content/experiment.js"></script>
+  <script src="content/advanced-tree-experiments.js"></script>
+  <script src="content/chapters/linear.js"></script>
+  <script src="content/chapters/stack-queue.js"></script>
+  <script src="content/chapters/tree.js"></script>
+  <script src="content/chapters/graph.js"></script>
+  <script src="content/chapters/search.js"></script>
+  <script src="content/chapters/sort.js"></script>
+  <script src="content/extensions.js"></script>
+  <script src="content/chapters.js"></script>
+  <script src="assets/js/ui/experiment-input.js"></script>
+  <script src="assets/js/ui/state-table.js"></script>
+  <script src="assets/js/ui/graph-layout.js"></script>
+  <script src="assets/js/core/lab-runtime.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="../platform/catalog.js"></script>
+  <script src="../platform/navigation.js"></script>
+</body>
+</html>

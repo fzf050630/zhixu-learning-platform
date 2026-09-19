@@ -1,0 +1,7 @@
+**
+!Dockerfile
+!deploy/
+!deploy/nginx.conf
+!dist/
+!dist/**
+dist/.zhixu-generated

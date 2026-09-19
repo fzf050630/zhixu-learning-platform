@@ -1,0 +1,31 @@
+# 依赖与构建产物
+node_modules/
+dist/
+releases/
+
+# 本地备份、测试产物与临时工作目录
+backups/
+test-results/
+playwright-report/
+tmp/
+_work/
+.reasonix/
+
+# 教材、大纲等版权文件（不随仓库分发）
+*.pdf
+
+# 环境与密钥
+.env
+.env.*
+*.key
+*.pem
+
+# 站点专属部署脚本与记录（不随公开仓库分发）
+deploy/publish-recaord.sh
+docs/verification/deployment-20260918/
+
+# 编辑器与系统文件
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
