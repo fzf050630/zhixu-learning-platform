@@ -31,7 +31,7 @@ const base = process.env.SMOKE_URL || 'http://127.0.0.1:8767/';
       checked.push({ subject: subject.id, title: entry.title });
       await page.setViewportSize({ width: 1440, height: 1000 });
     }
-    const directory = path.resolve(__dirname, '../docs/verification/deployment-20260918');
+    const directory = path.resolve(__dirname, '../docs/verification/smoke');
     fs.mkdirSync(directory, { recursive: true });
     const result = { base, checked, entries: data.entries.length, errors };
     fs.writeFileSync(path.join(directory, base.startsWith('https:') ? 'production-smoke.json' : 'local-smoke.json'), JSON.stringify(result, null, 2));
