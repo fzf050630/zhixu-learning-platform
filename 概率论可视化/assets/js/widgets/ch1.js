@@ -2032,12 +2032,12 @@
      ================================================================ */
   W.bayesSequential = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 300);
-    let prior = 0.02, sens = 0.95, fpr = 0.08, m = 3;
+    let prior = 0.02, sens = 0.95, fpr = 0.08, m = 6;
 
     UI.slider(ctrl, { label: '先验 P(H)', min: 0.001, max: 0.4, step: 0.001, value: prior, fmt: v => (v * 100).toFixed(1) + '%', onInput: v => { prior = v; draw(); } });
     UI.slider(ctrl, { label: '灵敏度 P(+|H)', min: 0.5, max: 0.99, step: 0.01, value: sens, fmt: v => (v * 100).toFixed(0) + '%', onInput: v => { sens = v; draw(); } });
     UI.slider(ctrl, { label: '假阳性 P(+|H̄)', min: 0.01, max: 0.4, step: 0.01, value: fpr, fmt: v => (v * 100).toFixed(0) + '%', onInput: v => { fpr = v; draw(); } });
-    UI.slider(ctrl, { label: '连续阳性次数 m', min: 0, max: 8, value: m, onInput: v => { m = v; draw(); } });
+    UI.slider(ctrl, { label: '连续阳性次数 m', min: 0, max: 20, value: m, onInput: v => { m = v; draw(); } });
 
     function postAfter(lr, k) {
       let odds = prior / (1 - prior);
@@ -2052,10 +2052,11 @@
     function draw() {
       const T = D.Theme.cache;
       const lrP = sens / fpr, lrN = (1 - sens) / (1 - fpr);
+      const KM = Math.max(8, m);
       const pos = [];
-      for (let k = 0; k <= 8; k++) pos.push(postAfter(lrP, k));
+      for (let k = 0; k <= KM; k++) pos.push(postAfter(lrP, k));
       const neg = [];
-      for (let k = 0; k <= 8; k++) neg.push(postAfter(lrN, k));
+      for (let k = 0; k <= KM; k++) neg.push(postAfter(lrN, k));
 
       scene.clearLayers();
       scene.layer((sc, ctx) => {
@@ -2102,20 +2103,21 @@
         ctx.strokeStyle = C('--line-2'); ctx.lineWidth = 1.2;
         ctx.beginPath(); ctx.moveTo(gx, gy + gh + .5); ctx.lineTo(gx + gw, gy + gh + .5); ctx.stroke();
 
-        const X = k => gx + gw * k / 8, Y = v => gy + gh - v * gh;
+        const X = k => gx + gw * k / KM, Y = v => gy + gh - v * gh;
         [[pos, '--red', '连续阳性'], [neg, '--green', '连续阴性']].forEach(([arr, c, lab]) => {
           ctx.beginPath();
           arr.forEach((v, k) => k ? ctx.lineTo(X(k), Y(v)) : ctx.moveTo(X(k), Y(v)));
           ctx.strokeStyle = C(c); ctx.lineWidth = 2.2; ctx.stroke();
+          const dotR = KM > 12 ? 2.2 : 3;
           arr.forEach((v, k) => {
-            ctx.beginPath(); ctx.arc(X(k), Y(v), k === m ? 5 : 3, 0, D.TAU);
+            ctx.beginPath(); ctx.arc(X(k), Y(v), k === m ? Math.max(4.5, dotR + 1.5) : dotR, 0, D.TAU);
             ctx.fillStyle = k === m ? C(c) : T['--card-2'];
             ctx.fill();
             ctx.strokeStyle = C(c); ctx.lineWidth = 1.5; ctx.stroke();
           });
           ctx.fillStyle = C(c); ctx.font = '700 10.5px ' + D.FONT_SANS;
           ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-          ctx.fillText(lab, X(8) - 46, Y(arr[8]) + (c === '--red' ? -14 : 14));
+          ctx.fillText(lab, X(KM) - 46, Y(arr[KM]) + (c === '--red' ? -14 : 14));
         });
 
         ctx.save();
@@ -2125,7 +2127,8 @@
         ctx.restore();
         ctx.fillStyle = T['--ink-3']; ctx.font = '500 9.5px ' + D.FONT_MONO;
         ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-        for (let k = 0; k <= 8; k++) ctx.fillText(k, X(k), gy + gh + 6);
+        const tickStep = KM <= 10 ? 1 : (KM <= 20 ? 2 : 5);
+        for (let k = 0; k <= KM; k += tickStep) ctx.fillText(k, X(k), gy + gh + 6);
         ctx.fillStyle = T['--ink-3']; ctx.font = '600 10.5px ' + D.FONT_SANS;
         ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
         ctx.fillText('连续证据次数 k', gx + gw / 2, H_ - 8);
@@ -2149,8 +2152,8 @@
      1.8b 独立系统可靠性：串联 / 并联 / 混合 / 表决
      ================================================================ */
   W.reliabilitySystem = function (host) {
-    const { ctrl, out, scene } = UI.shell(host, 290);
-    let mode = 'series', r = 0.9, n = 3;
+    const { ctrl, out, scene } = UI.shell(host, 380);
+    let mode = 'series', r = 0.9, n = 5;
 
     UI.seg(ctrl, [
       { label: '串联', value: 'series' },
@@ -2159,7 +2162,7 @@
       { label: '2/3 表决', value: 'vote' }
     ], v => { mode = v; draw(); }, 0);
     UI.slider(ctrl, { label: '单个部件可靠度 r', min: 0.5, max: 0.99, step: 0.01, value: r, fmt: v => v.toFixed(2), onInput: v => { r = v; draw(); } });
-    UI.slider(ctrl, { label: '部件个数 n', min: 2, max: 5, value: n, onInput: v => { n = v; draw(); } });
+    UI.slider(ctrl, { label: '部件个数 n', min: 2, max: 8, value: n, onInput: v => { n = v; draw(); } });
 
     function rel() {
       if (mode === 'series') return Math.pow(r, n);
@@ -2190,7 +2193,8 @@
       scene.layer((sc, ctx) => {
         const W_ = sc.w, H_ = sc.h;
         const padT = 46, padB = 76;
-        const boxW = 52, boxH = 36;
+        const boxW = 52;
+        let boxH = 36;
         const areaH = H_ - padT - padB;
 
         ctx.fillStyle = T['--ink-2']; ctx.font = '700 11.5px ' + D.FONT_SANS;
@@ -2203,7 +2207,7 @@
           ctx.fillStyle = D.withAlpha(C('--brand'), 0.16);
           ctx.fill();
           ctx.strokeStyle = C('--brand'); ctx.lineWidth = 1.6; ctx.stroke();
-          ctx.fillStyle = C('--brand'); ctx.font = '700 11px ' + D.FONT_SANS;
+          ctx.fillStyle = C('--brand'); ctx.font = '700 ' + (boxH < 26 ? 10 : 11) + 'px ' + D.FONT_SANS;
           ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
           ctx.fillText(lab, x, y);
         };
@@ -2225,6 +2229,7 @@
           }
         } else if (mode === 'parallel') {
           const gap = Math.min(56, areaH / (cnt + 1));
+          boxH = Math.min(36, Math.max(16, gap - 7));
           const y0 = cy - gap * (cnt - 1) / 2;
           const railL = cx - 150, railR = cx + 150;
           wire(railL, cy, railL, cy);
@@ -2316,11 +2321,11 @@
      ================================================================ */
   W.firstSuccess = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 300);
-    let p = 0.3, K = 10, m = 3, trials = 3000, seed = 20260910;
+    let p = 0.3, K = 10, m = 6, trials = 3000, seed = 20260910;
 
     UI.slider(ctrl, { label: '成功概率 p', min: 0.05, max: 0.9, step: 0.01, value: p, fmt: v => v.toFixed(2), onInput: v => { p = v; draw(); } });
     UI.slider(ctrl, { label: '显示最大次数 K', min: 6, max: 16, value: K, onInput: v => { K = v; draw(); } });
-    UI.slider(ctrl, { label: '已失败次数 m（无记忆性）', min: 1, max: 6, value: m, onInput: v => { m = v; draw(); } });
+    UI.slider(ctrl, { label: '已失败次数 m（无记忆性）', min: 1, max: 12, value: m, onInput: v => { m = v; draw(); } });
     UI.slider(ctrl, { label: '模拟轮数', min: 500, max: 8000, step: 500, value: trials, onInput: v => { trials = v; draw(); } });
     UI.slider(ctrl, { label: '随机种子', min: 1, max: 999, value: seed % 1000, onInput: v => { seed = v; draw(); } });
 

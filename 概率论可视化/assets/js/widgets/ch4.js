@@ -762,7 +762,7 @@
      ================================================================ */
   W.expectationSim = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 316);
-    let key = 'dice', N = 600, runs = 5, seed = 20260910;
+    let key = 'dice', N = 600, runs = 8, seed = 20260910;
 
     const SOURCES = {
       dice: {
@@ -787,13 +787,14 @@
 
     UI.seg(ctrl, Object.keys(SOURCES).map(k => ({ label: SOURCES[k].name, value: k })), v => { key = v; draw(); }, 0);
     UI.slider(ctrl, { label: '最大样本量 n', min: 100, max: 2000, step: 50, value: N, onInput: v => { N = v; draw(); } });
-    UI.slider(ctrl, { label: '模拟轮数', min: 2, max: 8, value: runs, onInput: v => { runs = v; draw(); } });
+    UI.slider(ctrl, { label: '模拟轮数', min: 2, max: 12, value: runs, onInput: v => { runs = v; draw(); } });
     UI.slider(ctrl, { label: '随机种子', min: 1, max: 999, value: seed % 1000, onInput: v => { seed = v; draw(); } });
 
     function draw() {
       const T = D.Theme.cache, src = SOURCES[key];
       const rand = S.rng(seed * 2246822519 % 2147483647 + 7);
-      const colors = ['--brand', '--accent', '--green', '--purple', '--teal', '--red', '--brand', '--accent'];
+      const PALETTE = ['--brand', '--purple', '--teal', '--accent', '--green', '--red'];
+      const colorAt = i => D.withAlpha(C(PALETTE[i % PALETTE.length]), Math.max(0.32, 0.8 - 0.16 * Math.floor(i / PALETTE.length)));
       const tracks = [];
       let yLo = Infinity, yHi = -Infinity;
       for (let r = 0; r < runs; r++) {
@@ -871,11 +872,13 @@
           ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
           ctx.fillText((yHi - (yHi - yLo) * i / 4).toFixed(3), padL - 6, y);
         }
+        const stride = Math.max(1, Math.ceil(N / 800));
         tracks.forEach((arr, r) => {
           ctx.beginPath();
-          for (let i = 0; i < N; i++) i ? ctx.lineTo(X(i), Y(arr[i])) : ctx.moveTo(X(i), Y(arr[i]));
-          ctx.strokeStyle = D.withAlpha(C(colors[r % colors.length]), 0.72);
-          ctx.lineWidth = 1.6; ctx.stroke();
+          for (let i = 0; i < N; i += stride) i ? ctx.lineTo(X(i), Y(arr[i])) : ctx.moveTo(X(i), Y(arr[i]));
+          ctx.lineTo(X(N - 1), Y(arr[N - 1]));
+          ctx.strokeStyle = colorAt(r);
+          ctx.lineWidth = 1.5; ctx.stroke();
         });
         ctx.save();
         ctx.setLineDash([6, 4]);
@@ -997,8 +1000,8 @@
      4.3b 函数期望公式：直接加权 vs 先求分布
      ================================================================ */
   W.lotus = function (host) {
-    const { ctrl, out, scene } = UI.shell(host, 308);
-    let n = 4, p = 0.5, key = 'sq';
+    const { ctrl, out, scene } = UI.shell(host, 340);
+    let n = 6, p = 0.5, key = 'sq';
 
     const G = {
       sq: { name: 'g(x) = x²', g: x => x * x, fmt: v => v.toFixed(0) },
@@ -1007,7 +1010,7 @@
     };
 
     UI.seg(ctrl, Object.keys(G).map(k => ({ label: G[k].name, value: k })), v => { key = v; draw(); }, 0);
-    UI.slider(ctrl, { label: 'n（二项 B(n,p)）', min: 2, max: 8, value: n, onInput: v => { n = v; draw(); } });
+    UI.slider(ctrl, { label: 'n（二项 B(n,p)）', min: 2, max: 10, value: n, onInput: v => { n = v; draw(); } });
     UI.slider(ctrl, { label: 'p', min: 0.2, max: 0.8, step: 0.05, value: p, fmt: v => v.toFixed(2), onInput: v => { p = v; draw(); } });
 
     function draw() {
@@ -1049,7 +1052,8 @@
           ctx.textAlign = 'center'; ctx.textBaseline = 'top';
           ctx.fillText(k, cx, padT + bh + 5);
           ctx.fillStyle = T['--ink-2']; ctx.textBaseline = 'bottom';
-          ctx.fillText(ps[i].toFixed(3), cx, Yp(ps[i]) - 3);
+          ctx.font = '600 ' + (slot1 >= 26 ? 10 : 8.5) + 'px ' + D.FONT_MONO;
+          if (ps[i] >= 0.0005) ctx.fillText(ps[i].toFixed(3), cx, Yp(ps[i]) - 3);
         });
         ctx.fillStyle = C('--brand'); ctx.font = '700 11px ' + D.FONT_SANS;
         ctx.textAlign = 'center'; ctx.textBaseline = 'top';
@@ -1100,7 +1104,8 @@
           ctx.textAlign = 'center'; ctx.textBaseline = 'top';
           ctx.fillText(y, cx, padT + bh + 5);
           ctx.fillStyle = T['--ink-2']; ctx.textBaseline = 'bottom';
-          ctx.fillText(q.toFixed(3), cx, Yq(q) - 3);
+          ctx.font = '600 ' + (slot3 >= 26 ? 10 : 8.5) + 'px ' + D.FONT_MONO;
+          if (q >= 0.0005) ctx.fillText(q.toFixed(3), cx, Yq(q) - 3);
         });
         ctx.fillStyle = C('--purple'); ctx.font = '700 11px ' + D.FONT_SANS;
         ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';

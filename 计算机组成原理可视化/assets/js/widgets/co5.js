@@ -84,13 +84,13 @@
   W.pipeline = function (host) {
     const s = UI.shell(host, 320);
     const { scene, ctrl, out } = s;
-    const state = { n: 6, data: true, control: false, ideal: false };
+    const state = { n: 8, data: false, control: false, ideal: true };
     const stages = ['IF', 'ID', 'EX', 'MEM', 'WB'];
 
     UI.seg(ctrl, [{ label: '理想流水', value: 'ideal' }, { label: '数据冒险', value: 'data' }, { label: '控制冒险', value: 'ctrl' }], (v) => {
       state.ideal = v === 'ideal'; state.data = v === 'data'; state.control = v === 'ctrl'; render();
     }, 0);
-    UI.slider(ctrl, { label: '指令条数', min: 3, max: 10, step: 1, value: state.n, fmt: v => v + ' 条', onInput: v => { state.n = v; render(); } });
+    UI.slider(ctrl, { label: '指令条数', min: 3, max: 16, step: 1, value: state.n, fmt: v => v + ' 条', onInput: v => { state.n = v; render(); } });
 
     /** 计算每条指令的停顿（示意：数据冒险在后一条 EX 前等 2 拍；控制冒险在分支后清空 2 拍） */
     function schedule() {
@@ -106,31 +106,31 @@
     }
 
     function render() {
+      const n = state.n;
       const rows = schedule();
-      // 为每条指令计算开始拍
+      // 每条指令的起始拍：理想情况逐拍流入；停顿以气泡插入并使后续指令顺延
       const starts = [];
-      let prevEnd = 0;
-      rows.forEach((stalls, i) => {
-        let t = prevEnd;
-        const st = stalls[0];
-        if (st) t += st.len;      // 简化：停顿直接顺延
-        starts.push(t);
-        prevEnd = t + stages.length;
-      });
-      const cycles = Math.max(...starts.map((t, i) => t + stages.length));
-      const idealCycles = state.n + stages.length - 1;
+      let delay = 0;
+      for (let i = 0; i < n; i++) {
+        starts.push(i + delay);
+        if (rows[i][0]) delay += rows[i][0].len;
+      }
+      const cycles = Math.max(...starts.map(t => t + stages.length));
+      const idealCycles = n + stages.length - 1;
+      const H = n > 8 ? 380 : 320;
       scene.clearLayers();
+      if (scene.o.height !== H) scene.setHeight(H);
       scene.layer((p, ctx) => {
         const T = D.Theme.cache;
         const left = 54, top = 34;
         const cell = Math.min(30, (p.w - left - 12) / cycles);
-        const rh = 26;
+        const pitch = Math.min(32, (H - top - 30) / n);
+        const rh = Math.max(12, pitch - 6);
         // 阶段表头
-        G.label(ctx, left / 2 + 6, top - 12, '', {});
         for (let c = 0; c < cycles; c++) {
           G.label(ctx, left + c * cell + cell / 2, top - 12, 't' + (c + 1), { size: 9.5, color: T['--ink-3'], mono: true });
         }
-        for (let i = 0; i < state.n; i++) {
+        for (let i = 0; i < n; i++) {
           const y = top + i * (rh + 6);
           G.label(ctx, left - 8, y + rh / 2, 'I' + (i + 1), { align: 'right', size: 11, weight: 700, color: T['--ink-2'], mono: true });
           const start = starts[i];
@@ -150,11 +150,11 @@
             }
           }
         }
-        G.label(ctx, p.w / 2, p.h - 10, `总拍数 ${cycles}　·　理想 ${idealCycles}　·　实际加速比 ≈ ${(idealCycles / cycles).toFixed(2)}（相对串行 ${state.n * stages.length} 拍）`, { size: 11.5, color: T['--ink-2'] });
+        G.label(ctx, p.w / 2, p.h - 10, `总拍数 ${cycles}　·　理想 ${idealCycles}　·　实际加速比 ≈ ${(idealCycles / cycles).toFixed(2)}（相对串行 ${n * stages.length} 拍）`, { size: 11.5, color: T['--ink-2'] });
       });
       scene.render();
       UI.readout(out, [
-        ['指令数', state.n],
+        ['指令数', n],
         ['总拍数', cycles],
         ['理想流水拍数', idealCycles],
         ['吞吐率', (state.n / cycles).toFixed(2) + ' 条/拍']

@@ -41,7 +41,7 @@
             '<p class="tight">物理意义：若在数轴 \\( x_k \\) 处放置质量为 \\( p_k \\) 的质点，则 \\( E(X) \\) 恰是这套质点系的<b>重心</b>。</p>'
           },
           { t: 'viz', build: 'expectation', title: '期望＝分布的「重心」', sub: '拖动各点概率，观察期望（支点）如何移动' },
-          { t: 'viz', build: 'expectationSim', title: '期望的频率模拟', sub: '切换总体分布，观察样本均值轨道收敛到 E(X)' },
+          { t: 'viz', build: 'expectationSim', title: '期望的频率模拟', sub: '切换总体分布，调节模拟轮数（最多 12），观察样本均值轨道收敛到 E(X)' },
           { t: 'h3', idx: '②', text: '连续型随机变量的数学期望' },
           { t: 'card', kind: 'def', tag: '定义', title: '数学期望（连续型）', html:
             '<p class="tight">设连续型随机变量 \\( X \\) 的概率密度为 \\( f(x) \\)。若积分 \\( \\displaystyle\\int_{-\\infty}^{+\\infty}x f(x)\\,\\mathrm{d}x \\) <b>绝对收敛</b>，则称其为 \\( X \\) 的<b>数学期望</b>：</p>' +
@@ -234,7 +234,7 @@
             '<p class="tight"><b>连续型：</b>\\( E[g(X,Y)]=\\displaystyle\\int_{-\\infty}^{+\\infty}\\!\\!\\int_{-\\infty}^{+\\infty}g(x,y)f(x,y)\\,\\mathrm{d}x\\,\\mathrm{d}y \\)</p>'
           },
           { t: 'viz', build: 'functionExpectation', title: 'E[g(X)]：直接法与分布法的等价性', sub: '对比「对 X 加权」与「先求 Y 分布再加权」的结果' },
-          { t: 'viz', build: 'lotus', title: '函数期望公式：逐项加权表', sub: '切换 g(x)，对照直接法 Σg(x)p 与分布法 Σy·P(Y=y)' },
+          { t: 'viz', build: 'lotus', title: '函数期望公式：逐项加权表', sub: '切换 g(x) 与二项参数 n（2–10），对照直接法 Σg(x)p 与分布法 Σy·P(Y=y)' },
           { t: 'card', kind: 'key', tag: '必记', title: '由 \\( E(X) \\) 推 \\( E(X^2) \\) 的常用套路', html:
             '<p class="tight">由于 \\( D(X)=E(X^2)-[E(X)]^2 \\)，只要已知 \\( E(X) \\) 与 \\( D(X) \\)（常用分布的结论可直接用），就能反求：</p>' +
             '<div class="fml">\\( E(X^2)=D(X)+[E(X)]^2 \\)</div>' +

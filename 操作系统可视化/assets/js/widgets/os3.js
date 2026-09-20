@@ -178,11 +178,11 @@
     const s = UI.shell(host, 300);
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
-    const state = { algo: 'FIFO', frames: 3, ref: '7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1' };
+    const state = { algo: 'FIFO', frames: 4, ref: '7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1' };
     const inp = UI.text(ctrl, { label: '引用串', value: state.ref, width: 320 });
     inp.input.addEventListener('input', () => { state.ref = inp.value; render(); });
     UI.seg(ctrl, [{ label: 'FIFO', value: 'FIFO' }, { label: 'LRU', value: 'LRU' }, { label: 'OPT', value: 'OPT' }], v => { state.algo = v; render(); }, 0);
-    UI.slider(ctrl, { label: '物理块数', min: 2, max: 5, step: 1, value: 3, fmt: v => v, onInput: v => { state.frames = v; render(); } });
+    UI.slider(ctrl, { label: '物理块数', min: 2, max: 8, step: 1, value: 4, fmt: v => v, onInput: v => { state.frames = v; render(); } });
 
     function simulate(ref, n, algo) {
       const frames = [];
@@ -375,12 +375,12 @@
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
     const DEFAULT = '7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1';
-    const state = { refs: parse(DEFAULT), d: 4, cur: 0, trans: null };
+    const state = { refs: parse(DEFAULT), d: 8, cur: 0, trans: null };
     const holder = UI.el('div', 'ctrl-group');
     ctrl.appendChild(holder);
     const inp = UI.text(ctrl, { label: '页面引用串', value: DEFAULT, width: 330 });
     inp.input.addEventListener('input', () => { state.refs = parse(inp.value); state.cur = 0; rebuild(); });
-    UI.slider(ctrl, { label: '工作集窗口 Δ', min: 2, max: 10, step: 1, value: state.d, fmt: v => v + ' 次访问', onInput: v => { state.d = v; render(); } });
+    UI.slider(ctrl, { label: '工作集窗口 Δ', min: 2, max: 16, step: 1, value: state.d, fmt: v => v + ' 次访问', onInput: v => { state.d = v; render(); } });
     rebuild();
 
     function parse(str) {
@@ -469,10 +469,10 @@
         const by = 218, bh = 92, bw2 = w - x0 - 24;
         G.label(ctx, x0, by - 6, '缺页率随窗口 Δ 的变化（工作集模型）', { align: 'left', size: 11, weight: 700, color: T['--ink-2'] });
         const rates = [];
-        for (let k = 1; k <= 12; k++) rates.push(faultRate(k));
+        for (let k = 1; k <= 16; k++) rates.push(faultRate(k));
         const maxR = Math.max.apply(null, rates) || 1;
         G.box(ctx, x0, by, bw2, bh, { fill: T['--card-2'], stroke: T['--line'], radius: 6 });
-        const BX = k => x0 + (k - 0.5) / 12 * bw2;
+        const BX = k => x0 + (k - 0.5) / 16 * bw2;
         const BY = v => by + bh - 10 - v / maxR * (bh - 26);
         ctx.save();
         ctx.strokeStyle = T['--green']; ctx.lineWidth = 2; ctx.beginPath();

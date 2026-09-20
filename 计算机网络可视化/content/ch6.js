@@ -127,7 +127,7 @@
         lead: 'HTTP 是无状态的应用层协议，持久连接与 Cookie 弥补了无状态的不足。',
         blocks: [
           { t: 'h3', idx: '①', text: 'HTTP 的操作过程与特点' },
-          { t: 'viz', build: 'httpFlow', title: 'HTTP 请求过程与连接方式', sub: '非持久 / 持久连接对比' },
+          { t: 'viz', build: 'httpFlow', title: 'HTTP 请求过程与连接方式', sub: '非持久 / 持久连接对比（内嵌对象数可调至 10，报文序列随对象数变化）' },
           { t: 'table', head: ['特性', '说明'], rows: [
             ['无状态', '服务器不保存客户端历史信息，用 Cookie 弥补'],
             ['无连接', '指 HTTP 本身不维护连接，实际依赖 TCP'],

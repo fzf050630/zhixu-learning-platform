@@ -93,12 +93,12 @@
       { name: 'P3', arr: 4, burst: 1 },
       { name: 'P4', arr: 5, burst: 4 }
     ];
-    const state = { algo: 'FCFS', q: 2 };
+    const state = { algo: 'FCFS', q: 3 };
     UI.seg(ctrl, [
       { label: 'FCFS', value: 'FCFS' }, { label: 'SJF', value: 'SJF' },
       { label: 'RR', value: 'RR' }, { label: '优先级', value: 'PRIO' }
     ], v => { state.algo = v; render(); }, 0);
-    UI.slider(ctrl, { label: '时间片 q', min: 1, max: 4, step: 1, value: 2, fmt: v => v, onInput: v => { state.q = v; render(); } });
+    UI.slider(ctrl, { label: '时间片 q', min: 1, max: 8, step: 1, value: 3, fmt: v => v, onInput: v => { state.q = v; render(); } });
 
     function schedule() {
       const P = procs.map(p => ({ ...p, remain: p.burst, start: null, finish: 0 }));
@@ -331,14 +331,14 @@
 
   /* ---------- 生产者-消费者：PV 操作逐步执行 ---------- */
   W.producerConsumer = function (host) {
-    const s = UI.shell(host, 340);
+    const s = UI.shell(host, 360);
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
-    let N = 3;
+    let N = 5;
     const state = { step: 0, trans: null };
     const holder = UI.el('div', 'ctrl-group');
     ctrl.appendChild(holder);
-    UI.slider(ctrl, { label: '缓冲区容量 N', min: 2, max: 4, step: 1, value: N, fmt: v => v + ' 格', onInput: v => { N = v; rebuild(); } });
+    UI.slider(ctrl, { label: '缓冲区容量 N', min: 2, max: 8, step: 1, value: N, fmt: v => v + ' 格', onInput: v => { N = v; rebuild(); } });
     let script = [], history = [];
     rebuild();
 
@@ -445,11 +445,15 @@
         const w = p.w;
         G.label(ctx, w / 2, 16, '生产者—消费者：缓冲池 N = ' + N + '，empty / full 同步，mutex 互斥', { size: 12, weight: 700, color: T['--ink'] });
         const inWait = nm => st.wait.empty.indexOf(nm) >= 0 || st.wait.full.indexOf(nm) >= 0 || st.wait.mutex.indexOf(nm) >= 0;
+        const pRows = N + 1;
+        const rowTop = 34, rowBottom = p.h - 70;
+        const rowGap = Math.min(34, (rowBottom - rowTop) / pRows);
+        const rowH = Math.min(28, rowGap - 6);
         producers.forEach((nm, k) => {
-          procBox(ctx, 16, 34 + k * 34, 112, 28, nm, { busy: nm === op.who, blocked: op.who !== nm && inWait(nm), ready: op.who !== nm && st.ready.indexOf(nm) >= 0 }, T);
+          procBox(ctx, 16, rowTop + k * rowGap, 112, rowH, nm, { busy: nm === op.who, blocked: op.who !== nm && inWait(nm), ready: op.who !== nm && st.ready.indexOf(nm) >= 0 }, T);
         });
         consumers.forEach((nm, k) => {
-          procBox(ctx, w - 128, 34 + k * 34, 112, 28, nm, { busy: nm === op.who, blocked: op.who !== nm && inWait(nm), ready: op.who !== nm && st.ready.indexOf(nm) >= 0 }, T);
+          procBox(ctx, w - 128, rowTop + k * rowGap, 112, rowH, nm, { busy: nm === op.who, blocked: op.who !== nm && inWait(nm), ready: op.who !== nm && st.ready.indexOf(nm) >= 0 }, T);
         });
         // 缓冲区
         const bx = 146, bw = w - bx - 146, cell = bw / N;
@@ -463,7 +467,7 @@
             stroke: isNew || isOut ? T['--red'] : (filled ? T['--green'] : T['--line']),
             width: isNew || isOut ? 2 : 1.2, radius: 6
           });
-          G.label(ctx, x + cell / 2, 70, filled ? '产品' : '空', { size: 10.5, weight: filled ? 700 : 500, color: filled ? T['--green'] : T['--ink-3'] });
+          G.fitted(ctx, x + cell / 2, 70, filled ? '产品' : '空', cell - 8, { size: 10.5, weight: filled ? 700 : 500, color: filled ? T['--green'] : T['--ink-3'] });
           G.label(ctx, x + cell / 2, 88, '#' + (k + 1), { size: 9, color: T['--ink-3'], mono: true });
         }
         // 信号量

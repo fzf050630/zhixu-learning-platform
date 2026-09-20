@@ -542,7 +542,7 @@
             '<div class="fml-row">\\( F_{\\min}(z)=1-[1-F(z)]^n \\)</div>' +
             '</div>'
           },
-          { t: 'viz', build: 'maxMin', title: 'max / min 分布', sub: '拖动 x，观察两者分布函数的差异' },
+          { t: 'viz', build: 'maxMin', title: 'max / min 分布', sub: '拖动样本个数 n（1–10），观察最值分布随 n 增大而向两端极化的差异' },
           { t: 'viz', build: 'maxMinDerive', title: '最值分布公式的验证', sub: '拖动 n 与 x₀，核对 F_max=F^n、F_min=1−(1−F)^n' },
           { t: 'card', kind: 'exam', tag: '高频', title: '命题模式', html:
             '<ul class="none">' +

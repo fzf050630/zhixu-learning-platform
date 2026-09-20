@@ -151,8 +151,8 @@
             '<div class="fml">\\( \\lim_{n\\to\\infty}P\\left\\{\\left|\\dfrac1n\\sum_{k=1}^{n}X_k-\\mu\\right|<\\varepsilon\\right\\}=1\\qquad\\text{即}\\quad \\bar X\\overset{P}{\\longrightarrow}\\mu \\)</div>' +
             '<p class="tight"><b>条件要点：</b>独立同分布 + 期望存在。<b>不要求方差存在</b>——这是它强于切比雪夫大数定律之处（切比雪夫要求方差有界，柯西分布等反而不能用切比雪夫，但柯西的期望本身也不存在，故也不能用辛钦）。</p>'
           },
-          { t: 'viz', build: 'lln', title: '大数定律：样本均值的「收敛轨道」', sub: '多次独立模拟，观察 Ᾱₙ 如何向 μ 收拢' },
-          { t: 'viz', build: 'llnFrequency', title: '伯努利大数定律：频率稳定到 p', sub: '调节 p 与轮数，观察频率轨迹被 p 与 ±3σ/√n 带收拢' },
+          { t: 'viz', build: 'lln', title: '大数定律：样本均值的「收敛轨道」', sub: '多次独立模拟（最多 30 条轨道），观察 Ᾱₙ 如何向 μ 收拢' },
+          { t: 'viz', build: 'llnFrequency', title: '伯努利大数定律：频率稳定到 p', sub: '调节 p 与轮数（最多 30 轮），观察频率轨迹被 p 与 ±3σ/√n 带收拢' },
           { t: 'card', kind: 'key', tag: '对比', title: '三个大数定律的条件差异', html:
             '<div class="tbl-wrap" style="margin:0"><table class="tbl">' +
             '<thead><tr><th>定律</th><th>独立性</th><th>同分布</th><th>矩条件</th></tr></thead><tbody>' +

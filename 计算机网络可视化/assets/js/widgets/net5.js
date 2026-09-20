@@ -105,15 +105,15 @@
     const s = UI.shell(host, 280);
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
-    const state = { win: 5, acked: 3, sent: 5, total: 12 };
-    UI.slider(ctrl, { label: '窗口大小', min: 2, max: 8, step: 1, value: 5, fmt: v => v, onInput: v => { state.win = v; state.sent = Math.min(state.sent, state.acked + v); render(); } });
+    const state = { win: 8, acked: 3, sent: 5, total: 12 };
+    UI.slider(ctrl, { label: '窗口大小', min: 2, max: 12, step: 1, value: 8, fmt: v => v, onInput: v => { state.win = v; state.sent = Math.min(state.sent, state.acked + v); render(); } });
     UI.slider(ctrl, { label: '已确认', min: 0, max: 10, step: 1, value: 3, fmt: v => v, onInput: v => { state.acked = v; render(); } });
 
     function render() {
       scene.clearLayers();
       scene.layer((p, ctx) => {
         const T = D.Theme.cache;
-        const n = state.total;
+        const n = Math.max(state.total, state.acked + state.win + 2);
         const cw = (p.w - 60) / n;
         const y = 60;
         G.label(ctx, 30, 30, `窗口 ${state.win} 字节，已确认到 ${state.acked}，可发送 [${state.acked}, ${state.acked + state.win})`, { align: 'left', size: 11.5, weight: 700, color: T['--ink'] });

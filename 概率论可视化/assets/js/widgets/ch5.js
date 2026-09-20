@@ -183,7 +183,7 @@
      ================================================================ */
   W.lln = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 330);
-    let key = 'uniform', runs = 6, N = 400, seed = 20260910;
+    let key = 'uniform', runs = 12, N = 400, seed = 20260910;
 
     const SOURCES = {
       uniform: { label: '均匀 U(0,1)', mu: 0.5, varr: 1 / 12 },
@@ -194,7 +194,7 @@
     const srcKeys = Object.keys(SOURCES);
 
     UI.seg(ctrl, srcKeys.map(k => ({ label: SOURCES[k].label, value: k })), v => { key = v; draw(); }, 0);
-    UI.slider(ctrl, { label: '模拟轮数', min: 1, max: 12, value: runs, onInput: v => { runs = v; draw(); } });
+    UI.slider(ctrl, { label: '模拟轮数', min: 1, max: 30, value: runs, onInput: v => { runs = v; draw(); } });
     UI.slider(ctrl, { label: '最大 n', min: 50, max: 1500, step: 50, value: N, onInput: v => { N = v; draw(); } });
     const seedSlider = UI.slider(ctrl, { label: '随机种子', min: 1, max: 999, value: seed % 1000, onInput: v => { seed = v; draw(); } });
 
@@ -211,7 +211,8 @@
       const T = D.Theme.cache;
       const src = SOURCES[key];
       const rand = S.rng(seed * 7919 + 13);
-      const colors = ['--brand', '--accent', '--green', '--purple', '--teal', '--red', '--brand', '--accent', '--green', '--purple', '--teal', '--red'];
+      const PALETTE = ['--brand', '--purple', '--teal', '--accent', '--green', '--red'];
+      const colorAt = i => D.withAlpha(C(PALETTE[i % PALETTE.length]), Math.max(0.3, 0.78 - 0.14 * Math.floor(i / PALETTE.length)));
 
       // 生成 runs 条轨道
       const tracks = [];
@@ -270,15 +271,17 @@
         ctx.fillStyle = D.withAlpha(C('--green'), 0.10);
         ctx.fill();
 
-        // 轨道
+        // 轨道（轨道多时按步长抽样，保证绘制流畅）
+        const stride = Math.max(1, Math.ceil(N / 700));
         tracks.forEach((arr, r) => {
           ctx.beginPath();
-          for (let i = 0; i < N; i++) {
+          for (let i = 0; i < N; i += stride) {
             const x = X(i), y = Y(arr[i]);
             i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
           }
-          ctx.strokeStyle = D.withAlpha(C(colors[r % colors.length]), 0.72);
-          ctx.lineWidth = 1.5;
+          ctx.lineTo(X(N - 1), Y(arr[N - 1]));
+          ctx.strokeStyle = colorAt(r);
+          ctx.lineWidth = 1.4;
           ctx.stroke();
         });
 
@@ -557,17 +560,18 @@
      ================================================================ */
   W.llnFrequency = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 326);
-    let p = 0.35, runs = 6, N = 500, seed = 20260910;
+    let p = 0.35, runs = 10, N = 500, seed = 20260910;
 
     UI.slider(ctrl, { label: '成功概率 p', min: 0.05, max: 0.95, step: 0.05, value: p, fmt: v => v.toFixed(2), onInput: v => { p = v; draw(); } });
-    UI.slider(ctrl, { label: '模拟轮数', min: 1, max: 10, value: runs, onInput: v => { runs = v; draw(); } });
+    UI.slider(ctrl, { label: '模拟轮数', min: 1, max: 30, value: runs, onInput: v => { runs = v; draw(); } });
     UI.slider(ctrl, { label: '最大试验次数 n', min: 100, max: 2000, step: 50, value: N, onInput: v => { N = v; draw(); } });
     UI.slider(ctrl, { label: '随机种子', min: 1, max: 999, value: seed % 1000, onInput: v => { seed = v; draw(); } });
 
     function draw() {
       const T = D.Theme.cache;
       const rand = S.rng(seed * 6151 + 29);
-      const colors = ['--brand', '--accent', '--green', '--purple', '--teal', '--red', '--brand', '--accent', '--green', '--purple'];
+      const PALETTE = ['--brand', '--purple', '--teal', '--accent', '--green', '--red'];
+      const colorAt = i => D.withAlpha(C(PALETTE[i % PALETTE.length]), Math.max(0.3, 0.78 - 0.14 * Math.floor(i / PALETTE.length)));
       const tracks = [];
       let yLo = 1, yHi = 0;
       for (let r = 0; r < runs; r++) {
@@ -627,11 +631,13 @@
         for (let i = N - 1; i >= 1; i -= 2) ctx.lineTo(X(i), Y(D.clamp(p - 3 * Math.sqrt(p * (1 - p) / (i + 1)), 0, 1)));
         ctx.closePath();
         ctx.fillStyle = D.withAlpha(C('--green'), 0.10); ctx.fill();
+        const stride = Math.max(1, Math.ceil(N / 700));
         tracks.forEach((arr, r) => {
           ctx.beginPath();
-          for (let i = 0; i < N; i++) i ? ctx.lineTo(X(i), Y(arr[i])) : ctx.moveTo(X(i), Y(arr[i]));
-          ctx.strokeStyle = D.withAlpha(C(colors[r % colors.length]), 0.72);
-          ctx.lineWidth = 1.6; ctx.stroke();
+          for (let i = 0; i < N; i += stride) i ? ctx.lineTo(X(i), Y(arr[i])) : ctx.moveTo(X(i), Y(arr[i]));
+          ctx.lineTo(X(N - 1), Y(arr[N - 1]));
+          ctx.strokeStyle = colorAt(r);
+          ctx.lineWidth = 1.5; ctx.stroke();
         });
         ctx.save();
         ctx.setLineDash([6, 4]);

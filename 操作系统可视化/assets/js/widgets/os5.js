@@ -197,15 +197,15 @@
 
   /* ---------- SPOOLing 假脱机系统 ---------- */
   W.spooling = function (host) {
-    const s = UI.shell(host, 350);
+    const s = UI.shell(host, 380);
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
-    let n = 3;
+    let n = 5;
     const state = { flow: 'out', step: 0, trans: null };
     const holder = UI.el('div', 'ctrl-group');
     ctrl.appendChild(holder);
     UI.seg(ctrl, [{ label: '假脱机输出（打印机）', value: 'out' }, { label: '假脱机输入（输入机）', value: 'in' }], (v) => { state.flow = v; rebuild(); }, 0);
-    UI.slider(ctrl, { label: '并发用户进程数', min: 2, max: 4, step: 1, value: n, fmt: v => v + ' 个', onInput: v => { n = v; rebuild(); } });
+    UI.slider(ctrl, { label: '并发用户进程数', min: 2, max: 8, step: 1, value: n, fmt: v => v + ' 个', onInput: v => { n = v; rebuild(); } });
     UI.note(host, 'SPOOLing（Simultaneous Peripheral Operations On-Line）：用磁盘上的<b>输入井 / 输出井</b>配合<b>输入进程 / 输出进程</b>，把打印机等独占设备改造成可被多个用户共享的<b>虚拟设备</b>——用户只与“井”打交道，独占设备由专门的进程统一驱动。');
     rebuild();
 
@@ -292,34 +292,50 @@
           { name: '输入井', on: m.activeWell === 'in', x: xDisk + 10 },
           { name: '输出井', on: m.activeWell === 'out', x: xDisk + 20 + wellW }
         ];
+        const cap = Math.max(n, 2);
+        const wellCols = cap <= 4 ? cap : Math.ceil(cap / 2);
+        const wellRows = Math.ceil(cap / wellCols);
+        const padX = 8, padTop = 26, padBot = 14;
+        const cellW = (wellW - padX * 2) / wellCols;
+        const cellH = (wellH - padTop - padBot - (wellRows - 1) * 4) / wellRows;
         wells.forEach(wl => {
           G.box(ctx, wl.x, yBox, wellW, wellH, {
             fill: wl.on ? D.withAlpha(color, 0.14) : T['--card-2'],
             stroke: wl.on ? color : T['--line'], width: wl.on ? 2 : 1.2, radius: 7
           });
           G.label(ctx, wl.x + wellW / 2, yBox + 14, wl.name, { size: 11, weight: 700, color: wl.on ? color : T['--ink-3'] });
-          const cap = Math.max(n, 2);
-          const cw = (wellW - 16) / cap;
           for (let k = 0; k < cap; k++) {
+            const r = Math.floor(k / wellCols), c = k % wellCols;
+            const x = wl.x + padX + c * cellW;
+            const y = yBox + padTop + r * (cellH + 4);
             const filled = k < m.files.length;
-            G.box(ctx, wl.x + 8 + k * cw, yBox + 28, Math.max(4, cw - 5), 42, {
+            G.box(ctx, x + 1, y, Math.max(4, cellW - 3), cellH, {
               fill: filled ? D.withAlpha(color, 0.22) : 'transparent',
               stroke: filled ? color : T['--line'], dash: filled ? null : [3, 3], radius: 4
             });
-            if (filled && cw > 22) G.fitted(ctx, wl.x + 8 + k * cw + (cw - 5) / 2, yBox + 49, m.files[k], cw - 10, { size: 9, weight: 700, color: color });
+            if (filled) {
+              const txt = cellW >= 30 ? m.files[k] : String(k + 1);
+              G.fitted(ctx, x + cellW / 2, y + cellH / 2, txt, cellW - 6, { size: cellW >= 30 ? 9 : 10, weight: 700, color: color });
+            }
           }
-          G.label(ctx, wl.x + wellW / 2, yBox + wellH - 8, '井内 ' + (wl.name === (m.out ? '输出井' : '输入井') ? m.files.length : 0) + ' 项', { size: 9, color: T['--ink-3'], mono: true });
+          const used = wl.name === (m.out ? '输出井' : '输入井') ? m.files.length : 0;
+          G.label(ctx, wl.x + wellW / 2, yBox + wellH - 8, '容量 ' + cap + ' · 已用 ' + used + ' 项', { size: 9, color: T['--ink-3'], mono: true });
         });
         // 用户进程
-        G.box(ctx, xUser, yBox - 22, wUser, hBox + 44, { fill: T['--card-2'], stroke: T['--line'], radius: 10 });
+        const uTop = yBox + 6, uBottom = p.h - 72;
+        const uRowGap = Math.min(30, (uBottom - uTop) / n);
+        const uRowH = Math.min(26, uRowGap - 4);
+        const panelBottom = Math.min(uBottom, uTop + n * uRowGap + 8);
+        G.box(ctx, xUser, yBox - 22, wUser, panelBottom - (yBox - 22), { fill: T['--card-2'], stroke: T['--line'], radius: 10 });
         G.label(ctx, xUser + wUser / 2, yBox - 8, '用户进程', { size: 11, weight: 700, color: T['--ink-2'] });
         for (let k = 0; k < n; k++) {
           const on = k === m.activeUser;
-          G.box(ctx, xUser + 10, yBox + 4 + k * 30, wUser - 20, 26, {
+          const y = uTop + k * uRowGap;
+          G.box(ctx, xUser + 10, y, wUser - 20, uRowH, {
             fill: on ? D.withAlpha(color, 0.2) : T['--card'],
             stroke: on ? color : T['--line'], width: on ? 2 : 1, radius: 6
           });
-          G.label(ctx, xUser + wUser / 2, yBox + 17 + k * 30, '用户 ' + (k + 1) + (on ? '（' + (m.out ? '提交输出' : '读取输入') + '）' : ''), { size: 10, weight: on ? 700 : 500, color: on ? color : T['--ink-2'] });
+          G.fitted(ctx, xUser + wUser / 2, y + uRowH / 2, '用户 ' + (k + 1) + (on ? '（' + (m.out ? '提交输出' : '读取输入') + '）' : ''), wUser - 24, { size: 10, weight: on ? 700 : 500, color: on ? color : T['--ink-2'] });
         }
         // 路径箭头
         const arrow = (a, b, on, label) => {
@@ -338,7 +354,7 @@
           arrow([xProc + wProc / 2 - 8, yBox - 12], [xDev + wDev - 10, yBox - 12], m.step > n, '打印');
         } else {
           arrow([xDev + wDev, yTop], [xDisk + 12, yTop], m.step >= 1 && m.step <= n, '预读入井');
-          arrow([xDisk + 12, yBot], [xUser + 12, yBot], m.step > n, '读输入井');
+          arrow([xDisk + 12, yBot], [xUser, yBot], m.step > n, '读输入井');
         }
         // 状态条
         G.box(ctx, 16, p.h - 62, w - 32, 26, { fill: D.withAlpha(color, 0.12), stroke: D.withAlpha(color, 0.5), radius: 7 });

@@ -60,43 +60,65 @@
     const s = UI.shell(host, 300);
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
-    const state = { chipW: 1, chipB: 8, tarW: 4, tarB: 32, mode: 'all' };
-    // chip: 1K×8；target: 4K×32
+    const state = { chipW: 1, chipB: 8, tarW: 8, tarB: 32, mode: 'all' };
+    // chip: 1K×8；target: 8K×32
 
     const opts = [{ label: '集成示例', value: 'all' }, { label: '只看位扩展', value: 'bit' }, { label: '只看字扩展', value: 'word' }];
     UI.seg(ctrl, opts, v => { state.mode = v; render(); }, 0);
-    UI.slider(ctrl, { label: '目标字数', min: 1, max: 8, step: 1, value: 4, fmt: v => v + 'K', onInput: v => { state.tarW = v; render(); }, value: 4 });
+    UI.slider(ctrl, { label: '目标字数', min: 1, max: 16, step: 1, value: 8, fmt: v => v + 'K', onInput: v => { state.tarW = v; render(); }, value: 8 });
     UI.slider(ctrl, { label: '目标字长', min: 8, max: 64, step: 8, value: 32, fmt: v => v + ' 位', onInput: v => { state.tarB = v; render(); } });
 
     function render() {
       const wordExt = state.tarW / state.chipW;      // 字扩展倍数
       const bitExt = state.tarB / state.chipB;       // 位扩展倍数
       const total = wordExt * bitExt;
+      // 每个字组画成一行（行内为位扩展的 bitExt 片）；字组过多时横向分块，控制高度
+      const maxRows = 8;
+      const blockCols = Math.max(1, Math.ceil(wordExt / maxRows));
+      const rows = Math.ceil(wordExt / blockCols);
+      const top = 52;
+      const rowH = rows <= 4 ? 40 : (rows <= 6 ? 34 : 28);
+      const chipH = rowH - 8;
+      const noteY = top + rows * rowH + 12;
+      const wantH = noteY + 46 + 12;
+      if (scene.o.height !== wantH) scene.setHeight(wantH);
       scene.clearLayers();
       scene.layer((p, ctx) => {
         const T = D.Theme.cache;
-        const cols = Math.min(wordExt, 4), rows = Math.ceil(total / cols);
-        const cw = Math.min(96, (p.w - 60) / cols), ch = 46;
-        const startX = (p.w - cols * cw) / 2 + 6;
-        for (let i = 0; i < total; i++) {
-          const r = Math.floor(i / cols), c = i % cols;
-          const x = startX + c * cw, y = 60 + r * (ch + 14);
-          const grpColor = cols > 1 ? (c % 2 ? T['--purple'] : T['--brand']) : T['--brand'];
-          G.box(ctx, x, y, cw - 10, ch, {
-            fill: D.withAlpha(grpColor, 0.14), stroke: D.withAlpha(grpColor, 0.6), radius: 7
-          });
-          G.label(ctx, x + (cw - 10) / 2, y + ch / 2 - 7, `芯片 ${i + 1}`, { size: 11.5, weight: 700, color: grpColor });
-          G.label(ctx, x + (cw - 10) / 2, y + ch / 2 + 9, `${state.chipW}K×${state.chipB}`, { size: 10, color: T['--ink-3'], mono: true });
-          if (wordExt > 1) G.label(ctx, x + (cw - 10) / 2, y - 8, `第 ${c + 1} 字组`, { size: 9.5, color: T['--ink-3'] });
-        }
+        const padX = 16, gap = 16, gutter = 58;
+        const blockW = (p.w - padX * 2 - (blockCols - 1) * gap) / blockCols;
+        const cw = Math.max(10, Math.min(130, (blockW - gutter) / bitExt));
         G.label(ctx, p.w / 2, 26, `目标：${state.tarW}K × ${state.tarB} 位　·　需要 ${wordExt}（字扩展）× ${bitExt}（位扩展）= ${total} 片 ${state.chipW}K×${state.chipB} 芯片`, { size: 12, weight: 700, color: T['--ink'] });
+        for (let blk = 0; blk < blockCols; blk++) {
+          const bx0 = padX + blk * (blockW + gap);
+          const chipsX = bx0 + gutter + (blockW - gutter - cw * bitExt) / 2;
+          for (let r = 0; r < rows; r++) {
+            const g = blk * rows + r;
+            if (g >= wordExt) break;
+            const y = top + r * rowH;
+            const grpColor = g % 2 ? T['--purple'] : T['--brand'];
+            G.box(ctx, bx0, y - 2, blockW - 4, chipH + 6, { fill: T['--card'], stroke: T['--line'], radius: 7 });
+            G.label(ctx, bx0 + 8, y + chipH / 2, `组${g}`, { align: 'left', size: 10.5, weight: 700, color: T['--ink-2'] });
+            if (chipH >= 26) G.label(ctx, bx0 + 8, y + chipH / 2 + 12, `CS${g}`, { align: 'left', size: 9.5, weight: 700, color: T['--accent'], mono: true });
+            for (let c = 0; c < bitExt; c++) {
+              const x = chipsX + c * cw;
+              G.box(ctx, x + 4, y, cw - 10, chipH, { fill: D.withAlpha(grpColor, 0.14), stroke: D.withAlpha(grpColor, 0.6), radius: 6 });
+              if (chipH >= 30) {
+                G.fitted(ctx, x + cw / 2 - 1, y + chipH / 2 - 7, `${state.chipW}K×${state.chipB}`, cw - 16, { size: 10.5, weight: 700, color: grpColor, mono: true });
+                G.fitted(ctx, x + cw / 2 - 1, y + chipH / 2 + 7, `D${c * state.chipB}~D${c * state.chipB + state.chipB - 1}`, cw - 16, { size: 9, color: T['--ink-3'], mono: true });
+              } else {
+                G.fitted(ctx, x + cw / 2 - 1, y + chipH / 2, `${state.chipW}K×${state.chipB}`, cw - 16, { size: 10, weight: 700, color: grpColor, mono: true });
+              }
+            }
+          }
+        }
         const note = state.mode === 'bit'
           ? '位扩展：同一地址选中所有芯片，各芯片提供部分数据位，共用地址线，数据线拼接。'
           : state.mode === 'word'
             ? '字扩展：地址高位经译码器片选不同芯片组，同一时刻只有一组工作。'
             : `位扩展：${bitExt} 片并联，数据线拼接为 ${state.tarB} 位；字扩展：${wordExt} 个字组由高位地址片选。`;
-        G.box(ctx, 16, p.h - 52, p.w - 32, 40, { fill: T['--card-2'], stroke: T['--line'], radius: 8 });
-        G.label(ctx, p.w / 2, p.h - 32, note, { size: 11, color: T['--ink-2'] });
+        G.box(ctx, 16, noteY, p.w - 32, 40, { fill: T['--card-2'], stroke: T['--line'], radius: 8 });
+        G.fitted(ctx, p.w / 2, noteY + 20, note, p.w - 56, { size: 11, weight: 500, color: T['--ink-2'] });
       });
       scene.render();
       UI.readout(out, [
@@ -320,7 +342,7 @@
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
     const chip = { words: 16, bits: 4 };          // 单片 16K × 4 位
-    const state = { b: 2, w: 1 };
+    const state = { b: 4, w: 4 };
 
     UI.note(host, '用 16K×4 位芯片组成更大容量：<b>位扩展</b>——多片并联，地址线与片选共用、数据线拼接；<b>字扩展</b>——地址高位经译码器产生片选、数据线共用；<b>字位同时扩展</b>——先位扩展成组，再多组字扩展。');
     const seg = UI.seg(ctrl, [
@@ -328,14 +350,14 @@
       { label: '字扩展', value: 2 }, { label: '字位同时扩展', value: 3 }
     ], v => {
       if (v === 0) { state.b = 1; state.w = 1; }
-      else if (v === 1) { state.b = 2; state.w = 1; }
-      else if (v === 2) { state.b = 1; state.w = 2; }
-      else { state.b = 2; state.w = 2; }
+      else if (v === 1) { state.b = 4; state.w = 1; }
+      else if (v === 2) { state.b = 1; state.w = 4; }
+      else { state.b = 4; state.w = 4; }
       bS.set(state.b); wS.set(state.w);
       render();
     }, 3);
-    const bS = UI.slider(ctrl, { label: '位扩展倍数', min: 1, max: 4, step: 1, value: state.b, fmt: v => '×' + v, onInput: v => { state.b = v; sync(); render(); } });
-    const wS = UI.slider(ctrl, { label: '字扩展倍数', min: 1, max: 4, step: 1, value: state.w, fmt: v => '×' + v, onInput: v => { state.w = v; sync(); render(); } });
+    const bS = UI.slider(ctrl, { label: '位扩展倍数', min: 1, max: 8, step: 1, value: state.b, fmt: v => '×' + v, onInput: v => { state.b = v; sync(); render(); } });
+    const wS = UI.slider(ctrl, { label: '字扩展倍数', min: 1, max: 8, step: 1, value: state.w, fmt: v => '×' + v, onInput: v => { state.w = v; sync(); render(); } });
     function sync() {
       seg.set(state.b > 1 ? (state.w > 1 ? 3 : 1) : (state.w > 1 ? 2 : 0));
     }
@@ -346,52 +368,60 @@
       const bytes = totalW * 1024 * totalBits / 8;
       const modeName = b > 1 && w > 1 ? '字位同时扩展' : (b > 1 ? '位扩展' : (w > 1 ? '字扩展' : '单片工作'));
       const addrBits = Math.log2(w);
-      const wantH = 46 + w * 40 + 150;
+      const top = 52;
+      const rowH = w <= 4 ? 40 : (w <= 6 ? 30 : 24);
+      const chipH = rowH - 8;
+      const rowX = w > 1 ? 96 : 16;
+      const by = top + w * rowH + 14;
+      const wantH = by + 64 + 56;
       if (scene.o.height !== wantH) scene.setHeight(wantH);
       scene.clearLayers();
       scene.layer((p, ctx) => {
         const T = D.Theme.cache;
-        const top = 42, rowH = 40, chipH = 32;
-        const rowX = w > 1 ? 100 : 16;
         G.label(ctx, p.w / 2, 16, `单片 ${chip.words}K × ${chip.bits} 位　→　目标 ${totalW}K × ${totalBits} 位 = ${(bytes / 1024).toFixed(0)} KB（${b * w} 片）`, { size: 12.5, weight: 700, color: T['--ink'] });
         G.label(ctx, p.w - 16, 16, modeName, { align: 'right', size: 11.5, weight: 700, color: T['--brand'] });
 
-        const gx0 = rowX + 96;
-        const cw = (p.w - 16 - gx0) / b;
+        const gx0 = rowX + 84;
+        const availW = p.w - 16 - gx0;
+        const cw = Math.max(10, Math.min(140, availW / b));
+        const chipsX = gx0 + (availW - cw * b) / 2;
         for (let r = 0; r < w; r++) {
           const y = top + r * rowH;
           G.box(ctx, rowX, y - 2, p.w - rowX - 16, chipH + 6, { fill: T['--card'], stroke: T['--line'], radius: 7 });
           G.label(ctx, rowX + 10, y + chipH / 2, `字组 ${r}`, { align: 'left', size: 10.5, weight: 700, color: T['--ink-2'] });
-          G.label(ctx, rowX + 66, y + chipH / 2, w > 1 ? 'CS' + r : 'CS', { align: 'left', size: 10, weight: 700, color: T['--accent'], mono: true });
+          G.label(ctx, rowX + 60, y + chipH / 2, w > 1 ? 'CS' + r : 'CS', { align: 'left', size: 10, weight: 700, color: T['--accent'], mono: true });
           for (let c = 0; c < b; c++) {
-            const x = gx0 + c * cw;
+            const x = chipsX + c * cw;
             G.box(ctx, x + 4, y, cw - 10, chipH, { fill: D.withAlpha(T['--brand'], 0.14), stroke: D.withAlpha(T['--brand'], 0.6), radius: 6 });
-            G.fitted(ctx, x + cw / 2 - 1, y + 11, '16K×4', cw - 20, { size: 11, weight: 700, color: T['--brand'], mono: true });
-            G.fitted(ctx, x + cw / 2 - 1, y + 24, 'D' + (c * 4) + '~D' + (c * 4 + 3), cw - 20, { size: 9.5, color: T['--ink-3'], mono: true });
+            if (chipH >= 26) {
+              G.fitted(ctx, x + cw / 2 - 1, y + chipH / 2 - 6, '16K×4', cw - 18, { size: 11, weight: 700, color: T['--brand'], mono: true });
+              G.fitted(ctx, x + cw / 2 - 1, y + chipH / 2 + 8, 'D' + (c * 4) + '~D' + (c * 4 + 3), cw - 18, { size: 9.5, color: T['--ink-3'], mono: true });
+            } else {
+              G.fitted(ctx, x + cw / 2 - 1, y + chipH / 2, '16K×4', cw - 18, { size: 10, weight: 700, color: T['--brand'], mono: true });
+            }
           }
         }
 
         if (w > 1) {
           G.box(ctx, 14, top - 36, 74, 26, { fill: D.withAlpha(T['--purple'], 0.14), stroke: D.withAlpha(T['--purple'], 0.6), radius: 6 });
           G.label(ctx, 51, top - 23, '译码器', { size: 10.5, weight: 700, color: T['--purple'] });
-          G.label(ctx, 51, top - 46, `A14~A${13 + addrBits}`, { size: 9.5, color: T['--purple'], mono: true });
+          G.label(ctx, 51, top - 45, `A14~A${13 + addrBits}`, { size: 9.5, color: T['--purple'], mono: true });
           for (let r = 0; r < w; r++) {
             const y = top + r * rowH + chipH / 2;
             G.arrow(ctx, [[51, top - 9], [51, y], [rowX - 4, y]], { color: D.withAlpha(T['--purple'], 0.8), width: 1.3, head: 5 });
           }
         }
 
-        const by = top + w * rowH + 14;
         G.box(ctx, 16, by, p.w - 32, 26, { fill: D.withAlpha(T['--teal'], 0.1), stroke: D.withAlpha(T['--teal'], 0.5), radius: 6 });
         G.label(ctx, 28, by + 13, `地址线 A0~A13（片内 14 位，各片共用）${w > 1 ? `；高 ${addrBits} 位 A14~A${13 + addrBits} 送译码器产生片选` : ''}`, { align: 'left', size: 10.5, color: T['--teal'] });
         G.box(ctx, 16, by + 32, p.w - 32, 26, { fill: D.withAlpha(T['--green'], 0.1), stroke: D.withAlpha(T['--green'], 0.5), radius: 6 });
         G.label(ctx, 28, by + 45, b > 1
           ? `数据线 D0~D${4 * b - 1}：${b} 片同时选中，各片贡献 4 位，拼接成 ${totalBits} 位`
           : `数据线 D0~D3：单片提供 4 位数据`, { align: 'left', size: 10.5, color: T['--green'] });
-        G.box(ctx, 16, by + 64, p.w - 32, 62, { fill: T['--card-2'], stroke: T['--line'], radius: 8 });
-        G.label(ctx, 28, by + 80, `目标容量 = 字数 × 字长 = ${totalW}K × ${totalBits} 位 = ${bytes / 1024} KB`, { align: 'left', size: 11, weight: 700, color: T['--ink'] });
-        G.label(ctx, 28, by + 98, `所需芯片 = 位扩展 ${b} 片/组 × 字扩展 ${w} 组 = ${b * w} 片；每组容量 = ${chip.words}K × ${chip.bits * b} 位`, { align: 'left', size: 10.5, color: T['--ink-2'] });
-        G.label(ctx, 28, by + 116, `片选：${w > 1 ? '同一时刻只有一组 CS 有效，各组地址范围互不重叠' : '所有芯片片选同时有效（位扩展）'}`, { align: 'left', size: 10.5, color: T['--ink-3'] });
+        G.box(ctx, 16, by + 64, p.w - 32, 56, { fill: T['--card-2'], stroke: T['--line'], radius: 8 });
+        G.label(ctx, 28, by + 79, `目标容量 = 字数 × 字长 = ${totalW}K × ${totalBits} 位 = ${bytes / 1024} KB`, { align: 'left', size: 11, weight: 700, color: T['--ink'] });
+        G.label(ctx, 28, by + 96, `所需芯片 = 位扩展 ${b} 片/组 × 字扩展 ${w} 组 = ${b * w} 片；每组容量 = ${chip.words}K × ${chip.bits * b} 位`, { align: 'left', size: 10.5, color: T['--ink-2'] });
+        G.label(ctx, 28, by + 112, `片选：${w > 1 ? '同一时刻只有一组 CS 有效，各组地址范围互不重叠' : '所有芯片片选同时有效（位扩展）'}`, { align: 'left', size: 10.5, color: T['--ink-3'] });
       });
       scene.render();
       UI.readout(out, [
@@ -527,19 +557,19 @@
 
   /* ---------- 替换算法：FIFO / LRU / CLOCK ---------- */
   W.cacheReplace = function (host) {
-    const s = UI.shell(host, 384);
+    const s = UI.shell(host, 380);
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
-    const state = { seq: '1,2,3,4,1,2,5,1,2,3,4,5', algo: 'lru', lines: 3, k: 0 };
+    const state = { seq: '7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1', algo: 'lru', lines: 5, k: 0 };
 
-    UI.note(host, '同一访问串、全相联 Cache：FIFO 替换最早调入的行；LRU 替换最久未被使用的行；CLOCK（二次机会）用使用位 + 指针循环扫描，命中置 1、缺行时把 1 清 0 后移。');
+    UI.note(host, '同一访问串、全相联 Cache（行数 2~8 可调）：FIFO 替换最早调入的行；LRU 替换最久未被使用的行；CLOCK（二次机会）用使用位 + 指针循环扫描，命中置 1、缺行时把 1 清 0 后移。');
     const inp = UI.text(ctrl, { label: '访问序列（块号）', value: state.seq, width: 250 });
     inp.input.addEventListener('input', () => { state.seq = inp.value; buildTransport(); render(); });
     UI.seg(ctrl, [{ label: 'FIFO', value: 'fifo' }, { label: 'LRU', value: 'lru' }, { label: 'CLOCK', value: 'clock' }], v => {
       state.algo = v; buildTransport(); render();
     }, 1);
     UI.slider(ctrl, {
-      label: 'Cache 行数', min: 2, max: 5, step: 1, value: state.lines, fmt: v => v + ' 行',
+      label: 'Cache 行数', min: 2, max: 8, step: 1, value: state.lines, fmt: v => v + ' 行',
       onInput: v => { state.lines = v; buildTransport(); render(); }
     });
 
@@ -619,7 +649,12 @@
       };
       const L = Math.max(1, cur.length);
       const x0 = 60;
-      const wantH = lines * 26 + 258;
+      const rowH = lines <= 4 ? 26 : (lines <= 6 ? 22 : 19);
+      const ty = 74;
+      const by = ty + lines * rowH + 14;
+      const barPitch = 24, barH = 18;
+      const descY = by + 2 * barPitch + barH + 10;
+      const wantH = descY + 46 + 14;
       if (scene.o.height !== wantH) scene.setHeight(wantH);
       scene.clearLayers();
       scene.layer((p, ctx) => {
@@ -639,34 +674,33 @@
         G.label(ctx, x0 + L * cww + 4, 34, '　命中=绿，缺失=红', { align: 'left', size: 9.5, color: T['--ink-3'] });
 
         G.label(ctx, 14, 62, `Cache 各行动态（${['FIFO', 'LRU', 'CLOCK'][['fifo', 'lru', 'clock'].indexOf(state.algo)]}）`, { align: 'left', size: 11, weight: 700, color: T['--ink-2'] });
-        const ty = 74;
+        const rowBoxH = rowH - 4;
         for (let i = 0; i < lines; i++) {
-          const y = ty + i * 26;
-          G.label(ctx, 14, y + 12, '行' + i + (state.algo === 'clock' && snap && snap.ptr === i ? '←' : ''), { align: 'left', size: 10, weight: 700, color: T['--ink-3'], mono: true });
+          const y = ty + i * rowH;
+          G.label(ctx, 14, y + rowBoxH / 2, '行' + i + (state.algo === 'clock' && snap && snap.ptr === i ? '←' : ''), { align: 'left', size: 10, weight: 700, color: T['--ink-3'], mono: true });
           for (let t2 = 0; t2 < L; t2++) {
             const v = cur[t2] ? cur[t2].st[i] : null;
             const x = x0 + t2 * cww;
             const isNow = t2 === idx;
             const changed = t2 === idx && snap && snap.line === i && !snap.hit;
-            G.box(ctx, x, y, cww - 2, 22, {
+            G.box(ctx, x, y, cww - 2, rowBoxH, {
               fill: changed ? D.withAlpha(T['--red'], 0.22) : (isNow ? D.withAlpha(T['--brand'], 0.12) : T['--card-2']),
               stroke: isNow ? D.withAlpha(T['--brand'], 0.6) : T['--line'], width: isNow ? 1.4 : 1, radius: 4
             });
-            if (v !== null && v !== undefined) G.label(ctx, x + (cww - 2) / 2, y + 11, String(v), { size: Math.min(11, cww - 6), weight: 700, color: changed ? T['--red'] : T['--ink-2'], mono: true });
+            if (v !== null && v !== undefined) G.label(ctx, x + (cww - 2) / 2, y + rowBoxH / 2, String(v), { size: Math.min(11, cww - 6), weight: 700, color: changed ? T['--red'] : T['--ink-2'], mono: true });
           }
         }
 
-        G.label(ctx, 14, ty + lines * 26 + 12, '各算法命中率（同一访问串）', { align: 'left', size: 11, weight: 700, color: T['--ink-2'] });
-        const by = ty + lines * 26 + 24;
+        G.label(ctx, 14, ty + lines * rowH + 12, '各算法命中率（同一访问串）', { align: 'left', size: 11, weight: 700, color: T['--ink-2'] });
         const names = [['fifo', 'FIFO', T['--brand']], ['lru', 'LRU', T['--purple']], ['clock', 'CLOCK', T['--teal']]];
         names.forEach((nm, i) => {
-          const y = by + i * 28;
+          const y = by + i * barPitch;
           const hb = rate(all[nm[0]]);
           const on = state.algo === nm[0];
-          G.label(ctx, 14, y + 12, nm[1], { align: 'left', size: 11, weight: 700, color: nm[2] });
-          G.box(ctx, 66, y, p.w - 66 - 96, 22, { fill: T['--bg-soft'], stroke: null, radius: 5 });
-          G.box(ctx, 66, y, Math.max(3, (p.w - 66 - 96) * hb), 22, { fill: D.withAlpha(nm[2], on ? 0.85 : 0.45), stroke: null, radius: 5 });
-          G.label(ctx, p.w - 24, y + 11, hb.toFixed(3) + '　' + (all[nm[0]].filter(x => x.hit).length) + ' 命中', { align: 'right', size: 10, weight: on ? 700 : 600, color: on ? nm[2] : T['--ink-3'], mono: true });
+          G.label(ctx, 14, y + barH / 2, nm[1], { align: 'left', size: 11, weight: 700, color: nm[2] });
+          G.box(ctx, 66, y, p.w - 66 - 96, barH, { fill: T['--bg-soft'], stroke: null, radius: 5 });
+          G.box(ctx, 66, y, Math.max(3, (p.w - 66 - 96) * hb), barH, { fill: D.withAlpha(nm[2], on ? 0.85 : 0.45), stroke: null, radius: 5 });
+          G.label(ctx, p.w - 24, y + barH / 2, hb.toFixed(3) + '　' + (all[nm[0]].filter(x => x.hit).length) + ' 命中', { align: 'right', size: 10, weight: on ? 700 : 600, color: on ? nm[2] : T['--ink-3'], mono: true });
         });
 
         const descs = {
@@ -674,8 +708,8 @@
           lru: 'LRU：替换最久未被访问的行（按最近使用时间），命中率高，需记录访问历史。',
           clock: 'CLOCK：环形指针 + 使用位，命中置 1；缺行时遇 1 清 0 后移，遇 0 则替换，是 LRU 的近似。'
         };
-        G.box(ctx, 14, by + 90, p.w - 28, 46, { fill: T['--card-2'], stroke: T['--line'], radius: 8 });
-        G.fitted(ctx, 26, by + 113, descs[state.algo], p.w - 52, { align: 'left', size: 10.5, weight: 500, color: T['--ink-2'] });
+        G.box(ctx, 14, descY, p.w - 28, 46, { fill: T['--card-2'], stroke: T['--line'], radius: 8 });
+        G.fitted(ctx, 26, descY + 23, descs[state.algo], p.w - 52, { align: 'left', size: 10.5, weight: 500, color: T['--ink-2'] });
         G.label(ctx, p.w / 2, p.h - 8, 'LRU 与 CLOCK 不会出现 FIFO 的 Belady 异常（增加行数命中率反而下降）', { size: 10.5, color: T['--ink-3'] });
       });
       scene.render();

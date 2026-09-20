@@ -357,12 +357,12 @@
       { name: '分时系统', color: '--accent', inter: '强', metric: '响应时间', desc: '时间片轮转，多用户交互：响应及时、交互性强，切换开销使吞吐量略低于多道批处理。' },
       { name: '实时系统', color: '--green', inter: '弱', metric: '响应时间', desc: '以在截止时间内完成为首要目标：响应快且有界，但为保证确定性需预留资源，吞吐量较低。' }
     ];
-    const state = { sel: 1, n: 4, p: 0.4, q: 20 };
+    const state = { sel: 1, n: 6, p: 0.4, q: 20 };
     UI.seg(ctrl, MODES.map(m => ({ label: m.name, value: m.name })), (v, k) => { state.sel = k; render(); }, 1);
-    const nSlider = UI.slider(ctrl, { label: '并发道数 n', min: 2, max: 8, step: 1, value: 4, fmt: v => v + ' 道', onInput: v => { state.n = v; render(); } });
+    const nSlider = UI.slider(ctrl, { label: '并发道数 n', min: 2, max: 10, step: 1, value: 6, fmt: v => v + ' 道', onInput: v => { state.n = v; render(); } });
     UI.slider(ctrl, { label: 'I/O 等待比例 p', min: 0.1, max: 0.7, step: 0.05, value: 0.4, fmt: v => (v * 100).toFixed(0) + '%', onInput: v => { state.p = v; render(); } });
     UI.slider(ctrl, { label: '时间片 q', min: 5, max: 40, step: 5, value: 20, fmt: v => v, onInput: v => { state.q = v; render(); } });
-    UI.transport(ctrl, { total: 7, onChange: k => { state.n = k + 2; nSlider.set(state.n); render(); } });
+    UI.transport(ctrl, { total: 9, onChange: k => { state.n = k + 2; nSlider.set(state.n); render(); } });
     const noteEl = UI.note(host, '简化模型：每道作业 CPU 时间 c = 100，等待 I/O 占其运行时间的比例 p，CPU 利用率 U = 1 − pⁿ（n 道作业同时等待 I/O 的概率为 pⁿ）。坐标系比较四种系统的<b>趋势</b>：多道批处理吞吐最高但无交互，分时系统响应快、交互强，实时系统响应最快但需预留资源。');
 
     function calc(n, p, q) {
@@ -406,7 +406,7 @@
       });
       plot.render();
       const m = ms[state.sel];
-      noteEl.innerHTML = MODES[state.sel].desc + '（提示：拖动滑杆或点击播放，观察 n 增大时多道批处理吞吐趋于饱和、周转时间随之上升。）';
+      noteEl.innerHTML = MODES[state.sel].desc + '（提示：并发道数 n 可在 2~10 之间调节，拖动滑杆或点击播放，观察 n 增大时多道批处理吞吐趋于饱和、周转时间随之上升。）';
       UI.readout(out, [
         ['系统', MODES[state.sel].name],
         ['吞吐量', m.thr.toFixed(1) + ' 作业/千时间单位'],

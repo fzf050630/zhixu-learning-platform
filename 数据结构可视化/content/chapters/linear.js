@@ -35,13 +35,14 @@
         "}",
       ],
       generator: A.linear.sequenceInsert,
-      preset: () => [[12, 28, 41, 56, null], 2, 35],
+      preset: () => [[12, 28, 41, 56, 65, 73, 89, 97, null], 3, 50],
       explain: {
         goal: "在顺序表第 i 个位置插入新元素，保持其余元素的相对次序并使表长加 1。",
-        inputs: "顺序表 L（data 数组与 length）、插入位置 i（1 ≤ i ≤ length+1）和待插入元素 e；表中需留有空位。",
+        inputs: "顺序表 L（data 数组与 length）、插入位置 i（1 ≤ i ≤ length+1）和待插入元素 e；表中需留有空位。示例为 8 个元素、在第 4 个位置插入，需要后移 5 个元素。",
         steps: [
-          "判断位置合法性：若 i < 1 或 i > length+1，则插入越界，返回 false。",
-          "令 j 从表长 length 递减到 i，把 L.data[j−1] 依次后移到 L.data[j]，腾出第 i 个位置。",
+          "先判断位置合法性：若 i < 1 或 i > length+1，则插入越界，返回 false；本例 i=4、length=8，位置合法。",
+          "令 j 从表长 length 递减到 i，把 L.data[j−1] 依次后移到 L.data[j]，从后向前腾出第 i 个位置。",
+          "本示例共后移 5 个元素（a[7]…a[3]），越靠表头的插入移动次数越多。",
           "把新元素 e 写入 L.data[i−1]，即第 i 个位置。",
           "将表长 L.length 加 1，新元素正式纳入表中。",
           "返回 true，插入完成；空表时只允许 i = 1（插在表尾）。",
@@ -74,10 +75,10 @@
         "}",
       ],
       generator: A.linear.linkedReverse,
-      preset: () => [[8, 17, 26, 39]],
+      preset: () => [[8, 17, 26, 39, 52, 67]],
       explain: {
         goal: "就地翻转单链表所有结点的指针方向，使原尾结点成为新首结点。",
-        inputs: "带首指针 head 的单链表（可不带头结点）；空表与单元素表也要能正确返回。",
+        inputs: "带首指针 head 的单链表（可不带头结点）；示例为 6 个结点，空表与单元素表也要能正确返回。",
         steps: [
           "初始化 pre = NULL、p = head，pre 指向已逆置段的头结点。",
           "若 p = NULL（空表），循环体不执行，直接返回 NULL（或原头指针）。",

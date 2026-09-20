@@ -493,7 +493,7 @@
           },
           { t: 'viz', build: 'totalProb', title: '全概率公式：加权分解', sub: '拖动调整各分支概率，观察总概率如何变化' },
           { t: 'viz', build: 'bayes', title: '贝叶斯公式：先验 → 后验', sub: '调节先验与似然，实时观察后验概率的修正' },
-          { t: 'viz', build: 'bayesSequential', title: '序贯贝叶斯：证据逐次更新', sub: '拖动连续阳性 / 阴性次数，观察后验随证据累积的变化曲线' },
+          { t: 'viz', build: 'bayesSequential', title: '序贯贝叶斯：证据逐次更新', sub: '拖动连续阳性 / 阴性次数（最多 20 次），观察后验随证据累积的变化曲线' },
           { t: 'card', kind: 'exam', tag: '高频', title: '命题模式', html:
             '<ul class="none">' +
             '<li><b>产品检验</b>：多台机床/多条生产线，求次品率（全概率），或已知取到次品反推来自哪条线（贝叶斯）。</li>' +
@@ -586,7 +586,7 @@
             '<p class="tight">若只满足前三个，称 \\( A,B,C \\) <b>两两独立</b>。注意：<b>两两独立 \\( \\nRightarrow \\) 相互独立</b>！</p>'
           },
           { t: 'viz', build: 'independence', title: '独立性的几何验证', sub: '拖动调整 P(A)、P(B)、P(AB)，观察独立条件何时成立' },
-          { t: 'viz', build: 'reliabilitySystem', title: '独立系统可靠性', sub: '切换串联 / 并联 / 混合 / 表决结构，对比系统可靠度' },
+          { t: 'viz', build: 'reliabilitySystem', title: '独立系统可靠性', sub: '切换串联 / 并联 / 混合 / 表决结构，并调节元件数（2–8）对比系统可靠度' },
           { t: 'card', kind: 'tip', tag: '技巧', title: '独立性简化计算', html:
             '<p class="tight">当 \\( A_1,\\cdots,A_n \\) 相互独立时：</p>' +
             '<div class="fml">' +
@@ -672,7 +672,7 @@
             '</div>' +
             '<p class="tight"><b>「直到首次成功」</b>的试验次数服从几何分布（见 2.3 节），概率 \\( P\\{X=k\\}=(1-p)^{k-1}p \\)。</p>'
           },
-          { t: 'viz', build: 'firstSuccess', title: '首次成功模型：等待次数的分布', sub: '拖动 p 与 K，核对几何分布频率、期望 1/p 与无记忆性' }
+          { t: 'viz', build: 'firstSuccess', title: '首次成功模型：等待次数的分布', sub: '拖动 p、显示上限 K 与已失败次数 m（最多 12），核对几何分布频率、期望 1/p 与无记忆性' }
         ],
         examples: [
           {

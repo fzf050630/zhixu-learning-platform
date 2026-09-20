@@ -29,7 +29,7 @@
             ['报文交换', '整份报文存储转发', '对长报文不友好'],
             ['分组交换', '报文切分为分组，存储转发', '灵活高效，是互联网基础']
           ]},
-          { t: 'viz', build: 'switchingCompare', title: '三种交换方式时延对比', sub: '调节数据量、分组数与链路参数，比较三条时间轴' },
+          { t: 'viz', build: 'switchingCompare', title: '三种交换方式时延对比', sub: '调节数据量、分组数（最多 12）与链路参数，比较三条时间轴' },
           { t: 'h3', idx: '③', text: '性能指标' },
           { t: 'viz', build: 'netPerformance', title: '时延与带宽计算器', sub: '调节带宽、分组、距离观察时延构成' },
           { t: 'fml', rows: [

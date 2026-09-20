@@ -62,54 +62,69 @@
 
   /* ---------- HTTP 请求过程 ---------- */
   W.httpFlow = function (host) {
-    const s = UI.shell(host, 290);
+    const s = UI.shell(host, 360);
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
-    const state = { persistent: true, i: 0, n: 3 };
-    const steps = [
-      { t: 'DNS 解析域名', d: '把 www.example.com 解析为服务器 IP 地址' },
-      { t: '建立 TCP 连接', d: '三次握手，建立客户端与服务器的可靠连接' },
-      { t: '发送 HTTP 请求', d: 'GET /index.html HTTP/1.1，含 Host、User-Agent 等首部' },
-      { t: '服务器响应', d: 'HTTP/1.1 200 OK，返回 HTML 内容与首部' },
-      { t: '请求内嵌对象', d: state.persistent ? '非持久连接：每个对象都要重新建立 TCP 连接' : '持久连接：同一连接上顺序请求多个对象（HTTP/1.1 默认）' },
-      { t: '关闭连接', d: state.persistent ? '每个对象响应后即关闭连接（HTTP/1.0）' : '全部对象接收完毕后再关闭连接' }
-    ];
-    UI.seg(ctrl, [{ label: '非持久连接', value: 'no' }, { label: '持久连接', value: 'yes' }], v => { state.persistent = v === 'no'; render(); }, 1);
-    UI.slider(ctrl, { label: '内嵌对象数', min: 1, max: 6, step: 1, value: 3, fmt: v => v, onInput: v => { state.n = v; render(); } });
+    const state = { persistent: true, n: 6 };
+    const CAP = 3;                       // 单独展示的内嵌对象数上限，其余汇总
+    UI.seg(ctrl, [{ label: '非持久连接', value: 'no' }, { label: '持久连接', value: 'yes' }], v => { state.persistent = v === 'yes'; render(); }, 1);
+    UI.slider(ctrl, { label: '内嵌对象数', min: 1, max: 10, step: 1, value: 6, fmt: v => v, onInput: v => { state.n = v; render(); } });
+
+    // 每条报文：[文本, 颜色键, 方向(r 客户端→服务器 / l 服务器→客户端 / n 汇总)]
+    function messageList() {
+      const k = Math.min(state.n, CAP);
+      const rest = state.n - k;
+      const list = [];
+      if (state.persistent) {
+        list.push(['TCP 握手', 'red', 'r'], ['GET /index.html', 'brand', 'r'], ['200 OK + HTML', 'green', 'l']);
+        for (let q = 0; q < k; q++) list.push(['GET /obj' + (q + 1), 'brand', 'r'], ['200 OK', 'green', 'l']);
+        if (rest > 0) list.push(['… 其余 ' + rest + ' 个对象复用同一连接', 'ink', 'n']);
+        list.push(['关闭连接', 'accent', 'r']);
+      } else {
+        list.push(['TCP 握手 1', 'red', 'r'], ['GET /index.html', 'brand', 'r'], ['200 OK', 'green', 'l'], ['关闭连接 1', 'accent', 'r']);
+        for (let q = 0; q < k; q++) {
+          list.push(['TCP 握手 ' + (q + 2), 'red', 'r'], ['GET /obj' + (q + 1), 'brand', 'r'], ['200 OK', 'green', 'l'], ['关闭连接 ' + (q + 2), 'accent', 'r']);
+        }
+        if (rest > 0) list.push(['… 其余 ' + rest + ' 个对象各自新建 TCP 连接', 'ink', 'n']);
+      }
+      return list;
+    }
 
     function calc() {
-      const rtt = 1;
-      const perConn = 2;         // 三次握手约 2 RTT
-      const conns = state.persistent ? 1 : (1 + state.n);
-      const rtts = state.persistent ? (perConn + state.n + 1) : (state.n + 2) * perConn + state.n;
+      const conns = state.persistent ? 1 : (state.n + 1);      // 1 个 HTML + n 个内嵌对象
+      const rtts = state.persistent ? (state.n + 2) : 2 * (state.n + 1);
       return { conns, rtts };
     }
 
     function render() {
       const { conns, rtts } = calc();
+      const list = messageList();
       scene.clearLayers();
       scene.layer((p, ctx) => {
         const T = D.Theme.cache;
         const xC = 80, xS = p.w - 80;
-        G.box(ctx, xC - 30, 16, 60, 28, { fill: D.withAlpha(T['--brand'], 0.14), stroke: T['--brand'], radius: 7, title: '客户端', titleColor: T['--brand'], titleSize: 11 });
-        G.box(ctx, xS - 30, 16, 60, 28, { fill: D.withAlpha(T['--green'], 0.14), stroke: T['--green'], radius: 7, title: '服务器', titleColor: T['--green'], titleSize: 11 });
-        const list = state.persistent
-          ? [['TCP 握手', 'red'], ['GET /index.html', 'brand'], ['200 OK + HTML', 'green'], ['GET /a.css', 'brand'], ['200 OK', 'green'], ['…更多对象', 'ink'], ['关闭连接', 'accent']]
-          : [['TCP 握手 1', 'red'], ['GET /index.html', 'brand'], ['200 OK', 'green'], ['关闭', 'accent'], ['TCP 握手 2', 'red'], ['GET /a.css', 'brand'], ['200 OK', 'green'], ['关闭', 'accent']];
+        G.box(ctx, xC - 30, 14, 60, 28, { fill: D.withAlpha(T['--brand'], 0.14), stroke: T['--brand'], radius: 7, title: '客户端', titleColor: T['--brand'], titleSize: 11 });
+        G.box(ctx, xS - 30, 14, 60, 28, { fill: D.withAlpha(T['--green'], 0.14), stroke: T['--green'], radius: 7, title: '服务器', titleColor: T['--green'], titleSize: 11 });
         const cmap = { red: T['--red'], brand: T['--brand'], green: T['--green'], accent: T['--accent'], ink: T['--ink-3'] };
-        const stepY = (p.h - 70) / list.length;
-        list.forEach(([label, ck], k) => {
-          const y = 54 + k * stepY + stepY / 2;
-          const toRight = k % 2 === 0;
-          G.arrow(ctx, [[toRight ? xC : xS, y], [toRight ? xS : xC, y]], { color: cmap[ck], width: 2, head: 7 });
-          G.label(ctx, p.w / 2, y - 10, label, { size: 9.5, color: cmap[ck], mono: true });
+        const top = 52, stepY = (p.h - top - 34) / list.length;
+        list.forEach(([label, ck, dir], k) => {
+          const y = top + k * stepY + stepY / 2;
+          const col = cmap[ck];
+          if (dir === 'n') {
+            G.box(ctx, xC, y - Math.min(9, stepY * 0.36), xS - xC, Math.min(18, stepY * 0.72), { fill: D.withAlpha(col, 0.08), stroke: D.withAlpha(col, 0.5), radius: 5, dash: [4, 3] });
+            G.label(ctx, p.w / 2, y, label, { size: 9.5, color: col });
+            return;
+          }
+          const toRight = dir === 'r';
+          G.arrow(ctx, [[toRight ? xC : xS, y], [toRight ? xS : xC, y]], { color: col, width: 2, head: 7 });
+          G.label(ctx, p.w / 2, y - Math.min(11, stepY * 0.42), label, { size: 9.5, color: col, mono: true });
         });
         G.box(ctx, 16, p.h - 34, p.w - 32, 24, { fill: D.withAlpha(T['--brand'], 0.08), stroke: D.withAlpha(T['--brand'], 0.4), radius: 6 });
-        G.label(ctx, 28, p.h - 22, `TCP 连接数 ≈ ${conns}　·　总时延约 ${rtts} × RTT（含 DNS 与握手）`, { align: 'left', size: 10.5, weight: 700, color: T['--brand'] });
+        G.label(ctx, 28, p.h - 22, `TCP 连接数 ≈ ${conns}　·　总时延约 ${rtts} × RTT（含握手与各对象请求/响应）`, { align: 'left', size: 10.5, weight: 700, color: T['--brand'] });
       });
       scene.render();
       UI.readout(out, [
-        ['连接方式', state.persistent ? '非持久连接' : '持久连接'],
+        ['连接方式', state.persistent ? '持久连接' : '非持久连接'],
         ['内嵌对象', String(state.n)],
         ['TCP 连接数', String(conns)],
         ['总时延约', rtts + ' × RTT']

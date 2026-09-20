@@ -139,9 +139,9 @@
     const s = UI.shell(host, 340);
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
-    const state = { M: 8, n: 4, R: 1, tp: 1, setup: 2 };
+    const state = { M: 8, n: 6, R: 1, tp: 1, setup: 2 };
     UI.slider(ctrl, { label: '数据量', min: 1, max: 16, step: 1, value: 8, fmt: v => v + ' kbit', onInput: v => { state.M = v; render(); } });
-    UI.slider(ctrl, { label: '分组数', min: 1, max: 8, step: 1, value: 4, fmt: v => v + ' 个', onInput: v => { state.n = v; render(); } });
+    UI.slider(ctrl, { label: '分组数', min: 1, max: 12, step: 1, value: 6, fmt: v => v + ' 个', onInput: v => { state.n = v; render(); } });
     UI.slider(ctrl, { label: '链路速率', min: 0.5, max: 2, step: 0.5, value: 1, fmt: v => v + ' Mb/s', onInput: v => { state.R = v; render(); } });
     UI.slider(ctrl, { label: '单跳传播', min: 0.2, max: 3, step: 0.2, value: 1, fmt: v => v.toFixed(1) + ' ms', onInput: v => { state.tp = v; render(); } });
     UI.slider(ctrl, { label: '建立时间', min: 0, max: 4, step: 0.5, value: 2, fmt: v => v.toFixed(1) + ' ms', onInput: v => { state.setup = v; render(); } });
@@ -212,7 +212,7 @@
             const xa = X(st), xb = X(st + Tp);
             if (xb - xa < 1.2) continue;
             G.box(ctx, xa, ly + 2, Math.max(1.2, xb - xa), laneH - 5, { fill: D.withAlpha(pColors[j % 4], 0.75), stroke: null, radius: 2 });
-            if (xb - xa > 22) G.label(ctx, (xa + xb) / 2, ly + laneH / 2, 'P' + (j + 1), { size: 8, color: T['--ink'], mono: true });
+            if (xb - xa > 16) G.label(ctx, (xa + xb) / 2, ly + laneH / 2, 'P' + (j + 1), { size: xb - xa > 30 ? 8 : 7, color: T['--ink'], mono: true });
           }
         }
         G.box(ctx, 16, p.h - 48, p.w - 32, 34, { fill: D.withAlpha(T['--green'], 0.08), stroke: D.withAlpha(T['--green'], 0.4), radius: 7 });

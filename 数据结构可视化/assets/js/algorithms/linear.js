@@ -7,13 +7,16 @@
 
   function sequenceInsert(input, index, value) {
     const values = input.slice();
-    const out = [step('seq-start', 1, `准备在下标 ${index} 插入 ${value}`, { kind: 'array', values, active: [index], phase: 'start' })];
+    const length = values.length - 1;
+    const shifts = length - index;
+    const out = [step('seq-start', 1, `顺序表 L：length=${length}，准备在第 ${index + 1} 个位置插入 ${value}`, { kind: 'array', values, active: [index], phase: 'start' })];
+    out.push(step('seq-check', 2, `判越界：i=${index + 1} 满足 1 ≤ i ≤ length+1=${length + 1}，位置合法，继续插入`, { kind: 'array', values, active: [index], phase: 'check' }));
     for (let i = values.length - 1; i > index; i -= 1) {
       values[i] = values[i - 1];
-      out.push(step(`seq-shift-${i}`, 3, `将 a[${i - 1}] 后移到 a[${i}]`, { kind: 'array', values, active: [i - 1, i], moved: i, phase: 'shift' }));
+      out.push(step(`seq-shift-${i}`, 3, `将 a[${i - 1}] 后移到 a[${i}]（第 ${values.length - i}/${shifts} 个）`, { kind: 'array', values, active: [i - 1, i], moved: i, phase: 'shift' }));
     }
     values[index] = value;
-    out.push(step('seq-insert', 5, `写入 ${value}，插入完成`, { kind: 'array', values, active: [index], insertIndex: index, phase: 'done' }));
+    out.push(step('seq-insert', 5, `把 ${value} 写入 a[${index}]，length 增为 ${length + 1}，插入完成`, { kind: 'array', values, active: [index], insertIndex: index, phase: 'done' }));
     return out;
   }
 

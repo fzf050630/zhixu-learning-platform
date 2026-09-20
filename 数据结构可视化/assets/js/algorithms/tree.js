@@ -53,11 +53,21 @@
   }
   function unionFindDemo(items, operations) {
     const parent=Object.fromEntries(items.map(x=>[x,x]));
-    const find=x=>{while(parent[x]!==x)x=parent[x];return x;};
-    const state=()=>({kind:'tree',parents:{...parent},roots:Object.fromEntries(items.map(x=>[x,find(x)])),items:[...items]});
-    const steps=[snap('uf-start',1,'每个元素各自构成一个集合',state())];
-    operations.forEach(([a,b],i)=>{const ra=find(a),rb=find(b);steps.push(snap(`uf-find-${i}`,3,`查找 ${a} 与 ${b} 的根：${ra}、${rb}`,{...state(),active:[a,b]}));if(ra!==rb)parent[rb]=ra;steps.push(snap(`uf-union-${i}`,5,`将根 ${rb} 合并到根 ${ra}`,{...state(),active:[ra,rb]}));});
-    steps.push(snap('uf-done',7,'所有指定关系合并完成',{...state(),done:true}));return steps;
+    const rootOf=x=>{while(parent[x]!==x)x=parent[x];return x;};
+    const pathTo=x=>{const path=[];let y=x;while(parent[y]!==y){path.push(y);y=parent[y];}return{root:y,path};};
+    const state=(extra={})=>({kind:'tree',parents:{...parent},roots:Object.fromEntries(items.map(x=>[x,rootOf(x)])),items:[...items],...extra});
+    const steps=[snap('uf-start',1,'每个元素各自构成一个集合（parent[x]=x），Find 沿双亲链上溯到根',state())];
+    operations.forEach(([a,b],i)=>{
+      const pa=pathTo(a),pb=pathTo(b),ra=pa.root,rb=pb.root;
+      steps.push(snap(`uf-find-${i}`,3,`Find(${a}) 沿 ${[a,...pa.path.slice(1)].join(' → ')} 到根 ${ra}；Find(${b}) 沿 ${[b,...pb.path.slice(1)].join(' → ')} 到根 ${rb}`,state({active:[a,b]})));
+      const changed=[];
+      pa.path.forEach(n=>{if(parent[n]!==ra){parent[n]=ra;changed.push(n);}});
+      pb.path.forEach(n=>{if(parent[n]!==rb){parent[n]=rb;changed.push(n);}});
+      if(changed.length)steps.push(snap(`uf-compress-${i}`,6,`路径压缩：${changed.join('、')} 的双亲直接改为所在集合的根，链被压平成一层`,state({active:changed})));
+      if(ra!==rb){parent[rb]=ra;steps.push(snap(`uf-union-${i}`,5,`Union(${a}, ${b})：把根 ${rb} 挂到根 ${ra} 下，两个集合合并`,state({active:[ra,rb]})));}
+      else steps.push(snap(`uf-union-${i}`,5,`${a} 与 ${b} 已在同一集合（根 ${ra}），本次 Union 不改变结构`,state({active:[a,b]})));
+    });
+    steps.push(snap('uf-done',7,'所有关系处理完毕，parent 数组与各集合的根反映最终划分',state({done:true})));return steps;
   }
   return { sampleTree, traverse, levelOrder, huffman, unionFindDemo };
 });

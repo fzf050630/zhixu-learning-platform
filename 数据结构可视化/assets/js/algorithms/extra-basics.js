@@ -354,6 +354,28 @@
     return out;
   }
 
+  function heapInsertMany(heap, values) {
+    const a = heap.slice(), out = [], list = Array.isArray(values) ? values : [values];
+    const push = (line, message, extra = {}) => out.push(snap('heapins-' + out.length, line, message, { kind: 'array', values: a.slice(), heapEnd: a.length - 1, ...extra }));
+    push(1, `大根堆：${a.join(' ')}；依次插入 ${list.join(', ')}`);
+    list.forEach((value, k) => {
+      a.push(value);
+      push(2, `第 ${k + 1} 次插入：${value} 追加到下标 ${a.length - 1}（表尾），保持完全二叉树`, { active: [a.length - 1] });
+      let i = a.length - 1;
+      while (i > 0) {
+        const parent = (i - 1) >> 1;
+        push(5, `比较 a[${i}]=${a[i]} 与双亲 a[${parent}]=${a[parent]}`, { active: [i, parent] });
+        if (a[i] <= a[parent]) { push(5, `${a[i]} ≤ ${a[parent]}，已满足大根堆，本次插入无需上浮`, { active: [i, parent] }); break; }
+        [a[i], a[parent]] = [a[parent], a[i]];
+        push(6, `交换 ${a[parent]} 与 ${a[i]}：较大者上浮一层`, { active: [i, parent] });
+        i = parent;
+        push(7, i === 0 ? '已上浮到根结点，停止' : `i=${i}，继续与新的双亲比较`, { active: [i] });
+      }
+    });
+    push(9, `${list.length} 次连续插入完成，仍是大根堆：${a.join(' ')}`, { active: [], done: true });
+    return out;
+  }
+
   function radixSort(values) {
     if (values.some(value => !Number.isInteger(value) || value < 0 || value > 999)) throw new Error('基数排序要求 0–999 的整数');
     const a = values.slice(), out = [];
@@ -617,6 +639,7 @@
     bstSearch,
     bstDelete,
     heapInsert,
+    heapInsertMany,
     radixSort,
     countingSort,
     binaryInsertionSort,

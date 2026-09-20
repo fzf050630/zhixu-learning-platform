@@ -1039,9 +1039,9 @@
      ================================================================ */
   W.maxMin = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 320);
-    let n = 2, mode = 'uniform';
+    let n = 4, mode = 'uniform';
 
-    UI.slider(ctrl, { label: '个数 n', min: 1, max: 6, value: n, onInput: v => { n = v; draw(); } });
+    UI.slider(ctrl, { label: '个数 n', min: 1, max: 10, value: n, onInput: v => { n = v; draw(); } });
     UI.seg(ctrl, [
       { label: 'U(0,1)', value: 'uniform' },
       { label: 'E(1)', value: 'expo' }

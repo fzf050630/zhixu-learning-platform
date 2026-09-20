@@ -125,65 +125,117 @@
 
   /* ---------- 滑动窗口与可靠传输 ---------- */
   W.slidingWindow = function (host) {
-    const s = UI.shell(host, 300);
+    const s = UI.shell(host, 360);
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
-    const state = { proto: 'GBN', n: 4, err: 2, td: 1, ta: 0.5, tp: 0.5 };
+    const state = { proto: 'GBN', n: 6, err: 2, td: 1, tp: 0.5 };
     UI.seg(ctrl, [{ label: '停止等待', value: 'SW' }, { label: '后退N帧 GBN', value: 'GBN' }, { label: '选择重传 SR', value: 'SR' }], v => { state.proto = v; render(); }, 1);
-    UI.slider(ctrl, { label: '发送窗口 W', min: 1, max: 8, step: 1, value: 4, fmt: v => v, onInput: v => { state.n = v; render(); } });
-    UI.slider(ctrl, { label: '第几帧出错', min: 0, max: 7, step: 1, value: 2, fmt: v => v, onInput: v => { state.err = v; render(); } });
+    UI.slider(ctrl, { label: '发送窗口 W', min: 1, max: 12, step: 1, value: 6, fmt: v => v, onInput: v => { state.n = v; render(); } });
+    const errSlider = UI.slider(ctrl, { label: '第几帧出错', min: 0, max: 11, step: 1, value: 2, fmt: v => v, onInput: v => { state.err = v; render(); } });
+    const RTO = 4;   // 超时重传：发送后 4 个时隙仍未确认（正常 ACK 在 2 个时隙内返回）
+
+    /** 发送时间表：帧 i 需等前一帧发完，且窗口有空位（帧 i−W 的 ACK 已返回） */
+    function sendTimes(W, N) {
+      const t = [];
+      for (let i = 0; i < N; i++) {
+        let ti = i > 0 ? t[i - 1] + 1 : 0;
+        if (i - W >= 0) ti = Math.max(ti, t[i - W] + 2);
+        t.push(ti);
+      }
+      return t;
+    }
 
     function render() {
-      const T = D.Theme.cache;
+      const Th = D.Theme.cache;
+      const W = state.proto === 'SW' ? 1 : state.n;
+      const N = Math.max(W + 3, 12);                 // 帧数随窗口增长，保证出错帧上限 ≥ 11
+      errSlider.input.max = N - 1;
+      if (state.err > N - 1) { state.err = N - 1; errSlider.set(N - 1); }
+      const e = Math.min(state.err, N - 1);
+      const t = sendTimes(W, N);
+      const ev = [];                                  // { j 帧号, u 时隙, label, color, dim }
+      const push = (j, u, label, color, dim) => ev.push({ j, u, label, color, dim: !!dim });
+      for (let j = 0; j < N; j++) {
+        if (state.proto === 'SW' && j > e) break;     // 停止等待：出错后须等重传，后续帧尚未发送
+        const isErr = j === e;
+        push(j, t[j], '发', Th['--brand']);
+        if (isErr) push(j, t[j] + 1, '✗', Th['--red']);
+        else { push(j, t[j] + 1, '到', Th['--teal']); push(j, t[j] + 2, 'ACK', Th['--green']); }
+      }
+      if (state.proto === 'GBN') {
+        for (const d of ev) if (d.j > e) d.dim = true; // GBN：出错帧之后已发的帧被丢弃
+        const rStart = t[e] + RTO, rt = [];
+        for (let q = 0; q < N - e; q++) {
+          const j = e + q;
+          let u = q === 0 ? rStart : rt[q - 1] + 1;
+          if (j - W >= e) u = Math.max(u, rt[j - W - e] + 2);
+          rt.push(u);
+          push(j, u, '重发', Th['--purple']);
+          push(j, u + 1, '到', Th['--teal']);
+          push(j, u + 2, 'ACK', Th['--green']);
+        }
+      } else if (state.proto === 'SR') {
+        const rStart = t[e] + RTO;
+        push(e, rStart, '重发', Th['--purple']);
+        push(e, rStart + 1, '到', Th['--teal']);
+        push(e, rStart + 2, 'ACK', Th['--green']);
+      } else {
+        const rStart = t[e] + RTO;
+        for (let j = e; j < N; j++) {
+          const u = j === e ? rStart : rStart + 2 * (j - e);
+          push(j, u, '重发', Th['--purple']);
+          push(j, u + 1, '到', Th['--teal']);
+          push(j, u + 2, 'ACK', Th['--green']);
+        }
+      }
+      const Tmax = Math.max(...ev.map(d => d.u)) + 1;
       scene.clearLayers();
       scene.layer((p, ctx) => {
-        const n = state.proto === 'SW' ? 1 : state.n;
-        const total = Math.max(n + 3, 8);
-        const left = 90, w = p.w - left - 30, unit = w / total;
-        const yA = 60, yB = yA + 80;
-        const cu = unit;
-        // 时间向下，发送方/接收方两条竖线
-        G.box(ctx, left, 20, w, p.h - 50, { fill: 'transparent', stroke: T['--line'], radius: 8 });
-        G.label(ctx, left + w / 2, 34, `${state.proto === 'SW' ? '停止等待协议' : state.proto}　窗口 W=${n}　第 ${state.err} 帧出错`, { size: 11.5, weight: 700, color: T['--ink'] });
-        G.label(ctx, 60, yA, '发送方', { align: 'right', size: 11, color: T['--brand'] });
-        G.label(ctx, 60, yB, '接收方', { align: 'right', size: 11, color: T['--teal'] });
-        const maxT = total;
-        const timeY = t => 50 + (t / maxT) * (p.h - 90);
-        const frameX = i => left + (i % total) * cu + cu / 2;
-        // 简化时空图
-        const colors = [T['--brand'], T['--purple'], T['--accent'], T['--teal'], T['--green']];
-        let t = 0;
-        const events = [];
-        for (let i = 0; i < total; i++) {
-          events.push({ type: 'data', idx: i, t: t });
-          t += 1;
-          if (state.proto === 'SW') events.push({ type: 'ack', idx: i, t: t });
-          if (state.proto !== 'SW' && (i === state.err + (state.proto === 'GBN' ? 0 : 0))) {
-            // 标记出错帧不发送 ack
-          }
+        const top = 46, bottom = 48, left = 56, right = 16;
+        const rowH = (p.h - top - bottom) / N;
+        const cell = (p.w - left - right) / Tmax;
+        const tickStep = Math.max(1, Math.ceil(Tmax / 12));
+        ctx.save();
+        ctx.strokeStyle = D.withAlpha(Th['--line'], 0.7);
+        ctx.lineWidth = 1;
+        for (let u = 0; u <= Tmax; u += tickStep) {
+          const x = Math.round(left + u * cell) + 0.5;
+          ctx.beginPath(); ctx.moveTo(x, top - 6); ctx.lineTo(x, p.h - bottom + 4); ctx.stroke();
         }
-        events.forEach(ev => {
-          const y = timeY(ev.t);
-          if (ev.type === 'data') {
-            const x = frameX(ev.idx);
-            const isErr = ev.idx === state.err && state.proto !== 'SW';
-            const color = isErr ? T['--red'] : colors[ev.idx % colors.length];
-            G.arrow(ctx, [[x, y], [x, y + 22]], { color, width: 2 });
-            G.label(ctx, x + 12, y + 12, 'F' + ev.idx, { align: 'left', size: 9.5, color, mono: true });
-            if (isErr) G.label(ctx, x - 4, y + 12, '×', { align: 'right', size: 14, weight: 800, color: T['--red'] });
-          } else {
-            const x = frameX(ev.idx);
-            G.arrow(ctx, [[x, y + 20], [x, y]], { color: T['--teal'], width: 1.6 });
-            G.label(ctx, x - 10, y + 10, 'ACK' + ev.idx, { align: 'right', size: 9, color: T['--teal'], mono: true });
-          }
-        });
-        // 窗口与公式
-        const util = state.proto === 'SW' ? (state.td / (state.td + 2 * state.tp)) : (n * state.td / (state.td + 2 * state.tp));
-        G.box(ctx, 16, p.h - 34, p.w - 32, 24, { fill: D.withAlpha(T['--green'], 0.08), stroke: D.withAlpha(T['--green'], 0.45), radius: 6 });
-        G.label(ctx, 28, p.h - 22, `信道利用率 ≈ ${(Math.min(1, util) * 100).toFixed(1)}%　（W×Td /(Td+2Tp)）　GBN 出错后重传后续所有帧，SR 只重传出错帧`, { align: 'left', size: 10.5, color: T['--green'] });
+        ctx.restore();
+        for (let u = 0; u < Tmax; u += tickStep) {
+          G.label(ctx, left + u * cell + cell / 2, top - 16, 't' + u, { size: 9, color: Th['--ink-3'], mono: true });
+        }
+        G.label(ctx, 10, top - 16, '帧号', { align: 'left', size: 9.5, color: Th['--ink-3'] });
+        G.label(ctx, left, 20, `${state.proto === 'SW' ? '停止等待协议' : state.proto}　发送窗口 W=${W}　共 ${N} 帧　第 ${e} 帧出错（超时 ${RTO} 个时隙后重传）`, { align: 'left', size: 11.5, weight: 700, color: Th['--ink'] });
+        for (let j = 0; j < N; j++) {
+          G.label(ctx, left - 8, top + j * rowH + rowH / 2, 'F' + j, { align: 'right', size: 9.5, weight: 700, color: Th['--ink-2'], mono: true });
+        }
+        for (const d of ev) {
+          const y = top + d.j * rowH;
+          const x = left + d.u * cell;
+          const bw = Math.max(6, cell - 3), bh = Math.min(rowH - 3, 20);
+          ctx.save();
+          if (d.dim) ctx.globalAlpha = 0.28;
+          G.box(ctx, x + 1, y + (rowH - bh) / 2, bw, bh, { fill: D.withAlpha(d.color, 0.18), stroke: D.withAlpha(d.color, 0.7), radius: 4 });
+          if (bw > 15) G.label(ctx, x + 1 + bw / 2, y + rowH / 2, d.label, { size: Math.min(9, bh * 0.72, bw * 0.42), weight: 700, color: d.color, mono: d.label === 'ACK' });
+          ctx.restore();
+        }
+        const util = state.proto === 'SW' ? (state.td / (state.td + 2 * state.tp)) : Math.min(1, W * state.td / (state.td + 2 * state.tp));
+        const tail = state.proto === 'GBN' ? 'GBN：出错帧及其后已发帧全部重发（紫色，淡色为被丢弃的帧）'
+          : state.proto === 'SR' ? 'SR：只重发出错帧（紫色），其余帧正常确认'
+            : '停止等待：每发一帧等一个 ACK，出错帧超时后重发，其后各帧顺延';
+        G.box(ctx, 16, p.h - 36, p.w - 32, 26, { fill: D.withAlpha(Th['--green'], 0.08), stroke: D.withAlpha(Th['--green'], 0.45), radius: 6 });
+        G.label(ctx, 28, p.h - 23, `${tail}　·　信道利用率 ≈ ${(util * 100).toFixed(1)}%（U = min(1, W×Td/(Td+2Tp))）`, { align: 'left', size: 10.5, color: Th['--green'] });
       });
       scene.render();
-      UI.readout(out, [['协议', state.proto === 'SW' ? '停止等待' : state.proto], ['窗口', String(state.proto === 'SW' ? 1 : state.n)], ['出错帧', String(state.err)]]);
+      UI.readout(out, [
+        ['协议', state.proto === 'SW' ? '停止等待' : state.proto],
+        ['窗口', String(W)],
+        ['帧数', String(N)],
+        ['出错帧', String(e)],
+        ['重传', state.proto === 'GBN' ? '出错帧及其后 ' + (N - e) + ' 帧' : state.proto === 'SR' ? '仅出错帧' : '出错帧后顺延']
+      ]);
     }
     render();
     return s;
@@ -204,7 +256,7 @@
     ];
     let i = 0;
     let backoff = 2;
-    UI.transport(ctrl, { total: steps.length, onChange: k => { i = k; backoff = Math.pow(2, Math.min(k, 4)); render(); } });
+    UI.transport(ctrl, { total: steps.length, onChange: k => { i = k; backoff = Math.pow(2, Math.min(k, 10)); render(); } });
 
     function render() {
       scene.clearLayers();
@@ -349,7 +401,8 @@
       const enc = build(data, state.parity);
       const { n, k, total } = enc;
       const bits = enc.bits;
-      flip.input.max = total;
+      flip.input.min = 0;
+      flip.input.max = total;   // 随码长动态：0=不翻转，1~total 覆盖全部校验位与数据位
       if (state.flip > total) { state.flip = total; flip.set(total); }
       const e = Math.min(state.flip, total);
       const word = bits.slice();
@@ -416,6 +469,7 @@
       scene.render();
       UI.readout(out, [
         ['校验位 k', String(k)],
+        ['码字长度', total + ' 位（0 不翻转，1~' + total + ' 覆盖校验位与数据位）'],
         ['发送码字', sent],
         ['接收码字', recv],
         ['错误位置', errPos ? '第 ' + errPos + ' 位' : '无'],
