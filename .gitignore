@@ -3,6 +3,9 @@ node_modules/
 dist/
 releases/
 
+# 后端本地数据（SQLite）
+server/data/
+
 # 本地备份、测试产物与临时工作目录
 backups/
 test-results/
@@ -17,8 +20,14 @@ _work/
 # 环境与密钥
 .env
 .env.*
+!.env.example
 *.key
 *.pem
+
+# 会话导出／对话记录（可能含密钥，不随仓库分发）
+aaaa.json
+*-session.json
+session-*.json
 
 # 站点专属部署脚本与记录（不随公开仓库分发）
 deploy/publish-recaord.sh

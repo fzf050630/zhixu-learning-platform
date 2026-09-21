@@ -6,10 +6,15 @@
   "scripts": {
     "catalog": "node scripts/catalog.cjs",
     "build": "node scripts/build.cjs",
-    "dev": "node scripts/build.cjs && node scripts/serve.cjs",
+    "dev": "node scripts/build.cjs && node --disable-warning=ExperimentalWarning server/index.cjs",
+    "dev:static": "node scripts/build.cjs && node scripts/serve.cjs",
+    "server": "node --disable-warning=ExperimentalWarning server/index.cjs",
+    "jev:probe": "node --disable-warning=ExperimentalWarning scripts/jev-probe.cjs",
+    "deploy": "node scripts/deploy.cjs",
     "preview": "node scripts/serve.cjs",
     "audit": "node scripts/audit-content.cjs",
     "test": "node --test tests/platform.test.cjs",
+    "test:server": "node --disable-warning=ExperimentalWarning --test tests/server/*.test.cjs",
     "test:browser": "node 数据结构可视化/node_modules/@playwright/test/cli.js test --config playwright.config.cjs"
   },
   "engines": { "node": ">=20" }

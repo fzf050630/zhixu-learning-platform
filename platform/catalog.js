@@ -50,378 +50,432 @@ window.Zhixu.catalog = {
       "title": "顺序表插入",
       "chapter": "线性表",
       "hash": "#/lab/sequence-insert",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "单链表逆置",
       "chapter": "线性表",
       "hash": "#/lab/linked-reverse",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "顺序表就地逆置",
       "chapter": "线性表",
       "hash": "#/lab/sequence-reverse",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "顺序表删除最小元素",
       "chapter": "线性表",
       "hash": "#/lab/sequence-delete-min",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "头插法建立单链表",
       "chapter": "线性表",
       "hash": "#/lab/linked-head-insert",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "合并两个有序单链表",
       "chapter": "线性表",
       "hash": "#/lab/linked-merge",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "约瑟夫环",
       "chapter": "线性表",
       "hash": "#/lab/josephus",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "栈：入栈与出栈",
       "chapter": "栈与队列",
       "hash": "#/lab/stack-demo",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "循环队列",
       "chapter": "栈与队列",
       "hash": "#/lab/circular-queue",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "共享栈",
       "chapter": "栈与队列",
       "hash": "#/lab/shared-stack",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "双端队列",
       "chapter": "栈与队列",
       "hash": "#/lab/deque",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "二叉树先序遍历",
       "chapter": "树",
       "hash": "#/lab/preorder",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "二叉树中序遍历",
       "chapter": "树",
       "hash": "#/lab/inorder",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "二叉树后序遍历",
       "chapter": "树",
       "hash": "#/lab/postorder",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "二叉树层序遍历",
       "chapter": "树",
       "hash": "#/lab/level-order",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "哈夫曼树构造",
       "chapter": "树",
       "hash": "#/lab/huffman",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "并查集",
       "chapter": "树",
       "hash": "#/lab/union-find",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "中序线索二叉树",
       "chapter": "树",
       "hash": "#/lab/threaded-tree",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "图的广度优先搜索",
       "chapter": "图",
       "hash": "#/lab/bfs",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "图的深度优先搜索",
       "chapter": "图",
       "hash": "#/lab/dfs",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "Prim 最小生成树",
       "chapter": "图",
       "hash": "#/lab/prim",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "Kruskal 最小生成树",
       "chapter": "图",
       "hash": "#/lab/kruskal",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "Dijkstra 最短路径",
       "chapter": "图",
       "hash": "#/lab/dijkstra",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "Floyd 最短路径",
       "chapter": "图",
       "hash": "#/lab/floyd",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "拓扑排序",
       "chapter": "图",
       "hash": "#/lab/topological",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "关键路径",
       "chapter": "图",
       "hash": "#/lab/critical-path",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "Bellman–Ford 最短路径",
       "chapter": "图",
       "hash": "#/lab/bellman-ford",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "邻接矩阵与邻接表转换",
       "chapter": "图",
       "hash": "#/lab/graph-representations",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "十字链表",
       "chapter": "图",
       "hash": "#/lab/graph-cross",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "折半查找",
       "chapter": "查找",
       "hash": "#/lab/binary-search",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "BST 插入",
       "chapter": "查找",
       "hash": "#/lab/bst-insert",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "AVL 四类旋转",
       "chapter": "查找",
       "hash": "#/lab/avl-rotations",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "散列表冲突处理",
       "chapter": "查找",
       "hash": "#/lab/hash-chaining",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "KMP 字符串匹配",
       "chapter": "查找",
       "hash": "#/lab/kmp",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "二叉排序树查找",
       "chapter": "查找",
       "hash": "#/lab/bst-search",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "二叉排序树删除",
       "chapter": "查找",
       "hash": "#/lab/bst-delete",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "线性探测法散列表",
       "chapter": "查找",
       "hash": "#/lab/hash-linear",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "双散列探测",
       "chapter": "查找",
       "hash": "#/lab/hash-double",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "KMP 改进 nextval",
       "chapter": "查找",
       "hash": "#/lab/kmp-nextval",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "BF 朴素模式匹配",
       "chapter": "查找",
       "hash": "#/lab/bf-match",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "红黑树插入与查找",
       "chapter": "查找",
       "hash": "#/lab/red-black-tree",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "B 树插入与查找",
       "chapter": "查找",
       "hash": "#/lab/b-tree",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "B+ 树插入与查找",
       "chapter": "查找",
       "hash": "#/lab/b-plus-tree",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "快速排序",
       "chapter": "排序",
       "hash": "#/lab/quick-sort",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "堆排序",
       "chapter": "排序",
       "hash": "#/lab/heap-sort",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "直接插入排序",
       "chapter": "排序",
       "hash": "#/lab/insertion-sort",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "归并排序",
       "chapter": "排序",
       "hash": "#/lab/merge-sort",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "冒泡排序",
       "chapter": "排序",
       "hash": "#/lab/bubble-sort",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "简单选择排序",
       "chapter": "排序",
       "hash": "#/lab/selection-sort",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "希尔排序",
       "chapter": "排序",
       "hash": "#/lab/shell-sort",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "大根堆插入与上调",
       "chapter": "排序",
       "hash": "#/lab/heap-insert",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "基数排序",
       "chapter": "排序",
       "hash": "#/lab/radix-sort",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "计数排序",
       "chapter": "排序",
       "hash": "#/lab/counting-sort",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "data-structures",
       "title": "折半插入排序",
       "chapter": "排序",
       "hash": "#/lab/binary-insert-sort",
-      "kind": "算法实验"
+      "kind": "算法实验",
+      "viz": 1
     },
     {
       "subject": "probability",
@@ -429,7 +483,8 @@ window.Zhixu.catalog = {
       "chapter": "随机事件和概率",
       "number": "1.1",
       "hash": "#ch1-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -437,7 +492,8 @@ window.Zhixu.catalog = {
       "chapter": "随机事件和概率",
       "number": "1.2",
       "hash": "#ch1-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 3
     },
     {
       "subject": "probability",
@@ -445,7 +501,8 @@ window.Zhixu.catalog = {
       "chapter": "随机事件和概率",
       "number": "1.3",
       "hash": "#ch1-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -453,7 +510,8 @@ window.Zhixu.catalog = {
       "chapter": "随机事件和概率",
       "number": "1.4",
       "hash": "#ch1-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -461,7 +519,8 @@ window.Zhixu.catalog = {
       "chapter": "随机事件和概率",
       "number": "1.5",
       "hash": "#ch1-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -469,7 +528,8 @@ window.Zhixu.catalog = {
       "chapter": "随机事件和概率",
       "number": "1.6",
       "hash": "#ch1-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -477,7 +537,8 @@ window.Zhixu.catalog = {
       "chapter": "随机事件和概率",
       "number": "1.7",
       "hash": "#ch1-s7",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 3
     },
     {
       "subject": "probability",
@@ -485,7 +546,8 @@ window.Zhixu.catalog = {
       "chapter": "随机事件和概率",
       "number": "1.8",
       "hash": "#ch1-s8",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -493,7 +555,8 @@ window.Zhixu.catalog = {
       "chapter": "随机事件和概率",
       "number": "1.9",
       "hash": "#ch1-s9",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -501,7 +564,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量及其分布",
       "number": "2.1",
       "hash": "#ch2-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 3
     },
     {
       "subject": "probability",
@@ -509,7 +573,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量及其分布",
       "number": "2.2",
       "hash": "#ch2-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -517,7 +582,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量及其分布",
       "number": "2.3",
       "hash": "#ch2-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 6
     },
     {
       "subject": "probability",
@@ -525,7 +591,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量及其分布",
       "number": "2.4",
       "hash": "#ch2-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -533,7 +600,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量及其分布",
       "number": "2.5",
       "hash": "#ch2-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 5
     },
     {
       "subject": "probability",
@@ -541,7 +609,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量及其分布",
       "number": "2.6",
       "hash": "#ch2-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 3
     },
     {
       "subject": "probability",
@@ -549,7 +618,8 @@ window.Zhixu.catalog = {
       "chapter": "多维随机变量及其分布",
       "number": "3.1",
       "hash": "#ch3-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -557,7 +627,8 @@ window.Zhixu.catalog = {
       "chapter": "多维随机变量及其分布",
       "number": "3.2",
       "hash": "#ch3-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -565,7 +636,8 @@ window.Zhixu.catalog = {
       "chapter": "多维随机变量及其分布",
       "number": "3.3",
       "hash": "#ch3-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -573,7 +645,8 @@ window.Zhixu.catalog = {
       "chapter": "多维随机变量及其分布",
       "number": "3.4",
       "hash": "#ch3-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -581,7 +654,8 @@ window.Zhixu.catalog = {
       "chapter": "多维随机变量及其分布",
       "number": "3.5",
       "hash": "#ch3-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 3
     },
     {
       "subject": "probability",
@@ -589,7 +663,8 @@ window.Zhixu.catalog = {
       "chapter": "多维随机变量及其分布",
       "number": "3.6",
       "hash": "#ch3-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 3
     },
     {
       "subject": "probability",
@@ -597,7 +672,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量的数字特征",
       "number": "4.1",
       "hash": "#ch4-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -605,7 +681,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量的数字特征",
       "number": "4.2",
       "hash": "#ch4-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 3
     },
     {
       "subject": "probability",
@@ -613,7 +690,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量的数字特征",
       "number": "4.3",
       "hash": "#ch4-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -621,7 +699,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量的数字特征",
       "number": "4.4",
       "hash": "#ch4-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -629,7 +708,8 @@ window.Zhixu.catalog = {
       "chapter": "随机变量的数字特征",
       "number": "4.5",
       "hash": "#ch4-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -637,7 +717,8 @@ window.Zhixu.catalog = {
       "chapter": "大数定律和中心极限定理",
       "number": "5.1",
       "hash": "#ch5-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "probability",
@@ -645,7 +726,8 @@ window.Zhixu.catalog = {
       "chapter": "大数定律和中心极限定理",
       "number": "5.2",
       "hash": "#ch5-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -653,7 +735,8 @@ window.Zhixu.catalog = {
       "chapter": "大数定律和中心极限定理",
       "number": "5.3",
       "hash": "#ch5-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -661,7 +744,8 @@ window.Zhixu.catalog = {
       "chapter": "大数定律和中心极限定理",
       "number": "5.4",
       "hash": "#ch5-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -669,7 +753,8 @@ window.Zhixu.catalog = {
       "chapter": "数理统计的基本概念",
       "number": "6.1",
       "hash": "#ch6-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "probability",
@@ -677,7 +762,8 @@ window.Zhixu.catalog = {
       "chapter": "数理统计的基本概念",
       "number": "6.2",
       "hash": "#ch6-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "probability",
@@ -685,7 +771,8 @@ window.Zhixu.catalog = {
       "chapter": "数理统计的基本概念",
       "number": "6.3",
       "hash": "#ch6-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 4
     },
     {
       "subject": "probability",
@@ -693,7 +780,8 @@ window.Zhixu.catalog = {
       "chapter": "数理统计的基本概念",
       "number": "6.4",
       "hash": "#ch6-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "probability",
@@ -701,7 +789,8 @@ window.Zhixu.catalog = {
       "chapter": "数理统计的基本概念",
       "number": "6.5",
       "hash": "#ch6-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "probability",
@@ -709,7 +798,8 @@ window.Zhixu.catalog = {
       "chapter": "参数估计",
       "number": "7.1",
       "hash": "#ch7-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "probability",
@@ -717,7 +807,8 @@ window.Zhixu.catalog = {
       "chapter": "参数估计",
       "number": "7.2",
       "hash": "#ch7-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -725,7 +816,8 @@ window.Zhixu.catalog = {
       "chapter": "参数估计",
       "number": "7.3",
       "hash": "#ch7-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "probability",
@@ -733,7 +825,8 @@ window.Zhixu.catalog = {
       "chapter": "参数估计",
       "number": "7.4",
       "hash": "#ch7-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "probability",
@@ -741,7 +834,8 @@ window.Zhixu.catalog = {
       "chapter": "参数估计",
       "number": "7.5",
       "hash": "#ch7-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "probability",
@@ -749,7 +843,8 @@ window.Zhixu.catalog = {
       "chapter": "假设检验",
       "number": "8.1",
       "hash": "#ch8-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -757,7 +852,8 @@ window.Zhixu.catalog = {
       "chapter": "假设检验",
       "number": "8.2",
       "hash": "#ch8-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -765,7 +861,8 @@ window.Zhixu.catalog = {
       "chapter": "假设检验",
       "number": "8.3",
       "hash": "#ch8-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "probability",
@@ -773,7 +870,8 @@ window.Zhixu.catalog = {
       "chapter": "假设检验",
       "number": "8.4",
       "hash": "#ch8-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -781,7 +879,8 @@ window.Zhixu.catalog = {
       "chapter": "计算机系统概述",
       "number": "1.1",
       "hash": "#ch1-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -789,7 +888,8 @@ window.Zhixu.catalog = {
       "chapter": "计算机系统概述",
       "number": "1.2",
       "hash": "#ch1-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -797,7 +897,8 @@ window.Zhixu.catalog = {
       "chapter": "计算机系统概述",
       "number": "1.3",
       "hash": "#ch1-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -805,7 +906,8 @@ window.Zhixu.catalog = {
       "chapter": "计算机系统概述",
       "number": "1.4",
       "hash": "#ch1-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-organization",
@@ -813,7 +915,8 @@ window.Zhixu.catalog = {
       "chapter": "数据的表示和运算",
       "number": "2.1",
       "hash": "#ch2-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -821,7 +924,8 @@ window.Zhixu.catalog = {
       "chapter": "数据的表示和运算",
       "number": "2.2",
       "hash": "#ch2-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -829,7 +933,8 @@ window.Zhixu.catalog = {
       "chapter": "数据的表示和运算",
       "number": "2.3",
       "hash": "#ch2-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-organization",
@@ -837,7 +942,8 @@ window.Zhixu.catalog = {
       "chapter": "数据的表示和运算",
       "number": "2.4",
       "hash": "#ch2-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -845,7 +951,8 @@ window.Zhixu.catalog = {
       "chapter": "数据的表示和运算",
       "number": "2.5",
       "hash": "#ch2-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -853,7 +960,8 @@ window.Zhixu.catalog = {
       "chapter": "数据的表示和运算",
       "number": "2.6",
       "hash": "#ch2-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-organization",
@@ -861,7 +969,8 @@ window.Zhixu.catalog = {
       "chapter": "存储系统",
       "number": "3.1",
       "hash": "#ch3-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -869,7 +978,8 @@ window.Zhixu.catalog = {
       "chapter": "存储系统",
       "number": "3.2",
       "hash": "#ch3-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -877,7 +987,8 @@ window.Zhixu.catalog = {
       "chapter": "存储系统",
       "number": "3.3",
       "hash": "#ch3-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -885,7 +996,8 @@ window.Zhixu.catalog = {
       "chapter": "存储系统",
       "number": "3.4",
       "hash": "#ch3-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -893,7 +1005,8 @@ window.Zhixu.catalog = {
       "chapter": "存储系统",
       "number": "3.5",
       "hash": "#ch3-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -901,7 +1014,8 @@ window.Zhixu.catalog = {
       "chapter": "存储系统",
       "number": "3.6",
       "hash": "#ch3-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -909,7 +1023,8 @@ window.Zhixu.catalog = {
       "chapter": "存储系统",
       "number": "3.7",
       "hash": "#ch3-s7",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -917,7 +1032,8 @@ window.Zhixu.catalog = {
       "chapter": "存储系统",
       "number": "3.8",
       "hash": "#ch3-s8",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -925,7 +1041,8 @@ window.Zhixu.catalog = {
       "chapter": "指令系统",
       "number": "4.1",
       "hash": "#ch4-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -933,7 +1050,8 @@ window.Zhixu.catalog = {
       "chapter": "指令系统",
       "number": "4.2",
       "hash": "#ch4-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -941,7 +1059,8 @@ window.Zhixu.catalog = {
       "chapter": "指令系统",
       "number": "4.3",
       "hash": "#ch4-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -949,7 +1068,8 @@ window.Zhixu.catalog = {
       "chapter": "指令系统",
       "number": "4.4",
       "hash": "#ch4-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -957,7 +1077,8 @@ window.Zhixu.catalog = {
       "chapter": "指令系统",
       "number": "4.5",
       "hash": "#ch4-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 0
     },
     {
       "subject": "computer-organization",
@@ -965,7 +1086,8 @@ window.Zhixu.catalog = {
       "chapter": "中央处理器",
       "number": "5.1",
       "hash": "#ch5-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -973,7 +1095,8 @@ window.Zhixu.catalog = {
       "chapter": "中央处理器",
       "number": "5.2",
       "hash": "#ch5-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -981,7 +1104,8 @@ window.Zhixu.catalog = {
       "chapter": "中央处理器",
       "number": "5.3",
       "hash": "#ch5-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -989,7 +1113,8 @@ window.Zhixu.catalog = {
       "chapter": "中央处理器",
       "number": "5.4",
       "hash": "#ch5-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -997,7 +1122,8 @@ window.Zhixu.catalog = {
       "chapter": "中央处理器",
       "number": "5.5",
       "hash": "#ch5-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -1005,7 +1131,8 @@ window.Zhixu.catalog = {
       "chapter": "中央处理器",
       "number": "5.6",
       "hash": "#ch5-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -1013,7 +1140,8 @@ window.Zhixu.catalog = {
       "chapter": "中央处理器",
       "number": "5.7",
       "hash": "#ch5-s7",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -1021,7 +1149,8 @@ window.Zhixu.catalog = {
       "chapter": "中央处理器",
       "number": "5.8",
       "hash": "#ch5-s8",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -1029,7 +1158,8 @@ window.Zhixu.catalog = {
       "chapter": "总线",
       "number": "6.1",
       "hash": "#ch6-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -1037,7 +1167,8 @@ window.Zhixu.catalog = {
       "chapter": "总线",
       "number": "6.2",
       "hash": "#ch6-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -1045,7 +1176,8 @@ window.Zhixu.catalog = {
       "chapter": "总线",
       "number": "6.3",
       "hash": "#ch6-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -1053,7 +1185,8 @@ window.Zhixu.catalog = {
       "chapter": "输入/输出系统",
       "number": "7.1",
       "hash": "#ch7-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -1061,7 +1194,8 @@ window.Zhixu.catalog = {
       "chapter": "输入/输出系统",
       "number": "7.2",
       "hash": "#ch7-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-organization",
@@ -1069,7 +1203,8 @@ window.Zhixu.catalog = {
       "chapter": "输入/输出系统",
       "number": "7.3",
       "hash": "#ch7-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 3
     },
     {
       "subject": "computer-organization",
@@ -1077,7 +1212,8 @@ window.Zhixu.catalog = {
       "chapter": "输入/输出系统",
       "number": "7.4",
       "hash": "#ch7-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-organization",
@@ -1085,7 +1221,8 @@ window.Zhixu.catalog = {
       "chapter": "输入/输出系统",
       "number": "7.5",
       "hash": "#ch7-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "operating-systems",
@@ -1093,7 +1230,8 @@ window.Zhixu.catalog = {
       "chapter": "计算机系统概述",
       "number": "1.1",
       "hash": "#ch1-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "operating-systems",
@@ -1101,7 +1239,8 @@ window.Zhixu.catalog = {
       "chapter": "计算机系统概述",
       "number": "1.2",
       "hash": "#ch1-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "operating-systems",
@@ -1109,7 +1248,8 @@ window.Zhixu.catalog = {
       "chapter": "计算机系统概述",
       "number": "1.3",
       "hash": "#ch1-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "operating-systems",
@@ -1117,7 +1257,8 @@ window.Zhixu.catalog = {
       "chapter": "计算机系统概述",
       "number": "1.4",
       "hash": "#ch1-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "operating-systems",
@@ -1125,7 +1266,8 @@ window.Zhixu.catalog = {
       "chapter": "进程与处理机调度",
       "number": "2.1",
       "hash": "#ch2-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "operating-systems",
@@ -1133,7 +1275,8 @@ window.Zhixu.catalog = {
       "chapter": "进程与处理机调度",
       "number": "2.2",
       "hash": "#ch2-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "operating-systems",
@@ -1141,7 +1284,8 @@ window.Zhixu.catalog = {
       "chapter": "进程与处理机调度",
       "number": "2.3",
       "hash": "#ch2-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "operating-systems",
@@ -1149,7 +1293,8 @@ window.Zhixu.catalog = {
       "chapter": "进程与处理机调度",
       "number": "2.4",
       "hash": "#ch2-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "operating-systems",
@@ -1157,7 +1302,8 @@ window.Zhixu.catalog = {
       "chapter": "内存管理",
       "number": "3.1",
       "hash": "#ch3-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 3
     },
     {
       "subject": "operating-systems",
@@ -1165,7 +1311,8 @@ window.Zhixu.catalog = {
       "chapter": "内存管理",
       "number": "3.2",
       "hash": "#ch3-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "operating-systems",
@@ -1173,7 +1320,8 @@ window.Zhixu.catalog = {
       "chapter": "文件管理",
       "number": "4.1",
       "hash": "#ch4-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "operating-systems",
@@ -1181,7 +1329,8 @@ window.Zhixu.catalog = {
       "chapter": "文件管理",
       "number": "4.2",
       "hash": "#ch4-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "operating-systems",
@@ -1189,7 +1338,8 @@ window.Zhixu.catalog = {
       "chapter": "文件管理",
       "number": "4.3",
       "hash": "#ch4-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "operating-systems",
@@ -1197,7 +1347,8 @@ window.Zhixu.catalog = {
       "chapter": "输入/输出管理",
       "number": "5.1",
       "hash": "#ch5-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "operating-systems",
@@ -1205,7 +1356,8 @@ window.Zhixu.catalog = {
       "chapter": "输入/输出管理",
       "number": "5.2",
       "hash": "#ch5-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "operating-systems",
@@ -1213,7 +1365,8 @@ window.Zhixu.catalog = {
       "chapter": "输入/输出管理",
       "number": "5.3",
       "hash": "#ch5-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1221,7 +1374,8 @@ window.Zhixu.catalog = {
       "chapter": "计算机网络体系结构",
       "number": "1.1",
       "hash": "#ch1-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-networks",
@@ -1229,7 +1383,8 @@ window.Zhixu.catalog = {
       "chapter": "计算机网络体系结构",
       "number": "1.2",
       "hash": "#ch1-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-networks",
@@ -1237,7 +1392,8 @@ window.Zhixu.catalog = {
       "chapter": "物理层",
       "number": "2.1",
       "hash": "#ch2-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1245,7 +1401,8 @@ window.Zhixu.catalog = {
       "chapter": "物理层",
       "number": "2.2",
       "hash": "#ch2-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1253,7 +1410,8 @@ window.Zhixu.catalog = {
       "chapter": "数据链路层",
       "number": "3.1",
       "hash": "#ch3-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1261,7 +1419,8 @@ window.Zhixu.catalog = {
       "chapter": "数据链路层",
       "number": "3.2",
       "hash": "#ch3-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-networks",
@@ -1269,7 +1428,8 @@ window.Zhixu.catalog = {
       "chapter": "数据链路层",
       "number": "3.3",
       "hash": "#ch3-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-networks",
@@ -1277,7 +1437,8 @@ window.Zhixu.catalog = {
       "chapter": "数据链路层",
       "number": "3.4",
       "hash": "#ch3-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-networks",
@@ -1285,7 +1446,8 @@ window.Zhixu.catalog = {
       "chapter": "数据链路层",
       "number": "3.5",
       "hash": "#ch3-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1293,7 +1455,8 @@ window.Zhixu.catalog = {
       "chapter": "网络层",
       "number": "4.1",
       "hash": "#ch4-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-networks",
@@ -1301,7 +1464,8 @@ window.Zhixu.catalog = {
       "chapter": "网络层",
       "number": "4.2",
       "hash": "#ch4-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-networks",
@@ -1309,7 +1473,8 @@ window.Zhixu.catalog = {
       "chapter": "网络层",
       "number": "4.3",
       "hash": "#ch4-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-networks",
@@ -1317,7 +1482,8 @@ window.Zhixu.catalog = {
       "chapter": "网络层",
       "number": "4.4",
       "hash": "#ch4-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1325,7 +1491,8 @@ window.Zhixu.catalog = {
       "chapter": "网络层",
       "number": "4.5",
       "hash": "#ch4-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1333,7 +1500,8 @@ window.Zhixu.catalog = {
       "chapter": "传输层",
       "number": "5.1",
       "hash": "#ch5-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1341,7 +1509,8 @@ window.Zhixu.catalog = {
       "chapter": "传输层",
       "number": "5.2",
       "hash": "#ch5-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1349,7 +1518,8 @@ window.Zhixu.catalog = {
       "chapter": "传输层",
       "number": "5.3",
       "hash": "#ch5-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1357,7 +1527,8 @@ window.Zhixu.catalog = {
       "chapter": "传输层",
       "number": "5.4",
       "hash": "#ch5-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "computer-networks",
@@ -1365,7 +1536,8 @@ window.Zhixu.catalog = {
       "chapter": "应用层",
       "number": "6.1",
       "hash": "#ch6-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1373,7 +1545,8 @@ window.Zhixu.catalog = {
       "chapter": "应用层",
       "number": "6.2",
       "hash": "#ch6-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "computer-networks",
@@ -1381,7 +1554,8 @@ window.Zhixu.catalog = {
       "chapter": "应用层",
       "number": "6.3",
       "hash": "#ch6-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1389,7 +1563,8 @@ window.Zhixu.catalog = {
       "chapter": "函数、极限、连续",
       "number": "1.1",
       "hash": "#ch1-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1397,7 +1572,8 @@ window.Zhixu.catalog = {
       "chapter": "函数、极限、连续",
       "number": "1.2",
       "hash": "#ch1-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1405,7 +1581,8 @@ window.Zhixu.catalog = {
       "chapter": "函数、极限、连续",
       "number": "1.3",
       "hash": "#ch1-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1413,7 +1590,8 @@ window.Zhixu.catalog = {
       "chapter": "函数、极限、连续",
       "number": "1.4",
       "hash": "#ch1-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "calculus",
@@ -1421,7 +1599,8 @@ window.Zhixu.catalog = {
       "chapter": "函数、极限、连续",
       "number": "1.5",
       "hash": "#ch1-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1429,7 +1608,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数微分学",
       "number": "2.1",
       "hash": "#ch2-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1437,7 +1617,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数微分学",
       "number": "2.2",
       "hash": "#ch2-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1445,7 +1626,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数微分学",
       "number": "2.3",
       "hash": "#ch2-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1453,7 +1635,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数微分学",
       "number": "2.4",
       "hash": "#ch2-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1461,7 +1644,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数微分学",
       "number": "2.5",
       "hash": "#ch2-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1469,7 +1653,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数微分学",
       "number": "2.6",
       "hash": "#ch2-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1477,7 +1662,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数微分学",
       "number": "2.7",
       "hash": "#ch2-s7",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1485,7 +1671,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数积分学",
       "number": "3.1",
       "hash": "#ch3-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1493,7 +1680,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数积分学",
       "number": "3.2",
       "hash": "#ch3-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1501,7 +1689,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数积分学",
       "number": "3.3",
       "hash": "#ch3-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1509,7 +1698,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数积分学",
       "number": "3.4",
       "hash": "#ch3-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1517,7 +1707,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数积分学",
       "number": "3.5",
       "hash": "#ch3-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1525,7 +1716,8 @@ window.Zhixu.catalog = {
       "chapter": "一元函数积分学",
       "number": "3.6",
       "hash": "#ch3-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1533,7 +1725,8 @@ window.Zhixu.catalog = {
       "chapter": "向量代数和空间解析几何",
       "number": "4.1",
       "hash": "#ch4-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1541,7 +1734,8 @@ window.Zhixu.catalog = {
       "chapter": "向量代数和空间解析几何",
       "number": "4.2",
       "hash": "#ch4-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1549,7 +1743,8 @@ window.Zhixu.catalog = {
       "chapter": "向量代数和空间解析几何",
       "number": "4.3",
       "hash": "#ch4-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1557,7 +1752,8 @@ window.Zhixu.catalog = {
       "chapter": "向量代数和空间解析几何",
       "number": "4.4",
       "hash": "#ch4-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1565,7 +1761,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数微分学",
       "number": "5.1",
       "hash": "#ch5-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1573,7 +1770,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数微分学",
       "number": "5.2",
       "hash": "#ch5-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1581,7 +1779,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数微分学",
       "number": "5.3",
       "hash": "#ch5-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1589,7 +1788,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数微分学",
       "number": "5.4",
       "hash": "#ch5-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1597,7 +1797,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数微分学",
       "number": "5.5",
       "hash": "#ch5-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1605,7 +1806,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数微分学",
       "number": "5.6",
       "hash": "#ch5-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1613,7 +1815,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数积分学",
       "number": "6.1",
       "hash": "#ch6-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "calculus",
@@ -1621,7 +1824,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数积分学",
       "number": "6.2",
       "hash": "#ch6-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1629,7 +1833,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数积分学",
       "number": "6.3",
       "hash": "#ch6-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1637,7 +1842,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数积分学",
       "number": "6.4",
       "hash": "#ch6-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1645,7 +1851,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数积分学",
       "number": "6.5",
       "hash": "#ch6-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1653,7 +1860,8 @@ window.Zhixu.catalog = {
       "chapter": "多元函数积分学",
       "number": "6.6",
       "hash": "#ch6-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1661,7 +1869,8 @@ window.Zhixu.catalog = {
       "chapter": "无穷级数",
       "number": "7.1",
       "hash": "#ch7-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1669,7 +1878,8 @@ window.Zhixu.catalog = {
       "chapter": "无穷级数",
       "number": "7.2",
       "hash": "#ch7-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1677,7 +1887,8 @@ window.Zhixu.catalog = {
       "chapter": "无穷级数",
       "number": "7.3",
       "hash": "#ch7-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1685,7 +1896,8 @@ window.Zhixu.catalog = {
       "chapter": "无穷级数",
       "number": "7.4",
       "hash": "#ch7-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1693,7 +1905,8 @@ window.Zhixu.catalog = {
       "chapter": "无穷级数",
       "number": "7.5",
       "hash": "#ch7-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1701,7 +1914,8 @@ window.Zhixu.catalog = {
       "chapter": "无穷级数",
       "number": "7.6",
       "hash": "#ch7-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1709,7 +1923,8 @@ window.Zhixu.catalog = {
       "chapter": "常微分方程",
       "number": "8.1",
       "hash": "#ch8-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1717,7 +1932,8 @@ window.Zhixu.catalog = {
       "chapter": "常微分方程",
       "number": "8.2",
       "hash": "#ch8-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1725,7 +1941,8 @@ window.Zhixu.catalog = {
       "chapter": "常微分方程",
       "number": "8.3",
       "hash": "#ch8-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1733,7 +1950,8 @@ window.Zhixu.catalog = {
       "chapter": "常微分方程",
       "number": "8.4",
       "hash": "#ch8-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1741,7 +1959,8 @@ window.Zhixu.catalog = {
       "chapter": "常微分方程",
       "number": "8.5",
       "hash": "#ch8-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "calculus",
@@ -1749,7 +1968,8 @@ window.Zhixu.catalog = {
       "chapter": "常微分方程",
       "number": "8.6",
       "hash": "#ch8-s6",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1757,7 +1977,8 @@ window.Zhixu.catalog = {
       "chapter": "行列式",
       "number": "1.1",
       "hash": "#ch1-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 3
     },
     {
       "subject": "linear-algebra",
@@ -1765,7 +1986,8 @@ window.Zhixu.catalog = {
       "chapter": "行列式",
       "number": "1.2",
       "hash": "#ch1-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "linear-algebra",
@@ -1773,7 +1995,8 @@ window.Zhixu.catalog = {
       "chapter": "矩阵",
       "number": "2.1",
       "hash": "#ch2-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "linear-algebra",
@@ -1781,7 +2004,8 @@ window.Zhixu.catalog = {
       "chapter": "矩阵",
       "number": "2.2",
       "hash": "#ch2-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "linear-algebra",
@@ -1789,7 +2013,8 @@ window.Zhixu.catalog = {
       "chapter": "矩阵",
       "number": "2.3",
       "hash": "#ch2-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1797,7 +2022,8 @@ window.Zhixu.catalog = {
       "chapter": "矩阵",
       "number": "2.4",
       "hash": "#ch2-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1805,7 +2031,8 @@ window.Zhixu.catalog = {
       "chapter": "向量",
       "number": "3.1",
       "hash": "#ch3-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1813,7 +2040,8 @@ window.Zhixu.catalog = {
       "chapter": "向量",
       "number": "3.2",
       "hash": "#ch3-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1821,7 +2049,8 @@ window.Zhixu.catalog = {
       "chapter": "向量",
       "number": "3.3",
       "hash": "#ch3-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1829,7 +2058,8 @@ window.Zhixu.catalog = {
       "chapter": "向量",
       "number": "3.4",
       "hash": "#ch3-s4",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1837,7 +2067,8 @@ window.Zhixu.catalog = {
       "chapter": "向量",
       "number": "3.5",
       "hash": "#ch3-s5",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1845,7 +2076,8 @@ window.Zhixu.catalog = {
       "chapter": "线性方程组",
       "number": "4.1",
       "hash": "#ch4-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1853,7 +2085,8 @@ window.Zhixu.catalog = {
       "chapter": "线性方程组",
       "number": "4.2",
       "hash": "#ch4-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "linear-algebra",
@@ -1861,7 +2094,8 @@ window.Zhixu.catalog = {
       "chapter": "线性方程组",
       "number": "4.3",
       "hash": "#ch4-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "linear-algebra",
@@ -1869,7 +2103,8 @@ window.Zhixu.catalog = {
       "chapter": "矩阵的特征值和特征向量",
       "number": "5.1",
       "hash": "#ch5-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "linear-algebra",
@@ -1877,7 +2112,8 @@ window.Zhixu.catalog = {
       "chapter": "矩阵的特征值和特征向量",
       "number": "5.2",
       "hash": "#ch5-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1885,7 +2121,8 @@ window.Zhixu.catalog = {
       "chapter": "矩阵的特征值和特征向量",
       "number": "5.3",
       "hash": "#ch5-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1893,7 +2130,8 @@ window.Zhixu.catalog = {
       "chapter": "二次型",
       "number": "6.1",
       "hash": "#ch6-s1",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     },
     {
       "subject": "linear-algebra",
@@ -1901,7 +2139,8 @@ window.Zhixu.catalog = {
       "chapter": "二次型",
       "number": "6.2",
       "hash": "#ch6-s2",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 1
     },
     {
       "subject": "linear-algebra",
@@ -1909,7 +2148,8 @@ window.Zhixu.catalog = {
       "chapter": "二次型",
       "number": "6.3",
       "hash": "#ch6-s3",
-      "kind": "知识小节"
+      "kind": "知识小节",
+      "viz": 2
     }
   ]
 };

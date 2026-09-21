@@ -2,7 +2,9 @@
 
 ## 交付边界
 
-网站运行时为静态文件，无需数据库或 Node 服务。Node 仅用于从源码构建。发布压缩包内已经包含构建后的 `dist/`，服务器可以直接使用。
+网站运行时为静态文件，学习功能无需数据库或 Node 服务。Node 仅用于从源码构建。发布压缩包内已经包含构建后的 `dist/`，服务器可以直接使用。
+
+若需要「知识掌握度」功能，再额外部署 `server/` 后端（见文末「方式三」）。后端不可用时前端自动降级，不影响静态站点。
 
 当前已经验证发布产物的根路径和子路径访问，以及 Compose 配置解析。本机 Docker Linux 引擎未运行，容器构建/启动未验证，也尚未连接用户服务器部署。
 
@@ -97,6 +99,107 @@ PORT=8080
 ```
 
 重跑 `docker compose up -d --build`，然后访问 `http://服务器IP:8080/`。服务器防火墙与云安全组需允许所选端口。端口冲突时更改 `PORT`。
+
+## 方式三：启用掌握度后端（可选）
+
+掌握度后端位于 `server/`，零第三方依赖，需要 **Node.js 22+**（使用内置 `node:sqlite`，当前为实验特性，启动脚本已加 `--disable-warning=ExperimentalWarning`）。它同时提供 `/api` 接口与 `dist/` 静态站点。
+
+```bash
+# 在项目根目录
+npm run build
+ZHIXU_PORT=8787 npm run server
+```
+
+默认监听 `127.0.0.1:8787`，数据库文件写入 `server/data/zhixu.db`（已在 `.gitignore` 中排除）。
+
+### 环境变量
+
+| 变量 | 默认值 | 说明 |
+| --- | --- | --- |
+| `ZHIXU_PORT` | `8787` | 监听端口 |
+| `ZHIXU_HOST` | `127.0.0.1` | 监听地址 |
+| `ZHIXU_DB` | `server/data/zhixu.db` | SQLite 文件路径 |
+| `ZHIXU_STATIC` | `dist` | 静态站点目录 |
+| `ZHIXU_EVAL_MIN_INTERVAL_MS` | `30000` | 同一用户+节点两次评估的最小间隔 |
+| `ZHIXU_JEV_ENABLED` | `false` | 是否调用 TypeSafe（Jev） |
+| `TYPESAFE_API_KEY` | 空 | TypeSafe API Key，**只能放服务器端** |
+| `TYPESAFE_BASE_URL` | `https://api.typesafe.ai/v1` | TypeSafe 接口地址 |
+| `TYPESAFE_MODEL` | `jev-latest` | 模型名 |
+
+### 与静态站点配合
+
+推荐保持静态站点由 Nginx 提供，只把 `/api` 反向代理到后端，这样前端无需任何额外配置（`platform/mastery.js` 默认请求站点根下的 `api/`）：
+
+```nginx
+location /api/ {
+    proxy_pass http://127.0.0.1:8787;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+```
+
+如果后端与前端不同源，可在页面加载 `platform/mastery.js` 之前设置 `window.ZHIXU_API_BASE = 'https://api.example.com'`。
+
+### 接口
+
+| 方法 | 路径 | 说明 |
+| --- | --- | --- |
+| `POST` | `/api/learning/events` | 记录学习行为（支持单条或 `{ events: [...] }` 批量） |
+| `GET` | `/api/learning/events?nodeId=` | 查询学习事件 |
+| `GET` | `/api/knowledge/:nodeId/mastery` | 获取节点掌握状态（不触发 Jev） |
+| `POST` | `/internal/mastery/evaluate/:nodeId` | 触发一次评估（受节流保护） |
+| `GET` | `/api/learning/reviews` | 待复习计划 |
+| `GET` | `/api/learning/overview` | 用户掌握度概览 |
+| `GET` | `/api/learning/heatmap` | 学科 / 章节加权掌握度热力图 |
+| `GET` | `/healthz` | 健康检查 |
+
+用户标识通过请求头 `X-Zhixu-User`（或请求体 `userId`）传入，为浏览器 `localStorage` 生成的匿名随机 ID。Jev 故障或未配置时自动使用规则引擎兜底，学习流程不受影响。
+
+### 配置 Jev（TypeSafe）
+
+后端会读取项目根目录的 `.env`（已在 `.gitignore` 中，不会提交）。复制 `.env.example` 为 `.env` 并填写：
+
+```dotenv
+ZHIXU_JEV_ENABLED=true
+TYPESAFE_API_KEY=你的Key
+TYPESAFE_BASE_URL=https://api.typesafe.ai/v1
+TYPESAFE_MODEL=jev-latest
+```
+
+用一次真实请求验证连通性与返回结构（不会打印 Key）：
+
+```bash
+npm run jev:probe
+```
+
+Key 只存在服务器端，前端 `platform/mastery.js` 永远接触不到。评估结果会同时保存 `ruleScore`、`jevScore` 与 `finalScore`，并记录每次调用的置信度、延迟与 token 用量。
+
+## 一键部署到现有服务器（recaord.top）
+
+本仓库已配置好到 `120.46.207.156`（SSH 别名 `my-server`）的部署流程。本地运行：
+
+```bash
+npm run deploy        # 构建 → 打包 → 上传 → 远程部署（自动备份）
+```
+
+- 密钥从本地 `.env` 的 `TYPESAFE_API_KEY` 读取，**不会写入仓库**；远程脚本模板为 `deploy/zhixu-remote.sh`。
+- 可用 `ZHIXU_DEPLOY_HOST=别的别名 npm run deploy` 部署到其它主机。
+
+服务器布局：
+
+| 项目 | 路径 |
+| --- | --- |
+| 前端静态站 | `/www/wwwroot/recaord.top/math-modeling` |
+| 后端 | `/www/wwwroot/zhixu-backend`（`.env`、`server/`、节点注册表） |
+| 数据库 | `/www/wwwroot/zhixu-backend/server/data/zhixu.db`（跨部署保留） |
+| systemd 服务 | `zhixu-backend.service`（`systemctl status/restart zhixu-backend`） |
+| nginx 代理 | `…/extension/120.46.207.156/zhixu-api.conf`（`/math-modeling/api/` → `127.0.0.1:8787/api/`） |
+| 备份 | `/www/backups/recaord/zhixu-<时间戳>/` |
+
+后端要求 Node 22+（`node:sqlite`）。服务器已安装于 `/usr/local/lib/node22`，`/usr/local/bin/node` 指向它。
+
+> 轮换 Key：修改 `/www/wwwroot/zhixu-backend/.env` 的 `TYPESAFE_API_KEY` 后执行 `systemctl restart zhixu-backend`。
 
 ## 更新与回退
 

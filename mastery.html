@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="知序 · 知识掌握度热力图：查看每个学科、章节与小节的掌握程度">
+  <title>掌握度热力图 · 知序</title>
+  <link rel="icon" href="platform/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="platform/tokens.css">
+  <link rel="stylesheet" href="platform/components.css">
+  <link rel="stylesheet" href="platform/mastery-page.css">
+  <script src="platform/subjects.js"></script>
+  <script src="platform/theme.js"></script>
+</head>
+<body>
+  <main class="mp-main">
+    <section class="mp-hero">
+      <p class="mp-eyebrow">Knowledge Mastery</p>
+      <h1>掌握度热力图</h1>
+      <p class="mp-copy">把 408 与考研数学的每个学科、章节、小节放在同一张图上：<br>哪里已经掌握，哪里还薄弱，一目了然。</p>
+      <div class="mp-actions">
+        <a class="mp-btn" href="index.html">← 返回平台总览</a>
+        <button class="mp-btn" type="button" id="mpRefresh">刷新数据</button>
+        <span class="mp-status" id="mpStatus"></span>
+      </div>
+    </section>
+
+    <div class="mp-banner" id="mpBanner" hidden></div>
+
+    <section class="mp-overall" id="mpOverall" hidden></section>
+
+    <section class="mp-block">
+      <div class="mp-block-head"><h2>学科与章节</h2><span class="mp-muted">父节点按节点权重加权，而非简单平均</span></div>
+      <div class="mp-legend" id="mpLegend"></div>
+      <div class="mp-subjects" id="mpSubjects"></div>
+    </section>
+
+    <section class="mp-block" id="mpReviewBlock" hidden>
+      <div class="mp-block-head"><h2>待复习</h2><span class="mp-muted">按计划时间排序</span></div>
+      <div class="mp-reviews" id="mpReviews"></div>
+    </section>
+
+    <section class="mp-block">
+      <div class="mp-block-head"><h2>逐小节掌握度</h2><span class="mp-muted">共 <b id="mpNodeTotal">0</b> 个小节</span></div>
+      <div class="mp-sections" id="mpSections"></div>
+    </section>
+  </main>
+  <script src="platform/catalog.js"></script>
+  <script src="platform/navigation.js"></script>
+  <script src="platform/mastery-page.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # 知序 · 408 与考研数学交互学习平台
 
-一个**纯静态、可离线**的交互学习平台：把 408 四科与考研数学的抽象知识拆成可播放、可拖动、可验证的图形与动画。无需账号、数据库与后端服务，构建产物即完整站点。
+一个**纯静态、可离线**的交互学习平台：把 408 四科与考研数学的抽象知识拆成可播放、可拖动、可验证的图形与动画。构建产物即完整站点，无需账号、数据库与后端服务即可学习；「知识掌握度」为可选后端能力，未部署时前端自动静默降级。
 
 **在线体验：** <https://recaord.top/math-modeling/>
 
@@ -33,10 +33,13 @@
 需要 Node.js 20 或更新版本（仅用于构建与本地预览，运行站点不需要 Node）：
 
 ```bash
-npm run dev
+npm run dev          # 构建 dist 并启动带掌握度后端的开发服务器
+npm run dev:static   # 仅静态站点（无后端）
 ```
 
-浏览器访问 <http://127.0.0.1:8766/>。修改源码后重新运行 `npm run build` 并刷新即可；也可以直接双击根目录 `index.html`，完整目录在一起时支持离线使用。
+浏览器访问 <http://127.0.0.1:8787/>（`dev:static` 为 <http://127.0.0.1:8766/>）。修改源码后重新运行 `npm run build` 并刷新即可；也可以直接双击根目录 `index.html`，完整目录在一起时支持离线使用。
+
+**Windows 一键启动**：双击根目录的 `启动知序.cmd`，会自动构建（首次）、启动后端并打开浏览器。
 
 ## 构建与部署
 
@@ -60,14 +63,27 @@ npm run preview   # 本地 HTTP 预览 dist/
 
 ```text
 index.html                        统一门户（七科入口、搜索、最近访问）
+mastery.html                      掌握度热力图页面（逐小节掌握度）
+启动知序.cmd                       Windows 一键启动（构建 + 后端 + 打开浏览器）
 platform/                         共享层：主题、导航、门户脚本与样式
+  mastery.js                      学习行为采集（掌握度前端）
+  mastery-ui.js / .css            掌握度徽标、状态卡片与目录标注
+  quiz.js / .css                  自测答题运行时
+  questions/<subject>.js          分科目自测题库（原创“真题风格”题）
+  questions/<subject>.q5.js       题库补足文件（每节 5 题）
+  heatmap.js / .css               门户知识热力图
+  mastery-page.js / .css          掌握度热力图页面脚本与样式
 scripts/                          catalog / build / audit / serve / 校验脚本
+server/                           掌握度后端（node:http + node:sqlite）
+  services/                       指标、规则掌握度、Jev、评估、复习调度
+  repositories/                   LearningEvent / 知识状态 / 评估 / 复习计划
+  db/schema.sql                   SQLite 表结构
 subjects 目录（七个）              各科内容与可视化组件源码
   content/ch*.js                  章节内容（含算法板块与例题）
   assets/js/widgets/*.js          Canvas 交互组件
   assets/js/lib/draw.js           轻量绘图引擎（HiDPI / 主题联动 / 自适应）
   assets/css/main.css             科目样式
-tests/                            平台单元测试与浏览器测试
+tests/                            平台单元测试、后端测试与浏览器测试
 docs/                             部署、扩展与验收文档
 ```
 
@@ -77,6 +93,7 @@ docs/                             部署、扩展与验收文档
 
 ```bash
 npm test                      # 平台结构与发布白名单测试
+npm run test:server           # 掌握度后端单元与接口测试
 npm run audit                 # 七科内容结构审查（锚点、例题、易错点、组件引用）
 npm run test:browser          # 门户与子路径浏览器测试（Playwright + 本机 Chrome）
 npm --prefix 数据结构可视化 test           # 数据结构算法单元测试
@@ -93,9 +110,33 @@ npm --prefix 数据结构可视化 run test:browser  # 含全部 54 个实验自
 - **字体**：正文首选 MiSans（回退思源黑体 / 苹方 / 微软雅黑），代码与数字使用 JetBrains Mono；全部随站点本地加载。
 - **构建白名单**：发布脚本只复制运行所需文件，教材 PDF、备份、测试与开发文档不会进入 `dist/`。
 
+## 知识掌握度（可选后端）
+
+`server/` 提供一套零第三方依赖的掌握度后端（Node 22 内置 `http` + `node:sqlite`）：
+
+- **数据层**：学习行为记录为 `LearningEvent`，逐用户逐知识节点维护 `UserKnowledgeState`，并保留每次评估历史与复习计划。
+- **确定性计算**：正确率、近期正确率、连续正确、提示率、学习/复习次数、距上次学习时间等指标由后端程序计算。
+- **规则掌握度**：`RuleScore` 按正确率 / 近期表现 / 独立性 / 稳定性 / 完成度 / 效率加权；时间衰减与复习紧迫度据此推导。
+- **Jev（TypeSafe）**：可选接入，API Key 只存在服务器端；未配置或调用失败时自动回退规则引擎，不影响学习流程。
+
+```bash
+npm run server      # 启动后端（默认 127.0.0.1:8787，同时提供 dist 静态站点与 /api）
+npm run dev         # 构建 dist 后启动后端
+```
+
+前端 `platform/mastery.js` 采集 `NODE_OPEN`、`CONTENT_READ`、`VISUALIZATION_OPEN`、`EXPERIMENT_START/COMPLETE`、`HINT_OPEN`、`ANSWER_VIEW` 等事件并批量上报；页面为 `file://` 或后端不可用时自动停用上报。接口与配置见 [部署说明](docs/DEPLOYMENT.md)。
+
+`platform/mastery-ui.js` 在平台头部显示当前节点的掌握度徽标（如「掌握度 76% · 熟练掌握」），点开为状态卡片：掌握度进度条、稳定度、复习紧迫度、当前薄弱点、下一步建议与复习时间；知识目录中的节点会标注掌握百分比。后端不可用时整体隐藏，不打扰学习。
+
+`platform/questions/` + `quiz.js` 提供节点自测：有题目的节点在状态卡片里出现「开始自测」，答题过程产生 `QUESTION_START / HINT_OPEN / ANSWER_VIEW / QUESTION_SUBMIT / QUIZ_COMPLETE` 事件，直接驱动掌握度。题库按科目分文件（`platform/questions/<subject>.js` 为基础题、`<subject>.q5.js` 为补足题），**覆盖全部 46 章、240 个知识小节，每节 5 题，共 1200 道原创「真题风格」题**；新增题目只需往对应文件追加，`npm test` 会校验节点 ID、答案合法性、题干长度，以及「每节恰好 5 题」。
+
+门户首页新增「学习状态」热力图：按学科与章节展示加权掌握度（父节点按节点权重加权，而非简单平均），无数据时自动隐藏。
+
+独立页面 `mastery.html`（掌握度热力图）汇总全部内容：综合掌握度、学科/章节加权热力、待复习计划，以及**全部 240 个小节的逐节掌握度**（未评估显示「未评估」）。平台头部各页均可进入。科目页面左下角的状态会显示「在线 / 离线」，反映后端是否连接。
+
 ## 数据与隐私
 
-站点没有账号、数据库、埋点或网络请求。主题、最近访问与掌握标记保存在浏览器 `localStorage` 中，清理站点数据即清空，不跨设备同步。
+未部署后端时，站点没有账号、数据库、埋点或网络请求，主题、最近访问与掌握标记保存在浏览器 `localStorage` 中。启用掌握度后端后，只上报匿名设备标识（`localStorage` 生成的随机 ID）与学习行为，不采集真实姓名、邮箱、手机号等身份信息。
 
 ## 开源协议
 

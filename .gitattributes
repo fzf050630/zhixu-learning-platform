@@ -1,4 +1,6 @@
 * text=auto
+# Windows 批处理必须保持 CRLF（LF 会让 if 块静默退出）
+*.cmd text eol=crlf
 *.png binary
 *.jpg binary
 *.jpeg binary

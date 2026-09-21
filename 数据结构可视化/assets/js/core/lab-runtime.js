@@ -80,6 +80,16 @@
     let detach = [];
     let highlighted = -1;
     let layout = {};
+    let completed = false;
+
+    // 掌握度系统：把实验生命周期广播为 DOM 事件，由 platform/mastery.js 采集。
+    // 采集失败绝不能影响实验本身。
+    function announce(type, detail) {
+      try {
+        if (!document || typeof document.dispatchEvent !== 'function' || !window || typeof window.CustomEvent !== 'function') return;
+        document.dispatchEvent(new window.CustomEvent(type, { detail }));
+      } catch (_) { /* ignore */ }
+    }
     const controls = [
       elements.prev,
       elements.next,
@@ -103,6 +113,7 @@
       current = null;
       layout = {};
       highlighted = -1;
+      completed = false;
       if (elements.stateTables) dependencies.StateTable.clear(elements.stateTables);
       controls.forEach((control) => {
         control.disabled = true;
@@ -185,6 +196,10 @@
             : "播放";
         elements.play.setAttribute("aria-pressed", String(player.isPlaying()));
       });
+      if (total > 1 && index === total - 1 && !completed) {
+        completed = true;
+        announce("zhixu:experiment-complete", { experimentId: current && current.id });
+      }
     }
 
     function mount(experiment, options = {}) {
@@ -230,8 +245,14 @@
         if (elements.layoutControls && dependencies.GraphLayout && experiment.visualizer === 'graph' && steps[0].state.graph) {
           detach.push(dependencies.GraphLayout.attach(elements.canvas, elements.layoutControls, steps[0].state.graph, layout, () => player?.pause(), redraw));
         }
-        const toggle = () =>
-          player.isPlaying() ? player.pause() : player.play();
+        const toggle = () => {
+          if (player.isPlaying()) {
+            player.pause();
+          } else {
+            announce("zhixu:experiment-start", { experimentId: current && current.id });
+            player.play();
+          }
+        };
         listen(elements.prev, "click", () => guard(() => player.prev()));
         listen(elements.next, "click", () => guard(() => player.next()));
         listen(elements.reset, "click", () => guard(() => player.reset()));

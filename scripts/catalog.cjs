@@ -29,24 +29,24 @@ function createCatalog() {
   const netChapters = Array.from({ length: 6 }, (_, index) => networks['CH' + (index + 1)]).filter(Boolean);
   const calcChapters = Array.from({ length: 8 }, (_, index) => calculus['CH' + (index + 1)]).filter(Boolean);
   const laChapters = Array.from({ length: 6 }, (_, index) => algebra['CH' + (index + 1)]).filter(Boolean);
-  const entries = ds.experiments.map(item => ({ subject: 'data-structures', title: item.title, chapter: ds.chapters.find(ch => ch.id === item.chapter).title, hash: '#/lab/' + item.id, kind: '算法实验' }));
+  const entries = ds.experiments.map(item => ({ subject: 'data-structures', title: item.title, chapter: ds.chapters.find(ch => ch.id === item.chapter).title, hash: '#/lab/' + item.id, kind: '算法实验', viz: 1 }));
   for (const chapter of chapters) {
-    for (const section of chapter.sections) entries.push({ subject: 'probability', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节' });
+    for (const section of chapter.sections) entries.push({ subject: 'probability', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节', viz: section.blocks.filter(block => block.t === 'viz').length });
   }
   for (const chapter of orgChapters) {
-    for (const section of chapter.sections) entries.push({ subject: 'computer-organization', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节' });
+    for (const section of chapter.sections) entries.push({ subject: 'computer-organization', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节', viz: section.blocks.filter(block => block.t === 'viz').length });
   }
   for (const chapter of osChapters) {
-    for (const section of chapter.sections) entries.push({ subject: 'operating-systems', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节' });
+    for (const section of chapter.sections) entries.push({ subject: 'operating-systems', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节', viz: section.blocks.filter(block => block.t === 'viz').length });
   }
   for (const chapter of netChapters) {
-    for (const section of chapter.sections) entries.push({ subject: 'computer-networks', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节' });
+    for (const section of chapter.sections) entries.push({ subject: 'computer-networks', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节', viz: section.blocks.filter(block => block.t === 'viz').length });
   }
   for (const chapter of calcChapters) {
-    for (const section of chapter.sections) entries.push({ subject: 'calculus', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节' });
+    for (const section of chapter.sections) entries.push({ subject: 'calculus', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节', viz: section.blocks.filter(block => block.t === 'viz').length });
   }
   for (const chapter of laChapters) {
-    for (const section of chapter.sections) entries.push({ subject: 'linear-algebra', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节' });
+    for (const section of chapter.sections) entries.push({ subject: 'linear-algebra', title: section.title, chapter: chapter.title, number: section.num, hash: '#' + section.id, kind: '知识小节', viz: section.blocks.filter(block => block.t === 'viz').length });
   }
   const stat = chs => ({ chapters: chs.length, items: chs.reduce((sum, ch) => sum + ch.sections.length, 0), visualizations: chs.reduce((sum, ch) => sum + ch.sections.reduce((count, sec) => count + sec.blocks.filter(block => block.t === 'viz').length, 0), 0), unit: '知识小节' });
   return {

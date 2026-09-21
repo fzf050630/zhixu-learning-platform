@@ -1,0 +1,50 @@
+/* 知序 · 知识热力图 */
+.zx-heatmap-overall {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--zx-line, #e3e7ee);
+  border-radius: 14px;
+  background: var(--zx-surface, #fff);
+  margin-bottom: 14px;
+}
+.zx-heatmap-overall strong { font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums; }
+.zx-heatmap-overall .zx-heatmap-meta { font-size: 12px; color: var(--zx-muted, #697587); }
+
+.zx-heatmap-subjects { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.zx-heatmap-subjects > li {
+  border: 1px solid var(--zx-line, #e3e7ee);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: var(--zx-surface, #fff);
+}
+.zx-heatmap-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.zx-heatmap-head span { font-size: 13px; }
+.zx-heatmap-head b { font-size: 16px; font-variant-numeric: tabular-nums; }
+.zx-heatmap-head b[data-level="MASTERED"] { color: #1f7a4d; }
+.zx-heatmap-head b[data-level="PROFICIENT"] { color: #267567; }
+.zx-heatmap-head b[data-level="BASIC"] { color: #a06a12; }
+.zx-heatmap-head b[data-level="EMERGING"] { color: #b45309; }
+.zx-heatmap-head b[data-level="NOT_MASTERED"] { color: #b91c1c; }
+.zx-heatmap-head b[data-level="NONE"] { color: var(--zx-muted, #697587); }
+
+.zx-heatmap-bar { height: 7px; border-radius: 999px; background: var(--zx-line, #e3e7ee); margin: 9px 0; overflow: hidden; }
+.zx-heatmap-bar i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--zx-brand, #405cce), var(--zx-green, #267567)); }
+
+.zx-heatmap-chapters { display: flex; flex-wrap: wrap; gap: 6px; }
+.zx-heatmap-chip {
+  font-size: 11.5px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--zx-line, #e3e7ee);
+  color: var(--zx-muted, #697587);
+  font-variant-numeric: tabular-nums;
+}
+.zx-heatmap-chip[data-level="MASTERED"] { background: rgba(31, 122, 77, .12); color: #1f7a4d; }
+.zx-heatmap-chip[data-level="PROFICIENT"] { background: rgba(38, 117, 103, .12); color: #267567; }
+.zx-heatmap-chip[data-level="BASIC"] { background: rgba(160, 106, 18, .12); color: #a06a12; }
+.zx-heatmap-chip[data-level="EMERGING"] { background: rgba(180, 83, 9, .12); color: #b45309; }
+.zx-heatmap-chip[data-level="NOT_MASTERED"] { background: rgba(185, 28, 28, .12); color: #b91c1c; }
+
+.zx-heatmap-empty { font-size: 13px; color: var(--zx-muted, #697587); }
