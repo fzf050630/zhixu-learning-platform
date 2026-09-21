@@ -238,13 +238,13 @@
   ]);
 
   add('data-structures:lab/avl-rotations', [
-    { id: 'ds-avl-3', type: 'single', stem: 'AVL 树中结点的平衡因子定义为？', options: { A: '左子树高度减右子树高度', B: '右子树高度减左子树高度', C: '结点总数', D: '左右孩子数之差' }, answer: 'A', explanation: '平衡因子 = 左子树高度 − 右子树高度，AVL 要求其绝对值不超过 1。' },
-    { id: 'ds-avl-4', type: 'judge', stem: 'AVL 树插入后需要沿插入路径回溯，对第一个失衡的祖先结点进行旋转。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: '插入只可能使路径上某祖先失衡，找到最低失衡结点旋转即可恢复平衡。' },
-    { id: 'ds-avl-5', type: 'single', stem: '当失衡结点的左孩子右重（平衡因子为 −1）时，应执行？', options: { A: 'LR 旋转（先左后右）', B: 'LL 旋转', C: 'RR 旋转', D: 'RL 旋转' }, answer: 'A', explanation: '左孩子右重属于 LR 型，先对左孩子左旋、再对失衡结点右旋。' },
+    { id: 'ds-avl-1', type: 'single', stem: '在 AVL 树中删除一个同时有左右孩子的结点，按二叉排序树规则应如何操作后再回溯调平衡？', options: { A: '用中序后继（右子树最小结点）替换其关键字，再删除那个后继替身', B: '直接把该结点连同两棵子树一起删除', C: '把左子树整体挂到右子树最左端，无需删除关键字', D: '只删除该结点的关键字，孩子的指针保持不动' }, answer: 'A', explanation: '用中序后继替换后，问题转化为删除至多只有一个孩子的替身结点，随后从替身原位置沿路径回溯更新高度并旋转。', hint: '中序后继是右子树中最小的结点，它至多只有一个右孩子。' },
+    { id: 'ds-avl-2', type: 'single', stem: '在 AVL 树中删除结点时，若被删除的结点只有一个孩子，正确的处理是？', options: { A: '用这个唯一孩子直接顶替被删结点的位置，再从顶替处向上回溯修复平衡', B: '必须先做一次单旋再删除该结点', C: '把该结点的孩子也一并删除', D: '只能改用中序后继替换后才能删除' }, answer: 'A', explanation: '至多一个孩子时用孩子顶替即可保持二叉排序树性质；与删除双孩子结点一样，之后要沿回溯路径更新高度与平衡因子，必要时旋转。' },
+    { id: 'ds-avl-3', type: 'single', stem: '在 AVL 树中删除一个关键字的回溯过程中，对经过的每个结点应如何更新状态？', options: { A: '用孩子的新高度重新计算本结点高度与平衡因子，再判断是否旋转', B: '只更新平衡因子，高度最后统一计算一次即可', C: '先旋转，再看是否需要更新高度', D: '高度与平衡因子都不需更新，只需重新排序' }, answer: 'A', explanation: '自底向上回溯时，孩子的高度可能已因旋转而改变，因此每个结点都要重新计算高度与平衡因子，据此决定是否旋转，才能让祖先得到正确的高度信息。' },
   ]);
 
   add('data-structures:lab/red-black-tree', [
-    { id: 'ds-rb-2', type: 'single', stem: '红黑树维持近似平衡所依赖的操作是？', options: { A: '变色与旋转', B: '排序', C: '哈希', D: '分治' }, answer: 'A', explanation: '插入删除后通过重新着色和旋转恢复红黑性质，保持 O(log n) 高度。' },
+    { id: 'ds-rb-2', type: 'single', stem: '在红黑树中删除一个黑结点（其位置由孩子或后继顶替）后，为什么需要修复？', options: { A: '该位置的黑高比其兄弟少 1，破坏了从根到叶黑结点数相同这一性质', B: '破坏了根结点必须为空这一性质', C: '破坏了所有叶结点都是红结点这一性质', D: '不需要修复，红黑树允许黑高不同' }, answer: 'A', explanation: '删掉黑结点会让该路径上的黑结点数少 1，形成“双黑”亏空，必须通过变色与旋转把亏空向上传递或消解，否则黑高不再相等。', hint: '把“少了一个黑结点”理解为该位置的额外一重黑色。' },
     { id: 'ds-rb-3', type: 'judge', stem: '红黑树中从根到叶的最长路径长度不超过最短路径的两倍。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: '黑高相同且红结点不相邻，保证最长路径 ≤ 2×最短路径。' },
     { id: 'ds-rb-4', type: 'single', stem: '红黑树插入新结点时通常先着为哪种颜色？', options: { A: '红色', B: '黑色', C: '随机', D: '与父结点相同' }, answer: 'A', explanation: '着红只可能违反“红结点孩子为黑”，修复代价较小；着黑会破坏黑高。' },
     { id: 'ds-rb-5', type: 'judge', stem: '红黑树是一种自平衡二叉查找树，查找、插入、删除都是 O(log n)。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: '红黑树高度为 O(log n)，三种操作均为 O(log n)。' },
@@ -286,25 +286,25 @@
   ]);
 
   add('data-structures:lab/bf-match', [
-    { id: 'ds-bf-1', type: 'single', stem: 'BF（朴素）模式匹配最坏情况下的时间复杂度是？', options: { A: 'O(n·m)', B: 'O(n+m)', C: 'O(n log m)', D: 'O(1)' }, answer: 'A', explanation: '最坏时每趟都在最后一个字符失配，共约 n·m 次比较。' },
-    { id: 'ds-bf-2', type: 'judge', stem: 'BF 算法失配时，主串指针回退到本次匹配起点的下一个位置。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: '朴素匹配每次失配都整体右移一位重新开始比较。' },
-    { id: 'ds-bf-3', type: 'single', stem: 'BF 算法的最好情况时间复杂度是？', options: { A: 'O(n+m)', B: 'O(n·m)', C: 'O(n²)', D: 'O(m²)' }, answer: 'A', explanation: '若首字符即失配或第一趟就匹配成功，比较次数与 n+m 同阶。' },
-    { id: 'ds-bf-4', type: 'judge', stem: 'BF 算法实现简单直观，但效率低于 KMP。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: 'BF 存在大量重复比较，KMP 利用已匹配信息更高效。' },
-    { id: 'ds-bf-5', type: 'single', stem: 'BF 算法中，模式串每失配一次会如何移动？', options: { A: '整体右移一位', B: '右移模式串长度', C: '不动', D: '左移一位' }, answer: 'A', explanation: '朴素匹配每次失配只把模式串右移一位，从头重新比较。' },
+    { id: 'ds-bfmatch-1', type: 'single', stem: 'BF（朴素）模式匹配最坏情况下的时间复杂度是？', options: { A: 'O(n·m)', B: 'O(n+m)', C: 'O(n log m)', D: 'O(1)' }, answer: 'A', explanation: '最坏时每趟都在最后一个字符失配，共约 n·m 次比较。' },
+    { id: 'ds-bfmatch-2', type: 'judge', stem: 'BF 算法失配时，主串指针回退到本次匹配起点的下一个位置。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: '朴素匹配每次失配都整体右移一位重新开始比较。' },
+    { id: 'ds-bfmatch-3', type: 'single', stem: 'BF 算法的最好情况时间复杂度是？', options: { A: 'O(n+m)', B: 'O(n·m)', C: 'O(n²)', D: 'O(m²)' }, answer: 'A', explanation: '若首字符即失配或第一趟就匹配成功，比较次数与 n+m 同阶。' },
+    { id: 'ds-bfmatch-4', type: 'judge', stem: 'BF 算法实现简单直观，但效率低于 KMP。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: 'BF 存在大量重复比较，KMP 利用已匹配信息更高效。' },
+    { id: 'ds-bfmatch-5', type: 'single', stem: 'BF 算法中，模式串每失配一次会如何移动？', options: { A: '整体右移一位', B: '右移模式串长度', C: '不动', D: '左移一位' }, answer: 'A', explanation: '朴素匹配每次失配只把模式串右移一位，从头重新比较。' },
   ]);
 
   add('data-structures:lab/b-tree', [
     { id: 'ds-bt-2', type: 'single', stem: 'm 阶 B 树的每个结点最多有多少个关键字、多少个孩子？', options: { A: 'm−1 个关键字、m 个孩子', B: 'm 个关键字、m+1 个孩子', C: 'm+1 个关键字、m 个孩子', D: 'm−1 个关键字、m−1 个孩子' }, answer: 'A', explanation: 'm 阶 B 树结点至多 m−1 个关键字、至多 m 个孩子。' },
     { id: 'ds-bt-3', type: 'judge', stem: 'B 树的所有叶结点都在同一层。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: 'B 树是完全平衡的，所有叶结点（失败结点）位于同一层。' },
     { id: 'ds-bt-4', type: 'single', stem: 'B 树适合用于外存索引的主要原因是？', options: { A: '分支因子大、树高低，减少磁盘 I/O 次数', B: '空间占用小', C: '插入速度快', D: '支持哈希查找' }, answer: 'A', explanation: '一个结点存多个关键字，树高小，查找时访盘次数少。' },
-    { id: 'ds-bt-5', type: 'judge', stem: 'B 树插入可能导致结点分裂，删除可能导致结点合并。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: '为维持阶数约束，插入分裂、删除合并或借关键字。' },
+    { id: 'ds-bt-5', type: 'judge', stem: '在 2-3 树（t=2，每结点至多 3 键、非根至少 1 键）中删除一个关键字后，若下溢结点的右兄弟恰有 2 个关键字，则应向该兄弟借一个关键字。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: '兄弟关键字数多于下界 1，可以借位：父结点分隔关键字转入下溢结点，兄弟中最小的关键字上升到父结点，两个结点键数都回到合法范围。' },
   ]);
 
   add('data-structures:lab/b-plus-tree', [
     { id: 'ds-bpt-1', type: 'single', stem: 'B+ 树与 B 树的关键区别之一是？', options: { A: 'B+ 树所有关键字都出现在叶结点，内部结点只作索引', B: 'B+ 树不要求平衡', C: 'B+ 树叶结点不相连', D: 'B+ 树不能插入' }, answer: 'A', explanation: 'B+ 树内部结点只存索引，全部关键字（及其记录指针）在叶结点。' },
-    { id: 'ds-bpt-2', type: 'judge', stem: 'B+ 树的叶结点之间用指针相连，便于范围查询。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: '叶结点构成有序链表，范围查询只需顺序扫描叶链。' },
+    { id: 'ds-bpt-2', type: 'single', stem: '在 B+ 树中删除某个叶结点里的记录后，若该叶的关键字数低于下界，通常如何处理？', options: { A: '先看相邻叶兄弟能否借位，兄弟也紧张时再与兄弟合并', B: '直接从内部结点中删掉对应的分隔关键字即可', C: '把整棵右子树重新插入一次', D: 'B+ 树叶结点没有关键字下界的要求' }, answer: 'A', explanation: '叶结点与 B 树一样有关键字数下界：兄弟富余时经父结点借一个关键字过来，兄弟也只有下界个关键字时则与兄弟合并，再向上修复内部结点。' },
     { id: 'ds-bpt-3', type: 'single', stem: 'B+ 树内部结点中的关键字通常是？', options: { A: '其子结点中最大（或最小）关键字的副本', B: '随机值', C: '记录指针', D: '空值' }, answer: 'A', explanation: '内部结点关键字起分界作用，是子树关键字范围的副本。' },
-    { id: 'ds-bpt-4', type: 'judge', stem: 'B+ 树通常比 B 树更适合数据库索引。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: 'B+ 树树高更矮、叶结点链表支持高效范围查询，更适合磁盘索引。' },
+    { id: 'ds-bpt-4', type: 'judge', stem: 'B+ 树删除导致两个叶结点合并后，通常还需要沿着父结点方向更新相应的分隔关键字。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: '合并去掉了一个子结点，父结点中指向它的分隔关键字必须重算（父索引取自右子树的最小值），否则划分区间与实际叶结点内容不再一致。' },
     { id: 'ds-bpt-5', type: 'single', stem: '在 B+ 树中查找一个关键字，通常需要？', options: { A: '一直走到叶结点', B: '在根结点即可命中', C: '随机访问任意层', D: '只查内部结点' }, answer: 'A', explanation: 'B+ 树所有关键字都在叶结点，查找必须到达叶层。' },
   ]);
 
@@ -392,8 +392,8 @@
   ]);
 
   add('data-structures:lab/avl-rotations', [
-    { id: 'ds-avl-6', type: 'judge', stem: 'AVL 树是平衡的二叉排序树，任一结点左右子树高度差的绝对值不超过 1。', options: { T: '正确', F: '错误' }, answer: 'T', explanation: '这是 AVL 树的定义，保证树高为 O(log n)。' },
-    { id: 'ds-avl-7', type: 'single', stem: '若失衡结点的右孩子右重（平衡因子为 +1），应执行？', options: { A: 'RR 型，左单旋', B: 'LL 型，右单旋', C: 'LR 型，双旋', D: 'RL 型，双旋' }, answer: 'A', explanation: '右孩子右重属于 RR 型，对失衡结点做一次左旋即可。' },
+    { id: 'ds-avl-4', type: 'single', stem: '在 AVL 树中成功插入一个关键字后，与删除操作相比，旋转次数与修复范围有何不同？', options: { A: '插入只需修复最低失衡结点，一次旋转即可结束回溯；删除可能触发多次旋转', B: '插入必须修复路径上所有失衡结点，删除只需修复一个', C: '两者都只需修复最低失衡结点', D: '两者都必须沿路径进行 O(log n) 次旋转' }, answer: 'A', explanation: '插入使子树高度加一，最低失衡结点旋转后子树高度恢复到插入前，其祖先不再失衡；删除使子树高度减一，旋转后子树高度可能仍偏矮，失衡会继续上传。' },
+    { id: 'ds-avl-5', type: 'single', stem: '在 AVL 树中（无论插入还是删除引起），失衡结点右孩子的右子树更高时，应执行何种旋转？', options: { A: 'RR 型：对失衡结点做一次左旋', B: 'LL 型：对失衡结点做一次右旋', C: 'LR 型：先左旋再右旋', D: 'RL 型：先右旋再左旋' }, answer: 'A', explanation: '两代孩子都偏向右侧即为 RR 型，对失衡结点左旋一次即可；旋转只改动指针与父子关系，不改变中序遍历得到的序列。' },
   ]);
 
   add('data-structures:lab/kmp', [
@@ -406,7 +406,7 @@
   ]);
 
   add('data-structures:lab/red-black-tree', [
-    { id: 'ds-rb-6', type: 'single', stem: '红黑树中红色结点的孩子必须是什么颜色？', options: { A: '黑色', B: '红色', C: '任意', D: '与父结点相同' }, answer: 'A', explanation: '红黑树不允许红结点相邻，红结点的孩子必须是黑色。' },
+    { id: 'ds-rb-6', type: 'single', stem: '红黑树删除中修复“双黑”时，若兄弟结点为黑色且兄弟的两个孩子也都是黑色，应如何处理？', options: { A: '把兄弟染红，把双黑上移到父结点继续修复', B: '把兄弟染红并立即结束修复', C: '直接删除兄弟结点', D: '对父结点做一次左旋即可结束' }, answer: 'A', explanation: '这属于四情形中的第②种：兄弟两侧黑结点数与双黑位置相同，把兄弟染红可使父结点以下黑高一致，亏空上移到父结点；父结点为红则直接染黑结束，否则继续修复。' },
   ]);
 
   add('data-structures:lab/quick-sort', [

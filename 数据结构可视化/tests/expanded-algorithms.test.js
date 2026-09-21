@@ -49,7 +49,9 @@ test('topological sort and critical path finish on the DAG preset', () => {
 
 test('BST, AVL and hash presets preserve their invariants', () => {
   assert.deepEqual(search.bstInsert([45,24,53,12,37,93,30]).at(-1).state.inorder, [12,24,30,37,45,53,93]);
-  assert.deepEqual(search.avlRotations().at(-1).state.cases, ['LL','RR','LR','RL']);
+  const avl = search.avlTree([70,60,50,80,100,10,40,30,20,90], [], undefined).at(-1).state;
+  assert.deepEqual(avl.cases, ['LL','RR','LR','RL']);
+  assert.ok(Object.values(avl.tree.balanceFactors).every(bf => Math.abs(bf) <= 1));
   assert.equal(search.hashDemo([19,14,23,1,68,20], 7).at(-1).state.count, 6);
 });
 

@@ -103,46 +103,86 @@
     defineExperiment({
       id: "avl-rotations",
       chapter: chapter.id,
-      title: "AVL 四类旋转",
+      title: "AVL 树插入与删除",
       visualizer: "tree",
       tag: "平衡调整",
-      difficulty: "基础",
+      difficulty: "进阶",
       code: [
-        "// 插入 key 后，自下而上恢复平衡",
-        "void Insert(AVLTree &T, KeyType key) {",
-        "  if (T == NULL) { T = new Node(key); return; }",
-        "  if (key < T->key) Insert(T->lchild, key);",
-        "  else Insert(T->rchild, key);",
-        "  T->height = max(h(T->lchild), h(T->rchild)) + 1;",
-        "  T->bf = h(T->lchild) - h(T->rchild);",
-        "  if (T->bf == 2) {                              // 左高失衡",
-        "    if (T->lchild->bf >= 0) T = R_Rotate(T);     // LL",
-        "    else { T->lchild = L_Rotate(T->lchild); T = R_Rotate(T); }  // LR",
-        "  } else if (T->bf == -2) {                      // 右高失衡",
-        "    if (T->rchild->bf <= 0) T = L_Rotate(T);     // RR",
-        "    else { T->rchild = R_Rotate(T->rchild); T = L_Rotate(T); }  // RL",
-        "  }",
-        "}",
+        "// 空树开始：AVL 要求每个结点 |bf| ≤ 1",
+        "插入：按二叉排序树比较，新关键字挂为新叶子",
+        "沿路径自下而上更新 h 与 bf",
+        "if (|bf| == 2) 定位最低失衡结点并判定类型",
+        "  LL：对失衡结点右旋一次",
+        "  LR：先左旋左孩子，再右旋失衡结点",
+        "  RR：对失衡结点左旋一次",
+        "  RL：先右旋右孩子，再左旋失衡结点",
+        "插入只需修复一次；子树高度恢复，插入结束",
+        "删除：从根比较，定位待删结点",
+        "  关键字不存在：跳过本次删除",
+        "  至多一个孩子：用孩子接替它的位置",
+        "  两个孩子：用中序后继顶替，再摘除后继结点",
+        "  （后继至多只有右孩子，摘除很简单）",
+        "从被摘除位置的双亲开始，自下而上重算 h 与 bf",
+        "  出现 |bf| == 2 就按 LL / LR / RR / RL 旋转，继续向上",
+        "  与插入不同：删除可能沿路径连续旋转多次",
+        "删除结束：全部结点 |bf| ≤ 1",
+        "查找：从根逐层比较下降",
+        "命中返回该结点，否则返回 NOT_FOUND",
       ],
-      generator: A.search.avlRotations,
-      preset: () => [],
+      generator: A.search.avlTree,
+      preset: () => [[70, 60, 50, 80, 100, 10, 40, 30, 20, 90], [60, 70, 90, 50], undefined],
+      input: {
+        type: "multi",
+        label: "实验参数",
+        defaultValue: "custom",
+        placeholder: "输入参数",
+        fields: [
+          { name: "values", label: "插入序列（1–12 个互不相同的整数）", defaultValue: "70, 60, 50, 80, 100, 10, 40, 30, 20, 90" },
+          { name: "deletes", label: "删除序列（可留空）", defaultValue: "60, 70, 90, 50" },
+          { name: "target", label: "查找值（可留空）", defaultValue: "90" },
+        ],
+        hint: "插入序列中的关键字必须互不相同；删除序列最多 12 个整数，可以包含树中不存在的键（会演示跳过）；查找值可留空。",
+        parse(raw) {
+          const text = value => String(value === undefined || value === null ? "" : value).trim();
+          const tokens = source => text(source).split(/[\s,，]+/).filter(Boolean);
+          const whole = token => /^[-+]?\d+$/.test(token) && Math.abs(Number(token)) <= 999;
+          const values = tokens(raw && raw.values);
+          if (!values.length || values.length > 12 || values.some(token => !whole(token)))
+            return { ok: false, message: "请输入 1–12 个 [-999,999] 整数作为插入序列。" };
+          const list = values.map(Number);
+          if (new Set(list).size !== list.length)
+            return { ok: false, message: "AVL 树要求插入序列中的关键字互不相同。" };
+          const deletes = tokens(raw && raw.deletes);
+          if (deletes.length > 12 || deletes.some(token => !whole(token)))
+            return { ok: false, message: "删除序列最多 12 个 [-999,999] 整数，也可以留空。" };
+          const query = text(raw && raw.target);
+          if (query && !whole(query))
+            return { ok: false, message: "查找值必须是 [-999,999] 整数，也可以留空。" };
+          return { ok: true, value: { values: list, deletes: deletes.map(Number), target: query ? Number(query) : undefined } };
+        },
+      },
+      inputAdapter: input => [input.values, input.deletes, input.target],
       explain: {
-        goal: "在完整 AVL 树上演示四种失衡的判定与旋转：插入一个关键字后找到最低失衡结点，用单旋或双旋恢复平衡。",
-        inputs: "一棵平衡的 AVL 树（9～12 个结点）与一个新关键字；结点上方标 h（子树高度），下方标 bf（平衡因子）。",
+        goal: "在 AVL 树上完成通用插入与删除：插入后修复最低失衡结点，删除后沿路径回溯、可能连续多次旋转，始终让每个结点满足 |bf| ≤ 1。",
+        inputs: "插入序列（1–12 个互不相同的整数）、删除序列（可留空）与可选的查找值；结点上方标 h（子树高度）、下方标 bf（平衡因子）。",
         steps: [
-          "先观察插入前的平衡树：所有结点的 |bf| ≤ 1，高度与平衡因子满足 AVL 条件。",
-          "插入新关键字：按二叉排序树的比较路径落到叶子位置，整条比较路径高亮显示。",
-          "沿插入路径<b>自下而上</b>更新高度与平衡因子，找出<b>最低失衡结点</b>（|bf| = 2，标红）。",
+          "从空树开始，按插入序列逐个把新关键字作为叶子挂到二叉排序树的位置上，整条比较路径高亮显示。",
+          "沿插入路径<b>自下而上</b>更新高度与平衡因子，找出<b>最低失衡结点</b>（|bf| = 2）并框出需要旋转的子树。",
           "判定类型：bf = +2 且左孩子 bf ≥ 0 为 <b>LL</b>；bf = +2 且左孩子 bf < 0 为 <b>LR</b>；bf = −2 且右孩子 bf ≤ 0 为 <b>RR</b>；bf = −2 且右孩子 bf > 0 为 <b>RL</b>。",
           "<b>LL</b> 对失衡结点右旋一次；<b>RR</b> 对失衡结点左旋一次；<b>LR</b> 先对左孩子左旋、再对失衡结点右旋；<b>RL</b> 先对右孩子右旋、再对失衡结点左旋。",
-          "旋转后虚线框内的子树高度降 1，全部结点重新满足 |bf| ≤ 1，整棵树恢复平衡。",
+          "插入只需修复<b>最低</b>失衡结点：旋转后该子树高度回到插入前的水平，上层结点自动恢复平衡，因此一次插入最多旋转两次。",
+          "删除时先按二叉排序树定位待删结点：至多一个孩子就用孩子接替；有两个孩子则在右子树中一路向左找到<b>中序后继</b>，把后继结点整体提到被删位置，再摘除原后继结点。",
+          "从被摘除位置的双亲开始自下而上重算 h 与 bf，遇到 |bf| = 2 就按同样的四类规则旋转，然后继续向上检查。",
+          "与插入不同，删除<b>可能沿路径连续多次旋转</b>：默认案例中删除 60（双孩子）一次就触发两次旋转，删除 90（单孩子）触发一次，而删除叶子 50 无需旋转。",
         ],
         keys: [
-          "按「新结点相对失衡结点的位置」判定类型：LL / RR 单旋，LR / RL 双旋（先旋孩子再旋失衡结点）。",
-          "旋转只调整局部指针，不改变中序遍历序列，因此仍然是一棵有序的二叉排序树。",
-          "实际插入只需处理最低失衡结点，上层结点会随子树高度恢复而自动平衡；删除后可能需要沿路径多次调整。",
+          "插入与删除共用同一套「自下而上回溯 + 四类旋转」修复；区别在于插入只需修复一次，删除可能沿路径修复多次。",
+          "按「较高子树相对失衡结点的位置」判定类型：LL / RR 单旋，LR / RL 双旋（先旋孩子，再旋失衡结点）。",
+          "旋转只调整局部指针，不改变中序遍历序列，因此旋转后仍然是一棵有序的二叉排序树。",
+          "删除用中序后继（右子树最小结点）顶替：后继至多只有右孩子，摘除它不会产生新的双孩子问题。",
+          "结点高度与平衡因子是旋转后重新标注的，不是预先写死的：每一步都可以从 h 与 bf 验证旋转结果。",
         ],
-        cost: "插入 O(log n) · 单次旋转 O(1) · 空间 O(1)",
+        cost: "查找 O(log n) · 插入 O(log n) · 删除 O(log n)（每次旋转 O(1)，删除最坏 O(log n) 次旋转） · 空间 O(1)",
       },
     }),
     defineExperiment({

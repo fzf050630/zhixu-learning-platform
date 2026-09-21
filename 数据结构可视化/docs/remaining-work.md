@@ -1,3 +1,12 @@
+# 阶段完成记录 · 2026-09-21
+
+- [x] 高级树补全删除：红黑树按 CLRS 处理「双黑」四情形，B 树 t=2 先借位、后合并、根降高，B+ 树删除记录后重算父索引并重接叶链 `next`。
+- [x] 三个实验升级为「插入、删除与查找」，输入增加删除序列（可留空，不存在的键会演示跳过）。
+- [x] AVL 由四类预制旋转升级为通用插入 + 删除引擎（实验 id 仍为 `avl-rotations`，避免迁移题库与掌握度数据）。
+- [x] 渲染器显式绘制红黑树 NIL 空槽，并用双环 +「双黑」标出黑高亏空待修复的结点。
+- [x] 测试：新增 `tests/advanced-tree-delete.test.js`、`tests/avl-tree.test.js` 与共用校验器 `tests/tree-invariants.cjs`；Node 91/91。
+- 范围限制：KMP 仅可打印 ASCII、非空模式；MST 无向连通，AOE 单源单汇；高级树每结点上限由 t=2 固定，删除序列最多 12 项。截图在 docs/verification/，详细验证记录见 NEXT-AGENT-HANDOFF.md 顶部。
+
 # 阶段完成记录 · 2026-09-17
 
 - [x] 5A：排序、折半查找与已接入基础结构参数、树关系表单。
@@ -11,4 +20,4 @@
 - [x] 5E：目录焦点、隐藏目录键盘隔离、输入快捷键及响应式检查。
 - [x] 最终回归与文档：Node 61/61、Chrome 23/23，退出码 0。
 
-范围限制：高级树不含删除，AVL 保留预制旋转；KMP 仅可打印 ASCII、非空模式；MST 无向连通，AOE 单源单汇。截图在 docs/verification/，详细验证记录见 NEXT-AGENT-HANDOFF.md 顶部。
+范围限制（2026-09-17 时点，其中「高级树不含删除、AVL 保留预制旋转」已于 2026-09-21 被上表取代）：KMP 仅可打印 ASCII、非空模式；MST 无向连通，AOE 单源单汇。截图在 docs/verification/，详细验证记录见 NEXT-AGENT-HANDOFF.md 顶部。

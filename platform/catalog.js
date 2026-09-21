@@ -295,7 +295,7 @@ window.Zhixu.catalog = {
     },
     {
       "subject": "data-structures",
-      "title": "AVL 四类旋转",
+      "title": "AVL 树插入与删除",
       "chapter": "查找",
       "hash": "#/lab/avl-rotations",
       "kind": "算法实验",
@@ -367,7 +367,7 @@ window.Zhixu.catalog = {
     },
     {
       "subject": "data-structures",
-      "title": "红黑树插入与查找",
+      "title": "红黑树插入、删除与查找",
       "chapter": "查找",
       "hash": "#/lab/red-black-tree",
       "kind": "算法实验",
@@ -375,7 +375,7 @@ window.Zhixu.catalog = {
     },
     {
       "subject": "data-structures",
-      "title": "B 树插入与查找",
+      "title": "B 树插入、删除与查找",
       "chapter": "查找",
       "hash": "#/lab/b-tree",
       "kind": "算法实验",
@@ -383,7 +383,7 @@ window.Zhixu.catalog = {
     },
     {
       "subject": "data-structures",
-      "title": "B+ 树插入与查找",
+      "title": "B+ 树插入、删除与查找",
       "chapter": "查找",
       "hash": "#/lab/b-plus-tree",
       "kind": "算法实验",

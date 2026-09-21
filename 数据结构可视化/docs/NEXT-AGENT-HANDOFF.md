@@ -1,6 +1,18 @@
 # 后续开发操作与 Agent 交接文档
 
-## 2026-09-17 最终收尾（当前有效状态）
+## 2026-09-21 高级树与 AVL 删除（当前有效状态）
+
+本轮为红黑树、B 树、B+ 树补全删除操作，并把 AVL 从四类预制旋转升级为通用插入 + 删除引擎。实验总数仍为 6 章 54 个实验、11 类渲染器。
+
+- **算法**：`assets/js/algorithms/advanced-trees.js` 三个生成器签名统一为 `(values, deletes, target)`；红黑树删除按 CLRS 处理「双黑」四情形（兄红 / 兄两孩子黑 / 远侄红 / 近侄红），B 树 t=2 删除先借位、后合并、根空降高，B+ 树删除后重算父索引（= 右子树最小值）并重接叶链 `next`。`assets/js/algorithms/search.js` 用 `avlTree(values, deletes, target)` 取代 `avlRotations`，删除按 BST 规则做中序后继替换后沿路径回溯，可能连续多次旋转。
+- **输入**：三个实验与 AVL 都增加「删除序列」字段，可留空；序列中不存在的键不会报错，而是演示「未找到，跳过」。插入序列上限仍为 12 项。
+- **快照约定**：删除请求即使被跳过也会产生 `deleted`/删除完成锚点，便于逐步校验；红黑树的双黑用哨兵结点表示，快照发出前必须已摘除哨兵与被删结点（否则会出现孤立结点）。
+- **渲染**：`multi-tree-renderer.js` 显式绘制红黑树 NIL 空槽，并用双环 +「双黑」标出亏损结点；AVL 沿用 tree 渲染器的 `active` / `current` / `unbalanced` / `subtree` 标记。
+- **测试**：新增 `tests/tree-invariants.cjs`（红黑树/B 树/B+ 树共用不变量校验）、`tests/advanced-tree-delete.test.js`、`tests/avl-tree.test.js`；`tests/advanced-trees.test.js` 与 `tests/expanded-algorithms.test.js` 随签名更新。Node 91/91 通过。
+- **关键实现陷阱（勿重犯）**：① 删除修复的 far/near 侄子下标必须互为反向（`isLeft?1:0` / `isLeft?0:1` 不能写反）；② 快照是 JSON 深拷贝，`undefined` 会变成 `null`，B+ 的 `refresh` 必须过滤掉缺失的最小键；③ 任何结点摘除都要在 `emit` 之前完成。
+- 产品边界更新：高级树已支持插入、删除与查找；AVL 为通用插入 + 删除，不再是四类预制旋转演示。
+
+## 2026-09-17 最终收尾（历史状态）
 
 本阶段剩余交互和验收已完成。当前为六章、35 个实验、11 类渲染器。旧章节的待实施表为历史规划，以此处及 remaining-work.md 为准。
 
@@ -10,7 +22,7 @@
 - 最终验证：Node 61/61（node --test --test-reporter=spec tests/*.test.js）；Chrome 全套 23/23（npm run test:browser）；最后提示文案变更后 final-polish.spec.js 3/3。均退出码 0。Chrome EPERM 为既有临时目录清理告警。
 - 审查本轮修改的草稿处理、事件解除、焦点恢复及快捷键范围；测试覆盖实际鼠标/触摸、快照隔离、路由清理及全部 35 个实验播放。
 
-产品边界保持：图 1–10 点/20 边，MST 要求无向连通；AOE 单源单汇 DAG；KMP 可打印 ASCII、非空模式；高级树仅插入与查找，重复键拒绝，未实现删除；AVL 仍为四类预制旋转。运行页面支持 file://，开发依赖不随运行需要。
+产品边界保持（2026-09-17 时点，高级树删除与 AVL 通用引擎已于 2026-09-21 实现，见本文顶部）：图 1–10 点/20 边，MST 要求无向连通；AOE 单源单汇 DAG；KMP 可打印 ASCII、非空模式；重复键拒绝。运行页面支持 file://，开发依赖不随运行需要。
 
 
 ## 2026-09-17 新算法边界专项验收

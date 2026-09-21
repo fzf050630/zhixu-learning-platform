@@ -86,7 +86,7 @@
       { id: 'ds-nextval-1', type: 'single', stem: 'KMP 的 nextval 数组相比 next 数组的主要改进是？', options: { A: '避免模式串中相同字符导致的无效比较', B: '减少主串指针移动次数', C: '降低空间复杂度', D: '把时间复杂度降到 O(log n)' }, answer: 'A', explanation: '当模式串回退位置的字符与当前失配字符相同时，nextval 继续向前回退，跳过必然失配的比较。' },
     ],
     'data-structures:lab/b-tree': [
-      { id: 'ds-btree-1', type: 'single', stem: 'm 阶 B 树中，除根结点外每个非叶结点至少含有多少个关键字？', options: { A: '⌈m/2⌉−1', B: 'm−1', C: '⌈m/2⌉', D: '1' }, answer: 'A', explanation: 'm 阶 B 树每个结点至多 m−1 个关键字、至少 ⌈m/2⌉−1 个（根除外）。' },
+      { id: 'ds-btree-1', type: 'single', stem: 'm 阶 B 树中，除根结点外每个非叶结点至少含有多少个关键字？', options: { A: '⌈m/2⌉−1', B: 'm−1', C: '⌈m/2⌉', D: '1' }, answer: 'A', explanation: 'm 阶 B 树每个结点至多 m−1 个关键字、至少 ⌈m/2⌉−1 个（根除外）；删除后若关键字数低于该下界，就必须借位或合并，否则树高不再一致。' },
     ],
     'data-structures:lab/insertion-sort': [
       { id: 'ds-ins-1', type: 'single', stem: '直接插入排序在待排序列基本有序时，时间复杂度接近？', options: { A: 'O(n)', B: 'O(n²)', C: 'O(n log n)', D: 'O(log n)' }, answer: 'A', explanation: '基本有序时每次插入只需很少的比较与移动，最好情况退化为 O(n)。' },
