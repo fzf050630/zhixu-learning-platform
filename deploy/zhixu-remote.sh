@@ -51,6 +51,8 @@ ZHIXU_STATIC=/www/wwwroot/recaord.top/math-modeling
 # 安全：设备令牌 + 写接口限流 + Jev 成本保险丝
 ZHIXU_SESSION_SECRET=__SESSION_SECRET__
 ZHIXU_REQUIRE_SESSION=true
+# 只读数据观察台（/math-modeling/admin.html）
+ZHIXU_ADMIN_TOKEN=__ADMIN_TOKEN__
 ZHIXU_RATE_PER_MIN=60
 ZHIXU_RATE_PER_DAY=2000
 ZHIXU_JEV_DAILY_LIMIT=300

@@ -10,6 +10,7 @@ const { openDatabase, closeDatabase } = require('./db/database.cjs');
 const learningRoutes = require('./routes/learningRoutes.cjs');
 const siteVisitRoutes = require('./routes/siteVisitRoutes.cjs');
 const sessionRoutes = require('./routes/sessionRoutes.cjs');
+const adminRoutes = require('./routes/adminRoutes.cjs');
 
 const router = createRouter();
 
@@ -35,6 +36,7 @@ router.get('/api/healthz', (request, response) => {
 learningRoutes.register(router);
 siteVisitRoutes.register(router);
 sessionRoutes.register(router);
+adminRoutes.register(router);
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',

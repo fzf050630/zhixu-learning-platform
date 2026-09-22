@@ -175,6 +175,43 @@ location /api/ {
 
 另外单次上报事件最多 200 条，请求体上限 256KB。这样即使有人扫到公开接口，也无法批量注入数据或烧掉 TypeSafe 额度。
 
+### 只读数据观察台（admin.html）
+
+`/math-modeling/admin.html` 是管理员用的只读观察台（概览 / 分页浏览数据表 / 只读 SELECT），不对外链接、`noindex`。它要求请求头 `X-Zhixu-Admin` 等于 `ZHIXU_ADMIN_TOKEN`（`npm run deploy` 首次部署自动生成并写入本地 `.env`）：
+
+```bash
+ssh my-server "grep '^ZHIXU_ADMIN_TOKEN=' /www/wwwroot/zhixu-backend/.env"
+```
+
+- 只有读取接口，没有写入接口；表名必须来自 SQLite 白名单；查询强制行数上限（`ZHIXU_ADMIN_MAX_ROWS`，默认 200）。
+- 只读 SQL 只允许单条 `SELECT` / `WITH`，拒绝多语句与 `INSERT/UPDATE/DELETE/DROP/ALTER/PRAGMA`；SQL 语法错误会回显给管理员便于排查。
+- 访问记录的 IP / User-Agent 默认打码，页面可临时关闭打码以便排查。
+
+### 镜像到 MySQL（在博客数据库工作台里看）
+
+博客的数据工作台只连 MySQL，因此提供一个可选镜像：`scripts/mirror-to-mysql.cjs` 读取 SQLite 的 `zx_*` 表，生成并写入 MySQL 的 `zhixu_*` 表（每表默认最新 5000 行，全量刷新），工作台受限账号即可浏览。它只读 SQLite、只新增/刷新 `zhixu_*`，不会改博客自己的表。
+
+```bash
+# 服务器上执行（凭据取自 /etc/recaordweb.env，临时 0600 配置文件，用完即删）
+bash /www/wwwroot/zhixu-backend/deploy/zhixu-mysql-mirror.sh
+
+# 本地自检：只生成 SQL 不执行
+ZHIXU_MIRROR_SQL_OUT=mirror.sql node scripts/mirror-to-mysql.cjs
+```
+
+建议每 10 分钟刷新一次：
+
+```cron
+*/10 * * * * root bash /www/wwwroot/zhixu-backend/deploy/zhixu-mysql-mirror.sh >> /var/log/zhixu-mirror.log 2>&1
+```
+
+首次需要 MySQL 管理员授予工作台账号对镜像表的只读权限（一次即可，支持后续新增表）：
+
+```sql
+GRANT SELECT ON `recaordweb`.`zhixu\_%` TO 'recaord_console'@'localhost';
+FLUSH PRIVILEGES;
+```
+
 访问记录写入 `zx_site_visit` 表：`visit_id` 由前端按「设备标识 + 日期」生成并唯一，同一设备同一天累计 `visit_count` 而不会无限增长。查询明细请在服务器本机执行 `node scripts/visits-report.cjs [天数] [--full]`（默认对 IP 末段打码）；该数据不通过公网接口暴露。
 
 ### 配置 Jev（TypeSafe）

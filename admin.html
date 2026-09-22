@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>知序 · 数据观察台</title>
+  <link rel="icon" href="platform/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="platform/tokens.css">
+  <link rel="stylesheet" href="platform/admin.css">
+  <script src="platform/subjects.js"></script>
+  <script src="platform/theme.js"></script>
+</head>
+<body class="zx-admin">
+  <header class="zx-admin-head">
+    <div class="zx-admin-brand"><strong>知序 · 数据观察台</strong><span>只读 · 仅管理员可见</span></div>
+    <div class="zx-admin-head-actions">
+      <span id="adminStatus" class="zx-admin-status">未连接</span>
+      <button id="adminLogout" type="button" hidden>退出</button>
+    </div>
+  </header>
+
+  <section id="adminGate" class="zx-admin-gate">
+    <h1>需要管理令牌</h1>
+    <p>令牌在服务器 <code>/www/wwwroot/zhixu-backend/.env</code> 的 <code>ZHIXU_ADMIN_TOKEN</code>（<code>npm run deploy</code> 首次部署会自动生成并写入本地 <code>.env</code>）。读取方式：</p>
+    <pre>ssh my-server "grep '^ZHIXU_ADMIN_TOKEN=' /www/wwwroot/zhixu-backend/.env"</pre>
+    <form id="adminForm" autocomplete="off">
+      <input id="adminToken" type="password" placeholder="粘贴管理令牌" aria-label="管理令牌">
+      <button type="submit">进入</button>
+    </form>
+    <p id="adminError" class="zx-admin-error" hidden></p>
+    <p class="zx-admin-muted">令牌只保存在本标签页的 sessionStorage，关闭页面即清除。</p>
+  </section>
+
+  <main id="adminMain" hidden>
+    <nav class="zx-admin-tabs" aria-label="观察台分区">
+      <button type="button" data-tab="overview" aria-pressed="true">概览</button>
+      <button type="button" data-tab="browse" aria-pressed="false">表浏览</button>
+      <button type="button" data-tab="sql" aria-pressed="false">只读 SQL</button>
+    </nav>
+
+    <section data-panel="overview">
+      <div id="adminOverview" class="zx-admin-cards"></div>
+    </section>
+
+    <section data-panel="browse" hidden>
+      <div class="zx-admin-bar">
+        <label>数据表 <select id="adminTable"></select></label>
+        <label>每页 <input id="adminLimit" type="number" value="50" min="1" max="500"></label>
+        <label class="zx-admin-check"><input id="adminMask" type="checkbox" checked> IP / UA 打码</label>
+        <button id="adminPrev" type="button">上一页</button>
+        <button id="adminNext" type="button">下一页</button>
+        <span id="adminRange" class="zx-admin-muted"></span>
+      </div>
+      <div id="adminTableWrap" class="zx-admin-tablewrap"></div>
+    </section>
+
+    <section data-panel="sql" hidden>
+      <div class="zx-admin-bar zx-admin-bar--sql">
+        <textarea id="adminSql" rows="3" spellcheck="false" placeholder="SELECT * FROM zx_site_visit ORDER BY id DESC LIMIT 20"></textarea>
+        <button id="adminRun" type="button">执行</button>
+      </div>
+      <p id="adminSqlInfo" class="zx-admin-muted">只允许单条 <code>SELECT</code> / <code>WITH</code> 查询；结果行数已强制上限，写操作一律拒绝。</p>
+      <div id="adminSqlWrap" class="zx-admin-tablewrap"></div>
+    </section>
+  </main>
+
+  <script src="platform/admin.js"></script>
+</body>
+</html>

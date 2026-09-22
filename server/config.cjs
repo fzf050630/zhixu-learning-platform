@@ -43,6 +43,11 @@ const config = {
     perMinute: number('ZHIXU_RATE_PER_MIN', 60),
     perDay: number('ZHIXU_RATE_PER_DAY', 2000),
   },
+  admin: {
+    // 只读数据库观察台的管理员令牌；留空则整套管理接口关闭
+    token: process.env.ZHIXU_ADMIN_TOKEN || '',
+    maxRows: number('ZHIXU_ADMIN_MAX_ROWS', 200),
+  },
   session: {
     // 设备令牌签名密钥；未配置时启动随机生成（重启后老令牌失效，前端会自动重新申请）
     secret: process.env.ZHIXU_SESSION_SECRET || '',
