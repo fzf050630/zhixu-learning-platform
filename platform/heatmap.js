@@ -12,6 +12,10 @@
     ? String(global.ZHIXU_API_BASE).replace(/\/$/, '')
     : (P.root ? String(P.root).replace(/\/$/, '') : '');
   const UID_KEY = 'zhixu-uid-v1';
+  /* 掌握度接口需要设备令牌（服务端签发），未带令牌会 401。 */
+  const apiFetch = (path, options) => (P.session && P.session.authedFetch)
+    ? P.session.authedFetch(path, options)
+    : fetch(API_BASE + path, options);
 
   try {
     const link = document.createElement('link');
@@ -60,7 +64,7 @@
     section.hidden = false;
   }
 
-  fetch(API_BASE + '/api/learning/heatmap', { headers: { 'X-Zhixu-User': userId() } })
+  apiFetch('/api/learning/heatmap', { headers: { 'X-Zhixu-User': userId() } })
     .then(response => (response.ok ? response.json() : Promise.reject(new Error('HTTP ' + response.status))))
     .then(render)
     .catch(() => { /* 热力图是增强功能 */ });

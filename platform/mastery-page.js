@@ -15,6 +15,11 @@
     try { return localStorage.getItem(UID_KEY) || ''; } catch (_) { return ''; }
   }
 
+  /* 掌握度接口需要设备令牌（服务端签发），未带令牌会 401。 */
+  const apiFetch = (path, options) => (P.session && P.session.authedFetch)
+    ? P.session.authedFetch(path, options)
+    : fetch(API_BASE + path, options);
+
   function levelOf(score) {
     if (score === null || score === undefined) return 'NONE';
     if (score >= 90) return 'MASTERED';
@@ -173,9 +178,9 @@
     showBanner('');
     const headers = { 'X-Zhixu-User': userId() };
     Promise.all([
-      fetch(API_BASE + '/api/learning/heatmap', { headers }).then(r => r.ok ? r.json() : Promise.reject(new Error('heatmap'))),
-      fetch(API_BASE + '/api/learning/overview', { headers }).then(r => r.ok ? r.json() : Promise.reject(new Error('overview'))),
-      fetch(API_BASE + '/api/learning/reviews', { headers }).then(r => r.ok ? r.json() : Promise.reject(new Error('reviews'))),
+      apiFetch('/api/learning/heatmap', { headers }).then(r => r.ok ? r.json() : Promise.reject(new Error('heatmap'))),
+      apiFetch('/api/learning/overview', { headers }).then(r => r.ok ? r.json() : Promise.reject(new Error('overview'))),
+      apiFetch('/api/learning/reviews', { headers }).then(r => r.ok ? r.json() : Promise.reject(new Error('reviews'))),
     ]).then(([heatmap, overview, reviews]) => {
       const stateMap = new Map();
       (overview.states || []).forEach(state => stateMap.set(state.nodeId, state));

@@ -13,6 +13,10 @@
     ? String(global.ZHIXU_API_BASE).replace(/\/$/, '')
     : (P.root ? String(P.root).replace(/\/$/, '') : '');
   const CACHE_MS = 60000;
+  /* 统一走带设备令牌的请求：身份由服务端签发，未带令牌会被后端 401。 */
+  const apiFetch = (path, options) => (P.session && P.session.authedFetch)
+    ? P.session.authedFetch(path, options)
+    : fetch(API_BASE + path, options);
 
   try {
     const link = document.createElement('link');
@@ -137,7 +141,7 @@
     badge.dataset.level = '';
     badge.textContent = '掌握度 …';
     panel.innerHTML = '<p class="zx-mastery-loading">正在读取掌握度…</p>';
-    fetch(API_BASE + '/api/knowledge/mastery?nodeId=' + encodeURIComponent(nodeId), {
+    apiFetch('/api/knowledge/mastery?nodeId=' + encodeURIComponent(nodeId), {
       headers: { 'X-Zhixu-User': M.userId() },
     })
       .then(response => (response.ok ? response.json() : Promise.reject(new Error('HTTP ' + response.status))))
@@ -211,7 +215,7 @@
 
   function loadOverview(force) {
     if (!force && overview.map && Date.now() - overview.at < CACHE_MS) return;
-    fetch(API_BASE + '/api/learning/overview', { headers: { 'X-Zhixu-User': M.userId() } })
+    apiFetch('/api/learning/overview', { headers: { 'X-Zhixu-User': M.userId() } })
       .then(response => (response.ok ? response.json() : Promise.reject(new Error('HTTP ' + response.status))))
       .then(data => {
         const map = new Map();

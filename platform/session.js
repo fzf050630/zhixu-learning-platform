@@ -91,5 +91,19 @@
     return { 'X-Zhixu-Token': hit.token, 'X-Zhixu-User': hit.userId };
   }
 
-  P.session = { ensure, cached, clear, headers, userId, canSync, API_BASE };
+  /* 带设备令牌的 API 请求：先确保令牌可用，再拼上身份请求头。
+     任何异常都会让 Promise 失败，调用方按原有逻辑降级（例如隐藏掌握度）。 */
+  function authedFetch(path, options) {
+    const opts = options || {};
+    return ensure().then(data => {
+      const merged = Object.assign({}, opts.headers);
+      if (data && data.token) {
+        merged['X-Zhixu-Token'] = data.token;
+        merged['X-Zhixu-User'] = data.userId;
+      }
+      return fetch(API_BASE + path, Object.assign({}, opts, { headers: merged }));
+    });
+  }
+
+  P.session = { ensure, cached, clear, headers, userId, canSync, API_BASE, authedFetch };
 })(window);
