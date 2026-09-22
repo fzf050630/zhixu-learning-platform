@@ -15,11 +15,16 @@ const app = require('../../server/index.cjs');
 const repository = require('../../server/repositories/siteVisitRepository.cjs');
 
 let base;
+let token = '';
 
 function post(body, headers = {}) {
   return fetch(base + '/api/visit', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', ...headers },
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { 'X-Zhixu-Token': token } : {}),
+      ...headers,
+    },
     body: typeof body === 'string' ? body : JSON.stringify(body),
   });
 }
@@ -27,6 +32,14 @@ function post(body, headers = {}) {
 test.before(async () => {
   const server = await app.start(0, '127.0.0.1');
   base = `http://127.0.0.1:${server.address().port}`;
+  // 访问记录接口需要设备令牌；沿用固定 userId 便于断言
+  const response = await fetch(base + '/api/session', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ userId: 'visit-test-device' }),
+  });
+  token = (await response.json()).token;
+  assert.ok(token, '需要拿到设备令牌');
 });
 
 test.after(async () => {

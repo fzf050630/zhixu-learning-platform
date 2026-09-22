@@ -42,23 +42,26 @@
     if (!canSync) return;
     let timezone = '';
     try { timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (_) { /* ignore */ }
-    const body = JSON.stringify({
-      userId: deviceId(),
-      visitId: visitId(),
+    const base = {
       path: location.pathname + location.hash,
       screen: (global.screen ? screen.width + 'x' + screen.height : ''),
       timezone,
       language: global.navigator ? navigator.language || '' : '',
       ...payload,
-    });
-    try {
-      fetch(API_BASE + '/api/visit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Zhixu-User': deviceId() },
-        body,
-        keepalive: true,
-      }).catch(() => { /* 记录失败不影响阅读 */ });
-    } catch (_) { /* ignore */ }
+    };
+    const send = sessionData => {
+      const userId = sessionData && sessionData.userId ? sessionData.userId : deviceId();
+      const headers = { 'Content-Type': 'application/json', 'X-Zhixu-User': userId };
+      if (sessionData && sessionData.token) headers['X-Zhixu-Token'] = sessionData.token;
+      const body = JSON.stringify({ userId, visitId: visitId(), ...base });
+      try {
+        fetch(API_BASE + '/api/visit', { method: 'POST', headers, body, keepalive: true })
+          .catch(() => { /* 记录失败不影响阅读 */ });
+      } catch (_) { /* ignore */ }
+    };
+    const session = P.session;
+    if (session && typeof session.ensure === 'function') session.ensure().then(send).catch(() => send(null));
+    else send(null);
   }
 
   /* ---------- 说明内容 ---------- */

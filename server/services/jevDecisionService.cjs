@@ -4,6 +4,7 @@ const crypto = require('node:crypto');
 const config = require('../config.cjs');
 const logger = require('../lib/logger.cjs');
 const jevCallLogRepository = require('../repositories/jevCallLogRepository.cjs');
+const jevBudget = require('./jevBudget.cjs');
 
 const CACHE_LIMIT = 500;
 const cache = new Map();
@@ -209,6 +210,15 @@ async function evaluate(node, metrics, context = {}) {
 
   const hash = stateHash(node, metrics);
   if (cache.has(hash)) return { ...cache.get(hash), cached: true };
+
+  // 成本保险丝：当日预算用尽（全局或单 IP）就不再调用 Jev，由上层回退规则引擎。
+  const budget = jevBudget.tryConsume(context.ip);
+  if (!budget.allowed) {
+    const error = new Error('Jev 当日调用预算已用尽');
+    error.code = 'JEV_BUDGET_EXCEEDED';
+    error.scope = budget.scope;
+    throw error;
+  }
 
   const requestId = crypto.randomUUID();
   const startedAt = Date.now();

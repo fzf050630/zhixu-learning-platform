@@ -152,11 +152,28 @@ location /api/ {
 | `GET` | `/api/learning/reviews` | 待复习计划 |
 | `GET` | `/api/learning/overview` | 用户掌握度概览 |
 | `GET` | `/api/learning/heatmap` | 学科 / 章节加权掌握度热力图 |
+| `POST` | `/api/session` | 申请匿名设备令牌（写/读用户数据的身份；可带本地设备标识沿用历史数据） |
 | `POST` | `/api/visit` | 记录一条匿名访问记录（首次说明页与门户加载时调用；确认说明后再次调用标记 `onboarded`） |
 | `GET` | `/api/visit/count` | 访问聚合计数（只返回访客数 / 访问次数 / 已确认数，不含 IP 与明细） |
 | `GET` | `/healthz` | 健康检查 |
 
 用户标识通过请求头 `X-Zhixu-User`（或请求体 `userId`）传入，为浏览器 `localStorage` 生成的匿名随机 ID。Jev 故障或未配置时自动使用规则引擎兜底，学习流程不受影响。
+
+### 身份与防护
+
+用户数据接口（`/api/learning/*`、`/api/knowledge/*`、`/api/visit`）需要设备令牌：请求头 `X-Zhixu-Token`。**身份取自令牌里的 `uid`，请求头自称的 `X-Zhixu-User` 会被忽略**，因此无法冒充别人的标识。令牌是不透明串（HMAC-SHA256 签名，默认 30 天有效），不含任何身份信息，前端拿到后缓存在 `localStorage`，过期会自动重新申请。
+
+| 变量 | 默认 | 作用 |
+| --- | --- | --- |
+| `ZHIXU_SESSION_SECRET` | 启动时随机生成 | 令牌签名密钥。**线上务必固定配置**（`npm run deploy` 会在首次部署时生成并写入本地 `.env`），否则每次重启令牌都会失效 |
+| `ZHIXU_REQUIRE_SESSION` | `true` | 设为 `false` 退回旧的「请求头自称 userId」模式，不建议线上使用 |
+| `ZHIXU_SESSION_TTL_MS` | 30 天 | 令牌有效期 |
+| `ZHIXU_RATE_PER_MIN` | `60` | 写接口按客户端 IP 的每分钟上限，超限返回 `429`（带 `retryAfterMs`） |
+| `ZHIXU_RATE_PER_DAY` | `2000` | 写接口按客户端 IP 的每日上限 |
+| `ZHIXU_JEV_DAILY_LIMIT` | `300` | 当日 Jev 调用总上限（用 `zx_jev_call_log` 估算，重启后仍有效），超出自动回退规则引擎 |
+| `ZHIXU_JEV_DAILY_LIMIT_PER_IP` | `30` | 单个 IP 当日 Jev 调用上限 |
+
+另外单次上报事件最多 200 条，请求体上限 256KB。这样即使有人扫到公开接口，也无法批量注入数据或烧掉 TypeSafe 额度。
 
 访问记录写入 `zx_site_visit` 表：`visit_id` 由前端按「设备标识 + 日期」生成并唯一，同一设备同一天累计 `visit_count` 而不会无限增长。查询明细请在服务器本机执行 `node scripts/visits-report.cjs [天数] [--full]`（默认对 IP 末段打码）；该数据不通过公网接口暴露。
 

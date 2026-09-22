@@ -9,6 +9,7 @@ const { createRouter, sendJson, sendError } = require('./lib/http.cjs');
 const { openDatabase, closeDatabase } = require('./db/database.cjs');
 const learningRoutes = require('./routes/learningRoutes.cjs');
 const siteVisitRoutes = require('./routes/siteVisitRoutes.cjs');
+const sessionRoutes = require('./routes/sessionRoutes.cjs');
 
 const router = createRouter();
 
@@ -33,6 +34,7 @@ router.get('/api/healthz', (request, response) => {
 
 learningRoutes.register(router);
 siteVisitRoutes.register(router);
+sessionRoutes.register(router);
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -128,12 +130,21 @@ function openBrowser(url) {
 
 function start(port = config.port, host = config.host) {
   openDatabase();
+  if (!process.env.ZHIXU_SESSION_SECRET) {
+    logger.warn('未配置 ZHIXU_SESSION_SECRET：本次启动的设备令牌在重启后会失效（前端会自动重新申请）');
+  }
   return new Promise((resolve, reject) => {
     server.once('error', reject);
     server.listen(port, host, () => {
       const address = server.address();
       const url = `http://${host}:${address.port}/`;
-      logger.info('知序后端已启动', { url, db: config.dbPath, jevEnabled: config.jev.enabled });
+      logger.info('知序后端已启动', {
+        url,
+        db: config.dbPath,
+        jevEnabled: config.jev.enabled,
+        requireSession: config.session.require,
+        rateLimit: config.rateLimit,
+      });
       if (config.open) openBrowser(url);
       resolve(server);
     });

@@ -48,6 +48,13 @@ TYPESAFE_BASE_URL=https://api.typesafe.ai/v1
 TYPESAFE_MODEL=jev-latest
 ZHIXU_DB=/www/wwwroot/zhixu-backend/server/data/zhixu.db
 ZHIXU_STATIC=/www/wwwroot/recaord.top/math-modeling
+# 安全：设备令牌 + 写接口限流 + Jev 成本保险丝
+ZHIXU_SESSION_SECRET=__SESSION_SECRET__
+ZHIXU_REQUIRE_SESSION=true
+ZHIXU_RATE_PER_MIN=60
+ZHIXU_RATE_PER_DAY=2000
+ZHIXU_JEV_DAILY_LIMIT=300
+ZHIXU_JEV_DAILY_LIMIT_PER_IP=30
 ENV
 chmod 600 "$BACKEND_DIR/.env"
 
@@ -102,7 +109,12 @@ echo "== 7/7 验证 =="
 sleep 1
 echo -n "backend healthz: "; curl -s http://127.0.0.1:8787/healthz; echo
 echo -n "public api healthz: "; curl -s -o /dev/null -w '%{http_code}\n' https://recaord.top/math-modeling/api/healthz
-echo -n "public api heatmap: "; curl -s -o /dev/null -w '%{http_code}\n' -H 'X-Zhixu-User: deploy-check' https://recaord.top/math-modeling/api/learning/heatmap
+API=https://recaord.top/math-modeling/api
+TOKEN=$(curl -s -X POST -H 'Content-Type: application/json' -d '{"userId":"deploy-check"}' "$API/session" | sed -n 's/.*"token":"\([^"]*\)".*/\1/p')
+if [ -n "$TOKEN" ]; then echo "device session: ok"; else echo "device session: FAILED"; fi
+echo -n "public api heatmap: "; curl -s -o /dev/null -w '%{http_code}\n' -H "X-Zhixu-Token: $TOKEN" "$API/learning/heatmap"
+echo -n "public api visit: "; curl -s -o /dev/null -w '%{http_code}\n' -X POST -H 'Content-Type: application/json' -H "X-Zhixu-Token: $TOKEN" -d '{"visitId":"deploy-check","onboarded":false}' "$API/visit"
+echo -n "public api without token(expect 401): "; curl -s -o /dev/null -w '%{http_code}\n' "$API/learning/overview"
 echo -n "mastery.html: "; curl -s -o /dev/null -w '%{http_code}\n' https://recaord.top/math-modeling/mastery.html
 echo -n "portal index: "; curl -s -o /dev/null -w '%{http_code}\n' https://recaord.top/math-modeling/
 echo "DONE"

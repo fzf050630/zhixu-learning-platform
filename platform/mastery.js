@@ -13,6 +13,8 @@
   const FLUSH_DELAY = 1500;
   const DWELL_MS = 20000;
   const canSync = location.protocol === 'http:' || location.protocol === 'https:';
+  /* 设备令牌模块（platform/session.js）：身份改由服务端签发，防止冒充别人的 userId。 */
+  const session = P.session || null;
 
   function randomId() {
     try {
@@ -55,25 +57,35 @@
     const batch = queue.splice(0, queue.length);
     if (!canSync) return;
     const url = API_BASE + '/api/learning/events';
-    const body = JSON.stringify({ userId: userId(), events: batch });
-    if (useBeacon && navigator.sendBeacon) {
+    const send = session => {
+      const identity = session || { userId: userId(), token: '' };
+      const body = JSON.stringify({ userId: identity.userId, events: batch });
+      if (useBeacon && navigator.sendBeacon) {
+        try {
+          navigator.sendBeacon(url, new Blob([body], { type: 'application/json' }));
+          return;
+        } catch (_) { /* fall back to fetch */ }
+      }
+      const headers = { 'Content-Type': 'application/json', 'X-Zhixu-User': identity.userId };
+      if (identity.token) headers['X-Zhixu-Token'] = identity.token;
       try {
-        navigator.sendBeacon(url, new Blob([body], { type: 'application/json' }));
-        return;
-      } catch (_) { /* fall back to fetch */ }
-    }
-    try {
-      fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Zhixu-User': userId() },
-        body,
-        keepalive: true,
-      }).then(response => {
-        if (response.ok) {
-          try { document.dispatchEvent(new CustomEvent('zhixu:mastery-refresh')); } catch (_) { /* ignore */ }
-        }
-      }).catch(() => { /* 后端不可用时静默丢弃 */ });
-    } catch (_) { /* ignore */ }
+        fetch(url, { method: 'POST', headers, body, keepalive: true }).then(response => {
+          if (response.ok) {
+            try { document.dispatchEvent(new CustomEvent('zhixu:mastery-refresh')); } catch (_) { /* ignore */ }
+            return;
+          }
+          if (response.status === 401) clearSession();
+        }).catch(() => { /* 后端不可用时静默丢弃 */ });
+      } catch (_) { /* ignore */ }
+    };
+    /* 先确保拿到设备令牌（身份由服务端签发），失败时退回本地标识上报。 */
+    if (session) session.ensure().then(send).catch(() => send(null));
+    else send(null);
+  }
+
+  /* 令牌过期或失效时清掉缓存，下一次 flush 会重新申请。 */
+  function clearSession() {
+    if (session && typeof session.clear === 'function') session.clear();
   }
 
   function schedule() {

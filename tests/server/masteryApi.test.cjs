@@ -17,11 +17,17 @@ const app = require('../../server/index.cjs');
 const NODE_ID = 'data-structures:lab/avl-rotations';
 const USER = 'test-user-1';
 let base;
+let token = '';
 
 function api(pathname, options = {}) {
   return fetch(base + pathname, {
     ...options,
-    headers: { 'Content-Type': 'application/json', 'X-Zhixu-User': USER, ...(options.headers || {}) },
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { 'X-Zhixu-Token': token } : {}),
+      'X-Zhixu-User': USER,
+      ...(options.headers || {}),
+    },
   });
 }
 
@@ -39,6 +45,17 @@ function submit(correct, extra = {}) {
 test.before(async () => {
   const server = await app.start(0, '127.0.0.1');
   base = `http://127.0.0.1:${server.address().port}`;
+  // 用户数据接口需要设备令牌；这里沿用固定 userId 以便断言历史数据
+  const response = await fetch(base + '/api/session', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ userId: USER }),
+  });
+  assert.equal(response.status, 200);
+  const data = await response.json();
+  assert.equal(data.userId, USER);
+  assert.ok(data.token);
+  token = data.token;
 });
 
 test.after(async () => {

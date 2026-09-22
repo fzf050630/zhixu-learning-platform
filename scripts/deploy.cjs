@@ -24,6 +24,15 @@ if (!apiKey) {
   process.exit(1);
 }
 
+/* 设备令牌签名密钥：只存在本地 .env 与服务器 .env，不进仓库。
+   首次部署时自动生成并写回本地 .env，保证多次部署之间令牌不失效。 */
+let sessionSecret = process.env.ZHIXU_SESSION_SECRET || '';
+if (!sessionSecret) {
+  sessionSecret = require('node:crypto').randomBytes(32).toString('base64url');
+  fs.appendFileSync(path.join(root, '.env'), '\nZHIXU_SESSION_SECRET=' + sessionSecret + '\n');
+  console.log('已生成 ZHIXU_SESSION_SECRET 并写入本地 .env（.env 不入库）');
+}
+
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'zhixu-deploy-'));
 const run = (command, args, options) => execFileSync(command, args, { stdio: 'inherit', ...(options || {}) });
 
@@ -46,7 +55,7 @@ try {
   console.log('== 生成远程脚本 ==');
   const template = fs.readFileSync(path.join(root, 'deploy', 'zhixu-remote.sh'), 'utf8');
   const scriptPath = path.join(temp, 'deploy.sh');
-  fs.writeFileSync(scriptPath, template.replace('__API_KEY__', apiKey));
+  fs.writeFileSync(scriptPath, template.replace('__API_KEY__', apiKey).replace(/__SESSION_SECRET__/g, sessionSecret));
 
   console.log('== 上传到 ' + host + ' ==');
   run('scp', ['-o', 'BatchMode=yes', site, backend, scriptPath, host + ':/tmp/']);

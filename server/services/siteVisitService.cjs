@@ -5,6 +5,7 @@
    因此不会把你的 IP 发给站外服务。 */
 const crypto = require('node:crypto');
 const repository = require('../repositories/siteVisitRepository.cjs');
+const { clientAddress } = require('../lib/client.cjs');
 
 const LIMITS = {
   visitId: 96,
@@ -25,15 +26,6 @@ function clean(value, max) {
   // 去掉控制字符，避免把换行/空字节写进数据库
   const text = String(value).replace(/[\u0000-\u001f\u007f]/g, ' ').trim();
   return text ? text.slice(0, max) : null;
-}
-
-/* 反向代理下真实客户端 IP 依次取：X-Forwarded-For 首段 → X-Real-IP → socket 地址。 */
-function clientAddress(request) {
-  const forwardedFor = clean(request.headers['x-forwarded-for'], LIMITS.forwardedFor);
-  const first = forwardedFor ? forwardedFor.split(',')[0].trim() : '';
-  const realIp = clean(request.headers['x-real-ip'], LIMITS.ip);
-  const socketIp = clean(request.socket && request.socket.remoteAddress, LIMITS.ip);
-  return { ip: first || realIp || socketIp || null, forwardedFor };
 }
 
 function record(request, body = {}) {

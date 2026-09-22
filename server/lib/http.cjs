@@ -1,6 +1,8 @@
 'use strict';
 
-const { HttpError, badRequest } = require('./errors.cjs');
+const { HttpError, badRequest, unauthorized } = require('./errors.cjs');
+const config = require('../config.cjs');
+const session = require('./session.cjs');
 
 const MAX_BODY_BYTES = 1024 * 256;
 
@@ -95,4 +97,17 @@ function resolveUserId(request, body) {
   return value.slice(0, 64).replace(/[^\w:.-]/g, '');
 }
 
-module.exports = { createRouter, sendJson, sendError, readJsonBody, resolveUserId, MAX_BODY_BYTES };
+/* 用户身份：优先使用服务端签发的设备令牌（令牌里的 uid 才是权威身份），
+   这样客户端无法冒充别人的 userId。需要令牌但缺失/无效时抛 401；
+   ZHIXU_REQUIRE_SESSION=false 时退回旧的「请求头自称 userId」模式。 */
+function resolveIdentity(request, body) {
+  const header = request.headers['x-zhixu-token'];
+  const token = (typeof header === 'string' && header.trim()) || (body && body.token) || '';
+  const verified = token ? session.verify(token, { secret: config.session.secret }) : null;
+  if (verified) return { userId: verified.uid, verified: true, expiresAt: verified.expiresAt };
+  if (token) throw unauthorized('设备令牌无效或已过期，请刷新页面');
+  if (config.session.require) throw unauthorized('需要有效的设备令牌，请先申请：POST /api/session');
+  return { userId: resolveUserId(request, body), verified: false };
+}
+
+module.exports = { createRouter, sendJson, sendError, readJsonBody, resolveUserId, resolveIdentity, MAX_BODY_BYTES };

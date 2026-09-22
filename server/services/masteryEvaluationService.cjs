@@ -76,7 +76,7 @@ async function assemble(userId, nodeId, options = {}) {
 
   if (options.useJev !== false && config.jev.enabled) {
     try {
-      jev = await jevDecisionService.evaluate(node, metrics, { userId });
+      jev = await jevDecisionService.evaluate(node, metrics, { userId, ...(options.jevContext || {}) });
       const masteryConfidence = jev.masteryConfidence === null ? 0 : jev.masteryConfidence;
       if (jev.masteryScore !== null && masteryConfidence >= config.mastery.confidence.weak) {
         jevScore = jev.masteryScore;

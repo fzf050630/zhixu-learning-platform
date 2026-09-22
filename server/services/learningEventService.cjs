@@ -67,14 +67,14 @@ function normalize(userId, payload) {
   };
 }
 
-function maybeEvaluate(userId, event) {
+function maybeEvaluate(userId, event, options = {}) {
   if (!TRIGGER_TYPES.has(event.type)) return Promise.resolve(null);
   const stored = knowledgeStateRepository.find(userId, event.knowledgeNodeId);
   if (stored && stored.lastEvaluatedAt) {
     const elapsed = Date.now() - new Date(stored.lastEvaluatedAt).getTime();
     if (elapsed < config.mastery.evaluationMinIntervalMs) return Promise.resolve(null);
   }
-  return masteryEvaluationService.evaluate(userId, event.knowledgeNodeId).catch(error => {
+  return masteryEvaluationService.evaluate(userId, event.knowledgeNodeId, options).catch(error => {
     logger.warn('事件触发的掌握度评估失败', { node: event.knowledgeNodeId, reason: error.code || error.message });
     return null;
   });
@@ -91,13 +91,13 @@ function insertEvent(userId, payload) {
   return { event, duplicate: false };
 }
 
-async function record(userId, payload) {
+async function record(userId, payload, options = {}) {
   const { event, duplicate } = insertEvent(userId, payload);
-  if (!duplicate) await maybeEvaluate(userId, event);
+  if (!duplicate) await maybeEvaluate(userId, event, options);
   return { event, duplicate };
 }
 
-async function recordMany(userId, payloads) {
+async function recordMany(userId, payloads, options = {}) {
   const accepted = [];
   for (const payload of payloads) {
     const { event, duplicate } = insertEvent(userId, payload);
@@ -108,7 +108,7 @@ async function recordMany(userId, payloads) {
     accepted.filter(event => TRIGGER_TYPES.has(event.type)).map(event => event.knowledgeNodeId)
   )];
   for (const nodeId of nodes) {
-    await masteryEvaluationService.evaluate(userId, nodeId).catch(error => {
+    await masteryEvaluationService.evaluate(userId, nodeId, options).catch(error => {
       logger.warn('批量事件后的掌握度评估失败', { node: nodeId, reason: error.code || error.message });
       return null;
     });

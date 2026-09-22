@@ -1,7 +1,9 @@
 'use strict';
 
-const { sendJson, readJsonBody, resolveUserId } = require('../lib/http.cjs');
+const { sendJson, readJsonBody, resolveIdentity, resolveUserId } = require('../lib/http.cjs');
 const { badRequest } = require('../lib/errors.cjs');
+const rateLimit = require('../lib/rateLimit.cjs');
+const { clientAddress } = require('../lib/client.cjs');
 const learningEventService = require('../services/learningEventService.cjs');
 const learningEventRepository = require('../repositories/learningEventRepository.cjs');
 const reviewScheduleRepository = require('../repositories/reviewScheduleRepository.cjs');
@@ -11,22 +13,37 @@ const heatmapService = require('../services/heatmapService.cjs');
 const { resolveNode, allNodes } = require('../knowledge/nodes.cjs');
 const masteryEvaluationService = require('../services/masteryEvaluationService.cjs');
 
+/* 一次最多上报的事件条数：限制单请求写入量，避免被脚本用一次请求灌满数据。 */
+const MAX_BATCH_EVENTS = 200;
+
+function guardRate(request) {
+  rateLimit.guard(clientAddress(request).ip);
+}
+
+/* 把客户端 IP 传下去，交给 Jev 成本保险丝做单 IP 预算判断。 */
+function jevOptions(request) {
+  return { jevContext: { ip: clientAddress(request).ip } };
+}
+
 function register(router) {
   router.post('/api/learning/events', async (request, response) => {
+    guardRate(request);
     const body = await readJsonBody(request);
-    const userId = resolveUserId(request, body);
+    const { userId } = resolveIdentity(request, body);
+    const options = jevOptions(request);
     if (Array.isArray(body.events)) {
       if (!body.events.length) throw badRequest('events 不能为空');
-      const accepted = await learningEventService.recordMany(userId, body.events);
+      if (body.events.length > MAX_BATCH_EVENTS) throw badRequest('一次最多上报 ' + MAX_BATCH_EVENTS + ' 条事件');
+      const accepted = await learningEventService.recordMany(userId, body.events, options);
       sendJson(response, 202, { accepted: accepted.length, events: accepted.map(event => event.eventId) });
       return;
     }
-    const { event, duplicate } = await learningEventService.record(userId, body);
+    const { event, duplicate } = await learningEventService.record(userId, body, options);
     sendJson(response, duplicate ? 200 : 202, { accepted: duplicate ? 0 : 1, duplicate, eventId: event.eventId });
   });
 
   router.get('/api/learning/events', (request, response, params, url) => {
-    const userId = resolveUserId(request);
+    const { userId } = resolveIdentity(request);
     const nodeId = url.searchParams.get('nodeId');
     const limit = Number(url.searchParams.get('limit')) || 100;
     const events = nodeId
@@ -36,7 +53,7 @@ function register(router) {
   });
 
   router.get('/api/learning/reviews', (request, response) => {
-    const userId = resolveUserId(request);
+    const { userId } = resolveIdentity(request);
     const pending = reviewScheduleRepository.listPending(userId, { limit: 100 });
     sendJson(response, 200, {
       count: pending.length,
@@ -50,7 +67,7 @@ function register(router) {
   });
 
   router.get('/api/learning/overview', (request, response) => {
-    const userId = resolveUserId(request);
+    const { userId } = resolveIdentity(request);
     const states = knowledgeStateRepository.listByUser(userId);
     const evaluated = states.filter(state => state.status === 'EVALUATED');
     const average = evaluated.length
@@ -74,7 +91,7 @@ function register(router) {
   });
 
   router.get('/api/learning/heatmap', (request, response) => {
-    const userId = resolveUserId(request);
+    const { userId } = resolveIdentity(request);
     const states = knowledgeStateRepository.listByUser(userId);
     sendJson(response, 200, heatmapService.buildHeatmap(states, allNodes()));
   });
@@ -87,7 +104,7 @@ function register(router) {
 
   // 查询参数形式：避免 nodeId 中的 “/” 经反向代理被解码而破坏路径。
   router.get('/api/knowledge/mastery', (request, response, params, url) => {
-    const userId = resolveUserId(request);
+    const { userId } = resolveIdentity(request);
     const nodeId = url.searchParams.get('nodeId');
     if (!nodeId) throw badRequest('缺少 nodeId');
     sendJson(response, 200, masteryResponse(userId, nodeId));
@@ -95,7 +112,7 @@ function register(router) {
 
   // 路径形式（本地直连时使用，保留兼容）。
   router.get('/api/knowledge/:nodeId/mastery', (request, response, params) => {
-    sendJson(response, 200, masteryResponse(resolveUserId(request), params.nodeId));
+    sendJson(response, 200, masteryResponse(resolveIdentity(request).userId, params.nodeId));
   });
 
   async function evaluateResponse(userId, nodeId, useJev) {
