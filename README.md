@@ -6,6 +6,8 @@
 
 **代码仓库：** [GitHub](https://github.com/fzf050630/zhixu-learning-platform) · [Gitee](https://gitee.com/fu-zhifeng0630/zhixu-learning-platform)
 
+**本轮新增功能**（平衡树删除可视化、首次访问说明、访问安全加固、只读数据观察台、SQLite→MySQL 镜像）见 [2026 年 9 月功能与设计说明](docs/FEATURES-2026-09.md)。
+
 ![平台首页](docs/verification/platform/portal-1440-light.png)
 
 ![数据结构实验页](docs/verification/platform/data-structures-1440-light.png)
@@ -85,7 +87,7 @@ subjects 目录（七个）              各科内容与可视化组件源码
   assets/js/lib/draw.js           轻量绘图引擎（HiDPI / 主题联动 / 自适应）
   assets/css/main.css             科目样式
 tests/                            平台单元测试、后端测试与浏览器测试
-docs/                             部署、扩展与验收文档
+docs/                             部署、扩展、验收与功能设计文档
 ```
 
 数据驱动的渲染方式：内容以 JS 数据块（`h3`、`p`、`table`、`fml`、`viz`、`algo` 等）声明，`app.js` 负责渲染；新增可视化只需实现一个 `window.WIDGETS.<name>` 组件并注册 `{ t: 'viz', build: '<name>' }` 内容块，详见 [扩展说明](docs/EXTENDING.md)。
