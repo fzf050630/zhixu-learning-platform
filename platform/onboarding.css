@@ -41,6 +41,20 @@ html.zx-onboard-open, html.zx-onboard-open body { overflow: hidden; }
 .zx-onboard-head h2 { margin: 0 0 6px; font-size: 22px; letter-spacing: -.01em; }
 .zx-onboard-sub { margin: 0; font-size: 13px; color: var(--zx-muted, #697587); }
 
+/* 醒目提示：小屏体验受限，建议用电脑 */
+.zx-onboard-callout {
+  display: inline-block;
+  margin: 12px 0 0;
+  padding: 7px 13px;
+  border-radius: 9px;
+  border: 1px solid color-mix(in srgb, var(--zx-danger, #c2410c) 32%, transparent);
+  background: color-mix(in srgb, var(--zx-danger, #c2410c) 11%, transparent);
+  color: var(--zx-danger, #c2410c);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
 .zx-onboard-body {
   flex: 1;
   min-height: 0;

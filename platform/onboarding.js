@@ -155,6 +155,7 @@
           '<p class="zx-onboard-eyebrow">首次访问说明</p>' +
           '<h2 id="zxOnboardTitle">欢迎来到知序</h2>' +
           '<p class="zx-onboard-sub">408 与考研数学交互学习平台 · 李嘉图笔记（编程寻道）分站</p>' +
+          '<p class="zx-onboard-callout">强烈推荐使用电脑访问本站</p>' +
         '</header>' +
         '<div class="zx-onboard-body" id="zxOnboardBody" tabindex="0" role="document" aria-label="平台说明全文">' + sectionsHtml() + '</div>' +
         '<footer class="zx-onboard-foot">' +
