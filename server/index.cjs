@@ -8,6 +8,7 @@ const logger = require('./lib/logger.cjs');
 const { createRouter, sendJson, sendError } = require('./lib/http.cjs');
 const { openDatabase, closeDatabase } = require('./db/database.cjs');
 const learningRoutes = require('./routes/learningRoutes.cjs');
+const siteVisitRoutes = require('./routes/siteVisitRoutes.cjs');
 
 const router = createRouter();
 
@@ -31,6 +32,7 @@ router.get('/api/healthz', (request, response) => {
 });
 
 learningRoutes.register(router);
+siteVisitRoutes.register(router);
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',

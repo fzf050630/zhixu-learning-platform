@@ -152,9 +152,13 @@ location /api/ {
 | `GET` | `/api/learning/reviews` | 待复习计划 |
 | `GET` | `/api/learning/overview` | 用户掌握度概览 |
 | `GET` | `/api/learning/heatmap` | 学科 / 章节加权掌握度热力图 |
+| `POST` | `/api/visit` | 记录一条匿名访问记录（首次说明页与门户加载时调用；确认说明后再次调用标记 `onboarded`） |
+| `GET` | `/api/visit/count` | 访问聚合计数（只返回访客数 / 访问次数 / 已确认数，不含 IP 与明细） |
 | `GET` | `/healthz` | 健康检查 |
 
 用户标识通过请求头 `X-Zhixu-User`（或请求体 `userId`）传入，为浏览器 `localStorage` 生成的匿名随机 ID。Jev 故障或未配置时自动使用规则引擎兜底，学习流程不受影响。
+
+访问记录写入 `zx_site_visit` 表：`visit_id` 由前端按「设备标识 + 日期」生成并唯一，同一设备同一天累计 `visit_count` 而不会无限增长。查询明细请在服务器本机执行 `node scripts/visits-report.cjs [天数] [--full]`（默认对 IP 末段打码）；该数据不通过公网接口暴露。
 
 ### 配置 Jev（TypeSafe）
 

@@ -1,0 +1,144 @@
+/* 知序 · 首次访问说明弹层 */
+html.zx-onboard-open, html.zx-onboard-open body { overflow: hidden; }
+
+.zx-onboard {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(16, 21, 34, .62);
+  backdrop-filter: blur(3px);
+}
+.zx-onboard[hidden] { display: none; }
+
+.zx-onboard-card {
+  display: flex;
+  flex-direction: column;
+  width: min(760px, 100%);
+  max-height: min(86vh, 900px);
+  background: var(--zx-surface, #fff);
+  color: var(--zx-ink, #202737);
+  border: 1px solid var(--zx-line, #e3e7ee);
+  border-radius: 18px;
+  box-shadow: 0 30px 70px rgba(12, 18, 36, .32);
+  overflow: hidden;
+}
+
+.zx-onboard-head {
+  padding: 22px 26px 16px;
+  border-bottom: 1px solid var(--zx-line, #e3e7ee);
+  background: linear-gradient(180deg, rgba(64, 92, 206, .07), transparent);
+}
+.zx-onboard-eyebrow {
+  margin: 0 0 6px;
+  font: 600 11.5px/1 var(--zx-mono, ui-monospace, monospace);
+  letter-spacing: .1em;
+  color: var(--zx-brand, #405cce);
+  text-transform: uppercase;
+}
+.zx-onboard-head h2 { margin: 0 0 6px; font-size: 22px; letter-spacing: -.01em; }
+.zx-onboard-sub { margin: 0; font-size: 13px; color: var(--zx-muted, #697587); }
+
+.zx-onboard-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 20px 26px 8px;
+  font-size: 14px;
+  line-height: 1.78;
+  scroll-behavior: smooth;
+}
+.zx-onboard-body:focus-visible { outline: 2px solid var(--zx-brand, #405cce); outline-offset: -3px; }
+.zx-onboard-section + .zx-onboard-section { margin-top: 20px; padding-top: 18px; border-top: 1px dashed var(--zx-line, #e3e7ee); }
+.zx-onboard-section h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  padding-left: 10px;
+  position: relative;
+}
+.zx-onboard-section h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 3px;
+  height: 14px;
+  border-radius: 2px;
+  background: linear-gradient(var(--zx-brand, #405cce), var(--zx-violet, #7b5ce0));
+}
+.zx-onboard-section p { margin: 0 0 9px; color: var(--zx-ink, #202737); }
+.zx-onboard-section p:last-child { margin-bottom: 0; }
+.zx-onboard-section b { font-weight: 700; }
+.zx-onboard-section a { color: var(--zx-brand, #405cce); text-decoration: underline; text-underline-offset: 2px; }
+.zx-onboard-list {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(64, 92, 206, .1);
+  color: var(--zx-brand, #405cce);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.zx-onboard-foot {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "progress progress" "hint button";
+  gap: 10px 14px;
+  align-items: center;
+  padding: 14px 26px 18px;
+  border-top: 1px solid var(--zx-line, #e3e7ee);
+  background: var(--zx-surface, #fff);
+}
+.zx-onboard-progress {
+  grid-area: progress;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--zx-line, #e3e7ee);
+  overflow: hidden;
+}
+.zx-onboard-progress i {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--zx-brand, #405cce), var(--zx-violet, #7b5ce0));
+  transition: width .16s ease;
+}
+.zx-onboard-hint { grid-area: hint; margin: 0; font-size: 12.5px; color: var(--zx-muted, #697587); }
+.zx-onboard-accept {
+  grid-area: button;
+  padding: 11px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--zx-brand, #405cce), var(--zx-violet, #7b5ce0));
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 620;
+  cursor: pointer;
+}
+.zx-onboard-accept:disabled {
+  background: var(--zx-line, #e3e7ee);
+  color: var(--zx-muted, #8791a3);
+  cursor: not-allowed;
+}
+.zx-onboard-accept:not(:disabled):hover { filter: brightness(1.06); }
+.zx-onboard-accept:focus-visible { outline: 2px solid var(--zx-brand, #405cce); outline-offset: 3px; }
+
+@media (max-width: 640px) {
+  .zx-onboard { padding: 0; }
+  .zx-onboard-card { width: 100%; max-height: 100%; height: 100%; border-radius: 0; border: 0; }
+  .zx-onboard-head { padding: 18px 18px 14px; }
+  .zx-onboard-head h2 { font-size: 19px; }
+  .zx-onboard-body { padding: 16px 18px 6px; }
+  .zx-onboard-foot {
+    grid-template-columns: 1fr;
+    grid-template-areas: "progress" "hint" "button";
+    padding: 12px 18px 16px;
+  }
+  .zx-onboard-accept { width: 100%; }
+}

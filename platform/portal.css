@@ -143,3 +143,20 @@ html[data-theme='dark'] .subject-visual.probability { --viz-a: #86c8b3; --viz-b:
 }
 @media (max-width: 370px) { .portal-content { padding-left: 15px; padding-right: 15px; } .welcome h1 { font-size: 31px; } .small-break { display: block; } .toolbar-note { display: none; } .filter-tabs button { padding: 5px 8px; } .section-heading p { max-width: 155px; } .section-heading.compact { gap: 5px; } .muted { font-size: 10px; } }
 @media (prefers-reduced-motion: reduce) { .subject-card, .portal-sidebar { transition: none; } .subject-card:hover { transform: none; } }
+
+/* 页脚：分站说明与备案 */
+.portal-footer { flex-wrap: wrap; }
+.portal-footer-legal { color: var(--zx-muted, #697587); }
+.portal-footer-legal a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.portal-footer-legal a:hover { color: var(--zx-brand, #405cce); }
+.portal-footer-link {
+  margin-left: 6px;
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--zx-brand, #405cce);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}

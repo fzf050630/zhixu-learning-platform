@@ -98,3 +98,32 @@ CREATE TABLE IF NOT EXISTS zx_jev_call_log (
   result_json       TEXT,
   created_at        TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
+
+-- 站点访问记录：记录首次访问提示页与平台门户的匿名网络信息。
+-- visit_id 由前端按「设备标识 + 日期」生成，同一设备同一天只保留一行并累计 visit_count；
+-- onboarded 表示该访客是否已读完首次访问说明并确认。
+CREATE TABLE IF NOT EXISTS zx_site_visit (
+  id              INTEGER PRIMARY KEY AUTOINCREMENT,
+  visit_id        TEXT    NOT NULL UNIQUE,
+  user_id         TEXT,
+  ip              TEXT,
+  forwarded_for   TEXT,
+  user_agent      TEXT,
+  referer         TEXT,
+  accept_language TEXT,
+  path            TEXT,
+  screen          TEXT,
+  timezone        TEXT,
+  language        TEXT,
+  onboarded       INTEGER NOT NULL DEFAULT 0,
+  visit_count     INTEGER NOT NULL DEFAULT 1,
+  created_at      TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+  last_seen_at    TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_site_visit_created
+  ON zx_site_visit (created_at);
+CREATE INDEX IF NOT EXISTS idx_site_visit_last_seen
+  ON zx_site_visit (last_seen_at);
+CREATE INDEX IF NOT EXISTS idx_site_visit_ip
+  ON zx_site_visit (ip);
