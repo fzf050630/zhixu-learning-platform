@@ -40,7 +40,7 @@ try {
     '--exclude=server/data/*.db',
     '--exclude=server/data/*.db-wal',
     '--exclude=server/data/*.db-shm',
-    '-C', root, 'server', 'scripts/catalog.cjs', 'package.json',
+    '-C', root, 'server', 'scripts/catalog.cjs', 'scripts/visits-report.cjs', 'package.json',
   ]);
 
   console.log('== 生成远程脚本 ==');
