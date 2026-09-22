@@ -82,12 +82,25 @@
 .zx-mastery-empty { font-size: 13px; color: var(--zx-muted, #697587); line-height: 1.6; }
 .zx-mastery-loading { font-size: 13px; color: var(--zx-muted, #697587); }
 
+/* 目录项中的掌握度：始终贴右对齐，不参与换行、不挤占标题，避免与目录文字重合。
+   各科目录可能对 item 内的 span 有通用样式（例如数据结构的 .nav-labs a span 画成小圆点），
+   因此这里显式重置盒模型，保证标签只显示为文字。 */
 .zx-mastery-tag {
+  width: auto;
+  height: auto;
+  min-width: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
   margin-left: auto;
+  flex: none;
+  align-self: center;
+  white-space: nowrap;
   font-size: 11px;
   font-variant-numeric: tabular-nums;
   color: var(--zx-muted, #697587);
   padding-left: 8px;
+  text-align: right;
 }
 .zx-mastery-tag[data-level="MASTERED"] { color: #1f7a4d; }
 .zx-mastery-tag[data-level="PROFICIENT"] { color: #267567; }

@@ -159,10 +159,29 @@
     document.querySelectorAll('[data-zx-mastery]').forEach(element => { delete element.dataset.zxMastery; });
   }
 
+  let knownNodes = null;
+  /* 目录节点集合：只有真实的学习入口才标注掌握度。
+     章节链接、平台头部跳转等同样带 # 的元素不属于目录节点，
+     标注它们只会在侧栏多出一个无意义的「—」。 */
+  function catalogNodeIds() {
+    if (knownNodes) return knownNodes;
+    knownNodes = new Set();
+    const catalog = P.catalog;
+    if (catalog && Array.isArray(catalog.entries)) {
+      catalog.entries.forEach(entry => {
+        if (entry.subject === SUBJECT && entry.hash) knownNodes.add(M.nodeIdFor(SUBJECT, entry.hash));
+      });
+    }
+    return knownNodes;
+  }
+
   function annotateNav() {
     if (!overview.map) return;
+    const known = catalogNodeIds();
     const targets = [];
     document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+      // 小节导航按钮自身也是目录内的链接，不需要再叠一个掌握度标签
+      if (anchor.closest('.zx-section-nav')) return;
       const href = anchor.getAttribute('href') || '';
       const index = href.indexOf('#');
       if (index >= 0) targets.push([anchor, href.slice(index)]);
@@ -173,8 +192,10 @@
     targets.forEach(([element, hash]) => {
       if (element.dataset.zxMastery) return;
       if (!hash || hash === '#' || hash === '#/') return;
+      const nodeId = M.nodeIdFor(SUBJECT, hash);
+      if (known.size && !known.has(nodeId)) return;
       element.dataset.zxMastery = '1';
-      const state = overview.map.get(M.nodeIdFor(SUBJECT, hash));
+      const state = overview.map.get(nodeId);
       const tag = document.createElement('span');
       tag.className = 'zx-mastery-tag';
       if (!state) {
