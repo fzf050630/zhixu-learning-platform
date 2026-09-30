@@ -181,18 +181,18 @@
     { ch: 'ch2', item: '随机变量', level: '理解', sec: 'ch2-s1', secTitle: '随机变量与分布函数' },
     { ch: 'ch2', item: '分布函数的概念及其性质', level: '理解', sec: 'ch2-s1', secTitle: '随机变量与分布函数' },
     { ch: 'ch2', item: '计算与随机变量相联系的事件的概率', level: '会', sec: 'ch2-s1', secTitle: '随机变量与分布函数' },
-    { ch: 'ch2', item: '离散型随机变量的概率分布', level: '理解', sec: 'ch2-s2', secTitle: '离散型随机变量' },
-    { ch: 'ch2', item: '0−1 分布', level: '掌握', sec: 'ch2-s3', secTitle: '常见离散型分布' },
-    { ch: 'ch2', item: '二项分布 B(n,p)', level: '掌握', sec: 'ch2-s3', secTitle: '常见离散型分布' },
-    { ch: 'ch2', item: '几何分布', level: '掌握', sec: 'ch2-s3', secTitle: '常见离散型分布' },
-    { ch: 'ch2', item: '超几何分布', level: '掌握', sec: 'ch2-s3', secTitle: '常见离散型分布' },
-    { ch: 'ch2', item: '泊松（Poisson）分布 P(λ)', level: '掌握', sec: 'ch2-s3', secTitle: '常见离散型分布' },
-    { ch: 'ch2', item: '泊松定理的结论和应用条件', level: '了解', sec: 'ch2-s3', secTitle: '常见离散型分布' },
-    { ch: 'ch2', item: '用泊松分布近似表示二项分布', level: '会用', sec: 'ch2-s3', secTitle: '常见离散型分布' },
+    { ch: 'ch2', item: '离散型随机变量的概率分布', level: '理解', sec: 'ch2-s2', secTitle: '离散型随机变量及其概率分布' },
+    { ch: 'ch2', item: '0−1 分布', level: '掌握', sec: 'ch2-s3', secTitle: '常见离散型分布（五种）' },
+    { ch: 'ch2', item: '二项分布 B(n,p)', level: '掌握', sec: 'ch2-s3', secTitle: '常见离散型分布（五种）' },
+    { ch: 'ch2', item: '几何分布', level: '掌握', sec: 'ch2-s3', secTitle: '常见离散型分布（五种）' },
+    { ch: 'ch2', item: '超几何分布', level: '掌握', sec: 'ch2-s3', secTitle: '常见离散型分布（五种）' },
+    { ch: 'ch2', item: '泊松（Poisson）分布 P(λ)', level: '掌握', sec: 'ch2-s3', secTitle: '常见离散型分布（五种）' },
+    { ch: 'ch2', item: '泊松定理的结论和应用条件', level: '了解', sec: 'ch2-s3', secTitle: '常见离散型分布（五种）' },
+    { ch: 'ch2', item: '用泊松分布近似表示二项分布', level: '会用', sec: 'ch2-s3', secTitle: '常见离散型分布（五种）' },
     { ch: 'ch2', item: '连续型随机变量的概率密度', level: '理解', sec: 'ch2-s4', secTitle: '连续型随机变量与概率密度' },
-    { ch: 'ch2', item: '均匀分布 U(a,b)', level: '掌握', sec: 'ch2-s5', secTitle: '常见连续型分布' },
-    { ch: 'ch2', item: '正态分布 N(μ,σ²)', level: '掌握', sec: 'ch2-s5', secTitle: '常见连续型分布' },
-    { ch: 'ch2', item: '指数分布 E(λ)', level: '掌握', sec: 'ch2-s5', secTitle: '常见连续型分布' },
+    { ch: 'ch2', item: '均匀分布 U(a,b)', level: '掌握', sec: 'ch2-s5', secTitle: '常见连续型分布（三种）' },
+    { ch: 'ch2', item: '正态分布 N(μ,σ²)', level: '掌握', sec: 'ch2-s5', secTitle: '常见连续型分布（三种）' },
+    { ch: 'ch2', item: '指数分布 E(λ)', level: '掌握', sec: 'ch2-s5', secTitle: '常见连续型分布（三种）' },
     { ch: 'ch2', item: '随机变量函数的分布', level: '会求', sec: 'ch2-s6', secTitle: '随机变量函数的分布' },
 
     /* ---------- 第三章 ---------- */
@@ -270,6 +270,68 @@
     { ch: 'ch8', item: '两个正态总体均值的假设检验', level: '掌握', sec: 'ch8-s4', secTitle: '两个正态总体的假设检验' },
     { ch: 'ch8', item: '两个正态总体方差的假设检验', level: '掌握', sec: 'ch8-s4', secTitle: '两个正态总体的假设检验' }
   ];
+
+  // 每条官方大纲原文到一个或多个具体小节的来源索引。索引为零起点。
+  const refs = (chapter, content, requirements) => [
+    ...content.map(i => `content:${chapter}:${i}`),
+    ...requirements.map(i => `requirement:${chapter}:${i}`)
+  ];
+  const coverageRefsByChapter = {
+    ch1: [
+      refs('ch1', [0], [0]), refs('ch1', [1], [0]), refs('ch1', [2], [0]),
+      refs('ch1', [3], [1]), refs('ch1', [4], [1]), refs('ch1', [5], [1]),
+      refs('ch1', [6], [1]), refs('ch1', [7], [1]),
+      refs('ch1', [8], [1]), refs('ch1', [8], [1]), refs('ch1', [8], [1]),
+      refs('ch1', [8], [1]), refs('ch1', [8], [1]),
+      refs('ch1', [9], [2]), refs('ch1', [10], [2]),
+    ],
+    ch2: [
+      refs('ch2', [0], [0]), refs('ch2', [1], [0]), refs('ch2', [1], [0]),
+      refs('ch2', [2], [1]), refs('ch2', [4], [1]), refs('ch2', [4], [1]),
+      refs('ch2', [4], [1]), refs('ch2', [4], [1]), refs('ch2', [4], [1]),
+      refs('ch2', [4], [2]), refs('ch2', [4], [2]), refs('ch2', [3], [3]),
+      refs('ch2', [4], [3]), refs('ch2', [4], [3]), refs('ch2', [4], [3]),
+      refs('ch2', [5], [4]),
+    ],
+    ch3: [
+      refs('ch3', [0], [0]), refs('ch3', [0], [0]), refs('ch3', [0], [0]),
+      refs('ch3', [1], [0]), refs('ch3', [1], [0]), refs('ch3', [1], [0]),
+      refs('ch3', [2], [0]), refs('ch3', [2], [0]), refs('ch3', [2], [0]),
+      refs('ch3', [3], [1]), refs('ch3', [3], [1]), refs('ch3', [3], [1]),
+      refs('ch3', [4], [2]), refs('ch3', [4], [2]), refs('ch3', [4], [2]), refs('ch3', [4], [2]),
+      refs('ch3', [5], [3]), refs('ch3', [5], [3]),
+    ],
+    ch4: [
+      refs('ch4', [0], [0]), refs('ch4', [0], [0]), refs('ch4', [0], [0]),
+      refs('ch4', [0], [0]), refs('ch4', [1], [1]), refs('ch4', [2], [0]),
+      refs('ch4', [2], [0]), refs('ch4', [2], [0]),
+      refs('ch4', [2], [0]), refs('ch4', [0], [0]),
+    ],
+    ch5: [
+      refs('ch5', [0], [0]), refs('ch5', [1], [1]), refs('ch5', [2], [1]),
+      refs('ch5', [3], [1]), refs('ch5', [4], [2]), refs('ch5', [5], [2]),
+      refs('ch5', [4], [2]),
+    ],
+    ch6: [
+      refs('ch6', [0, 1], [0]), refs('ch6', [2], [0]), refs('ch6', [3], [0]),
+      refs('ch6', [4], [0]), refs('ch6', [5], [0]), refs('ch6', [5], [0]),
+      refs('ch6', [6], [1]), refs('ch6', [7], [1]), refs('ch6', [8], [1]),
+      refs('ch6', [9], [1]), refs('ch6', [10], [2]),
+    ],
+    ch7: [
+      refs('ch7', [0, 1], [0]), refs('ch7', [2], [1]), refs('ch7', [3], [1]),
+      refs('ch7', [4], [2]), refs('ch7', [4], [2]), refs('ch7', [4], [2]),
+      refs('ch7', [5], [3]), refs('ch7', [6], [3]), refs('ch7', [6], [3]),
+      refs('ch7', [7], [3]), refs('ch7', [7], [3]),
+    ],
+    ch8: [
+      refs('ch8', [0], [0]), refs('ch8', [1], [0]), refs('ch8', [2], [1]),
+      refs('ch8', [2], [1]), refs('ch8', [2], [1]), refs('ch8', [2], [1]),
+    ],
+  };
+  const coverageRefs = Object.values(coverageRefsByChapter).flat();
+  if (coverageRefs.length !== coverage.length) throw new Error('概率论 coverage/ref row count mismatch');
+  coverage.forEach((row, index) => { row.refs = coverageRefs[index]; });
 
   global.SYLLABUS = {
     examStructure,

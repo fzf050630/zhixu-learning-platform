@@ -106,8 +106,8 @@
 
     { ch: 'ch3', item: 'n 维向量、线性组合与线性表示', level: '理解', sec: 'ch3-s1', secTitle: '3.1 向量与线性组合' },
     { ch: 'ch3', item: '线性相关与线性无关的概念、性质及判别法', level: '理解/掌握', sec: 'ch3-s2', secTitle: '3.2 线性相关与线性无关' },
-    { ch: 'ch3', item: '极大线性无关组、向量组的秩、等价向量组', level: '理解/会求', sec: 'ch3-s3', secTitle: '3.3 极大无关组与秩' },
-    { ch: 'ch3', item: '向量空间、基、维数、坐标、基变换与过渡矩阵', level: '了解/会求', sec: 'ch3-s4', secTitle: '3.4 向量空间与坐标变换' },
+    { ch: 'ch3', item: '极大线性无关组、向量组的秩、等价向量组及向量组秩与矩阵秩的关系', level: '理解/会求', sec: 'ch3-s3', secTitle: '3.3 极大无关组与秩' },
+    { ch: 'ch3', item: '向量空间、子空间、基、维数、坐标、基变换与过渡矩阵', level: '了解/会求', sec: 'ch3-s4', secTitle: '3.4 向量空间与坐标变换' },
     { ch: 'ch3', item: '内积、施密特正交化、规范正交基、正交矩阵', level: '了解/掌握', sec: 'ch3-s5', secTitle: '3.5 内积与正交化' },
 
     { ch: 'ch4', item: '克拉默法则', level: '会用', sec: 'ch4-s1', secTitle: '4.1 克拉默法则' },
@@ -122,6 +122,39 @@
     { ch: 'ch6', item: '标准形、规范形、惯性定理、正交变换与配方法', level: '掌握', sec: 'ch6-s2', secTitle: '6.2 标准形与规范形' },
     { ch: 'ch6', item: '正定二次型与正定矩阵及其判别法', level: '理解/掌握', sec: 'ch6-s3', secTitle: '6.3 正定二次型' }
   ];
+
+  // 每条官方大纲原文到一个或多个具体小节的来源索引。索引为零起点。
+  const refs = (chapter, content, requirements) => [
+    ...content.map(i => `content:${chapter}:${i}`),
+    ...requirements.map(i => `requirement:${chapter}:${i}`)
+  ];
+  const coverageRefsByChapter = {
+    ch1: [refs('ch1', [0], [0]), refs('ch1', [1], [1])],
+    ch2: [
+      refs('ch2', [0], [0]), refs('ch2', [1, 2, 3, 4, 5], [1]),
+      refs('ch2', [6, 7, 8], [2]), refs('ch2', [9, 10, 11, 12], [3]),
+      refs('ch2', [13], [4]),
+    ],
+    ch3: [
+      refs('ch3', [0, 1], [0]), refs('ch3', [2], [1]),
+      refs('ch3', [3, 4, 5, 6], [2, 3]), refs('ch3', [7, 8, 9], [4, 5]),
+      refs('ch3', [10, 11, 12, 13], [6, 7]),
+    ],
+    ch4: [
+      refs('ch4', [0], [0]), refs('ch4', [1, 4, 5], [1, 2, 4]),
+      refs('ch4', [2, 3, 6], [1, 3, 4]),
+    ],
+    ch5: [
+      refs('ch5', [0], [0]), refs('ch5', [1, 2], [1]), refs('ch5', [3], [2]),
+    ],
+    ch6: [
+      refs('ch6', [0, 1, 2], [0]), refs('ch6', [3, 4, 5], [0, 1]),
+      refs('ch6', [6], [2]),
+    ],
+  };
+  const coverageRefs = Object.values(coverageRefsByChapter).flat();
+  if (coverageRefs.length !== coverage.length) throw new Error('线性代数 coverage/ref row count mismatch');
+  coverage.forEach((row, index) => { row.refs = coverageRefs[index]; });
 
   global.SYL = {
     structure,

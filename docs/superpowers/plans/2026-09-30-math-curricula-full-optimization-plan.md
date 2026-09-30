@@ -32,7 +32,7 @@
 ## Task 2：让 349 项大纲覆盖可机械复核
 
 - [ ] 在三份 `content/syllabus.js` 中为每一条 `coverage` 记录补充 `refs`，引用形如 `content:ch1:0` 或 `requirement:ch1:2`；索引对应同一文件 `official[chapter].content[]` 或 `official[chapter].requirements[]` 的从零开始位置。
-- [ ] 编写 `scripts/audit-math-coverage.cjs`：加载三份 syllabus 与所有章节数据；拒绝未知课程/章节/索引、同一来源条目重复映射到同一小节、缺失大纲条目、无效 `sec` 锚点和错误 `secTitle`；同一要求可映射到多个小节。
+- [ ] 编写 `scripts/audit-math-coverage.cjs`：加载三份 syllabus 与所有章节数据；拒绝未知课程/章节/索引、单行内重复来源引用、缺失大纲条目、无效 `sec` 锚点和错误 `secTitle`；同一要求可映射到多个条目/小节。
 - [ ] `scripts/audit-math-coverage.cjs` 使用以下完整实现；章节源码通过项目现有全局对象注册，`refs` 采用 `content:chN:index` 与 `requirement:chN:index` 格式：
 
 ```js
@@ -97,19 +97,22 @@ for (const [id, directory] of courses) {
     const section = sections.get(row.sec);
     if (!section) errors.push(`invalid anchor ${row.sec}`);
     else {
-      const actualTitle = `${section.num || ''} ${section.title || ''}`.trim().replace(/\s+/g, ' ');
+      const actualTitle = String(section.title || '').trim().replace(/\s+/g, ' ');
+      const numberedTitle = `${section.num || ''} ${section.title || ''}`.trim().replace(/\s+/g, ' ');
       const mappedTitle = String(row.secTitle || '').trim().replace(/\s+/g, ' ');
-      if (actualTitle !== mappedTitle) errors.push(`title mismatch ${row.sec}: ${mappedTitle} != ${actualTitle}`);
+      if (actualTitle !== mappedTitle && numberedTitle !== mappedTitle) errors.push(`title mismatch ${row.sec}: ${mappedTitle} != ${actualTitle}`);
     }
     if (!Array.isArray(row.refs) || row.refs.length === 0) {
       errors.push(`coverage row without refs ${row.ch} ${row.item || ''}`);
       continue;
     }
+    const rowRefs = new Set();
     for (const ref of row.refs) {
       if (!expected.has(ref)) { errors.push(`unknown source ref ${ref}`); continue; }
       if (ref.split(':')[1] !== row.ch) errors.push(`chapter mismatch ${ref} -> ${row.ch}`);
+      if (rowRefs.has(ref)) errors.push(`duplicate source ref in one row ${ref} -> ${row.sec}`);
+      rowRefs.add(ref);
       if (!seen.has(ref)) seen.set(ref, new Set());
-      if (seen.get(ref).has(row.sec)) errors.push(`duplicate source ref ${ref} -> ${row.sec}`);
       seen.get(ref).add(row.sec);
     }
   }
@@ -126,7 +129,51 @@ for (const [id, directory] of courses) {
 
 if (failures) process.exitCode = 1;
 ```
-- [ ] 运行 `node scripts/audit-math-coverage.cjs`；要求高数 124+71、线代 48+26、概率论 54+26 均完整映射，合计 349 项，缺项/重复/坏锚点均为 0。
+- [ ] 运行 `node scripts/audit-math-coverage.cjs --write-report`；要求高数 124+71、线代 48+26、概率论 54+26 均完整映射，合计 349 项，缺项/重复/坏锚点均为 0，并生成 `docs/math-curricula/2026-math-coverage.md`。
+- [ ] 成功校验后，报告生成分支必须使用以下完整片段；每个官方原文都输出其全部映射小节：
+
+```js
+const reportData = [];
+```
+
+在每个科目的映射校验循环内，完成缺项检查后执行：
+
+```js
+reportData.push({ id, directory, official, coverage, sections, seen });
+```
+
+```js
+if (process.argv.includes('--write-report') && failures === 0) {
+  const lines = [
+    '# 2026 数学一大纲逐点覆盖映射',
+    '',
+    '本表逐条列出官方大纲中的考试内容与考试要求，并链接到课程小节。映射由 `scripts/audit-math-coverage.cjs` 校验；同一要求可对应多个小节。',
+    '',
+  ];
+  for (const course of reportData) {
+    lines.push(`## ${course.directory}`, '');
+    for (const [chapter, source] of Object.entries(course.official)) {
+      lines.push(`### ${source.no || chapter}、${source.title}`, '');
+      for (const [type, label] of [['content', '考试内容'], ['requirements', '考试要求']]) {
+        lines.push(`#### ${label}`, '', '| 原文序号 | 官方原文 | 对应课程小节 |', '| ---: | --- | --- |');
+        (source[type] || []).forEach((text, index) => {
+          const ref = `${type === 'content' ? 'content' : 'requirement'}:${chapter}:${index}`;
+          const targets = [...course.seen.get(ref)].map(sec => {
+            const section = course.sections.get(sec);
+            return `${sec} ${section.num} ${section.title}`;
+          });
+          lines.push(`| ${index + 1} | ${String(text).replace(/\|/g, '\\|')} | ${targets.join('<br>')} |`);
+        });
+        lines.push('');
+      }
+    }
+  }
+  const reportPath = path.join(root, 'docs', 'math-curricula', '2026-math-coverage.md');
+  fs.mkdirSync(path.dirname(reportPath), { recursive: true });
+  fs.writeFileSync(reportPath, `${lines.join('\n')}\n`, 'utf8');
+  console.log(`写入逐点覆盖表：${reportPath}`);
+}
+```
 - [ ] 将通过检查的逐项映射以可读表格写入 `docs/math-curricula/2026-math-coverage.md`，保留“了解/理解/掌握/会用”原层级。
 
 ## Task 3：完成知识审计并记录问题

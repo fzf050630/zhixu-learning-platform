@@ -164,7 +164,7 @@
     { ch: 'ch1', item: '闭区间上连续函数的性质（有界、最值、介值定理）', level: '理解', sec: 'ch1-s5', secTitle: '1.5 函数的连续性与间断点' },
 
     { ch: 'ch2', item: '导数与微分的概念、几何意义与物理意义、可导与连续的关系', level: '理解', sec: 'ch2-s1', secTitle: '2.1 导数与微分的概念' },
-    { ch: 'ch2', item: '导数的四则运算、复合/反/隐/参数方程求导、高阶导数', level: '掌握', sec: 'ch2-s2', secTitle: '2.2 求导法则与高阶导数' },
+    { ch: 'ch2', item: '导数的四则运算、复合/反/隐/参数方程与分段函数求导、高阶导数、一阶微分形式不变性', level: '掌握', sec: 'ch2-s2', secTitle: '2.2 求导法则与高阶导数' },
     { ch: 'ch2', item: '微分中值定理（罗尔、拉格朗日、柯西、泰勒）', level: '理解并会用', sec: 'ch2-s3', secTitle: '2.3 微分中值定理' },
     { ch: 'ch2', item: '洛必达法则求未定式极限', level: '掌握', sec: 'ch2-s4', secTitle: '2.4 洛必达法则' },
     { ch: 'ch2', item: '单调性判别、极值、最大最小值及应用', level: '掌握', sec: 'ch2-s5', secTitle: '2.5 单调性、极值与最值' },
@@ -180,19 +180,19 @@
     { ch: 'ch3', item: '定积分的几何与物理应用（面积、弧长、体积、侧面积、功、质心等）', level: '掌握', sec: 'ch3-s6', secTitle: '3.6 定积分的几何与物理应用' },
 
     { ch: 'ch4', item: '空间直角坐标系、向量概念、线性运算、数量积、向量积、混合积', level: '理解/掌握', sec: 'ch4-s1', secTitle: '4.1 向量及其线性运算' },
-    { ch: 'ch4', item: '单位向量、方向数与方向余弦、坐标表达式', level: '理解/掌握', sec: 'ch4-s2', secTitle: '4.2 向量的坐标表示、数量积与向量积' },
+    { ch: 'ch4', item: '数量积、向量积、混合积、垂直平行与夹角；单位向量、方向数、方向余弦及坐标运算', level: '理解/掌握', sec: 'ch4-s2', secTitle: '4.2 向量的坐标表示、数量积与向量积' },
     { ch: 'ch4', item: '平面方程、直线方程及其求法', level: '掌握', sec: 'ch4-s3', secTitle: '4.3 平面与直线的方程' },
     { ch: 'ch4', item: '夹角、平行垂直条件、点到平面/直线的距离', level: '会求', sec: 'ch4-s3', secTitle: '4.3 平面与直线的方程' },
-    { ch: 'ch4', item: '曲面方程、空间曲线方程、柱面、旋转曲面、二次曲面、投影曲线', level: '了解/会求', sec: 'ch4-s4', secTitle: '4.4 曲面与空间曲线' },
+    { ch: 'ch4', item: '球面、柱面、旋转曲面、二次曲面、空间曲线方程及坐标面投影曲线', level: '了解/会求', sec: 'ch4-s4', secTitle: '4.4 曲面与空间曲线' },
 
     { ch: 'ch5', item: '多元函数的概念、二元函数的几何意义、极限与连续', level: '理解/了解', sec: 'ch5-s1', secTitle: '5.1 多元函数的概念与极限连续' },
-    { ch: 'ch5', item: '偏导数与全微分、全微分的必要条件与充分条件', level: '理解/了解', sec: 'ch5-s2', secTitle: '5.2 偏导数与全微分' },
-    { ch: 'ch5', item: '多元复合函数、隐函数的求导法、二阶偏导数', level: '掌握/会求', sec: 'ch5-s3', secTitle: '5.3 复合函数与隐函数求导' },
+    { ch: 'ch5', item: '偏导数与全微分、全微分存在条件及全微分形式不变性', level: '理解/了解', sec: 'ch5-s2', secTitle: '5.2 偏导数与全微分' },
+    { ch: 'ch5', item: '多元复合函数、隐函数存在定理与求导、二阶偏导数', level: '掌握/会求/了解', sec: 'ch5-s3', secTitle: '5.3 复合函数与隐函数求导' },
     { ch: 'ch5', item: '方向导数与梯度', level: '理解/掌握', sec: 'ch5-s4', secTitle: '5.4 方向导数与梯度' },
     { ch: 'ch5', item: '空间曲线的切线与法平面、曲面的切平面与法线、二阶泰勒公式', level: '了解/会求', sec: 'ch5-s5', secTitle: '5.5 空间曲线的切线与曲面的切平面' },
     { ch: 'ch5', item: '多元函数极值与条件极值、最大最小值及拉格朗日乘数法', level: '理解/掌握', sec: 'ch5-s6', secTitle: '5.6 多元函数极值与条件极值' },
 
-    { ch: 'ch6', item: '二重积分、三重积分的概念、性质与计算（直角/极/柱/球坐标）', level: '理解/掌握', sec: 'ch6-s1', secTitle: '6.1 二重积分与三重积分' },
+    { ch: 'ch6', item: '二重积分、三重积分的概念与性质、二重积分中值定理及直角/极/柱/球坐标计算', level: '理解/掌握/了解', sec: 'ch6-s1', secTitle: '6.1 二重积分与三重积分' },
     { ch: 'ch6', item: '两类曲线积分的概念、性质、计算与关系', level: '理解/掌握', sec: 'ch6-s2', secTitle: '6.2 两类曲线积分' },
     { ch: 'ch6', item: '格林公式、平面曲线积分与路径无关、全微分原函数', level: '掌握', sec: 'ch6-s3', secTitle: '6.3 格林公式与路径无关' },
     { ch: 'ch6', item: '两类曲面积分的概念、性质、计算与关系', level: '了解/掌握', sec: 'ch6-s4', secTitle: '6.4 两类曲面积分' },
@@ -204,7 +204,7 @@
     { ch: 'ch7', item: '几何级数与 p 级数；正项级数比较/比值/根值/积分判别法', level: '掌握', sec: 'ch7-s2', secTitle: '7.2 正项级数的判别法' },
     { ch: 'ch7', item: '交错级数与莱布尼茨判别法、绝对收敛与条件收敛', level: '掌握/了解', sec: 'ch7-s3', secTitle: '7.3 交错级数与绝对收敛' },
     { ch: 'ch7', item: '幂级数的收敛半径、收敛区间、收敛域与和函数', level: '理解/掌握', sec: 'ch7-s4', secTitle: '7.4 幂级数与收敛半径' },
-    { ch: 'ch7', item: '初等函数的幂级数展开式与麦克劳林级数', level: '掌握', sec: 'ch7-s5', secTitle: '7.5 函数的幂级数展开' },
+    { ch: 'ch7', item: '泰勒级数展开的充分必要条件、初等函数麦克劳林展开与间接展开求级数和', level: '了解/掌握/会', sec: 'ch7-s5', secTitle: '7.5 函数的幂级数展开' },
     { ch: 'ch7', item: '傅里叶级数、狄利克雷定理、正弦级数与余弦级数', level: '了解/会', sec: 'ch7-s6', secTitle: '7.6 傅里叶级数' },
 
     { ch: 'ch8', item: '微分方程的基本概念（阶、解、通解、初始条件、特解）', level: '了解', sec: 'ch8-s1', secTitle: '8.1 微分方程的基本概念' },
@@ -214,6 +214,59 @@
     { ch: 'ch8', item: '二阶常系数齐次/非齐次线性方程、高阶常系数齐次、欧拉方程', level: '掌握/会解', sec: 'ch8-s5', secTitle: '8.5 常系数线性微分方程' },
     { ch: 'ch8', item: '微分方程的简单应用', level: '会用', sec: 'ch8-s6', secTitle: '8.6 微分方程的应用' }
   ];
+
+  // 每条官方大纲原文到一个或多个具体小节的来源索引。索引为零起点。
+  const refs = (chapter, content, requirements) => [
+    ...content.map(i => `content:${chapter}:${i}`),
+    ...requirements.map(i => `requirement:${chapter}:${i}`)
+  ];
+  const coverageRefsByChapter = {
+    ch1: [
+      refs('ch1', [0, 5], [0]), refs('ch1', [1, 2], [1, 2]),
+      refs('ch1', [3, 4], [3]), refs('ch1', [6, 7], [4]),
+      refs('ch1', [10, 11, 12], [5, 6]), refs('ch1', [8, 9], [7]),
+      refs('ch1', [13, 14, 15], [8]), refs('ch1', [16], [9]),
+    ],
+    ch2: [
+      refs('ch2', [0, 1, 2, 3], [0]), refs('ch2', [4, 5, 6, 7, 8], [1, 2, 3]),
+      refs('ch2', [9], [4]), refs('ch2', [10], [5]),
+      refs('ch2', [11, 12, 15], [6]), refs('ch2', [13, 14], [7]),
+      refs('ch2', [16, 17, 18], [8]),
+    ],
+    ch3: [
+      refs('ch3', [0, 1, 2], [0]), refs('ch3', [3, 4], [1]),
+      refs('ch3', [5, 6], [3]), refs('ch3', [7], [1]),
+      refs('ch3', [8], [2]), refs('ch3', [9], [4]), refs('ch3', [10], [5]),
+    ],
+    ch4: [
+      refs('ch4', [0, 1], [0, 1]), refs('ch4', [2, 3, 4, 5, 6, 7, 8], [1, 2]),
+      refs('ch4', [10, 11], [3]), refs('ch4', [12, 13], [4, 5]),
+      refs('ch4', [9, 14, 15, 16, 17, 18, 19], [6, 7, 8]),
+    ],
+    ch5: [
+      refs('ch5', [0, 1, 2, 3], [0, 1]), refs('ch5', [4, 5], [2]),
+      refs('ch5', [6, 7], [4, 5]), refs('ch5', [8], [3]),
+      refs('ch5', [9, 10, 11], [6, 7]), refs('ch5', [12, 13], [8]),
+    ],
+    ch6: [
+      refs('ch6', [0], [0, 1]), refs('ch6', [1, 2], [2, 3]),
+      refs('ch6', [3, 4, 5], [4]), refs('ch6', [6, 7], [5]),
+      refs('ch6', [8, 9], [5]), refs('ch6', [10], [6]), refs('ch6', [11], [7]),
+    ],
+    ch7: [
+      refs('ch7', [0, 1, 2], [0]), refs('ch7', [3, 4], [1, 2]),
+      refs('ch7', [5, 6], [3, 4]), refs('ch7', [7, 8, 9, 10, 11], [5, 6, 7]),
+      refs('ch7', [12], [8, 9]), refs('ch7', [13, 14, 15, 16], [10]),
+    ],
+    ch8: [
+      refs('ch8', [0], [0]), refs('ch8', [1, 2, 3, 4, 5], [1, 2]),
+      refs('ch8', [6, 7], [2, 3]), refs('ch8', [8], [4]),
+      refs('ch8', [9, 10, 11, 12], [5, 6, 7]), refs('ch8', [13], [8]),
+    ],
+  };
+  const coverageRefs = Object.values(coverageRefsByChapter).flat();
+  if (coverageRefs.length !== coverage.length) throw new Error('高等数学 coverage/ref row count mismatch');
+  coverage.forEach((row, index) => { row.refs = coverageRefs[index]; });
 
   global.SYL = {
     structure,
