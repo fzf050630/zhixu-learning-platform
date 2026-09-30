@@ -32,7 +32,7 @@
 ## Task 2：让 349 项大纲覆盖可机械复核
 
 - [ ] 在三份 `content/syllabus.js` 中为每一条 `coverage` 记录补充 `refs`，引用形如 `content:ch1:0` 或 `requirement:ch1:2`；索引对应同一文件 `official[chapter].content[]` 或 `official[chapter].requirements[]` 的从零开始位置。
-- [ ] 编写 `scripts/audit-math-coverage.cjs`：加载三份 syllabus 与所有章节数据；拒绝未知课程/章节/索引、重复引用、缺失大纲条目、无效 `sec` 锚点和错误 `secTitle`；成功时分别输出考试内容数、考试要求数、映射数和小节数。
+- [ ] 编写 `scripts/audit-math-coverage.cjs`：加载三份 syllabus 与所有章节数据；拒绝未知课程/章节/索引、同一来源条目重复映射到同一小节、缺失大纲条目、无效 `sec` 锚点和错误 `secTitle`；同一要求可映射到多个小节。
 - [ ] `scripts/audit-math-coverage.cjs` 使用以下完整实现；章节源码通过项目现有全局对象注册，`refs` 采用 `content:chN:index` 与 `requirement:chN:index` 格式：
 
 ```js
@@ -90,7 +90,7 @@ for (const [id, directory] of courses) {
     });
   }
 
-  const seen = new Set();
+  const seen = new Map();
   const errors = [];
   for (const row of coverage) {
     if (!structure.some(chapter => chapter.id === row.ch)) errors.push(`unknown chapter ${row.ch}`);
@@ -108,8 +108,9 @@ for (const [id, directory] of courses) {
     for (const ref of row.refs) {
       if (!expected.has(ref)) { errors.push(`unknown source ref ${ref}`); continue; }
       if (ref.split(':')[1] !== row.ch) errors.push(`chapter mismatch ${ref} -> ${row.ch}`);
-      if (seen.has(ref)) errors.push(`duplicate source ref ${ref}`);
-      seen.add(ref);
+      if (!seen.has(ref)) seen.set(ref, new Set());
+      if (seen.get(ref).has(row.sec)) errors.push(`duplicate source ref ${ref} -> ${row.sec}`);
+      seen.get(ref).add(row.sec);
     }
   }
   for (const ref of expected) if (!seen.has(ref)) errors.push(`unmapped source ref ${ref}`);
