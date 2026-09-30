@@ -116,6 +116,7 @@ if (process.argv.includes('--write-report') && failures === 0) {
       }
     }
   }
+  while (lines.length && lines[lines.length - 1] === '') lines.pop();
   const reportPath = path.join(root, 'docs', 'math-curricula', '2026-math-coverage.md');
   fs.mkdirSync(path.dirname(reportPath), { recursive: true });
   fs.writeFileSync(reportPath, `${lines.join('\n')}\n`, 'utf8');
