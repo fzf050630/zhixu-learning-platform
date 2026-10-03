@@ -25,7 +25,7 @@
   let lastKey = null;
 
   function host() {
-    return document.querySelector('#view') || document.querySelector('#labView') || document.querySelector('#scroll');
+    return document.querySelector('#knowledgeView:not([hidden])') || document.querySelector('#view') || document.querySelector('#labView') || document.querySelector('#scroll');
   }
 
   function currentEntry() {

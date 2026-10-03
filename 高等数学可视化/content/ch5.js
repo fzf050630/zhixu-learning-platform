@@ -356,15 +356,15 @@
             `</div>`
           },
           { t: 'card', kind: 'tip', tag: '方法', title: '一般式曲线（两曲面交线）', html:
-            String.raw`<p class='tight'>曲线 \( \Gamma:\begin{cases}F(x,y,z)=0,\\ G(x,y,z)=0\end{cases} \) 在点 \( M_0 \) 处的切向量等于两曲面法向量之积：</p>` +
+            String.raw`<p class='tight'>若 \( M_0 \) 是正则交点，亦即 \( \nabla F(M_0) \) 与 \( \nabla G(M_0) \) 不平行，则曲线 \( \Gamma:\begin{cases}F(x,y,z)=0,\\ G(x,y,z)=0\end{cases} \) 在该点的切向量为两曲面法向量的向量积：</p>` +
             String.raw`<div class='fml'>\( \boldsymbol{T}=\boldsymbol{n}_1\times\boldsymbol{n}_2=\nabla F(M_0)\times\nabla G(M_0)=\begin{vmatrix}\boldsymbol{i}&\boldsymbol{j}&\boldsymbol{k}\\ F_x&F_y&F_z\\ G_x&G_y&G_z\end{vmatrix}_{M_0} \)</div>` +
             String.raw`<p class='tight'>求出切向量后，再按参数式曲线的公式写切线方程与法平面方程。</p>`
           },
           { t: 'h3', idx: '②', text: '曲面的切平面与法线' },
           { t: 'card', kind: 'key', tag: '必记', title: '隐式曲面与显式曲面', html:
             `<ul class='none'>` +
-            String.raw`<li><b>隐式 \( F(x,y,z)=0 \)：</b>在 \( M_0 \) 处法向量 \( \boldsymbol{n}=\nabla F(M_0) \)，<br>切平面：\( F_x(M_0)(x-x_0)+F_y(M_0)(y-y_0)+F_z(M_0)(z-z_0)=0 \)；<br>法线：\( \dfrac{x-x_0}{F_x(M_0)}=\dfrac{y-y_0}{F_y(M_0)}=\dfrac{z-z_0}{F_z(M_0)} \)；</li>` +
-            String.raw`<li><b>显式 \( z=f(x,y) \)：</b>令 \( F=f(x,y)-z \)，得法向量 \( \boldsymbol{n}=(f_x,\ f_y,\ -1) \)（不要漏掉 \( -1 \)），<br>切平面：\( z-z_0=f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0) \)；<br>法线：\( \dfrac{x-x_0}{f_x(x_0,y_0)}=\dfrac{y-y_0}{f_y(x_0,y_0)}=\dfrac{z-z_0}{-1} \)。</li>` +
+            String.raw`<li><b>隐式 \( F(x,y,z)=0 \)：</b>在正则点 \( \nabla F(M_0)\neq\boldsymbol{0} \) 处法向量为 \( \boldsymbol{n}=\nabla F(M_0) \)，切平面：\( \nabla F(M_0)\cdot((x,y,z)-M_0)=0 \)；法线参数式：\( (x,y,z)=M_0+t\nabla F(M_0) \)。</li>` +
+            String.raw`<li><b>显式 \( z=f(x,y) \)：</b>令 \( F=f(x,y)-z \)，法向量 \( \boldsymbol{n}=(f_x,\ f_y,\ -1) \)（不要漏掉 \( -1 \)），切平面：\( z-z_0=f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0) \)；法线参数式：\( (x,y,z)=(x_0,y_0,z_0)+t(f_x,f_y,-1) \)。</li>` +
             `</ul>`
           },
           { t: 'viz', build: 'tangentPlane', title: '空间曲线的切线与曲面的切平面', sub: '切换两类问题：拖动参数得到切向量与切线，或拖动切点观察切平面与法向量 (f_x, f_y, −1)' },
@@ -375,8 +375,9 @@
           { t: 'card', kind: 'thm', tag: '定理', title: '二阶泰勒公式', html:
             String.raw`<p class='tight'>设 \( z=f(x,y) \) 在点 \( P_0(x_0,y_0) \) 的某邻域内有二阶连续偏导数，则对充分小的 \( h,k \)（使 \( P_0+(h,k) \) 落在邻域内）有</p>` +
             String.raw`<div class='fml'>\( f(x_0+h,\ y_0+k)=f(x_0,y_0)+\left(h\dfrac{\partial}{\partial x}+k\dfrac{\partial}{\partial y}\right)f(x_0,y_0)+\dfrac{1}{2!}\left(h\dfrac{\partial}{\partial x}+k\dfrac{\partial}{\partial y}\right)^{2}f(x_0,y_0)+R_2 \)</div>` +
-            String.raw`<p class='tight'>其中拉格朗日型余项为</p>` +
+            String.raw`<p class='tight'>若 \( f \) 沿 \( P_0 \) 到 \( P_0+(h,k) \) 的线段具有连续三阶偏导数，则可写成拉格朗日型余项：</p>` +
             String.raw`<div class='fml'>\( R_2=\dfrac{1}{3!}\left(h\dfrac{\partial}{\partial x}+k\dfrac{\partial}{\partial y}\right)^{3}f(x_0+\theta h,\ y_0+\theta k),\qquad 0\lt \theta\lt 1 \)</div>` +
+            String.raw`<p class='tight'>若只假设二阶偏导连续，则二阶展开的余项可写为 \( o(h^2+k^2) \)，不应直接套用上述三阶拉格朗日余项。</p>` +
             String.raw`<p class='tight'>它表明二元函数在一点附近可用“常数 + 一次齐次项 + 二次齐次项”逼近，是一元泰勒公式的推广，也是二元极值充分条件的来源。</p>`
           },
           { t: 'card', kind: 'tip', tag: '记号', title: '算子记号的规定', html:

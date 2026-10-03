@@ -39,7 +39,7 @@
             '<li>奇函数 × 奇函数 = 偶函数；奇 × 偶 = 奇；偶 × 偶 = 偶；</li>' +
             '<li>奇函数在对称区间上的积分为 0：\\( \\int_{-a}^{a}f(x)\\,\\mathrm{d}x=0 \\)；</li>' +
             '<li>只有 \\( f(x)\\equiv 0 \\) 既是奇函数又是偶函数；</li>' +
-            '<li>若 \\( f \\) 以 \\( T \\) 为周期，则 \\( f(ax+b) \\) 以 \\( T/|a| \\) 为周期。</li>' +
+            '<li>若 \\( f \\) 以 \\( T \\) 为周期且 \\( a\\neq 0 \\)，则 \\( f(ax+b) \\) 以 \\( T/|a| \\) 为周期；若 \\( a=0 \\)，复合函数为常数。</li>' +
             '</ul>'
           },
           { t: 'h3', idx: '③', text: '复合函数、反函数、分段函数与隐函数' },
@@ -156,6 +156,19 @@
             no: '例 1.3', meta: '单侧极限',
             q: '设 \\( f(x)=\\begin{cases}x-1,&x<0\\\\ x^2,&x\\geqslant 0\\end{cases} \\)，讨论 \\( \\lim\\limits_{x\\to 0}f(x) \\) 是否存在。',
             sol: '<p>\\( \\lim\\limits_{x\\to 0^-}f(x)=\\lim\\limits_{x\\to 0^-}(x-1)=-1 \\)，\\( \\lim\\limits_{x\\to 0^+}f(x)=\\lim\\limits_{x\\to 0^+}x^2=0 \\)。</p><p>左右极限不等，故 \\( \\lim\\limits_{x\\to 0}f(x) \\) <b>不存在</b>（为跳跃间断点）。</p>'
+          },
+          {
+            no: '补充 1.3-A', meta: '数列极限 · 有理化',
+            q: String.raw`求 \( \lim\limits_{n\to\infty}\left(\sqrt{n^2+3n}-n\right) \)。`,
+            sol: String.raw`有理化：
+              \[ \sqrt{n^2+3n}-n=\frac{3n}{\sqrt{n^2+3n}+n}
+              =\frac{3}{\sqrt{1+\frac3n}+1}\longrightarrow\frac32. \]
+              先看主导项会得到 \( \infty-\infty \)，乘共轭后才显出有限极限。`
+          },
+          {
+            no: '补充 1.3-B', meta: '函数极限 · 与函数值分离',
+            q: String.raw`设 \( f(x)=\frac{\sin x}{x}\ (x\neq0) \)，并定义 \( f(0)=7 \)。求 \( \lim\limits_{x\to0}f(x) \)，并判断它是否等于 \( f(0) \)。`,
+            sol: String.raw`由第一个重要极限，\( \lim\limits_{x\to0}\frac{\sin x}{x}=1 \)。因此极限为 \(1\)，但函数值 \(f(0)=7\)；极限考察去心邻域内的函数值，不受单点取值影响。`
           }
         ],
         pitfalls: [

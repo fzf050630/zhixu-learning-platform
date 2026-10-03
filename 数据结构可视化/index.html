@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/state-table.css">
   <link rel="stylesheet" href="assets/css/inputs.css">
+  <link rel="stylesheet" href="assets/css/wangdao.css">
   <link rel="icon" href="../platform/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../platform/tokens.css">
   <link rel="stylesheet" href="../platform/components.css">
@@ -24,7 +25,7 @@
         <span class="brand-mark">DS</span>
         <span><strong>数据结构 · 可视化</strong><small>2027 考研复习</small></span>
       </a>
-      <div class="side-search"><span>⌕</span><input id="sideSearch" type="search" placeholder="搜索算法…" autocomplete="off"><kbd>/</kbd></div>
+      <div class="side-search"><span>⌕</span><input id="sideSearch" type="search" placeholder="搜索知识与算法…" autocomplete="off"><kbd>/</kbd></div>
       <nav id="chapterNav" aria-label="章节导航"></nav>
       <footer><button id="themeBtn" title="切换深浅色">◐</button><a href="#/" title="返回概览">⌂</a><span class="offline"><i></i>离线</span></footer>
     </aside>
@@ -43,23 +44,28 @@
           <p class="hero-copy">把抽象算法拆成可播放的执行步骤：图形状态、C 语言伪代码与操作说明始终同步。</p>
         </div>
         <div class="stats-grid" id="statsGrid">
-          <div class="stat-card"><strong id="chapterCount">6</strong><span>关键章节</span></div>
+          <div class="stat-card"><strong id="chapterCount">6</strong><span>实验类别</span></div>
           <div class="stat-card"><strong id="experimentCount">26</strong><span>交互可视化</span></div>
           <div class="stat-card"><strong id="structureCount">8</strong><span>结构类型</span></div>
           <div class="stat-card"><strong>0</strong><span>外部依赖</span></div>
         </div>
+        <section class="knowledge-home"><h2 class="section-title">王道教材知识主线</h2><p>按教材八章学习 93 个知识主题，结合原创例题、计算工具和算法实验。</p><div id="knowledgeGrid" class="knowledge-chapter-grid"></div></section>
         <h2 class="section-title">算法实验目录</h2>
         <div class="chapter-grid" id="chapterGrid"></div>
       </section>
 
+      <section id="knowledgeView" class="knowledge-view" hidden></section>
       <section class="lab-view" id="labView" hidden>
         <header class="lab-head">
           <div><p class="eyebrow" id="labChapter"></p><h1 id="labTitle"></h1></div>
           <span class="lab-tag" id="labTag"></span>
         </header>
         <section id="algoPanel" class="algo-panel" aria-label="算法流程说明" hidden></section>
-        <div id="experimentInput" class="experiment-input" hidden></div>
-        <div id="layoutControls" class="layout-controls" hidden></div>
+        <details id="tabletExperimentDetails" class="tablet-experiment-details" open hidden>
+          <summary id="tabletExperimentSummary">实验参数与画布布局</summary>
+          <div id="experimentInput" class="experiment-input" hidden></div>
+          <div id="layoutControls" class="layout-controls" hidden></div>
+        </details>
         <div class="lab-grid">
           <div class="stage-panel">
             <div class="panel-label"><span>VISUAL STATE</span><span id="stepCounter">01 / 01</span></div>
@@ -123,6 +129,17 @@
   <script src="content/chapters/sort.js"></script>
   <script src="content/extensions.js"></script>
   <script src="content/chapters.js"></script>
+  <script src="content/wangdao-outline.js"></script>
+  <script src="content/wangdao/ch1.js"></script>
+  <script src="content/wangdao/ch2.js"></script>
+  <script src="content/wangdao/ch3.js"></script>
+  <script src="content/wangdao/ch4.js"></script>
+  <script src="content/wangdao/ch5.js"></script>
+  <script src="content/wangdao/ch6.js"></script>
+  <script src="content/wangdao/ch7.js"></script>
+  <script src="content/wangdao/ch8.js"></script>
+  <script src="content/wangdao-knowledge.js"></script>
+  <script src="assets/js/ui/wangdao-knowledge.js"></script>
   <script src="assets/js/ui/experiment-input.js"></script>
   <script src="assets/js/ui/state-table.js"></script>
   <script src="assets/js/ui/graph-layout.js"></script>
@@ -132,7 +149,7 @@
   <script src="../platform/navigation.js"></script>
   <script src="../platform/mastery.js"></script>
   <script src="../platform/questions/data-structures.js"></script>
-  <script src="../platform/questions/data-structures.q5.js"></script>
+  <script src="../platform/questions/past-exams.js"></script>
   <script src="../platform/quiz.js"></script>
   <script src="../platform/mastery-ui.js"></script>
   <script src="../platform/section-nav.js"></script>

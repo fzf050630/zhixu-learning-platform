@@ -46,7 +46,7 @@
     host.innerHTML =
       '<div class="zx-heatmap-overall"><strong data-level="' + levelOf(overall.mastery) + '">' +
       (overall.mastery === null || overall.mastery === undefined ? '--' : overall.mastery + '%') +
-      '</strong><div class="zx-heatmap-meta">综合掌握度 · 已评估 ' + (overall.evaluatedNodes || 0) + ' / 已学习 ' + (overall.trackedNodes || 0) + ' 个知识节点<br>父节点按节点权重加权，而非简单平均</div></div>' +
+      '</strong><div class="zx-heatmap-meta">综合掌握度 · 已评估 ' + (overall.evaluatedNodes || 0) + ' 个节点<br>' + (overall.trackedNodes || 0) + ' 个节点已有记录 · 加权统计</div><a class="zx-heatmap-link" href="' + escape(new URL('mastery.html', P.root).href) + '">查看知识版图<span aria-hidden="true"> ↗</span></a></div>' +
       '<ul class="zx-heatmap-subjects">' + subjects.map(subject => {
         const level = levelOf(subject.mastery);
         const value = subject.mastery === null ? '--' : subject.mastery + '%';

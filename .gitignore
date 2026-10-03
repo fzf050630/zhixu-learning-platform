@@ -38,3 +38,14 @@ docs/verification/deployment-20260918/
 Thumbs.db
 .idea/
 .vscode/
+
+# 私人素材与现场验收数据
+photo/
+docs/verification/
+docs/question-audit/production-check.json
+*.db
+*.db-*
+*.sqlite*
+*.log
+__pycache__/
+*.py[cod]

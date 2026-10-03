@@ -133,7 +133,7 @@
             '<p class="tight">因此统计学采取的策略是：<b>先把 \\( \\alpha \\) 控制在一个可接受的小值</b>（如 0.05），在这个前提下再尽量让 \\( \\beta \\) 小。这种做法就叫<b>显著性检验</b>。</p>' +
             '<p class="tight"><b>唯一能同时减小两者的办法：增大样本量 \\( n \\)。</b>（因为 \\( \\bar X \\) 的方差随 \\( n \\) 减小，两个分布重叠部分变小。）</p>'
           },
-          { t: 'card', kind: 'thm', tag: '概念', title: '功效函数', html:
+          { t: 'card', kind: 'tip', tag: '拓展', title: '拓展：功效函数', html:
             '<p class="tight">对每个可能的参数值 \\( \\theta \\)，定义<b>功效函数</b></p>' +
             '<div class="fml">\\( \\pi(\\theta)=P\\{\\text{拒绝 }H_0\\ \\big|\\ \\theta\\} \\)</div>' +
             '<p class="tight">则</p>' +

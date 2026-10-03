@@ -401,14 +401,14 @@
             '<div class="fml-row">\\( \\ln(1+x)=\\sum\\limits_{n=1}^{\\infty}\\dfrac{(-1)^{n-1}}{n}x^{n}=x-\\dfrac{x^2}{2}+\\dfrac{x^3}{3}-\\cdots,\\qquad -1<x\\leqslant 1 \\)</div>' +
             '<div class="fml-row">\\( (1+x)^{\\alpha}=1+\\alpha x+\\dfrac{\\alpha(\\alpha-1)}{2!}x^2+\\cdots+\\dfrac{\\alpha(\\alpha-1)\\cdots(\\alpha-n+1)}{n!}x^n+\\cdots,\\qquad |x|<1 \\)</div>' +
             '</div>' +
-            '<p class="tight">\\( (1+x)^{\\alpha} \\) 端点处的敛散性与 \\( \\alpha \\) 有关：\\( \\alpha\\leqslant-1 \\) 时收敛域为 \\( (-1,1] \\)；\\( -1<\\alpha<0 \\) 时为 \\( (-1,1] \\)；\\( \\alpha>0 \\) 时为 \\( [-1,1] \\)。</p>'
+            '<p class="tight">二项式级数的端点要分别判断：\\( \\alpha\\in\\{0,1,2,\\cdots\\} \\) 时级数终止，收敛域为全体实数；\\( \\alpha>0 \\) 且非整数时收敛域为 \\( [-1,1] \\)；\\( -1<\\alpha<0 \\) 时为 \\( (-1,1] \\)；\\( \\alpha\\leqslant-1 \\) 时两端都发散，收敛域为 \\( (-1,1) \\)。</p>'
           },
           { t: 'table', head: ['函数', '麦克劳林展开式', '收敛范围'], rows: [
             ['\\( \\mathrm{e}^x \\)', '\\( \\sum\\dfrac{x^n}{n!} \\)', '\\( (-\\infty,+\\infty) \\)'],
             ['\\( \\sin x \\)', '\\( \\sum\\dfrac{(-1)^nx^{2n+1}}{(2n+1)!} \\)', '\\( (-\\infty,+\\infty) \\)'],
             ['\\( \\cos x \\)', '\\( \\sum\\dfrac{(-1)^nx^{2n}}{(2n)!} \\)', '\\( (-\\infty,+\\infty) \\)'],
             ['\\( \\ln(1+x) \\)', '\\( \\sum\\dfrac{(-1)^{n-1}x^n}{n} \\)', '\\( (-1,1] \\)'],
-            ['\\( (1+x)^{\\alpha} \\)', '\\( 1+\\sum\\dfrac{\\alpha(\\alpha-1)\\cdots(\\alpha-n+1)}{n!}x^n \\)', '\\( |x|<1 \\)（端点看 \\( \\alpha \\)）']
+            ['\\( (1+x)^{\\alpha} \\)', '\\( 1+\\sum\\dfrac{\\alpha(\\alpha-1)\\cdots(\\alpha-n+1)}{n!}x^n \\)', '半径 1；端点依 \\( \\alpha \\) 分类，非负整数时级数终止']
           ]},
           { t: 'h3', idx: '③', text: '间接展开法' },
           { t: 'list', items: [

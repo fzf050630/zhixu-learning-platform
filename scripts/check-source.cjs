@@ -32,7 +32,8 @@ function loadEntries() {
       if (!/^(content\/|assets\/js\/algorithms\/|assets\/js\/core\/(input-validation|graph-input)\.js)/.test(match[1])) continue;
       vm.runInContext(fs.readFileSync(path.join(root, directory, match[1]), 'utf8'), context, { filename: match[1] });
     }
-    return sandbox.DS.Content.experiments.map(e => ({ hash: '#/lab/' + e.id, title: e.title }));
+    return sandbox.DS.Content.experiments.map(e => ({ hash: '#/lab/' + e.id, title: e.title })).concat(
+      sandbox.DS.Wangdao.chapters.map(ch => ({ hash: '#/knowledge/' + ch.id, title: ch.title })));
   }
   const html = fs.readFileSync(subjectFile, 'utf8');
   const scriptSrc = [...html.matchAll(/<script\s+src="([^"]+)"/g)].map(m => m[1]);
@@ -79,7 +80,7 @@ const inspect = () => {
     errors = [];
     try {
       await page.goto(fileURL + entry.hash, { waitUntil: 'load', timeout: 20000 });
-      if (directory === '数据结构可视化') await page.waitForSelector('#labView:not([hidden])', { timeout: 12000 });
+      if (directory === '数据结构可视化') await page.waitForSelector(entry.hash.startsWith('#/knowledge/') ? '#knowledgeView:not([hidden])' : '#labView:not([hidden])', { timeout: 12000 });
       else await page.waitForSelector('#view .sec-title', { timeout: 12000 });
       await page.waitForTimeout(directory === '数据结构可视化' ? 850 : 700);
       const problems = await page.evaluate(inspect);

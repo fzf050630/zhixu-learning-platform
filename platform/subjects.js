@@ -4,7 +4,7 @@
   P.root = new URL('../', document.currentScript.src);
   P.name = '知序';
   P.subjects = [
-    { id: 'data-structures', title: '数据结构', short: '数据结构', group: '408', code: 'DS', status: 'ready', path: '数据结构可视化/index.html', home: '#/', description: '让算法的每一步，都看得见。', detail: '从线性表到图与排序，观察状态、播放步骤，对照 C 语言伪代码。' },
+    { id: 'data-structures', title: '数据结构', short: '数据结构', group: '408', code: 'DS', status: 'ready', path: '数据结构可视化/index.html', home: '#/', description: '让算法的每一步，都看得见。', detail: '按王道八章知识主线复习，结合 54 个算法实验、矩阵地址与外部归并计算。' },
     { id: 'computer-organization', title: '计算机组成原理', short: '组成原理', group: '408', code: 'CO', status: 'ready', path: '计算机组成原理可视化/index.html', home: '#overview', description: '理解计算机如何执行一条指令。', detail: '从数据表示到存储系统，从指令系统到数据通路与流水线，观察每一步的位与信号。' },
     { id: 'operating-systems', title: '操作系统', short: '操作系统', group: '408', code: 'OS', status: 'ready', path: '操作系统可视化/index.html', home: '#overview', description: '从进程到内存，看见资源的调度。', detail: '进程与调度、同步与死锁、内存管理与页面置换、文件系统与 I/O 管理。' },
     { id: 'computer-networks', title: '计算机网络', short: '计算机网络', group: '408', code: 'CN', status: 'ready', path: '计算机网络可视化/index.html', home: '#overview', description: '跟随数据，理解网络中的每次传递。', detail: '从体系结构到应用层，看分组如何被封装、编址、转发与可靠送达。' },

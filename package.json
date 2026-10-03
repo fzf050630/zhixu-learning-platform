@@ -13,7 +13,7 @@
     "deploy": "node scripts/deploy.cjs",
     "preview": "node scripts/serve.cjs",
     "audit": "node scripts/audit-content.cjs",
-    "test": "node --test tests/platform.test.cjs",
+    "test": "node --test tests/*.test.cjs",
     "test:server": "node --disable-warning=ExperimentalWarning --test tests/server/*.test.cjs",
     "test:browser": "node 数据结构可视化/node_modules/@playwright/test/cli.js test --config playwright.config.cjs"
   },

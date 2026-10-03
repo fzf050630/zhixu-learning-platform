@@ -22,11 +22,11 @@ function loadSubject(directory) {
     const src = match[1];
     const wanted = directory === '数据结构可视化'
       ? /^(content\/|assets\/js\/algorithms\/|assets\/js\/core\/(input-validation|graph-input)\.js)/.test(src)
-      : /^(content\/ch\d+\.js|content\/syllabus\.js)$/.test(src);
+      : /^(content\/ch\d+\.js|content\/syllabus\.js|content\/wangdao-completion\.js)$/.test(src);
     if (!wanted) continue;
     try {
       vm.runInContext(fs.readFileSync(path.join(root, directory, src), 'utf8'), context, { filename: src, timeout: 5000 });
-    } catch (error) { /* 条目按缺失处理 */ }
+    } catch (error) { throw new Error(`课程加载失败 ${directory}/${src}: ${error.message}`); }
   }
   return sandbox;
 }
@@ -40,7 +40,19 @@ function auditDataStructures(sandbox) {
   const chapterIds = new Set(content.chapters.map(c => c.id));
   const orphan = content.experiments.filter(e => !chapterIds.has(e.chapter));
   if (orphan.length) problems.push(`实验章节归属失效 ${orphan.length} 个`);
-  return { problems, sections: content.experiments.length, chapters: content.chapters.length };
+  const knowledge = sandbox.DS.Wangdao;
+  if (!knowledge || !Array.isArray(knowledge.chapters)) problems.push('缺少王道教材知识');
+  else {
+    if (knowledge.chapters.length !== 8 || knowledge.topics.length !== 93) problems.push('教材目录应为8章93理论知识点');
+    if (new Set(knowledge.topics.map(t => t.id)).size !== knowledge.topics.length) problems.push('教材知识点ID重复');
+    for (const chapter of knowledge.chapters) {
+      if (!chapter.topics.length) problems.push(`教材知识章为空 ${chapter.id}`);
+      for (const topic of chapter.topics) {
+        if (!topic.paragraphs?.length || !topic.rules?.length || !topic.example) problems.push(`缺正文/规则/算例 ${topic.id}`);
+      }
+    }
+  }
+  return { problems, sections: content.experiments.length + (knowledge?.chapters.length || 0), chapters: knowledge?.chapters.length || 0, knowledgeTopics: knowledge?.topics.length || 0 };
 }
 
 function collectWidgets(directory) {

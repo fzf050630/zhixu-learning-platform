@@ -109,7 +109,7 @@ const inspectText = () => {
     let inspected = { problems: [], vizCount: 0 };
     try {
       await page.goto(url, { waitUntil: 'load', timeout: 30000 });
-      if (entry.subject === 'data-structures') await page.waitForSelector('#labView:not([hidden])', { timeout: 15000 });
+      if (entry.subject === 'data-structures') await page.waitForSelector(entry.hash.startsWith('#/knowledge/') ? '#knowledgeView:not([hidden])' : '#labView:not([hidden])', { timeout: 15000 });
       else await page.waitForSelector('#view .sec-title', { timeout: 15000 });
       await page.waitForTimeout(entry.subject === 'data-structures' ? 900 : 750);
       inspected = await page.evaluate(inspectPage);

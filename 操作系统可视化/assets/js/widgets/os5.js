@@ -80,12 +80,12 @@
       if (state.algo === 'SCAN') {
         const up = remaining.filter(r => r >= cur).sort((a, b) => a - b);
         const down = remaining.filter(r => r < cur).sort((a, b) => b - a);
-        return up.concat(down);
+        return down.length ? up.concat([199], down) : up;
       }
       // CSCAN：回到 0 再继续
       const up = remaining.filter(r => r >= cur).sort((a, b) => a - b);
       const down = remaining.filter(r => r < cur).sort((a, b) => a - b);
-      return up.concat([199, 0]).concat(down);
+      return down.length ? up.concat([199, 0], down) : up;
     }
 
     function render() {
@@ -123,13 +123,13 @@
           prev = t;
         });
         G.box(ctx, 16, p.h - 44, p.w - 32, 32, { fill: D.withAlpha(T['--green'], 0.1), stroke: D.withAlpha(T['--green'], 0.5), radius: 8 });
-        G.label(ctx, 28, p.h - 28, `总寻道长度 = ${movement} 个磁道　·　平均寻道长度 = ${(movement / seq.length).toFixed(1)}`, { align: 'left', size: 12, weight: 700, color: T['--green'], mono: true });
+        G.label(ctx, 28, p.h - 28, `总寻道长度 = ${movement} 个磁道　·　平均寻道长度 = ${(movement / reqs.length).toFixed(1)}`, { align: 'left', size: 12, weight: 700, color: T['--green'], mono: true });
       });
       scene.render();
       UI.readout(out, [
         ['算法', state.algo],
         ['总寻道长度', String(movement)],
-        ['平均寻道长度', (movement / seq.length).toFixed(1)],
+        ['平均寻道长度', (movement / reqs.length).toFixed(1)],
         ['请求队列', reqs.join(' ')]
       ]);
     }
@@ -144,22 +144,25 @@
     body.classList.add('pad0');
     const state = { T: 100, C: 50, M: 20, mode: 'double' };
     UI.seg(ctrl, [{ label: '单缓冲', value: 'single' }, { label: '双缓冲', value: 'double' }], v => { state.mode = v; render(); }, 1);
-    [['T 设备→缓冲', 'T'], ['C 缓冲→用户', 'C'], ['M 处理时间', 'M']].forEach(([label, key]) => {
+    [['T 设备→缓冲', 'T'], ['C CPU处理', 'C'], ['M 缓冲→用户', 'M']].forEach(([label, key]) => {
       UI.slider(ctrl, { label, min: 5, max: 200, step: 5, value: state[key], fmt: v => v + ' µs', onInput: v => { state[key] = v; render(); } });
     });
 
     function render() {
       const { T, C, M } = state;
-      const single = T + M;                     // 每块处理时间 max(C,T)+M 的经典结果；这里展示 max(C,T)+M
+      // 教材定义：T输入、M搬运、C处理；显示稳定周期，并单独画有限两块流程。
       const singleTime = Math.max(C, T) + M;
-      const doubleTime = Math.max(C, M) + T;    // 双缓冲每块
+      const doubleTime = Math.max(T, C + M);
       const perBlock = state.mode === 'double' ? doubleTime : singleTime;
       scene.clearLayers();
       scene.layer((p, ctx) => {
         const TH = D.Theme.cache;
         const w = p.w;
         // 时间轴
-        const scale = (w - 80) / (Math.max(T, C, M) * 3);
+        const firstDone = T + M + C;
+        const secondInput = state.mode === 'single' ? T + M : T;
+        const secondMove = Math.max(secondInput + T, firstDone);
+        const scale = (w - 80) / (secondMove + M + C);
         const y0 = 50;
         const lanes = ['设备输入', '处理/传送'];
         const drawLane = (y, label, segs, color) => {
@@ -172,21 +175,21 @@
           });
         };
         if (state.mode === 'single') {
-          drawLane(y0, '设备输入', [[0, T, 'T 输入'], [T, T + C, 'C 传送']], TH['--brand']);
-          drawLane(y0 + 40, 'CPU 处理', [[T, T + M, 'M 处理'], [T + C + Math.max(0, M - C), T + C + Math.max(0, M - C) + M, 'M']], TH['--green']);
+          drawLane(y0, '设备输入', [[0, T, 'T₁'], [secondInput, secondInput + T, 'T₂']], TH['--brand']);
+          drawLane(y0 + 40, '搬运/处理', [[T, T + M, 'M₁'], [T + M, firstDone, 'C₁'], [secondMove, secondMove + M, 'M₂'], [secondMove + M, secondMove + M + C, 'C₂']], TH['--green']);
           G.label(ctx, w / 2, 20, `单缓冲：每块耗时 = max(T, C) + M = max(${T},${C}) + ${M} = ${singleTime} µs`, { size: 12, weight: 700, color: TH['--ink'] });
         } else {
           drawLane(y0, '设备输入', [[0, T, 'T 输入'], [T, 2 * T, 'T 输入']], TH['--brand']);
-          drawLane(y0 + 40, 'CPU 处理', [[T, T + M, 'M 处理'], [2 * T, 2 * T + M, 'M 处理']], TH['--green']);
-          G.label(ctx, w / 2, 20, `双缓冲：每块耗时 = max(T, C + M)... 取 max(T, C+M) 与流水近似 = ${doubleTime} µs`, { size: 12, weight: 700, color: TH['--ink'] });
+          drawLane(y0 + 40, '搬运/处理', [[T, T + M, 'M₁'], [T + M, firstDone, 'C₁'], [secondMove, secondMove + M, 'M₂'], [secondMove + M, secondMove + M + C, 'C₂']], TH['--green']);
+          G.label(ctx, w / 2, 20, `双缓冲稳态周期 max(T, C+M) = ${doubleTime} µs`, { size: 12, weight: 700, color: TH['--ink'] });
         }
         G.box(ctx, 16, p.h - 40, w - 32, 28, { fill: D.withAlpha(TH['--green'], 0.1), stroke: D.withAlpha(TH['--green'], 0.5), radius: 7 });
-        G.label(ctx, 28, p.h - 26, `处理 1 块数据的时间 ≈ ${perBlock} µs`, { align: 'left', size: 12, weight: 700, color: TH['--green'], mono: true });
+        G.label(ctx, 28, p.h - 26, `稳态周期 ${perBlock} µs；两块完成 ${secondMove + M + C} µs`, { align: 'left', size: 12, weight: 700, color: TH['--green'], mono: true });
       });
       scene.render();
       UI.readout(out, [
         ['方式', state.mode === 'double' ? '双缓冲' : '单缓冲'],
-        ['每块时间', perBlock + ' µs'],
+        ['稳态周期', perBlock + ' µs'], ['两块从空缓冲开始', (Math.max((state.mode === 'single' ? T + M : T) + T, T + M + C) + M + C) + ' µs'], ['磁盘/缓冲约定', 'T输入、M搬运、C处理；缓冲读写互斥'],
         ['T / C / M', `${T} / ${C} / ${M} µs`]
       ]);
     }

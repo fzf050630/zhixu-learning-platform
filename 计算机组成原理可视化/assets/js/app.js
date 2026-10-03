@@ -457,23 +457,27 @@
   });
 
   /* ---------- 移动端导航 ---------- */
+  const isTabletDrawer = () => global.matchMedia('(any-pointer: coarse) and (min-width: 721px) and (max-width: 1500px) and (min-height: 560px)').matches;
+  const isCompactDrawer = () => global.innerWidth <= 820 || isTabletDrawer();
   function closeNav() {
     if (app.classList.contains('nav-open') && $('sidebar').contains(document.activeElement)) $('menuBtn').focus();
     app.classList.remove('nav-open');
-    $('sidebar').inert = global.innerWidth <= 820;
+    $('sidebar').inert = isCompactDrawer();
     $('menuBtn').setAttribute('aria-expanded', 'false');
+    $('menuBtn').setAttribute('aria-label', '打开章节目录');
   }
   function openNav() {
     $('sidebar').inert = false;
     app.classList.add('nav-open');
     $('menuBtn').setAttribute('aria-expanded', 'true');
-    searchEl.focus();
+    $('menuBtn').setAttribute('aria-label', '关闭章节目录');
+    $('sidebar').querySelector('.toc-chapter, .toc-item')?.focus({ preventScroll: true });
   }
   $('menuBtn').setAttribute('aria-controls', 'sidebar');
   $('menuBtn').setAttribute('aria-label', '打开章节目录');
   $('menuBtn').addEventListener('click', () => app.classList.contains('nav-open') ? closeNav() : openNav());
   global.addEventListener('resize', () => {
-    $('sidebar').inert = global.innerWidth <= 820 && !app.classList.contains('nav-open');
+    $('sidebar').inert = isCompactDrawer() && !app.classList.contains('nav-open');
   });
   closeNav();
   $('scrim').addEventListener('click', closeNav);
@@ -495,7 +499,7 @@
   });
   document.addEventListener('keydown', e => {
     if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.target.closest('input, textarea, select, button, a, [contenteditable]')) {
-      e.preventDefault(); if (global.innerWidth <= 820) openNav(); searchEl.focus(); searchEl.select();
+      e.preventDefault(); if (isCompactDrawer()) openNav(); searchEl.focus(); searchEl.select();
     }
     if (e.key === 'Escape' && app.classList.contains('nav-open')) { closeNav(); return; }
     if (e.key === 'Escape' && document.activeElement === searchEl) { searchEl.blur(); searchEl.value = ''; searchEl.dispatchEvent(new Event('input')); }

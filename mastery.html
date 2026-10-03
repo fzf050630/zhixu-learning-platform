@@ -15,36 +15,34 @@
 </head>
 <body>
   <main class="mp-main">
-    <section class="mp-hero">
-      <p class="mp-eyebrow">Knowledge Mastery</p>
-      <h1>掌握度热力图</h1>
-      <p class="mp-copy">把 408 与考研数学的每个学科、章节、小节放在同一张图上：<br>哪里已经掌握，哪里还薄弱，一目了然。</p>
-      <div class="mp-actions">
-        <a class="mp-btn" href="index.html">← 返回平台总览</a>
-        <button class="mp-btn" type="button" id="mpRefresh">刷新数据</button>
-        <span class="mp-status" id="mpStatus"></span>
+    <section class="mp-hero" aria-labelledby="mpTitle">
+      <div class="mp-intro">
+        <p class="mp-eyebrow"><span></span> KNOWLEDGE ATLAS <i>408 × 考研数学</i></p>
+        <h1 id="mpTitle">掌握度<span>热力图</span></h1>
+        <p class="mp-copy">让每一次理解都有迹可循。<br>在同一张知识版图上，看清已掌握与待突破的地方。</p>
+        <div class="mp-actions"><button class="mp-btn" type="button" id="mpRefresh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M19 12a7 7 0 0 0-12-5L4 10m1 2a7 7 0 0 0 12 5l3-3"/></svg>刷新记录</button><span class="mp-status" id="mpStatus" role="status">正在读取…</span></div>
+      </div>
+      <div class="mp-overall" id="mpOverall">
+        <div class="mp-orbit"><svg viewBox="0 0 200 200" aria-hidden="true"><circle class="mp-orbit-track" cx="100" cy="100" r="80"/><circle id="mpOverallArc" class="mp-orbit-progress" cx="100" cy="100" r="80" stroke-dasharray="502.655" stroke-dashoffset="502.655"/></svg><div class="mp-orbit-value"><strong id="mpOverallScore">--</strong><span id="mpOverallUnit" hidden>%</span><small>综合掌握度</small></div></div>
+        <p id="mpOverallNote">等待同步学习记录</p>
       </div>
     </section>
-
-    <div class="mp-banner" id="mpBanner" hidden></div>
-
-    <section class="mp-overall" id="mpOverall" hidden></section>
-
-    <section class="mp-block">
-      <div class="mp-block-head"><h2>学科与章节</h2><span class="mp-muted">父节点按节点权重加权，而非简单平均</span></div>
-      <div class="mp-legend" id="mpLegend"></div>
-      <div class="mp-subjects" id="mpSubjects"></div>
+    <div class="mp-banner" id="mpBanner" hidden role="status"></div>
+    <section class="mp-summary" aria-label="学习概览">
+      <div><span>评估覆盖</span><strong><b id="mpEvaluated">--</b><small> / <span id="mpCatalogTotal">248</span></small></strong><p>已形成掌握度的节点</p></div>
+      <div><span>覆盖进度</span><strong id="mpCoverage">--</strong><p>未评估不按零分计算</p></div>
+      <div><span>稳定掌握</span><strong id="mpMastered">--</strong><p>达到 90 分的节点</p></div>
+      <div><span>待复习</span><strong id="mpReviewTotal">--</strong><p>你的复习计划</p></div>
     </section>
-
-    <section class="mp-block" id="mpReviewBlock" hidden>
-      <div class="mp-block-head"><h2>待复习</h2><span class="mp-muted">按计划时间排序</span></div>
-      <div class="mp-reviews" id="mpReviews"></div>
+    <section class="mp-block" aria-labelledby="mpAtlasTitle">
+      <div class="mp-block-head"><div><p class="mp-section-eyebrow">你的学习版图</p><h2 id="mpAtlasTitle">七科，一张版图。</h2></div><span class="mp-muted"><b id="mpShownTotal">248</b> 个可见节点 · 点选查看详情</span></div>
+      <div class="mp-toolbar"><div class="mp-scope" role="group" aria-label="科目范围"><button type="button" data-scope="all" aria-pressed="true">全部科目</button><button type="button" data-scope="408" aria-pressed="false">408 四科</button><button type="button" data-scope="math" aria-pressed="false">考研数学</button></div><label class="mp-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="mpSearch" type="search" aria-label="搜索节点或章节" placeholder="搜索节点或章节" autocomplete="off"></label></div>
+      <div class="mp-legend" id="mpLegend" aria-label="按掌握程度筛选"></div>
+      <div class="mp-workspace"><div class="mp-subjects" id="mpSubjects" aria-live="polite"></div><aside class="mp-inspector" id="mpDetail" aria-label="节点详情" aria-live="polite"><p class="mp-detail-eyebrow">选中节点</p><p class="mp-detail-context" id="mpDetailContext"></p><h3 id="mpDetailTitle">点选一格，查看进度</h3><div class="mp-detail-score"><strong id="mpDetailScore">--</strong><span id="mpDetailLevel">未评估</span></div><p class="mp-detail-note" id="mpDetailNote">每一格对应一个真实的学习节点。</p><dl class="mp-detail-facts"><div><dt>稳定度</dt><dd id="mpDetailStability">--</dd></div><div><dt>复习时间</dt><dd id="mpDetailReview">--</dd></div></dl><a class="mp-detail-link" id="mpDetailLink" hidden>进入学习 <span>↗</span></a><p class="mp-inspector-foot">灰色表示未评估，不代表未掌握。</p></aside></div>
     </section>
-
-    <section class="mp-block">
-      <div class="mp-block-head"><h2>逐小节掌握度</h2><span class="mp-muted">共 <b id="mpNodeTotal">0</b> 个小节</span></div>
-      <div class="mp-sections" id="mpSections"></div>
-    </section>
+    <section class="mp-block" id="mpReviewBlock" hidden><div class="mp-block-head"><div><p class="mp-section-eyebrow">把理解留得更久</p><h2>下一次复习</h2></div><span class="mp-muted">按计划时间排序</span></div><div class="mp-reviews" id="mpReviews"></div></section>
+    <details class="mp-details-list"><summary><span>按章节浏览小节列表</span><small>共 <b id="mpNodeTotal">248</b> 个学习节点</small></summary><div class="mp-sections" id="mpSections"></div></details>
+    <footer class="mp-footer"><span>知序 · 让学习看得见</span><a href="index.html">返回平台总览 ↗</a></footer>
   </main>
   <script src="platform/catalog.js"></script>
   <script src="platform/navigation.js"></script>

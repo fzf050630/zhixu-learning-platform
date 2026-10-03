@@ -40,8 +40,9 @@
           { t: 'h3', idx: '③', text: '二次型的标准形与规范形' },
           { t: 'card', kind: 'def', tag: '定义', title: '标准形与规范形', html: String.raw`<p class="tight">只含平方项、不含交叉项的二次型</p><div class="fml-row">\( d_1y_1^{2} + d_2y_2^{2} + \cdots + d_ny_n^{2} \)</div><p class="tight">称为二次型的<b>标准形</b>（对应的矩阵是对角矩阵）。若标准形中的系数只能是 \( 1,-1,0 \)，则称为<b>规范形</b>。</p>` },
           { t: 'card', kind: 'thm', tag: '定理', title: '惯性定理', html: String.raw`<p class="tight">二次型的标准形中，<b>正平方项的个数 \( p \)、负平方项的个数 \( q \)</b> 由二次型本身唯一确定，与所用的可逆线性变换无关。于是规范形唯一（不计平方项的排列顺序）：</p><div class="fml-row">\( f \simeq \mathrm{diag}(\underbrace{1,\cdots,1}_{p},\underbrace{-1,\cdots,-1}_{q},\underbrace{0,\cdots,0}_{n-p-q}). \)</div><p class="tight">\( p \) 称<b>正惯性指数</b>，\( q \) 称<b>负惯性指数</b>，且 \( p + q = r(f) = r(A) \)。</p>` },
-          { t: 'viz', build: 'quadraticForm', title: '二次型的几何形状', sub: '改变矩阵参数，观察等高线在椭圆、双曲线、抛物型之间的切换' },
-          { t: 'viz', build: 'quadricClassify', title: '二次型的分类：椭圆 / 双曲 / 抛物型', sub: '由特征值的符号判定类型：λ₁λ₂ > 0 椭圆型、λ₁λ₂ < 0 双曲型、出现零特征值则退化为抛物型' },
+          { t: 'viz', build: 'quadraticForm', title: '二次型的几何形状', sub: '改变矩阵参数，观察等高线在椭圆、双曲线与退化情形间的变化' },
+          { t: 'viz', build: 'quadricClassify', title: '二次型等值线：椭圆、双曲与退化', sub: '二次项特征值同号为椭圆型、异号为双曲型；零特征值表示退化等值线（如平行线），一般二次曲线的抛物型还需考察一次项' },
+          { t: 'card', kind: 'warn', tag: '辨析', title: '零特征值不等于抛物线', html: String.raw`<p class="tight">对齐次二次型 \( Q(x,y)=x^TAx \)，若一个特征值为 0，例如 \( Q(x,y)=x^2 \)，则等值线 \( Q=1 \) 是两条平行直线，不是抛物线。只有讨论带一次项的一般二次曲线/曲面时，二次项退化与一次项组合后才可能形成抛物型。</p>` },
           { t: 'card', kind: 'exam', tag: '考法', title: '典型设问', html: String.raw`<p class="tight">① 写出二次型的矩阵并求秩；② 用可逆变换 \( x = Cy \) 求新二次型的矩阵（\( C^{T}AC \)）；③ 由标准形/规范形反求惯性指数或参数；④ 判断两个二次型是否合同（比较正负惯性指数）。</p>` }
         ],
         examples: [
@@ -93,7 +94,7 @@
             String.raw`配方所得标准形的系数<b>一般不等于特征值</b>（但正负项个数与特征值的正负个数相同，即惯性指数一致）。`
           ] },
           { t: 'card', kind: 'thm', tag: '定理', title: '惯性定理（规范形唯一）', html: String.raw`<p class="tight">二次型的规范形中 \( 1 \) 的个数 \( p \)、\( -1 \) 的个数 \( q \) 由二次型唯一确定：</p><div class="fml-row">\( f \simeq \mathrm{diag}(\underbrace{1,\cdots,1}_{p},\underbrace{-1,\cdots,-1}_{q},\underbrace{0,\cdots,0}_{n-p-q}),\qquad p+q = r(A). \)</div><p class="tight">因此两个 n 元二次型<b>合同</b> \( \iff \) 它们的正、负惯性指数分别相等 \( \iff \) 它们的规范形相同。</p>` },
-          { t: 'card', kind: 'key', tag: '求惯性指数', title: '两条捷径', html: String.raw`<ul class="none"><li><b>特征值法：</b>\( p \) = 正特征值的个数，\( q \) = 负特征值的个数（重数计入）。</li><li><b>配方法：</b>数出配方结果中正、负平方项的个数（配方不改变惯性指数）。</li><li>附加结论：\( |A| \) 的符号 = \( (-1)^{q} \) 乘上正数；若 \( |A| \lt 0 \)，则正负惯性指数不可能同奇偶（这条可用于快速排除选项）。</li></ul>` },
+          { t: 'card', kind: 'key', tag: '求惯性指数', title: '两条捷径', html: String.raw`<ul class="none"><li><b>特征值法：</b>\( p \) = 正特征值的个数，\( q \) = 负特征值的个数（重数计入）。</li><li><b>配方法：</b>数出配方结果中正、负平方项的个数（配方不改变惯性指数）。</li><li>附加结论：若 \( A \) 非奇异，则 \( \operatorname{sgn}|A|=(-1)^q \)，其中 \( q \) 为负特征值个数（重数计入）；若 \( A \) 奇异则 \( |A|=0 \)。因此 \( |A|<0 \) 只能说明 \( q \) 为奇数，不能单独判断正、负惯性指数的奇偶关系。</li></ul>` },
           { t: 'h3', idx: '③', text: '两种方法的对比' },
           { t: 'table', head: ['对比项', '正交变换法', '配方法'], rows: [
             ['变换矩阵', String.raw`正交矩阵 \( Q \)（\( Q^{T}Q = E \)）`, String.raw`可逆矩阵 \( C \)（一般不正交）`],
@@ -144,7 +145,7 @@
         lead: '大纲要求：理解正定二次型、正定矩阵的概念，并掌握其判别法。正定是二次型“恒取正值”的定性刻画，其判别法与二次型的秩、特征值、顺序主子式全面挂钩。',
         blocks: [
           { t: 'h3', idx: '①', text: '正定二次型与正定矩阵' },
-          { t: 'card', kind: 'def', tag: '定义', title: '正定与半正定', html: String.raw`<p class="tight">设 \( f(x) = x^{T}Ax \) 为 n 元二次型（\( A \) 为实对称矩阵）。若对任意 \( x \neq 0 \) 都有</p><div class="fml-row">\( f(x) \gt 0, \)</div><p class="tight">则称 \( f \) 为<b>正定二次型</b>，并称 \( A \) 为<b>正定矩阵</b>。若对任意 x 都有 \( f(x) \geq 0 \)，且存在 \( x \neq 0 \) 使 \( f(x) = 0 \)，则称 \( f \) 为<b>半正定</b>。类似地可定义负定（\( f(x) \lt 0 \)）与不定。</p>` },
+          { t: 'card', kind: 'def', tag: '定义', title: '正定与半正定', html: String.raw`<p class="tight">设 \( f(x) = x^{T}Ax \) 为 n 元二次型（\( A \) 为实对称矩阵）。若对任意 \( x \neq 0 \) 都有</p><div class="fml-row">\( f(x) \gt 0, \)</div><p class="tight">则称 \( f \) 为<b>正定二次型</b>，并称 \( A \) 为<b>正定矩阵</b>。若对任意 x 都有 \( f(x) \geq 0 \)，则称 \( f \) 为<b>半正定</b>；若还存在非零 x 使 \( f(x)=0 \)，则称其为<b>非正定的半正定</b>。类似地可定义负定（\( f(x) \lt 0 \)）与不定。</p>` },
           { t: 'h3', idx: '②', text: '正定的充分必要条件' },
           { t: 'card', kind: 'thm', tag: '定理', title: '五个等价判据', html: String.raw`<p class="tight">设 \( A \) 为 n 阶实对称矩阵，则下列条件等价：</p><ul class="none"><li><b>特征值法：</b>\( A \) 的特征值全为正数；</li><li><b>惯性指数法：</b>正惯性指数 \( p = n \)（即规范形为 \( E \)）；</li><li><b>合同法：</b>\( A \) 与单位矩阵 \( E \) 合同，即存在可逆矩阵 \( C \) 使 \( A = C^{T}C \)；</li><li><b>主子式法（赫尔维茨定理）：</b>\( A \) 的各阶<b>顺序主子式</b>全为正：\( D_1 = a_{11} \gt 0,\ D_2 \gt 0,\ \cdots,\ D_n = |A| \gt 0 \)；</li><li><b>分解法：</b>存在可逆矩阵 \( C \) 使 \( A = C^{T}C \)（与第三条等价）。</li></ul>` },
           { t: 'table', head: ['判别法', '适用条件', '优点与局限'], rows: [
@@ -154,7 +155,7 @@
             [String.raw`\( A = C^{T}C \)（\( C \) 可逆）`, '结构明显的矩阵（如 \( A^{T}A+E \)）', '适合证明题'],
             [String.raw`\( A \simeq E \)`, '已知合同关系', '理论判断，便于抽象推理']
           ] },
-          { t: 'card', kind: 'key', tag: '必要性', title: '正定的必要条件（只能用来否定）', html: String.raw`<ul class="none"><li>主对角线元素全为正：\( a_{ii} \gt 0 \)；</li><li>行列式为正：\( |A| \gt 0 \)；</li><li>\( A \) 可逆，且 \( A^{-1} \)、\( A^{*} \)、\( A^{k} \) 都正定；</li><li>\( A \) 的任意 k 阶主子阵正定（特别地，各阶顺序主子式为正）。</li></ul><p class="tight">反过来：\( a_{ii} \gt 0 \) 与 \( |A| \gt 0 \) 同时成立<b>不能</b>保证正定（例如 \( A = \begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix} \)：主对角元都正、\( |A| = -3 \lt 0 \)，不是正定；而 \( \begin{pmatrix} 1 & -3 \\ -3 & 10 \end{pmatrix} \) 主对角元正、\( |A| = 1 \gt 0 \) 且正定）。</p>` },
+          { t: 'card', kind: 'key', tag: '必要性', title: '正定的必要条件（只能用来否定）', html: String.raw`<ul class="none"><li>主对角线元素全为正：\( a_{ii} \gt 0 \)；</li><li>行列式为正：\( |A| \gt 0 \)；</li><li>\( A \) 可逆，且 \( A^{-1} \)、\( A^{*} \)、\( A^{k} \) 都正定；</li><li>\( A \) 的任意 k 阶主子阵正定（特别地，各阶顺序主子式为正）。</li></ul><p class="tight">反过来：\( a_{ii} \gt 0 \) 与 \( |A| \gt 0 \) 同时成立<b>仍不能</b>保证正定。例如 \( A=\begin{pmatrix}1&2&2\\2&1&2\\2&2&1\end{pmatrix} \) 的对角元全正、\( |A|=5>0 \)，但特征值为 \( 5,-1,-1 \)，故它不正定。</p>` },
           { t: 'h3', idx: '③', text: '正定矩阵的性质' },
           { t: 'card', kind: 'key', tag: '性质', title: '常用结论', html: String.raw`<ul class="none"><li>若 \( A \) 正定、\( B \) 正定，则 \( A+B \) 正定（\( x^{T}(A+B)x = x^{T}Ax + x^{T}Bx \gt 0 \)）。</li><li>若 \( A \) 正定、\( k \gt 0 \)，则 \( kA \) 正定。</li><li>若 \( A \) 正定且 \( A \simeq B \)，则 \( B \) 正定（合同保持惯性指数）。</li><li>若 \( A \) 正定，\( A \) 可逆，则 \( A^{-1} \)、\( A^{*} \) 均正定。</li><li>若 \( A \) 正定、\( B \) 实对称且 \( AB \) 为对称矩阵，则 \( AB \) 正定 \( \iff B \) 正定。</li><li>若 \( A \) 正定，则 \( A \) 可分解为 \( A = R^{T}R \)（例如取 \( R \) 为 \( A \) 的 Cholesky 分解因子或 \( A^{1/2} \)）。</li></ul>` },
           { t: 'card', kind: 'warn', tag: '辨析', title: '三个易错点', html: String.raw`<ul class="none"><li>谈“正定”必须先有<b>对称</b>矩阵：非对称矩阵不定义正定性。</li><li>用顺序主子式判断“不正定”时，只要有一个顺序主子式 \( \leq 0 \) 即可否定；但判断“正定”必须<b>全部</b>顺序主子式都大于 0。</li><li>“所有主子式全为正”也是正定的充要条件，比“顺序主子式”更强；考试中判正定<b>只需</b>顺序主子式即可。</li></ul>` },

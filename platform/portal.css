@@ -30,7 +30,7 @@ a.nav-item:hover { background: var(--zx-soft); color: var(--zx-brand); }
 .portal-content { max-width: 1280px; margin: 0 auto; padding: 43px 42px 0; }
 .welcome { display: flex; justify-content: space-between; align-items: center; gap: 32px; margin-bottom: 29px; }
 .eyebrow { margin: 0 0 12px; color: var(--zx-muted); font-size: 12.5px; font-weight: 700; letter-spacing: .1em; }
-.welcome h1 { margin: 0; font-size: clamp(31px, 3.3vw, 48px); font-weight: 800; line-height: 1.32; letter-spacing: -.05em; }
+.welcome h1 { margin: 0; font-family: var(--zx-display); font-size: clamp(31px, 3.3vw, 48px); font-weight: 700; line-height: 1.32; letter-spacing: -.035em; }
 .welcome h1 span { color: var(--zx-brand); }
 .small-break { display: none; }
 .welcome-copy { color: var(--zx-secondary); margin: 15px 0 0; line-height: 1.95; font-size: 14.5px; font-weight: 450; }

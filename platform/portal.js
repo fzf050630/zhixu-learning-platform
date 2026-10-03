@@ -17,7 +17,8 @@
   byId('featuredSubjects').innerHTML = P.subjects.filter(subject => subject.status === 'ready').map(subject => {
     const stats = P.catalog.subjects[subject.id];
     const visual = visuals[subject.id] || { label: subject.title, meta: () => '' };
-    return `<article class="subject-card" data-subject-card="${subject.id}" data-status="ready" data-group="${subject.group}"><div class="subject-visual ${subject.id}"><div class="visual-caption"><span>${groupName(subject.group)}</span><span>${subject.code} / INTERACTIVE</span></div><canvas data-preview="${subject.id}" role="img" aria-label="${visual.label}"></canvas></div><div class="subject-body"><div class="subject-title-row"><h3>${subject.title}</h3><span class="available-label">已开放</span></div><p>${subject.detail}</p><div class="subject-meta"><span>${stats.chapters} 个章节</span><span>${stats.items} 个${stats.unit}</span><span>${visual.meta(stats)}</span></div><a class="subject-entry" href="${esc(P.url(subject.id))}"><span>进入${subject.short} <span class="zx-sr">学习空间</span></span><span aria-hidden="true">↗</span></a></div></article>`;
+    const units = subject.id === 'data-structures' ? `${stats.knowledgeTopics} 个教材知识点 · ${stats.experiments} 个算法实验` : `${stats.items} 个${stats.unit}`;
+    return `<article class="subject-card" data-subject-card="${subject.id}" data-status="ready" data-group="${subject.group}"><div class="subject-visual ${subject.id}"><div class="visual-caption"><span>${groupName(subject.group)}</span><span>${subject.code} / INTERACTIVE</span></div><canvas data-preview="${subject.id}" role="img" aria-label="${visual.label}"></canvas></div><div class="subject-body"><div class="subject-title-row"><h3>${subject.title}</h3><span class="available-label">已开放</span></div><p>${subject.detail}</p><div class="subject-meta"><span>${stats.chapters} 个章节</span><span>${units}</span><span>${visual.meta(stats)}</span></div><a class="subject-entry" href="${esc(P.url(subject.id))}"><span>进入${subject.short} <span class="zx-sr">学习空间</span></span><span aria-hidden="true">↗</span></a></div></article>`;
   }).join('');
   byId('plannedSubjects').innerHTML = P.subjects.filter(subject => subject.status === 'planned').map(subject => `<article class="planned-card" data-subject-card="${subject.id}" data-status="planned" data-group="${subject.group}"><span class="planned-icon">${subject.code}</span><div><h3>${subject.title}</h3><p>${subject.description}</p></div><span class="planned-status">待建设</span></article>`).join('');
   if (!P.subjects.some(subject => subject.status === 'planned')) byId('plannedSubjects')?.closest('.roadmap-section')?.setAttribute('hidden', '');
@@ -35,11 +36,11 @@
     if (!query) { byId('searchResults').replaceChildren(); drawPreviews(); return; }
     const words = query.split(/\s+/);
     const entries = P.catalog.entries.filter(entry => {
-      const text = `${entry.title} ${entry.chapter} ${entry.number || ''} ${P.subject(entry.subject).title}`.toLowerCase();
+      const text = `${entry.title} ${entry.chapter} ${entry.number || ''} ${entry.keywords || ''} ${P.subject(entry.subject).title}`.toLowerCase();
       return words.every(word => text.includes(word));
     });
     byId('searchSummary').textContent = `找到 ${entries.length} 个学习入口`;
-    byId('searchResults').innerHTML = entries.length ? entries.map(entry => `<a class="search-result" href="${esc(P.url(entry.subject, entry.hash))}"><span class="planned-icon">${P.subject(entry.subject).code}</span><div><strong>${esc(entry.number ? entry.number + ' ' : '')}${esc(entry.title)}</strong><small>${P.subject(entry.subject).title} / ${esc(entry.chapter)} · ${entry.kind}</small></div><span class="result-arrow" aria-hidden="true">→</span></a>`).join('') : '<p class="search-empty">没有找到相关内容。可以试试“排序”“贝叶斯”“Cache”或“流水线”。目前搜索覆盖数据结构、概率统计与计算机组成原理。</p>';
+    byId('searchResults').innerHTML = entries.length ? entries.map(entry => `<a class="search-result" href="${esc(P.url(entry.subject, entry.hash))}"><span class="planned-icon">${P.subject(entry.subject).code}</span><div><strong>${esc(entry.number ? entry.number + ' ' : '')}${esc(entry.title)}</strong><small>${P.subject(entry.subject).title} / ${esc(entry.chapter)} · ${entry.kind}</small></div><span class="result-arrow" aria-hidden="true">→</span></a>`).join('') : '<p class="search-empty">没有找到相关内容。可以试试“败者树”“页框回收”“Cache”或“拥塞控制”。搜索覆盖七科教材知识与算法实验。</p>';
   }
   input.addEventListener('input', search);
   byId('clearSearch').addEventListener('click', () => { input.value = ''; search(); input.focus(); });

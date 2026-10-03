@@ -145,14 +145,29 @@ body {
   }
 }
 @media (max-width: 720px) {
+  .lab-view {
+    display: flex;
+    flex-direction: column;
+  }
+  .lab-view .lab-grid {
+    display: contents;
+  }
+  .lab-view .code-panel {
+    order: 1;
+    margin-top: 13px;
+  }
+  .lab-view .state-tables {
+    order: 2;
+  }
+  .lab-view .zx-section-nav {
+    order: 3;
+  }
   #codeList li {
     font-size: 14px;
     grid-template-columns: 38px minmax(max-content, 1fr);
   }
   .transport {
-    position: sticky;
-    bottom: 8px;
-    z-index: 5;
+    position: static;
   }
   .transport button {
     min-height: 42px;

@@ -10,3 +10,81 @@ html[data-theme='dark']{--bg:#181a1f;--side:#202228;--surface:#262930;--canvas-b
 /* 结点较多的图示（如 12 结点的 AVL 树）在窄屏下可横向滚动，保证结点与标注可读 */
 .stage-scroll{overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
 #stageCanvas{min-width:560px}
+
+/* Tablet lesson workspace, tuned to 2800×1840 hardware pixels at DPR 2. */
+@media (any-pointer: coarse) and (min-width:721px) and (max-width:1500px) and (min-height:560px) {
+  :root { --zx-header: 52px; }
+  .zx-header { height: var(--zx-header); }
+  html[data-subject='data-structures'] .app-shell { grid-template-columns: minmax(0, 1fr); }
+  html[data-subject] .sidebar {
+    position: fixed; inset: var(--zx-header) auto 0 0; width: min(300px, calc(100vw - 64px));
+    height: calc(100dvh - var(--zx-header)); margin-top: 0; transform: translateX(-102%);
+    transition: transform .2s ease; box-shadow: var(--shadow-lg); z-index: 30;
+  }
+  html[data-subject] .sidebar.open { transform: translateX(0); }
+  html[data-subject] .mobile-menu,
+  html[data-subject] .only-mobile { display: grid; place-items: center; flex: none; }
+  html[data-subject] .mobile-menu,
+  html[data-subject] .only-mobile.icon-btn { width: 38px; height: 38px; border: 1px solid var(--zx-line); border-radius: 9px; background: var(--zx-surface); color: var(--zx-ink); font-size: 19px; }
+  html[data-subject='data-structures'] .topbar .mobile-menu { width: 44px; min-width: 44px; padding: 0 5px; white-space: nowrap; font-size: 13px; }
+  html[data-subject='probability'] .topbar .only-mobile { width: 40px; min-width: 40px; }
+  html[data-subject] .scrim.show {
+    display: block; position: fixed; inset: var(--zx-header) 0 0;
+    background: rgb(18 24 35 / .42); opacity: 1; pointer-events: auto; z-index: 25;
+  }
+  html[data-subject='data-structures'] .main { min-width: 0; }
+  html[data-subject='data-structures'] .lab-view .lab-grid { grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr); }
+  html[data-subject='data-structures'] .lab-view { width: min(100%, 1680px); padding: 12px clamp(14px, 2vw, 28px) 20px; }
+  html[data-subject='data-structures'] .lab-head { align-items: center; margin: 0 0 8px; }
+  html[data-subject='data-structures'] .lab-head .eyebrow { margin-bottom: 2px; font-size: 10px; }
+  html[data-subject='data-structures'] .lab-head h1 { font-size: clamp(20px, 2vw, 28px); line-height: 1.18; }
+  html[data-subject='data-structures'] .tablet-experiment-details { margin: 0 0 8px; border: 1px solid var(--zx-line); border-radius: 10px; background: var(--zx-surface); }
+  html[data-subject='data-structures'] .tablet-experiment-details > summary { min-height: 38px; padding: 8px 12px; color: var(--zx-brand); cursor: pointer; font-size: 12px; font-weight: 700; }
+  html[data-subject='data-structures'] .tablet-experiment-details[open] > summary { border-bottom: 1px solid var(--zx-line); }
+  html[data-subject='data-structures'] .tablet-experiment-details .experiment-input,
+  html[data-subject='data-structures'] .tablet-experiment-details .layout-controls { margin: 7px; padding: 7px 10px; }
+  html[data-subject='data-structures'] .algo-panel { margin: 0 0 8px; padding: 7px 10px; }
+  html[data-subject='data-structures'] .algo-details { max-height: min(29dvh, 230px); overflow: auto; }
+  html[data-subject='data-structures'] .algo-details:not([open]) { max-height: 42px; overflow: hidden; }
+  html[data-subject='data-structures'] .algo-head { min-height: 28px; display: flex; align-items: center; gap: 9px; cursor: pointer; list-style: none; }
+  html[data-subject='data-structures'] .algo-head::-webkit-details-marker { display: none; }
+  html[data-subject='data-structures'] .algo-expand-hint { display: inline; margin-left: auto; color: var(--zx-brand); font-size: 12px; white-space: nowrap; }
+  html[data-subject='data-structures'] .algo-details[open] .algo-expand-hint::after { content: ' ↑'; }
+  html[data-subject='data-structures'] .algo-details:not([open]) .algo-expand-hint::after { content: ' ↓'; }
+  html[data-subject='data-structures'] .algo-content { padding: 6px 0 2px; }
+  html[data-subject='data-structures'] .algo-line { margin-block: 5px; line-height: 1.45; }
+  html[data-subject='data-structures'] .algo-steps-title { margin-block: 7px 5px; }
+  html[data-subject='data-structures'] .algo-steps { gap: 5px; }
+  html[data-subject='data-structures'] .algo-steps li { padding-block: 7px; }
+  html[data-subject='data-structures'] .experiment-input { margin-bottom: 8px; padding: 8px 12px; }
+  html[data-subject='data-structures'] .input-form { gap: 5px 9px; }
+  html[data-subject='data-structures'] .input-hint,
+  html[data-subject='data-structures'] .input-error { line-height: 1.4; }
+  html[data-subject='data-structures'] .lab-grid { align-items: stretch; gap: 10px; }
+  html[data-subject='data-structures'] .stage-panel,
+  html[data-subject='data-structures'] .code-panel { min-width: 0; min-height: 0; }
+  html[data-subject='data-structures'] .stage-scroll { width: 100%; overflow-x: auto; }
+  html[data-subject='data-structures'] .stage-scroll #stageCanvas {
+    width: 100%; min-width: 0; height: clamp(242px, 29dvh, 320px);
+  }
+  html[data-subject='data-structures'] #codeList {
+    height: clamp(242px, 29dvh, 320px); min-height: 0; overscroll-behavior: contain;
+  }
+  html[data-subject='data-structures'] #codeList li { font-size: clamp(11px, 1.05vw, 14px); line-height: 1.48; padding-block: 4px; }
+  html[data-subject='data-structures'] .panel-label { height: 34px; }
+  html[data-subject='data-structures'] .state-strip { min-height: 46px; padding-block: 7px; }
+  html[data-subject='data-structures'] .transport { position: static; margin-top: 8px; padding: 7px; }
+  html[data-subject='data-structures'] .state-tables { margin-top: 8px; }
+  html[data-subject='data-structures'] .home-view { padding-top: 28px; }
+}
+
+@media (any-pointer: coarse) and (orientation:landscape) and (min-width:721px) and (max-width:1500px) and (min-height:560px) {
+  html[data-subject='data-structures'] .lab-view .lab-grid { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); }
+  html[data-subject='data-structures'] .transport { grid-template-columns: 40px 96px 86px 96px minmax(130px, 1fr); }
+  html[data-subject='data-structures'] .transport label { gap: 7px; }
+}
+
+@media (any-pointer: coarse) and (orientation:portrait) and (min-width:820px) and (max-width:1200px) and (min-height:900px) {
+  html[data-subject='data-structures'] .stage-scroll #stageCanvas { height: min(29dvh, 420px); }
+  html[data-subject='data-structures'] #codeList { height: min(29dvh, 420px); }
+}

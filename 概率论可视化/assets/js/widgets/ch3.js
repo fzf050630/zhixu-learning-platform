@@ -434,7 +434,7 @@
         dom: [-0.2, 1.3, -0.2, 1.3],
         tri: [[0, 0], [1, 0], [1, 1]],
         indep: false,
-        desc: 'f(x,y)=8xy 在三角形 0≤y≤x≤1 上：密度可分离为 (8x)·y，但支撑集非矩形 ⟹ 仍不独立'
+        desc: '在开区 0<x<y<1 上，f=0 而 f_X(x)f_Y(y)=16x³y(1−y²)>0，故两者在正面积区域不等'
       },
       '指数型（独立）': {
         f: (x, y) => (x > 0 && y > 0) ? Math.exp(-(x + y)) : 0,
@@ -547,7 +547,7 @@
         ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
         ctx.font = '700 12px ' + D.FONT_SANS;
         ctx.fillStyle = cs.indep ? C('--green') : C('--red');
-        ctx.fillText(cs.indep ? '✓ X 与 Y 独立' : '✗ X 与 Y 不独立（支撑集非矩形）', padL, H_ - 4);
+        ctx.fillText(cs.indep ? '✓ X 与 Y 独立' : '✗ 本例不独立（联合密度与边缘乘积在正面积区域不等）', padL, H_ - 4);
         // 右侧空白处放一句提示
         ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
         ctx.font = '500 10.5px ' + D.FONT_SANS;
@@ -567,11 +567,12 @@
   };
 
   /* ================================================================
-     3.4 独立性：支撑集形状决定成败
+     3.4 独立性：密度乘积与支撑匹配
      ================================================================ */
   W.independence2d = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 320);
-    // 支撑集 = {0≤x≤1, 0≤y≤min(1, kx)}：k≤1 为三角形，k>1 为梯形；两者都含斜边 → 均不独立
+    // 本图只比较两个具体密度：矩形上的 4xy 与斜边支撑上的均匀密度。
+    // 一般判据仍是 f(x,y)=f_X(x)f_Y(y) 几乎处处，不能仅凭“非矩形”作普遍结论。
     let t = 1;
 
     UI.slider(ctrl, {
@@ -592,7 +593,7 @@
 
         ctx.fillStyle = T['--ink-2']; ctx.font = '700 11.5px ' + D.FONT_SANS;
         ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
-        ctx.fillText('情形对比：支撑集形状 = 独立性的判据', padL, padT - 10);
+        ctx.fillText('两个具体联合密度：检查是否等于边缘密度乘积', padL, padT - 10);
 
         // 左：矩形支撑集
         const b1 = { x: padL, y: padT, w: w1, h: hAll };
@@ -604,7 +605,7 @@
         ctx.restore();
         ctx.fillStyle = C('--green'); ctx.font = '700 11px ' + D.FONT_SANS;
         ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
-        ctx.fillText('矩形支撑集 → 独立', b1.x + w1 / 2, padT - 12);
+        ctx.fillText('本例：f = 2x · 2y → 独立', b1.x + w1 / 2, padT - 12);
         ctx.fillStyle = T['--ink-3']; ctx.font = '500 10px ' + D.FONT_SANS;
         ctx.textAlign = 'center'; ctx.textBaseline = 'top';
         ctx.fillText('f = 2x · 2y 可分离', b1.x + w1 / 2, padT + hAll + 6);
@@ -628,12 +629,12 @@
         ctx.strokeStyle = C('--red'); ctx.lineWidth = 2.4; ctx.stroke();
         ctx.restore();
         // 支撑集 = {0≤x≤1, 0≤y≤min(1, kx)}：k≤1 为三角形，k>1 为梯形
-        // 只要上界随 x 变化（含斜边）就不是矩形 → 不独立
+        // 对本例的均匀密度，边缘支持的乘积含有斜边外一块正面积区域，故联合密度不等于边缘乘积。
         const shapeName = k <= 1 ? '三角形' : '梯形';
         ctx.fillStyle = C('--red');
         ctx.font = '700 11px ' + D.FONT_SANS;
         ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
-        ctx.fillText('k = ' + k.toFixed(2) + '：支撑集为' + shapeName + ' → 不独立', b2.x + w1 / 2, padT - 12);
+        ctx.fillText('本例 k = ' + k.toFixed(2) + '：' + shapeName + '支持 → 不独立', b2.x + w1 / 2, padT - 12);
         ctx.fillStyle = T['--ink-3']; ctx.font = '500 10px ' + D.FONT_SANS;
         ctx.textAlign = 'center'; ctx.textBaseline = 'top';
         ctx.fillText('f ∝ 1 在 0 ≤ y ≤ min(1, kx) 上（上界含斜边）', b2.x + w1 / 2, padT + hAll + 6);
@@ -641,7 +642,7 @@
         // 底部判据
         ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
         ctx.fillStyle = T['--ink-2']; ctx.font = '600 11px ' + D.FONT_SANS;
-        ctx.fillText('判据：非零区域必须是「矩形/象限」型（边界为常数），且 f 可分解为 g(x)·h(y)', padL, H_ - 8);
+        ctx.fillText('一般判据：f(x,y) = f_X(x)f_Y(y) 几乎处处；本例斜边造成正面积缺口', padL, H_ - 8);
       });
       scene.static();
       UI.readout(out, [
@@ -649,7 +650,7 @@
         ['左：独立性', '独立'],
         ['右：k =', f2(t)],
         ['右：支撑集', t <= 1 ? '三角形' : '梯形'],
-        ['右：独立性', '不独立（上界含斜边）']
+        ['右：独立性', '本例联合与边缘乘积在正面积区域不等，故不独立']
       ]);
     }
     draw();

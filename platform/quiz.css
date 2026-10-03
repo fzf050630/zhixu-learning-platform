@@ -30,6 +30,9 @@
 .zx-quiz-q:first-of-type { border-top: 0; }
 .zx-quiz-stem { font-size: 14px; line-height: 1.65; margin: 0 0 10px; }
 .zx-quiz-stem .zx-quiz-no { color: var(--zx-muted, #697587); margin-right: 6px; }
+.zx-quiz-source { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: -4px 0 10px 22px; color: var(--zx-muted, #697587); font-size: 12px; line-height: 1.5; }
+.zx-quiz-source a { color: var(--zx-brand, #405cce); text-decoration: none; white-space: nowrap; }
+.zx-quiz-source a:hover { text-decoration: underline; }
 .zx-quiz-options { display: grid; gap: 8px; }
 .zx-quiz-option {
   display: flex;

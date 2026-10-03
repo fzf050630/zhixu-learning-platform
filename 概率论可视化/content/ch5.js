@@ -151,8 +151,8 @@
             '<div class="fml">\\( \\lim_{n\\to\\infty}P\\left\\{\\left|\\dfrac1n\\sum_{k=1}^{n}X_k-\\mu\\right|<\\varepsilon\\right\\}=1\\qquad\\text{即}\\quad \\bar X\\overset{P}{\\longrightarrow}\\mu \\)</div>' +
             '<p class="tight"><b>条件要点：</b>独立同分布 + 期望存在。<b>不要求方差存在</b>——这是它强于切比雪夫大数定律之处（切比雪夫要求方差有界，柯西分布等反而不能用切比雪夫，但柯西的期望本身也不存在，故也不能用辛钦）。</p>'
           },
-          { t: 'viz', build: 'lln', title: '大数定律：样本均值的「收敛轨道」', sub: '多次独立模拟（最多 30 条轨道），观察 Ᾱₙ 如何向 μ 收拢' },
-          { t: 'viz', build: 'llnFrequency', title: '伯努利大数定律：频率稳定到 p', sub: '调节 p 与轮数（最多 30 轮），观察频率轨迹被 p 与 ±3σ/√n 带收拢' },
+          { t: 'viz', build: 'lln', title: '大数定律：样本均值的「收敛轨道」', sub: '多次独立模拟（最多 30 条轨道）；播放样本量 n，观察同一批样本的前缀均值如何向 μ 收拢' },
+          { t: 'viz', build: 'llnFrequency', title: '伯努利大数定律：频率稳定到 p', sub: '调节 p 与模拟轮数（最多 30 轮）；播放 n，观察频率轨迹与 ±3σ/√n 理论带逐渐收拢' },
           { t: 'card', kind: 'key', tag: '对比', title: '三个大数定律的条件差异', html:
             '<div class="tbl-wrap" style="margin:0"><table class="tbl">' +
             '<thead><tr><th>定律</th><th>独立性</th><th>同分布</th><th>矩条件</th></tr></thead><tbody>' +
@@ -251,8 +251,8 @@
             '<p class="tight"><b>即：</b>当 \\( n \\) 充分大时，\\( X \\) 近似服从 \\( N\\big(np,\\ np(1-p)\\big) \\)——二项分布<b>以正态分布为极限分布</b>。</p>' +
             '<p class="tight"><b>来源：</b>把 \\( X \\) 写成 \\( n \\) 个独立 0–1 变量之和 \\( X=\\sum_{i=1}^{n}X_i \\)，\\( E(X_i)=p,\\ D(X_i)=p(1-p) \\)，直接代入列维-林德伯格定理即得。</p>'
           },
-          { t: 'viz', build: 'clt', title: '中心极限定理：从任意分布到正态', sub: '切换总体分布与样本量 n，观察标准化的和如何逼近 N(0,1)' },
-          { t: 'viz', build: 'cltDice', title: '中心极限定理：掷骰子点数和', sub: '增大骰子个数 n，观察标准化点数和逼近标准正态' },
+          { t: 'viz', build: 'clt', title: '中心极限定理：从任意分布到正态', sub: '切换总体分布与样本量 n；固定每次模拟的随机样本前缀，播放观察标准化和如何逼近 N(0,1)' },
+          { t: 'viz', build: 'cltDice', title: '中心极限定理：掷骰子点数和', sub: '固定每轮骰子序列的前缀，播放增加骰子个数 n，观察标准化点数和逐渐逼近标准正态' },
           { t: 'card', kind: 'tip', tag: '辨析', title: '大数定律 vs 中心极限定理', html:
             '<div class="tbl-wrap" style="margin:0"><table class="tbl">' +
             '<thead><tr><th>对比项</th><th>大数定律</th><th>中心极限定理</th></tr></thead><tbody>' +
@@ -331,7 +331,7 @@
             '<li><b>查表 / 修正</b>：离散情形（二项、泊松）涉及「\\( \\leqslant k \\)」时用连续性修正。</li>' +
             '</ol>'
           },
-          { t: 'card', kind: 'tip', tag: '关键', title: '连续性修正：为什么 \\( +0.5 \\)', html:
+          { t: 'card', kind: 'tip', tag: '拓展', title: '拓展：连续性修正（±0.5）', html:
             '<p class="tight">离散变量只能取整数，而正态是连续的。用「阶梯」去逼近「曲线」时，取整点 \\( k \\) 处的「台阶」应当覆盖区间 \\( [k-0.5,\\ k+0.5] \\)。所以：</p>' +
             '<div class="fml">' +
             '<div class="fml-row"><b>1.</b> \\( P\\{X\\leqslant k\\}\\approx\\Phi\\!\\left(\\dfrac{k+0.5-np}{\\sqrt{np(1-p)}}\\right) \\)</div>' +

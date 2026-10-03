@@ -94,10 +94,10 @@
     body.classList.add('pad0');
     const state = { va: 0x2A3C, pageKB: 4, mode: 'paging', seg: [0, 1, 2] };
     const pageTable = [5, 2, 8, 1, 7, 3, 0, 9];   // 页号 -> 页框
-    const segTable = [{ base: 0x1000, len: 0x2000 }, { base: 0x5000, len: 0x1000 }, { base: 0x8000, len: 0x3000 }];
+    const segTable = [{ base: 0x1000, len: 0x800 }, { base: 0x5000, len: 0x1000 }, { base: 0x8000, len: 0xC00 }];
 
     UI.seg(ctrl, [{ label: '基本分页', value: 'paging' }, { label: '基本分段', value: 'seg' }], v => { state.mode = v; render(); }, 0);
-    const inp = UI.number(ctrl, { label: '逻辑地址(十进制)', value: state.va, min: 0, max: 0xFFFFFF, step: 1, width: 120 });
+    const inp = UI.number(ctrl, { label: '逻辑地址(十进制)', value: state.va, min: 0, max: 0xFFFF, step: 1, width: 120 });
     inp.onChange(v => { state.va = v; render(); });
 
     function render() {
@@ -110,7 +110,8 @@
           const offBits = Math.log2(pageBytes);
           const va = state.va >>> 0;
           const pn = Math.floor(va / pageBytes), off = va % pageBytes;
-          const frame = pageTable[pn % pageTable.length];
+          const valid = pn < pageTable.length;
+          const frame = valid ? pageTable[pn] : null;
           const pa = frame * pageBytes + off;
           G.label(ctx, w / 2, 18, `逻辑地址 → 物理地址（页大小 ${state.pageKB} KB）`, { size: 12, weight: 700, color: T['--ink'] });
           G.bits(ctx, 20, 40, w - 40, 46, {
@@ -123,20 +124,20 @@
           G.label(ctx, 20, 106, '页表', { align: 'left', size: 11, weight: 700, color: T['--ink-2'] });
           const cw = (w - 40) / pageTable.length;
           pageTable.forEach((f, k) => {
-            const on = k === pn % pageTable.length;
+            const on = k === pn;
             G.box(ctx, 20 + k * cw, 118, cw - 6, 40, { fill: on ? D.withAlpha(T['--brand'], 0.16) : T['--card-2'], stroke: on ? T['--brand'] : T['--line'], radius: 6 });
             G.label(ctx, 20 + k * cw + (cw - 6) / 2, 131, '页 ' + k, { size: 10, color: T['--ink-3'], mono: true });
             G.label(ctx, 20 + k * cw + (cw - 6) / 2, 147, '→ 框 ' + f, { size: 11, weight: on ? 800 : 600, color: on ? T['--brand'] : T['--ink-2'], mono: true });
           });
           G.box(ctx, 20, p.h - 40, w - 40, 28, { fill: D.withAlpha(T['--green'], 0.1), stroke: D.withAlpha(T['--green'], 0.5), radius: 7 });
-          G.label(ctx, 32, p.h - 26, `物理地址 = ${frame} × ${pageBytes} + ${off} = 0x${pa.toString(16).toUpperCase()}`, { align: 'left', size: 12, weight: 700, color: T['--green'], mono: true });
+          G.label(ctx, 32, p.h - 26, valid ? `物理地址 = ${frame} × ${pageBytes} + ${off} = 0x${pa.toString(16).toUpperCase()}` : '页号超出页表长度 → 地址越界，不进行取模映射', { align: 'left', size: 12, weight: 700, color: T['--green'], mono: true });
         } else {
           const sd = Math.floor(state.va / 0x1000);
           const off = state.va % 0x1000;
-          const seg = sd % segTable.length;
+          const seg = sd;
           const t = segTable[seg];
-          const pa = t.base + off;
-          const ok = off < t.len;
+          const ok = !!t && off < t.len;
+          const pa = ok ? t.base + off : null;
           G.label(ctx, w / 2, 18, '逻辑地址 → 物理地址（段号 + 段内偏移）', { size: 12, weight: 700, color: T['--ink'] });
           G.bits(ctx, 20, 40, w - 40, 46, {
             groups: [
@@ -156,17 +157,17 @@
             fill: D.withAlpha(ok ? T['--green'] : T['--red'], 0.1),
             stroke: D.withAlpha(ok ? T['--green'] : T['--red'], 0.5), radius: 7
           });
-          G.label(ctx, 32, p.h - 26, ok ? `物理地址 = 段基址 0x${t.base.toString(16).toUpperCase()} + 偏移 0x${off.toString(16).toUpperCase()} = 0x${pa.toString(16).toUpperCase()}` : '段内偏移越界 → 越界中断', { align: 'left', size: 12, weight: 700, color: ok ? T['--green'] : T['--red'], mono: true });
+          G.label(ctx, 32, p.h - 26, ok ? `物理地址 = 段基址 0x${t.base.toString(16).toUpperCase()} + 偏移 0x${off.toString(16).toUpperCase()} = 0x${pa.toString(16).toUpperCase()}` : !t ? '段号超出段表长度 → 越界异常' : '段内偏移≥段长 → 越界异常', { align: 'left', size: 12, weight: 700, color: ok ? T['--green'] : T['--red'], mono: true });
         }
       });
       scene.render();
       if (state.mode === 'paging') {
         const pageBytes = state.pageKB * 1024;
         const pn = Math.floor(state.va / pageBytes), off = state.va % pageBytes;
-        UI.readout(out, [['页号', String(pn)], ['页内偏移', String(off)], ['页框号', String(pageTable[pn % pageTable.length])]]);
+        UI.readout(out, [['页号', String(pn)], ['页内偏移', String(off)], ['页框号', pn < pageTable.length ? String(pageTable[pn]) : '越界']]);
       } else {
         const sd = Math.floor(state.va / 0x1000), off = state.va % 0x1000;
-        UI.readout(out, [['段号', String(sd % segTable.length)], ['段内偏移', '0x' + off.toString(16).toUpperCase()], ['段长', '0x' + segTable[sd % segTable.length].len.toString(16).toUpperCase()]]);
+        UI.readout(out, [['段号', String(sd)], ['段内偏移', '0x' + off.toString(16).toUpperCase()], ['段长', segTable[sd] ? '0x' + segTable[sd].len.toString(16).toUpperCase() : '段号越界']]);
       }
     }
     render();

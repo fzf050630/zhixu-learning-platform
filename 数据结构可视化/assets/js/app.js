@@ -6,6 +6,7 @@
     nav: byId("chapterNav"),
     grid: byId("chapterGrid"),
     home: byId("homeView"),
+    knowledge: byId("knowledgeView"),
     lab: byId("labView"),
     crumb: byId("crumb"),
     title: byId("labTitle"),
@@ -13,6 +14,8 @@
     tag: byId("labTag"),
     canvas: byId("stageCanvas"),
     input: byId("experimentInput"),
+    tabletOptions: byId("tabletExperimentDetails"),
+    tabletOptionsSummary: byId("tabletExperimentSummary"),
     algoPanel: byId("algoPanel"),
     stateTables: byId("stateTables"),
     layoutControls: byId('layoutControls'),
@@ -32,6 +35,16 @@
     search: byId("sideSearch"),
   };
   const runtime = DS.LabRuntime.createRuntime(els);
+  const isTabletDrawer = () => window.matchMedia("(any-pointer: coarse) and (min-width: 721px) and (max-width: 1500px) and (min-height: 560px)").matches;
+  const isCompactDrawer = () => window.innerWidth <= 720 || isTabletDrawer();
+  const updateTabletOptions = () => {
+    const hasInput = !els.input.hidden;
+    const hasLayout = !els.layoutControls.hidden;
+    const hasOptions = hasInput || hasLayout;
+    els.tabletOptions.hidden = !hasOptions;
+    els.tabletOptionsSummary.textContent = hasInput && hasLayout ? "实验参数与画布布局" : hasInput ? "实验参数" : "画布布局";
+    if (hasOptions) els.tabletOptions.open = !isTabletDrawer();
+  };
   let disposeInput = () => {};
   const expById = (id) => experiments.find((e) => e.id === id);
   const chapterById = (id) => chapters.find((c) => c.id === id);
@@ -40,10 +53,11 @@
     els.sidebar.classList.remove("open");
     els.scrim.classList.remove("show");
     els.menu.setAttribute("aria-expanded", "false");
-    els.sidebar.inert = window.innerWidth <= 720;
+    els.sidebar.inert = isCompactDrawer();
+    els.menu.setAttribute("aria-label", "打开章节目录");
   };
   function renderNav() {
-    els.nav.innerHTML = chapters
+    els.nav.innerHTML = DS.WangdaoView.navHtml() + chapters
       .map(
         (ch) =>
           `<section><a class="chapter-link" href="#/chapter/${ch.id}" data-chapter="${ch.id}"><b>${ch.no}</b><strong>${ch.title}</strong><i>⌄</i></a><div class="nav-labs">${ch.experiments
@@ -69,6 +83,8 @@
             .join("")}</ul></article>`,
       )
       .join("");
+    els.knowledge.hidden = true;
+    byId("knowledgeGrid").innerHTML = DS.WangdaoView.homeHtml();
     els.home.hidden = false;
     els.lab.hidden = true;
     els.crumb.textContent = filter ? chapterById(filter).title : "算法实验室";
@@ -97,14 +113,14 @@
       ? `<div class="algo-keys"><div class="algo-keys-title">关键点与易错</div><ul>${info.keys.map((key) => `<li>${key}</li>`).join("")}</ul></div>`
       : "";
     panel.innerHTML =
-      `<div class="algo-head"><span class="algo-badge">算法流程</span><span class="algo-name">${e.title}</span>` +
+      `<details class="algo-details" ${isTabletDrawer() ? '' : 'open'}><summary class="algo-head"><span class="algo-badge">算法流程</span><span class="algo-name">${e.title}</span>` +
       (e.tag ? `<span class="algo-role">${e.tag}</span>` : "") +
       (info.cost ? `<span class="algo-cost">${info.cost}</span>` : "") +
-      `</div>` +
+      `<span class="algo-expand-hint" aria-hidden="true">查看说明</span></summary><div class="algo-content">` +
       `<p class="algo-line"><span class="algo-key">做什么</span><span>${info.goal}</span></p>` +
       (info.inputs ? `<p class="algo-line"><span class="algo-key">输入与前提</span><span>${info.inputs}</span></p>` : "") +
       `<div class="algo-steps-title">执行步骤</div><ol class="algo-steps">${steps}</ol>` +
-      keys;
+      keys + `</div></details>`;
     panel.hidden = false;
   }
   function mount(id) {
@@ -119,6 +135,7 @@
     disposeInput();
     disposeInput = () => {};
     const ch = chapterById(e.chapter);
+    els.knowledge.hidden = true;
     els.home.hidden = true;
     els.lab.hidden = false;
     els.lab.dataset.visualizer = e.visualizer;
@@ -155,11 +172,19 @@
       },
     );
     runtime.mount(e);
+    updateTabletOptions();
   }
   function route() {
     closeMenu();
     const parts = location.hash.replace(/^#\/?/, "").split("/");
     if (parts[0] === "lab") mount(parts[1]);
+    else if (parts[0] === "knowledge" && DS.Wangdao.chapters.some(ch => ch.id === parts[1])) {
+      runtime.destroy(); disposeInput(); disposeInput = () => {};
+      els.home.hidden = true; els.lab.hidden = true; els.knowledge.hidden = false;
+      DS.WangdaoView.render(parts[1], els.knowledge);
+      els.crumb.textContent = "教材知识 / " + DS.Wangdao.chapters.find(ch => ch.id === parts[1]).title;
+      document.querySelectorAll("#chapterNav a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === location.hash));
+    }
     else {
       runtime.destroy();
       disposeInput();
@@ -168,11 +193,13 @@
     }
   }
   els.menu.addEventListener("click", () => {
+    if (els.sidebar.classList.contains("open")) { closeMenu(); return; }
     els.sidebar.inert = false;
     els.sidebar.classList.add("open");
     els.scrim.classList.add("show");
     els.menu.setAttribute("aria-expanded", "true");
-    els.search.focus();
+    els.menu.setAttribute("aria-label", "关闭章节目录");
+    els.nav.querySelector("a:not([hidden])")?.focus({ preventScroll: true });
   });
   els.scrim.addEventListener("click", closeMenu);
   els.theme.addEventListener("click", () => {
@@ -190,14 +217,14 @@
   window.addEventListener('zhixu:theme', () => runtime.redraw());
   els.search.addEventListener("input", () => {
     const query = els.search.value.trim().toLowerCase();
-    document.querySelectorAll(".nav-labs a").forEach((a) => {
-      a.hidden = !!query && !a.dataset.search.includes(query);
+    document.querySelectorAll(".nav-labs a, .knowledge-link").forEach((a) => {
+      a.hidden = !!query && !(a.dataset.search || a.textContent).toLowerCase().includes(query);
     });
   });
   window.addEventListener("hashchange", route);
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeMenu();
-    if (event.key === 'Tab' && els.sidebar.classList.contains('open') && window.innerWidth <= 720) {
+    if (event.key === 'Tab' && els.sidebar.classList.contains('open') && isCompactDrawer()) {
       const controls = [...els.sidebar.querySelectorAll('a, button, input, select')].filter(element => !element.hidden && !element.disabled && element.getClientRects().length);
       const first = controls[0], last = controls.at(-1);
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
@@ -210,7 +237,7 @@
       !event.target.closest("input, textarea, select, button, a, [contenteditable]")
     ) {
       event.preventDefault();
-      if (window.innerWidth <= 720) els.menu.click();
+      if (isCompactDrawer()) els.menu.click();
       els.search.focus();
     }
   });
@@ -227,10 +254,14 @@
   byId("structureCount").textContent = new Set(
     experiments.map((e) => e.visualizer),
   ).size;
-  byId("experimentSummary").textContent = `${experiments.length} 个可视化`;
+  byId("experimentSummary").textContent = `${experiments.length} 个实验 · ${DS.Wangdao.chapters.length} 章知识`;
   renderNav();
   window.addEventListener('resize', () => {
-    els.sidebar.inert = window.innerWidth <= 720 && !els.sidebar.classList.contains('open');
+    els.sidebar.inert = isCompactDrawer() && !els.sidebar.classList.contains('open');
+    document.querySelectorAll('#algoPanel .algo-details').forEach(details => {
+      details.open = !isTabletDrawer();
+    });
+    updateTabletOptions();
   });
   route();
 })();

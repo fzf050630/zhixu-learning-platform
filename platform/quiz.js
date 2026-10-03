@@ -5,6 +5,7 @@
   'use strict';
   const P = global.Zhixu = global.Zhixu || {};
   const bank = global.ZhixuQuestions || {};
+  const pastExamBank = global.ZhixuPastExamQuestions || {};
 
   try {
     const link = document.createElement('link');
@@ -17,8 +18,16 @@
 
   let scrim = null;
 
+  function verifiedSource(question) {
+    const source = question.source;
+    return source && source.kind === 'past-exam' && source.verified === true &&
+      typeof source.evidence === 'string' && source.evidence.trim() && /^https:\/\//.test(source.url || '');
+  }
+
   function questionsFor(nodeId) {
-    return Array.isArray(bank[nodeId]) ? bank[nodeId] : [];
+    const practice = Array.isArray(bank[nodeId]) ? bank[nodeId] : [];
+    const pastExams = Array.isArray(pastExamBank[nodeId]) ? pastExamBank[nodeId] : [];
+    return practice.concat(pastExams.filter(verifiedSource));
   }
 
   function has(nodeId) {
@@ -29,8 +38,52 @@
     return questionsFor(nodeId).length;
   }
 
+  function shuffle(values) {
+    const result = values.slice();
+    for (let index = result.length - 1; index > 0; index -= 1) {
+      const other = Math.floor(Math.random() * (index + 1));
+      [result[index], result[other]] = [result[other], result[index]];
+    }
+    return result;
+  }
+
+  function prepareQuestions(questions) {
+    const decks = new Map();
+    const offsets = new Map();
+    return questions.map(question => {
+      const originalOptions = question.options || {};
+      const entries = Object.entries(originalOptions);
+      const labels = entries.map(([key]) => key).sort();
+      if ((question.type || 'single') !== 'single' || labels.length < 2 || !labels.includes(question.answer)) {
+        return { question, options: { ...originalOptions }, answer: question.answer };
+      }
+
+      const signature = labels.join('\u0000');
+      const offset = offsets.get(signature) || 0;
+      const cycle = Math.floor(offset / labels.length);
+      let deck = decks.get(signature);
+      if (!deck || deck.cycle !== cycle) {
+        deck = { cycle, labels: shuffle(labels) };
+        if (cycle > 0 && decks.get(signature)?.labels[0] === deck.labels[0]) {
+          deck.labels.push(deck.labels.shift());
+        }
+        decks.set(signature, deck);
+      }
+      offsets.set(signature, offset + 1);
+
+      const answer = deck.labels[offset % labels.length];
+      const correctText = originalOptions[question.answer];
+      const distractors = shuffle(entries.filter(([key]) => key !== question.answer).map(([, text]) => text));
+      const options = {};
+      labels.forEach(key => { options[key] = key === answer ? correctText : distractors.shift(); });
+      return { question, options, answer };
+    });
+  }
+
   function track(type, data) {
-    if (P.mastery && typeof P.mastery.track === 'function') P.mastery.track(type, data);
+    if (P.mastery && typeof P.mastery.track === 'function') P.mastery.track(type, {
+      ...data, questionBankVersion: global.ZhixuQuestionBankVersion || 'legacy',
+    });
   }
 
   function close() {
@@ -48,8 +101,10 @@
     close();
     track('QUESTION_START', { questionCount: questions.length });
 
-    const states = questions.map(question => ({
+    const states = prepareQuestions(questions).map(({ question, options, answer }) => ({
       question,
+      options,
+      answer,
       selected: null,
       submitted: false,
       correct: null,
@@ -75,11 +130,23 @@
     const body = scrim.querySelector('.zx-quiz-body');
     states.forEach((state, index) => {
       const question = state.question;
-      const options = Object.entries(question.options || {});
+      const options = Object.entries(state.options);
+      const source = verifiedSource(question) ? question.source : null;
+      const sourceLabel = source
+        ? (source.fidelity === 'adapted' ? '真题改编' : '真题题意整理') + ' · ' + source.year + ' ' + escape(source.paper) +
+          (source.note ? '（' + escape(source.note) + '）' : '') + ' 第' + source.questionNo + '题'
+        : '';
+      const sourceNote = source
+        ? '<p class="zx-quiz-source"><span>' + sourceLabel + '</span>' +
+          '<a href="' + escape(source.url) + '" target="_blank" rel="noopener noreferrer">查看原卷 ↗</a>' +
+          (source.referenceUrl ? '<a href="' + escape(source.referenceUrl) + '" target="_blank" rel="noopener noreferrer">' + escape(source.referenceLabel || '来源索引') + ' ↗</a>' : '') +
+          '</p>'
+        : '';
       const item = document.createElement('section');
       item.className = 'zx-quiz-q';
       item.innerHTML =
         '<p class="zx-quiz-stem"><span class="zx-quiz-no">' + (index + 1) + '.</span>' + escape(question.stem) + '</p>' +
+        sourceNote +
         '<div class="zx-quiz-options">' + options.map(([key, text]) =>
           '<label class="zx-quiz-option" data-key="' + escape(key) + '">' +
           '<input type="radio" name="zx-q-' + index + '" value="' + escape(key) + '">' +
@@ -128,7 +195,7 @@
           return;
         }
         if (!state.selected) { feedback.textContent = '请先选择答案'; feedback.className = 'zx-quiz-feedback no'; return; }
-        const correct = state.selected === question.answer;
+        const correct = state.selected === state.answer;
         state.attempts += 1;
         state.submitted = true;
         state.correct = correct;
@@ -145,7 +212,7 @@
         item.querySelectorAll('input[type="radio"]').forEach(input => { input.disabled = true; });
         item.querySelectorAll('.zx-quiz-option').forEach(option => {
           const key = option.dataset.key;
-          if (key === question.answer) option.classList.add('correct');
+          if (key === state.answer) option.classList.add('correct');
           else if (key === state.selected) option.classList.add('wrong');
         });
         feedback.textContent = correct ? '回答正确' : '回答错误';
@@ -208,7 +275,7 @@
     host.appendChild(button);
   }
 
-  global.addEventListener('hashchange', () => setTimeout(mountEntry, 0));
+  global.addEventListener('hashchange', () => { close(); setTimeout(mountEntry, 0); });
   global.addEventListener('load', mountEntry);
   setTimeout(mountEntry, 0);
 })(window);

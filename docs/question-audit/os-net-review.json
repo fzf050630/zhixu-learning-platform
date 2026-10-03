@@ -1,0 +1,3478 @@
+{
+  "subjects": [
+    "operating-systems",
+    "computer-networks"
+  ],
+  "reviewed": [
+    {
+      "nodeId": "operating-systems:ch1-s1",
+      "bank": "practice",
+      "id": "os-intro-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：OS承担资源管理与服务"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s1",
+      "bank": "practice",
+      "id": "os-intro-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：编译器是语言处理系统"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s1",
+      "bank": "practice",
+      "id": "os-intro-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：四特征枚举正确"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s1",
+      "bank": "practice",
+      "id": "os-intro-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：单CPU交替执行即并发"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s1",
+      "bank": "practice",
+      "id": "os-intro-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：命令/程序接口分类正确"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s1",
+      "bank": "past",
+      "id": "exam-os-overview-2023-23",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：微内核用户态服务正确但归属结构节点且重复"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s1",
+      "bank": "past",
+      "id": "exam-os-overview-2022-23",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：同os-intro-1资源管理定义重复"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s2",
+      "bank": "practice",
+      "id": "os-hist-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：单道I/O等待时不能调另一道作业"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s2",
+      "bank": "practice",
+      "id": "os-hist-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：多道重叠CPU与I/O"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s2",
+      "bank": "practice",
+      "id": "os-hist-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：分时强调交互响应"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s2",
+      "bank": "practice",
+      "id": "os-hist-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：实时强调截止时间和可靠性"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s2",
+      "bank": "practice",
+      "id": "os-hist-5",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "历史形态排序不宜作为可判定技术题"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s2",
+      "bank": "past",
+      "id": "exam-operating-systems-ch1-s2-2012-23-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：同os-hist-2重复"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s2",
+      "bank": "past",
+      "id": "exam-operating-systems-ch1-s2-2019-23-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：时间片使用户轮流使用CPU"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s3",
+      "bank": "practice",
+      "id": "os-env-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需排除除零/溢出异常",
+      "replacement": {
+        "id": "os-env-1-r2",
+        "type": "single",
+        "stem": "下列哪一项不会导致处理机从用户态切换到核心态？",
+        "options": {
+          "A": "用户态下正常完成且不产生异常的整数加法",
+          "B": "执行系统调用陷入指令",
+          "C": "用户态运行期间响应外部中断",
+          "D": "用户态访问发生缺页异常"
+        },
+        "answer": "A",
+        "explanation": "正常完成的整数加法无需特权态；其余三种情形均进入内核。除零等算术异常不能算作正常完成。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch1-s3",
+      "bank": "practice",
+      "id": "os-env-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：特权与一般指令区分"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s3",
+      "bank": "practice",
+      "id": "os-env-3",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "T：同os-env-2重复"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s3",
+      "bank": "practice",
+      "id": "os-env-4",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A：系统调用受控进入内核",
+      "replacement": {
+        "id": "os-env-4-r2",
+        "type": "single",
+        "stem": "用户程序请求操作系统服务通常通过？",
+        "options": {
+          "A": "系统调用",
+          "B": "直接访问内核数据",
+          "C": "修改页表",
+          "D": "执行特权指令"
+        },
+        "answer": "A",
+        "explanation": "系统调用是用户程序主动请求内核服务的受控接口；不能直接修改内核数据或执行特权指令。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch1-s3",
+      "bank": "practice",
+      "id": "os-env-5",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "内核态发生中断不产生用户到内核切换",
+      "replacement": {
+        "id": "os-env-5-r2",
+        "type": "judge",
+        "stem": "CPU已处于内核态时发生并响应中断，必然再次产生用户态到内核态的切换。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "中断可发生于用户态或内核态。已在内核态时响应中断仍在内核态；只有原先处于用户态才发生该方向切换。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch1-s3",
+      "bank": "past",
+      "id": "exam-operating-systems-ch1-s3-2021-23-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：同os-env-2重复且I/O权限依体系结构"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s3",
+      "bank": "past",
+      "id": "exam-operating-systems-ch1-s3-2011-24-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "C：同os-env-4重复"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s4",
+      "bank": "practice",
+      "id": "os-struct-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A：服务移出内核但非所有其余功能一律外移",
+      "replacement": {
+        "id": "os-struct-1-r2",
+        "type": "single",
+        "stem": "微内核结构的主要特点是？",
+        "options": {
+          "A": "仅保留必要核心机制，许多系统服务在用户态进程中运行",
+          "B": "文件系统、驱动等主要服务全部集中于内核态",
+          "C": "完全不存在内核态代码",
+          "D": "必须禁止多进程并发"
+        },
+        "answer": "A",
+        "explanation": "微内核保留调度、基本通信等机制，许多服务由用户态服务器提供；服务划分取决于设计，不是其余一切都必然外移。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch1-s4",
+      "bank": "practice",
+      "id": "os-struct-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：单体内核集中多数服务"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s4",
+      "bank": "practice",
+      "id": "os-struct-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：分层依赖便于维护而有开销"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s4",
+      "bank": "practice",
+      "id": "os-struct-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：机器级虚拟化提供隔离环境"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s4",
+      "bank": "practice",
+      "id": "os-struct-5",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "T：扩展性成立但微内核不以动态加载模块为定义",
+      "replacement": {
+        "id": "os-struct-5-r2",
+        "type": "judge",
+        "stem": "模块化与微内核结构都旨在提高操作系统的可扩展性。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "模块化用清晰模块接口，微内核以消息接口隔离服务，均便于扩展；动态加载模块并非微内核的定义性要求。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch1-s4",
+      "bank": "past",
+      "id": "exam-operating-systems-ch1-s4-2020-23-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：同os-struct-1重复"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s4",
+      "bank": "past",
+      "id": "exam-operating-systems-ch1-s4-2018-25-b",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "D：监控程序仲裁物理资源",
+      "replacement": {
+        "id": "exam-operating-systems-ch1-s4-2018-25-b-r2",
+        "type": "single",
+        "stem": "虚拟机监控程序的主要作用是？",
+        "options": {
+          "A": "替代所有应用程序",
+          "B": "把主存变成只读存储器",
+          "C": "执行网络路由协议",
+          "D": "隔离并管理多个虚拟机对物理资源的访问"
+        },
+        "answer": "D",
+        "explanation": "虚拟机监控程序抽象硬件并隔离多个客体操作系统。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch2-s1",
+      "bank": "practice",
+      "id": "os-proc-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需限定内核级线程模型",
+      "replacement": {
+        "id": "os-proc-1-r2",
+        "type": "single",
+        "stem": "在支持内核级线程并由内核调度线程的系统中，关于进程与线程，下列说法正确的是？",
+        "options": {
+          "A": "线程是处理机调度的基本单位，进程是资源分配的基本单位",
+          "B": "线程拥有独立的地址空间",
+          "C": "同一进程内的线程不能共享数据",
+          "D": "进程切换比线程切换开销更小"
+        },
+        "answer": "A",
+        "explanation": "引入线程后，进程作为资源分配单位，线程作为调度与执行单位；同进程内线程共享地址空间。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch2-s1",
+      "bank": "practice",
+      "id": "os-proc-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：实体含PCB代码数据"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s1",
+      "bank": "practice",
+      "id": "os-proc-3",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "T：与os-proc-2解释重复"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s1",
+      "bank": "practice",
+      "id": "os-proc-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：基本状态就绪运行阻塞"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s1",
+      "bank": "practice",
+      "id": "os-proc-5",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "通常T，开销绝对比较应加限定",
+      "replacement": {
+        "id": "os-proc-5-r2",
+        "type": "judge",
+        "stem": "在常见内核级线程模型中，同一进程的线程切换通常比不同进程的切换开销小。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "同进程共享地址空间，通常省去页表及地址空间切换；这是常见趋势，不是对一切实现的绝对大小定理。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch2-s1",
+      "bank": "past",
+      "id": "exam-os-process-2023-27",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "A：I/O结束使阻塞转就绪",
+      "replacement": {
+        "id": "exam-os-process-2023-27-r2",
+        "type": "single",
+        "stem": "一个阻塞态进程等待的 I/O 操作完成后，通常首先转入哪种状态？",
+        "options": {
+          "A": "就绪态",
+          "B": "运行态",
+          "C": "创建态",
+          "D": "结束态"
+        },
+        "answer": "A",
+        "explanation": "I/O 完成使进程具备继续运行的条件，但仍需等待处理机，因此进入就绪态。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch2-s1",
+      "bank": "past",
+      "id": "exam-os-process-2022-25",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：时间片耗尽进入队尾，属于调度节点重复"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s2",
+      "bank": "practice",
+      "id": "os-sched-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A仅在同批到达且已知时长等条件下最优",
+      "replacement": {
+        "id": "os-sched-1-r2",
+        "type": "single",
+        "stem": "所有作业同时到达、运行时间已知、单CPU且无I/O和切换开销，采用非抢占调度时，哪种顺序使平均等待时间最小？",
+        "options": {
+          "A": "短作业优先（SJF）",
+          "B": "先来先服务（FCFS）",
+          "C": "时间片轮转（RR）",
+          "D": "优先级调度（数值越大越先）"
+        },
+        "answer": "A",
+        "explanation": "按运行时长升序执行即SJF。若相邻长作业在短作业之前，交换顺序会减少短作业等待且总等待减少二者时长差；逐次交换得到最优升序。不同到达时刻不能无条件套此结论。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch2-s2",
+      "bank": "practice",
+      "id": "os-sched-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：RR适合交互分时"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s2",
+      "bank": "practice",
+      "id": "os-sched-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：编译耗时不是调度性能定义指标"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s2",
+      "bank": "practice",
+      "id": "os-sched-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：长作业在先会拖延短作业"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s2",
+      "bank": "practice",
+      "id": "os-sched-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：反馈允许短/交互优先"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s2",
+      "bank": "past",
+      "id": "exam-operating-systems-ch2-s2-2021-25-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：与进程节点轮转题重复"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s2",
+      "bank": "past",
+      "id": "exam-operating-systems-ch2-s2-2011-23-b",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "C：持续短作业会使长作业饥饿",
+      "replacement": {
+        "id": "exam-operating-systems-ch2-s2-2011-23-b-r2",
+        "type": "single",
+        "stem": "非抢占式短作业优先调度可能导致？",
+        "options": {
+          "A": "所有作业同时完成",
+          "B": "系统不再需要就绪队列",
+          "C": "长作业等待时间很长甚至饥饿",
+          "D": "CPU 利用率必为零"
+        },
+        "answer": "C",
+        "explanation": "短作业持续到达时，长作业可能长期得不到调度。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch2-s3",
+      "bank": "practice",
+      "id": "os-sync-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：P互斥锁在前V在后"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s3",
+      "bank": "practice",
+      "id": "os-sync-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：临界区是代码而非资源"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s3",
+      "bank": "practice",
+      "id": "os-sync-3",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需限定记录型信号量，整型wait等待后才减",
+      "replacement": {
+        "id": "os-sync-3-r2",
+        "type": "single",
+        "stem": "在允许负值记录等待者的记录型信号量定义中，原子P与V操作如何修改信号量值？",
+        "options": {
+          "A": "P 使信号量减 1，V 使信号量加 1",
+          "B": "P 加 1，V 减 1",
+          "C": "两者都加 1",
+          "D": "两者都减 1"
+        },
+        "answer": "A",
+        "explanation": "P 申请资源使信号量减 1，不足则阻塞；V 释放资源使信号量加 1 并唤醒等待者。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch2-s3",
+      "bank": "practice",
+      "id": "os-sync-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：一个互斥资源初值1"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s3",
+      "bank": "practice",
+      "id": "os-sync-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：管程封装并互斥执行"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s3",
+      "bank": "past",
+      "id": "exam-operating-systems-ch2-s3-2020-32-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：与os-sync-1重复"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s3",
+      "bank": "past",
+      "id": "exam-operating-systems-ch2-s3-2011-32-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D需限定阻塞式信号量，忙等实现不会阻塞"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s4",
+      "bank": "practice",
+      "id": "os-dead-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：可剥夺破坏必要条件"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s4",
+      "bank": "practice",
+      "id": "os-dead-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：银行家检查安全性属于避免"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s4",
+      "bank": "practice",
+      "id": "os-dead-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：预防静态破坏必要条件"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s4",
+      "bank": "practice",
+      "id": "os-dead-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：允许发生再检测解除"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s4",
+      "bank": "practice",
+      "id": "os-dead-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：标准可重复资源图完全化简表示无死锁"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s4",
+      "bank": "past",
+      "id": "exam-operating-systems-ch2-s4-2021-31-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "C：同os-dead-1重复"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s4",
+      "bank": "past",
+      "id": "exam-operating-systems-ch2-s4-2011-27-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：同os-dead-2重复"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s1",
+      "bank": "practice",
+      "id": "os-mem-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：分页固定且透明，分段逻辑可变"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s1",
+      "bank": "practice",
+      "id": "os-mem-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：动态分区留下外部碎片"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s1",
+      "bank": "practice",
+      "id": "os-mem-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：末页尾部内部碎片"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s1",
+      "bank": "practice",
+      "id": "os-mem-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：分段逻辑单位支持保护共享"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s1",
+      "bank": "practice",
+      "id": "os-mem-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：装入时静态与运行时动态"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s1",
+      "bank": "past",
+      "id": "exam-os-memory-2023-28",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：缺页题属于虚拟内存且与os-page-4重复"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s1",
+      "bank": "past",
+      "id": "exam-os-memory-2022-29",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "C：FIFO反常与虚拟内存节点重复"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s2",
+      "bank": "practice",
+      "id": "os-page-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：LRU有栈包含性FIFO无"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s2",
+      "bank": "practice",
+      "id": "os-page-2",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A：工作集无法驻留导致频繁换页，非CPU用于换页",
+      "replacement": {
+        "id": "os-page-2-r2",
+        "type": "single",
+        "stem": "系统出现“抖动”（thrashing）的主要原因是？",
+        "options": {
+          "A": "多道程序度过高，进程频繁缺页",
+          "B": "磁盘容量不足",
+          "C": "CPU 主频过低",
+          "D": "文件系统损坏"
+        },
+        "answer": "A",
+        "explanation": "分配给活动进程的物理页框不能容纳工作集时，频繁缺页并换入换出，系统把大量墙钟时间用于磁盘换页，CPU有效利用率下降；降低多道程度是常见对策。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch3-s2",
+      "bank": "practice",
+      "id": "os-page-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：王道抽象请求页表四类附加字段"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s2",
+      "bank": "practice",
+      "id": "os-page-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：缺页是同步内部异常"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s2",
+      "bank": "practice",
+      "id": "os-page-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：局部性允许部分驻留"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s2",
+      "bank": "past",
+      "id": "exam-operating-systems-ch3-s2-2021-28-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：同os-page-4重复"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s2",
+      "bank": "past",
+      "id": "exam-operating-systems-ch3-s2-2019-29-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：同os-page-1重复"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s1",
+      "bank": "practice",
+      "id": "os-file-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：索引顺序是逻辑结构而非块分配"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s1",
+      "bank": "practice",
+      "id": "os-file-2",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A：流式与记录式分类；解释索引逻辑物理需区分",
+      "replacement": {
+        "id": "os-file-2-r2",
+        "type": "single",
+        "stem": "按逻辑结构，文件可分为？",
+        "options": {
+          "A": "无结构（流式）文件与有结构（记录式）文件",
+          "B": "连续文件与链接文件",
+          "C": "索引文件与散列文件",
+          "D": "系统文件与用户文件"
+        },
+        "answer": "A",
+        "explanation": "按逻辑结构分为无结构字节流与有结构记录文件。记录文件可进一步具有顺序、索引、索引顺序等逻辑组织；不要把这种索引组织与磁盘块索引分配混淆。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch4-s1",
+      "bank": "practice",
+      "id": "os-file-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：元数据与数据分离"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s1",
+      "bank": "practice",
+      "id": "os-file-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：编译不属于基本文件操作"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s1",
+      "bank": "practice",
+      "id": "os-file-5",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "T：打开文件表记录引用与偏移，描述符是进程表索引",
+      "replacement": {
+        "id": "os-file-5-r2",
+        "type": "judge",
+        "stem": "文件被打开后，系统会在内存中维护打开文件表记录其状态。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "系统在内存维护打开文件表，通常记录访问模式、偏移及对文件控制信息的引用；文件描述符是进程访问对应表项的索引。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch4-s1",
+      "bank": "past",
+      "id": "exam-os-file-2023-31",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：同文件实现FCB题重复"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s1",
+      "bank": "past",
+      "id": "exam-os-file-2022-45",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：目录名→inode号，归目录节点重复"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s2",
+      "bank": "practice",
+      "id": "os-dir-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：目录名与inode关联"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s2",
+      "bank": "practice",
+      "id": "os-dir-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：标准目录层次分类不含索引顺序"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s2",
+      "bank": "practice",
+      "id": "os-dir-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：严格树不允许一个文件多个父目录"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s2",
+      "bank": "practice",
+      "id": "os-dir-4",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A/D两项正确且A零链接不等于立即回收",
+      "replacement": {
+        "id": "os-dir-4-r2",
+        "type": "single",
+        "stem": "在类Unix文件系统中，普通文件有两个硬链接且无进程打开它。删除其中一个目录项后，正确的是？",
+        "options": {
+          "A": "另一个目录项仍可访问同一inode，链接计数从2变为1",
+          "B": "另一个目录项立即成为悬空链接",
+          "C": "文件数据必然立即回收",
+          "D": "另一个目录项变为保存路径的符号链接"
+        },
+        "answer": "A",
+        "explanation": "硬链接是同一inode的不同目录项。unlink只移除一个名字并减少链接计数。计数为0且不再有打开引用等保留条件时，数据才可回收。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch4-s2",
+      "bank": "practice",
+      "id": "os-dir-5",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "目标路径不存在时T，但原文件有别名不能笼统说删除",
+      "replacement": {
+        "id": "os-dir-5-r2",
+        "type": "judge",
+        "stem": "符号链接保存目标路径；若该路径不再能解析到存在的目标，链接即成为悬空链接。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "符号链接不增加目标inode的硬链接计数，按保存的路径解析。目标路径消失会悬空；若同一路径重新创建文件，则可能重新解析成功。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch4-s2",
+      "bank": "past",
+      "id": "exam-operating-systems-ch4-s2-2021-30-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：同os-dir-1重复"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s2",
+      "bank": "past",
+      "id": "exam-operating-systems-ch4-s2-2019-28-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "C：硬链接inode同一性，与修订os-dir-4重复"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s3",
+      "bank": "practice",
+      "id": "os-fsimpl-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需限定隐式链接，FAT可在内存走链",
+      "replacement": {
+        "id": "os-fsimpl-1-r2",
+        "type": "single",
+        "stem": "文件采用隐式链接分配，各块保存下一块指针。相比连续分配，其主要访问缺点是？",
+        "options": {
+          "A": "定位远处逻辑块通常需从链头沿指针逐块查找",
+          "B": "文件不能动态增加数据块",
+          "C": "必须要求所有块物理连续",
+          "D": "一个块都不能包含指针"
+        },
+        "answer": "A",
+        "explanation": "隐式链接无法用起始地址加偏移直接定位任意块，需遍历链。显式FAT将链接表集中，不能与隐式方案的磁盘访问代价混为一谈。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch4-s3",
+      "bank": "practice",
+      "id": "os-fsimpl-2",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A正确但inode通常不保存文件名",
+      "replacement": {
+        "id": "os-fsimpl-2-r2",
+        "type": "single",
+        "stem": "文件控制块（FCB）或索引结点中保存的是？",
+        "options": {
+          "A": "文件的元数据（属性）",
+          "B": "文件内容",
+          "C": "磁盘分区表",
+          "D": "页表"
+        },
+        "answer": "A",
+        "explanation": "FCB或inode保存大小、权限、时间、块定位等元数据。采用inode的目录系统通常把文件名放在目录项，不能把FCB的全部字段原样归给inode。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch4-s3",
+      "bank": "practice",
+      "id": "os-fsimpl-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：位图链表分组均可管理空闲"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s3",
+      "bank": "practice",
+      "id": "os-fsimpl-4",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A层次顺序错误，存取控制应在物理文件前",
+      "replacement": {
+        "id": "os-fsimpl-4-r2",
+        "type": "single",
+        "stem": "采用“用户接口→文件目录系统→存取控制模块→逻辑文件系统与文件缓冲区→物理文件系统→设备管理”的教学分层时，权限检查应主要在哪层完成？",
+        "options": {
+          "A": "存取控制模块",
+          "B": "物理文件系统完成块分配之后才检查",
+          "C": "设备机械机构",
+          "D": "只能由用户程序自行检查"
+        },
+        "answer": "A",
+        "explanation": "存取控制模块根据访问权限审查请求，位于物理块定位与设备访问之前。文件系统分层有不同组织方式，应明确采用的模型，不能把存取控制放到物理文件层之后。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch4-s3",
+      "bank": "practice",
+      "id": "os-fsimpl-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：分组减小单块链访问开销"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s3",
+      "bank": "past",
+      "id": "exam-operating-systems-ch4-s3-2019-26-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：位图一位对应一个块"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s3",
+      "bank": "past",
+      "id": "exam-operating-systems-ch4-s3-2021-30-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：同os-fsimpl-2重复"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s1",
+      "bank": "practice",
+      "id": "os-io-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：驱动编程控制器，选项内唯一"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s1",
+      "bank": "practice",
+      "id": "os-io-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：块与字符是信息交换单位分类"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s1",
+      "bank": "practice",
+      "id": "os-io-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：控制器桥接CPU与外设"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s1",
+      "bank": "practice",
+      "id": "os-io-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：王道四种控制方式顺序"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s1",
+      "bank": "practice",
+      "id": "os-io-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：通道是专用IO处理器"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s1",
+      "bank": "past",
+      "id": "exam-os-io-2023-24",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "C：DMA块完成/错误通知CPU",
+      "replacement": {
+        "id": "exam-os-io-2023-24-r2",
+        "type": "single",
+        "stem": "采用 DMA 传送一个数据块时，CPU 通常在何时收到中断请求？",
+        "options": {
+          "A": "每传送一个比特时",
+          "B": "每读写一个字节时",
+          "C": "数据块传送完成或发生异常时",
+          "D": "设备刚刚接入总线时必然发生"
+        },
+        "answer": "C",
+        "explanation": "DMA 期间由控制器完成块传送，通常在完成或出错时通知 CPU。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch5-s1",
+      "bank": "past",
+      "id": "exam-os-io-2022-32",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "A：中断等待期释放CPU免忙等",
+      "replacement": {
+        "id": "exam-os-io-2022-32-r2",
+        "type": "single",
+        "stem": "与程序查询方式相比，中断驱动 I/O 的主要特点是什么？",
+        "options": {
+          "A": "CPU 可在设备准备期间执行其他工作",
+          "B": "设备不需要控制器",
+          "C": "数据不经过内存",
+          "D": "每个中断都表示 I/O 出错"
+        },
+        "answer": "A",
+        "explanation": "中断方式避免 CPU 持续忙等；设备就绪或传送完成时再通知 CPU。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch5-s2",
+      "bank": "practice",
+      "id": "os-buf-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：缓冲协调生产消费速度"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s2",
+      "bank": "practice",
+      "id": "os-buf-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：独立层提供统一接口"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s2",
+      "bank": "practice",
+      "id": "os-buf-3",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "T：四种缓冲分类但纯枚举过浅"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s2",
+      "bank": "practice",
+      "id": "os-buf-4",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需限定采用通道体系，不是所有设备都需通道",
+      "replacement": {
+        "id": "os-buf-4-r2",
+        "type": "single",
+        "stem": "在采用I/O通道、控制器和设备分层连接的系统中，设备分配通常需考虑哪三类相关资源？",
+        "options": {
+          "A": "设备、控制器、通道",
+          "B": "内存、CPU、磁盘",
+          "C": "页、段、块",
+          "D": "进程、线程、协程"
+        },
+        "answer": "A",
+        "explanation": "该体系需要设备、控制器、通道资源。通道是所述体系的前提，并非现代所有设备访问都必须有独立I/O通道。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch5-s2",
+      "bank": "practice",
+      "id": "os-buf-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：假脱机以井和队列共享独占设备"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s2",
+      "bank": "past",
+      "id": "exam-operating-systems-ch5-s2-2019-32-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "C：同os-buf-2重复"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s2",
+      "bank": "past",
+      "id": "exam-operating-systems-ch5-s2-2011-26-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：同os-env-4重复且不是缓冲知识"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s3",
+      "bank": "practice",
+      "id": "os-disk-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：SCAN到物理边界，LOOK才到最后请求"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s3",
+      "bank": "practice",
+      "id": "os-disk-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：近端不断到来使远端饥饿"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s3",
+      "bank": "practice",
+      "id": "os-disk-3",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A：机械盘三组成，不应无条件断言寻道最大",
+      "replacement": {
+        "id": "os-disk-3-r2",
+        "type": "single",
+        "stem": "磁盘访问时间由哪几部分组成？",
+        "options": {
+          "A": "寻道时间 + 旋转延迟 + 传输时间",
+          "B": "只含寻道时间",
+          "C": "只含传输时间",
+          "D": "CPU 时间 + 内存时间"
+        },
+        "answer": "A",
+        "explanation": "机械硬盘一次块访问的主要时间为寻道、旋转等待和数据传输；三者谁最大取决于磁头位置、转速、块大小等条件。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch5-s3",
+      "bank": "practice",
+      "id": "os-disk-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：SSD无机械延迟"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s3",
+      "bank": "practice",
+      "id": "os-disk-5",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A：FCFS公平但不保证每个实例平均寻道长",
+      "replacement": {
+        "id": "os-disk-5-r2",
+        "type": "single",
+        "stem": "先来先服务（FCFS）磁盘调度算法的特点是？",
+        "options": {
+          "A": "按到达先后公平服务，但不专门优化寻道距离",
+          "B": "对每个请求序列都达到最短总寻道距离",
+          "C": "后到请求一定可无限插队造成先到请求饥饿",
+          "D": "只接受当前位置邻近请求"
+        },
+        "answer": "A",
+        "explanation": "FCFS按到达次序，有限排队且请求可完成时不会被后到请求插队；具体平均寻道时间取决于请求序列，不恒定“很长”。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch5-s3",
+      "bank": "past",
+      "id": "exam-operating-systems-ch5-s3-2021-26-a",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "B：SSTF选择最近，具独立算法定义价值",
+      "replacement": {
+        "id": "exam-operating-systems-ch5-s3-2021-26-a-r2",
+        "type": "single",
+        "stem": "SSTF 磁盘调度每次优先服务？",
+        "options": {
+          "A": "磁道号最大的请求",
+          "B": "距离当前磁头最近的请求",
+          "C": "到达时间最晚的请求",
+          "D": "文件尺寸最大的请求"
+        },
+        "answer": "B",
+        "explanation": "最短寻道时间优先选择与当前磁头位置距离最小的请求。"
+      }
+    },
+    {
+      "nodeId": "operating-systems:ch5-s3",
+      "bank": "past",
+      "id": "exam-operating-systems-ch5-s3-2019-20-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：同os-disk-4重复"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s1",
+      "bank": "practice",
+      "id": "cn-intro-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：统计复用提高线路利用率"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s1",
+      "bank": "practice",
+      "id": "cn-intro-2",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需限定功能组成，硬件软件是另一组成角度",
+      "replacement": {
+        "id": "cn-intro-2-r2",
+        "type": "single",
+        "stem": "按承担的功能，将计算机网络划分为数据处理与资源共享部分、数据传输部分时，这两部分分别称为？",
+        "options": {
+          "A": "资源子网与通信子网",
+          "B": "局域网与广域网",
+          "C": "有线网与无线网",
+          "D": "电路交换与分组交换"
+        },
+        "answer": "A",
+        "explanation": "资源子网负责数据处理与资源共享，通信子网负责数据传输。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch1-s1",
+      "bank": "practice",
+      "id": "cn-intro-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：互联网用数据报分组交换"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s1",
+      "bank": "practice",
+      "id": "cn-intro-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：编译性能非网络指标"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s1",
+      "bank": "practice",
+      "id": "cn-intro-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：四项延迟组成"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s1",
+      "bank": "past",
+      "id": "exam-cn-architecture-2024-33",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "A须排除端系统/窗口等其他瓶颈",
+      "replacement": {
+        "id": "exam-cn-architecture-2024-33-r2",
+        "type": "single",
+        "stem": "串联路径各链路只服务本次持续传输，端系统、协议窗口、误码均不额外限制速率时，吞吐量上限主要由什么决定？",
+        "options": {
+          "A": "路径中带宽最小的瓶颈链路",
+          "B": "路径中带宽最大的链路",
+          "C": "经过的路由器数量",
+          "D": "源主机的磁盘容量"
+        },
+        "answer": "A",
+        "explanation": "串联路径的持续吞吐率无法超过最窄的瓶颈链路。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch1-s1",
+      "bank": "past",
+      "id": "exam-cn-architecture-2022-33",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：链路层帧服务，移体系结构节点"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s2",
+      "bank": "practice",
+      "id": "cn-arch-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：传输层进程通信"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s2",
+      "bank": "practice",
+      "id": "cn-arch-2",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需明确五层教学模型；四层还合并链路物理",
+      "replacement": {
+        "id": "cn-arch-2-r2",
+        "type": "single",
+        "stem": "OSI七层与物理、链路、网络、传输、应用这五层教学模型相比，哪两层的功能在后者合入应用层？",
+        "options": {
+          "A": "表示层与会话层",
+          "B": "物理层与数据链路层",
+          "C": "网络层与传输层",
+          "D": "应用层"
+        },
+        "answer": "A",
+        "explanation": "OSI 七层中的应用、表示、会话三层在 TCP/IP 中合并为应用层，因此 OSI 多出表示层与会话层。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch1-s2",
+      "bank": "practice",
+      "id": "cn-arch-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：OSI七层顺序"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s2",
+      "bank": "practice",
+      "id": "cn-arch-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：语法语义时序"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s2",
+      "bank": "practice",
+      "id": "cn-arch-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：SAP为相邻层服务接口"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch1-s2-2021-33-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "C：与intro帧传输重复"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch1-s2-2011-33-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：应称五层教学模型而非标准TCP/IP五层"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s1",
+      "bank": "practice",
+      "id": "cn-nyq-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：3000log2(1001)=29901.679bit/s=29.902kb/s"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s1",
+      "bank": "practice",
+      "id": "cn-nyq-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：2Wlog2V限理想低通信道"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s1",
+      "bank": "practice",
+      "id": "cn-nyq-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：香农上限"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s1",
+      "bank": "practice",
+      "id": "cn-nyq-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：等概率固定长度V级每码元log2V"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s1",
+      "bank": "practice",
+      "id": "cn-nyq-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：功率比10^(dB/10)"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s1",
+      "bank": "past",
+      "id": "exam-cn-physical-2024-34",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：FSK频率区分，属编码节点"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s1",
+      "bank": "past",
+      "id": "exam-cn-physical-2022-34",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "C：2*200000*2=800000bit/s",
+      "replacement": {
+        "id": "exam-cn-physical-2022-34-r2",
+        "type": "single",
+        "stem": "带宽 200 kHz 的无噪声信道采用 4 种 ASK 信号幅值，奈奎斯特上限约为多少？",
+        "options": {
+          "A": "200 kb/s",
+          "B": "400 kb/s",
+          "C": "800 kb/s",
+          "D": "1600 kb/s"
+        },
+        "answer": "C",
+        "explanation": "最高码元率为 2W=400 kbaud，每个码元承载 log₂4=2 bit，故速率为 800 kb/s。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch2-s2",
+      "bank": "practice",
+      "id": "cn-enc-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：每比特中点跳变承载时钟"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s2",
+      "bank": "practice",
+      "id": "cn-enc-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：直接基带与载波调制"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s2",
+      "bank": "practice",
+      "id": "cn-enc-3",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "T：三介质正确但过浅"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s2",
+      "bank": "practice",
+      "id": "cn-enc-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：中继器物理层再生"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s2",
+      "bank": "practice",
+      "id": "cn-enc-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：Hub共享冲突域"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch2-s2-2021-34-a",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "D：差分编码看位开始跳变",
+      "replacement": {
+        "id": "exam-computer-networks-ch2-s2-2021-34-a-r2",
+        "type": "single",
+        "stem": "差分曼彻斯特编码中，位值通常由什么决定？",
+        "options": {
+          "A": "信号绝对幅度大小",
+          "B": "IP 首部校验和",
+          "C": "帧尾 CRC 长度",
+          "D": "每个位开始处是否发生电平跳变"
+        },
+        "answer": "D",
+        "explanation": "差分曼彻斯特用位边界的跳变与否表示数据，位中间仍有跳变。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch2-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch2-s2-2009-34-b",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "B：2*3000*log2(16)=24000bit/s",
+      "replacement": {
+        "id": "exam-computer-networks-ch2-s2-2009-34-b-r2",
+        "type": "single",
+        "stem": "带宽为 3kHz、4×4 QAM 的无噪声信道，奈奎斯特上限为？",
+        "options": {
+          "A": "3kb/s",
+          "B": "24kb/s",
+          "C": "12kb/s",
+          "D": "48kb/s"
+        },
+        "answer": "B",
+        "explanation": "奈奎斯特速率为 2B log₂V；V=16，故 2×3000×4=24kb/s。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s1",
+      "bank": "practice",
+      "id": "cn-dll-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需称常见功能非各协议必有流控",
+      "replacement": {
+        "id": "cn-dll-1-r2",
+        "type": "single",
+        "stem": "下列哪组属于数据链路层常见的功能范畴？",
+        "options": {
+          "A": "封装成帧、差错控制、流量控制",
+          "B": "路由选择、分组转发、拥塞控制",
+          "C": "加密、解密、认证",
+          "D": "调制、解调、放大"
+        },
+        "answer": "A",
+        "explanation": "组帧、差错控制、链路级流控属于链路层功能范畴，但具体链路协议可仅提供其中部分，例如以太网不普遍提供逐帧ARQ可靠交付。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s1",
+      "bank": "practice",
+      "id": "cn-dll-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：加密并非标准帧边界构造"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s1",
+      "bank": "practice",
+      "id": "cn-dll-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：帧边界起止"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s1",
+      "bank": "practice",
+      "id": "cn-dll-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：任意数据不伪装边界"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s1",
+      "bank": "practice",
+      "id": "cn-dll-5",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "PPP异步字节填充同步比特填充，未限定则错",
+      "replacement": {
+        "id": "cn-dll-5-r2",
+        "type": "judge",
+        "stem": "PPP采用异步字节定向链路时，一律通过连续5个1后插入0来实现透明传输。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "异步/字节填充形式使用转义字节（如0x7D）；比特同步形式才在连续5个1后填充0。依据RFC1662第4、5节及王道网络OCR第126、129页。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s1",
+      "bank": "past",
+      "id": "exam-cn-link-2024-37",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "C：SR缓存与独立ACK，错节点且重复"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s1",
+      "bank": "past",
+      "id": "exam-cn-link-2023-34",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：CRC非零余数差错，错节点且重复"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s2",
+      "bank": "practice",
+      "id": "cn-crc-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "T限CRC用作链路检错，避免编码理论绝对不能纠错",
+      "replacement": {
+        "id": "cn-crc-1-r2",
+        "type": "judge",
+        "stem": "在常规数据链路协议中，CRC作为检错手段；检测失败后通常依靠丢弃或重传，而不是由CRC直接恢复原始数据。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "此处限定常规协议用途。CRC余数用于发现错误；不能将其表述为任意编码理论与任意受限错误模型下都绝不可能用于纠错。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s2",
+      "bank": "practice",
+      "id": "cn-crc-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：奇数翻转改变奇偶"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s2",
+      "bank": "practice",
+      "id": "cn-crc-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：海明最小距3单错纠正"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s2",
+      "bank": "practice",
+      "id": "cn-crc-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：2^r覆盖k+r+1状态"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s2",
+      "bank": "practice",
+      "id": "cn-crc-5",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "T：应先附r个0再除G取余",
+      "replacement": {
+        "id": "cn-crc-5-r2",
+        "type": "judge",
+        "stem": "生成多项式次数为r时，基本CRC构造先在数据后附r个0，再做模2除法取r位余数并替换这r个0。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "对x^rM(x)除G(x)得R(x)，发送x^rM(x)+R(x)。模2加法是异或，发送码字可被G整除。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch3-s2-2011-35-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：CRC余数非零检出"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch3-s2-2023-34-b",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "B：余数零可能为G倍数错误漏检",
+      "replacement": {
+        "id": "exam-computer-networks-ch3-s2-2023-34-b-r2",
+        "type": "single",
+        "stem": "CRC 校验中，若接收码字除以生成多项式的余数为 0，通常说明？",
+        "options": {
+          "A": "必定发生了差错",
+          "B": "未检测到差错，但不能保证绝无差错",
+          "C": "接收端窗口为 0",
+          "D": "IP 分组已经分片"
+        },
+        "answer": "B",
+        "explanation": "CRC 能检出多类差错，但余数为 0 并非数学上保证绝无差错。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s3",
+      "bank": "practice",
+      "id": "cn-flow-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：GBN接收窗口1"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s3",
+      "bank": "practice",
+      "id": "cn-flow-2",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A仅长RTT等条件下利用率低",
+      "replacement": {
+        "id": "cn-flow-2-r2",
+        "type": "single",
+        "stem": "在传播时延远大于一帧发送时间、忽略ACK发送和处理时间的无差错链路上，停止等待利用率低的主要原因是？",
+        "options": {
+          "A": "发送方每发一帧必须等待确认，信道大部分时间空闲",
+          "B": "帧太长",
+          "C": "没有校验",
+          "D": "接收方窗口过大"
+        },
+        "answer": "A",
+        "explanation": "停止-等待的发送窗口为 1，等待确认期间信道空闲，在长时延链路上利用率很低。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s3",
+      "bank": "practice",
+      "id": "cn-flow-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：三典型ARQ滑动窗口方案"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s3",
+      "bank": "practice",
+      "id": "cn-flow-4",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "SR可只重传未获ACK帧，ACK丢失也触发重传",
+      "replacement": {
+        "id": "cn-flow-4-r2",
+        "type": "judge",
+        "stem": "选择重传协议可缓存接收窗口内的乱序帧；发送端可能因确认丢失而重传接收方已正确收到的帧。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "SR不需像GBN一样整体重发后续帧，但发送方依未确认/超时状态决定重传，ACK丢失时同样可能重传已正确到达的数据。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s3",
+      "bank": "practice",
+      "id": "cn-flow-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：GBN发送最大2^n-1"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s3",
+      "bank": "past",
+      "id": "exam-computer-networks-ch3-s3-2011-35-a",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "A：SR窗口内乱序缓存单独ACK",
+      "replacement": {
+        "id": "exam-computer-networks-ch3-s3-2011-35-a-r2",
+        "type": "single",
+        "stem": "选择重传ARQ收到位于当前接收窗口内且校验正确的乱序帧时，接收方可以？",
+        "options": {
+          "A": "缓存该帧并单独确认",
+          "B": "丢弃所有后续帧",
+          "C": "确认一个从未收到的帧",
+          "D": "关闭物理链路"
+        },
+        "answer": "A",
+        "explanation": "选择重传允许缓存窗口内乱序帧并分别确认。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s3",
+      "bank": "past",
+      "id": "exam-computer-networks-ch3-s3-2019-35-b",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "C需等大小收发窗口，通用约束Ws+Wr<=2^n",
+      "replacement": {
+        "id": "exam-computer-networks-ch3-s3-2019-35-b-r2",
+        "type": "single",
+        "stem": "n比特序号的选择重传协议，发送窗口和接收窗口取相同大小时，该大小最大不超过？",
+        "options": {
+          "A": "2ⁿ",
+          "B": "2ⁿ+1",
+          "C": "2ⁿ⁻¹",
+          "D": "n²"
+        },
+        "answer": "C",
+        "explanation": "一般需Ws+Wr≤2^n；两窗相等时各最大2^(n-1)。不限定等窗时不能单独断言接收窗绝不可超过一半。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s4",
+      "bank": "practice",
+      "id": "cn-mac-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：共享半双工以太网CD"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s4",
+      "bank": "practice",
+      "id": "cn-mac-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：随机竞争不划分固定信道"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s4",
+      "bank": "practice",
+      "id": "cn-mac-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：CSMA族随机访问"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s4",
+      "bank": "practice",
+      "id": "cn-mac-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：发送时长需>=2单程传播"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s4",
+      "bank": "practice",
+      "id": "cn-mac-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：令牌受控轮询"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s4",
+      "bank": "past",
+      "id": "exam-computer-networks-ch3-s4-2009-37-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：与cn-mac-4重复"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s4",
+      "bank": "past",
+      "id": "exam-computer-networks-ch3-s4-2015-35-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：与cn-mac-5重复"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s5",
+      "bank": "practice",
+      "id": "cn-switch-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：源MAC+入端口学习"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s5",
+      "bank": "practice",
+      "id": "cn-lan-2",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A：48位但本地管理地址不全球唯一",
+      "replacement": {
+        "id": "cn-lan-2-r2",
+        "type": "single",
+        "stem": "以太网 MAC 地址的长度是？",
+        "options": {
+          "A": "48 位",
+          "B": "32 位",
+          "C": "64 位",
+          "D": "16 位"
+        },
+        "answer": "A",
+        "explanation": "通常以太网MAC地址为48位（6字节）。全球管理单播地址设计上唯一；本地管理、虚拟化、随机化地址不保证全球唯一。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch3-s5",
+      "bank": "practice",
+      "id": "cn-lan-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：二层交换隔离冲突"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s5",
+      "bank": "practice",
+      "id": "cn-lan-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：VLAN划广播域"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s5",
+      "bank": "practice",
+      "id": "cn-lan-5",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "T：与cn-lan-3重复"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s5",
+      "bank": "past",
+      "id": "exam-computer-networks-ch3-s5-2011-36-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：二层交换机链路层"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s5",
+      "bank": "past",
+      "id": "exam-computer-networks-ch3-s5-2009-36-b",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "D：限定同VLAN排除入端口泛洪",
+      "replacement": {
+        "id": "exam-computer-networks-ch3-s5-2009-36-b-r2",
+        "type": "single",
+        "stem": "普通二层交换机在同一VLAN内收到未知目的MAC的单播帧，且无过滤规则时通常会？",
+        "options": {
+          "A": "立即丢弃并清空交换表",
+          "B": "只发送给默认网关",
+          "C": "改写目的MAC为广播地址",
+          "D": "向该VLAN内除入端口外的其他可转发端口泛洪"
+        },
+        "answer": "D",
+        "explanation": "目的地址未学习到时，交换机会在同一 VLAN 内泛洪该帧。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s1",
+      "bank": "practice",
+      "id": "cn-ip-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：IHL最少5*4=20B"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s1",
+      "bank": "practice",
+      "id": "cn-ip-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：IP尽力而为不保证可靠"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s1",
+      "bank": "practice",
+      "id": "cn-ip-3",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "T：字段存在正确但纯枚举过浅"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s1",
+      "bank": "practice",
+      "id": "cn-ip-4",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A：TTL耗尽丢弃避免无限环路而不防形成环路",
+      "replacement": {
+        "id": "cn-ip-4-r2",
+        "type": "single",
+        "stem": "IPv4 中 TTL 字段的作用是？",
+        "options": {
+          "A": "限制分组可继续转发的寿命，避免路由环路中无限循环",
+          "B": "表示整个分组的字节长度",
+          "C": "标识上层协议类型",
+          "D": "强制消除所有路由环路"
+        },
+        "answer": "A",
+        "explanation": "转发路由器递减TTL，耗尽则丢弃，符合条件时发送ICMP超时；TTL限制环路后果，不能防止路由表形成环路。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s1",
+      "bank": "practice",
+      "id": "cn-ip-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：IPv4重组目的主机"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s1",
+      "bank": "past",
+      "id": "exam-cn-network-2023-35",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "A：偏移8B单位",
+      "replacement": {
+        "id": "exam-cn-network-2023-35-r2",
+        "type": "single",
+        "stem": "IPv4 分片首部中的片偏移字段以多少字节为计量单位？",
+        "options": {
+          "A": "8 字节",
+          "B": "16 字节",
+          "C": "1 字节",
+          "D": "4 字节"
+        },
+        "answer": "A",
+        "explanation": "片偏移按 8 字节为单位编码，因此除最后一片外，分片数据长度通常须为 8 的倍数。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s1",
+      "bank": "past",
+      "id": "exam-cn-network-2022-35",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "B：72 AND192=64，网络183.80.64.0/18",
+      "replacement": {
+        "id": "exam-cn-network-2022-35-r2",
+        "type": "single",
+        "stem": "主机 IP 为 183.80.72.48，子网掩码为 255.255.192.0。该主机所在网络地址是哪一个？",
+        "options": {
+          "A": "183.80.0.0",
+          "B": "183.80.64.0",
+          "C": "183.80.72.0",
+          "D": "183.80.192.0"
+        },
+        "answer": "B",
+        "explanation": "将 IP 地址与子网掩码逐位相与，第三字节 72 落在 64–127 网段，因此网络地址为 183.80.64.0。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s2",
+      "bank": "practice",
+      "id": "cn-subnet-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：2^6-2=62"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s2",
+      "bank": "practice",
+      "id": "cn-subnet-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：前缀与主机位分界"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s2",
+      "bank": "practice",
+      "id": "cn-subnet-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：划子网增加前缀"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s2",
+      "bank": "practice",
+      "id": "cn-subnet-4",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "T：聚合须对齐且可用单前缀表示",
+      "replacement": {
+        "id": "cn-subnet-4-r2",
+        "type": "judge",
+        "stem": "CIDR 使用变长网络前缀，并支持路由聚合（构成超网）。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "CIDR允许可变前缀并聚合连续且满足二进制前缀对齐的网络。任意相邻网络不能随意聚合为无额外覆盖的一条路由。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s2",
+      "bank": "practice",
+      "id": "cn-subnet-5",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：2^8-2=254，与/26同构重复"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch4-s2-2021-35-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：连续高位1低位0"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch4-s2-2011-38-b",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "A：普通/30四地址扣头尾2",
+      "replacement": {
+        "id": "exam-computer-networks-ch4-s2-2011-38-b-r2",
+        "type": "single",
+        "stem": "一个 /30 IPv4 子网通常可分配给主机的地址数是？",
+        "options": {
+          "A": "2 个",
+          "B": "1 个",
+          "C": "4 个",
+          "D": "6 个"
+        },
+        "answer": "A",
+        "explanation": "4 个地址中通常扣除网络地址和定向广播地址，可用 2 个。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s3",
+      "bank": "practice",
+      "id": "cn-arp-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：IPv4本链路ARP"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s3",
+      "bank": "practice",
+      "id": "cn-dhcp-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A：DHCP获得网络参数但MAC未必固化",
+      "replacement": {
+        "id": "cn-dhcp-1-r2",
+        "type": "single",
+        "stem": "主机通过 DHCP 可以自动获得的是？",
+        "options": {
+          "A": "IP 地址、子网掩码、默认网关等配置",
+          "B": "MAC 地址",
+          "C": "域名对应的 IP",
+          "D": "TCP 端口号"
+        },
+        "answer": "A",
+        "explanation": "DHCP可提供地址、掩码、网关、DNS等参数，不负责MAC分配或域名查询。MAC也可本地配置、虚拟生成或随机化，并非必然固化于网卡。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s3",
+      "bank": "practice",
+      "id": "cn-icmp-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：ICMP报告探测"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s3",
+      "bank": "practice",
+      "id": "cn-nat-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：常见私网公网转换非唯一NAT用途"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s3",
+      "bank": "practice",
+      "id": "cn-arp-2",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需限定常规首次ARP查询",
+      "replacement": {
+        "id": "cn-arp-2-r2",
+        "type": "single",
+        "stem": "在以太网中，主机首次解析同一链路邻居IPv4地址、ARP缓存无记录且采用常规请求/响应过程时，发送方式分别是？",
+        "options": {
+          "A": "请求广播、应答单播",
+          "B": "请求单播、应答广播",
+          "C": "都广播",
+          "D": "都单播"
+        },
+        "answer": "A",
+        "explanation": "ARP 请求以广播发送询问目标 IP 的 MAC，目标主机以单播回复。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s3",
+      "bank": "past",
+      "id": "exam-computer-networks-ch4-s3-2011-38-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "C：同cn-arp-1重复"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s3",
+      "bank": "past",
+      "id": "exam-computer-networks-ch4-s3-2019-37-b",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "B：DORA首次租约顺序",
+      "replacement": {
+        "id": "exam-computer-networks-ch4-s3-2019-37-b-r2",
+        "type": "single",
+        "stem": "DHCP 客户端首次获取租约时常见的报文交互顺序是？",
+        "options": {
+          "A": "SYN、SYN-ACK、ACK、FIN",
+          "B": "Discover、Offer、Request、ACK",
+          "C": "查询、响应、关闭、重置",
+          "D": "Hello、Update、Commit、Done"
+        },
+        "answer": "B",
+        "explanation": "DORA 流程依次发现服务器、提供地址、请求地址并确认租约。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s4",
+      "bank": "practice",
+      "id": "cn-routing-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：RIP向量OSPF状态"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s4",
+      "bank": "practice",
+      "id": "cn-routing-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：BellmanFord邻居距离加代价"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s4",
+      "bank": "practice",
+      "id": "cn-routing-3",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "T：同cn-routing-1部分重复"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s4",
+      "bank": "practice",
+      "id": "cn-routing-4",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A/D都成立；分类维度混淆BGP外部网关且运行于TCP之上",
+      "replacement": {
+        "id": "cn-routing-4-r2",
+        "type": "single",
+        "stem": "按自治系统内外的路由交换范围分类，BGP属于哪类协议？",
+        "options": {
+          "A": "外部网关协议，交换自治系统间可达性信息",
+          "B": "内部网关协议，限定单个自治系统内部",
+          "C": "物理层线路编码协议",
+          "D": "链路层介质访问协议"
+        },
+        "answer": "A",
+        "explanation": "BGP按路由范围属于外部网关协议；按协议承载层次又运行于TCP之上。原题把外部网关与应用层混为互斥选项，导致A和D均可成立。RFC4271。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s4",
+      "bank": "practice",
+      "id": "cn-routing-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：RIP16不可达"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s4",
+      "bank": "past",
+      "id": "exam-computer-networks-ch4-s4-2021-37-a",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "A：取min(c+邻居距离)",
+      "replacement": {
+        "id": "exam-computer-networks-ch4-s4-2021-37-a-r2",
+        "type": "single",
+        "stem": "距离向量路由器更新到目的网络的距离时，核心计算是？",
+        "options": {
+          "A": "经邻居的链路代价加邻居通告距离取最小值",
+          "B": "只取所有链路代价的最大值",
+          "C": "使用 DNS 查询目的地址",
+          "D": "按 MAC 地址排序"
+        },
+        "answer": "A",
+        "explanation": "Bellman-Ford 形式的距离向量更新对所有邻居计算代价并取最小。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch4-s4",
+      "bank": "past",
+      "id": "exam-computer-networks-ch4-s4-2011-37-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：与cn-routing-5重复"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s5",
+      "bank": "practice",
+      "id": "cn-fwd-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：路由转发隔离广播"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s5",
+      "bank": "practice",
+      "id": "cn-fwd-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：LPM最具体匹配"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s5",
+      "bank": "practice",
+      "id": "cn-fwd-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：不同链路可封装同IP"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s5",
+      "bank": "practice",
+      "id": "cn-fwd-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：L3设备兼路由"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s5",
+      "bank": "practice",
+      "id": "cn-fwd-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：默认广播隔离，DHCP中继是显式功能"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s5",
+      "bank": "past",
+      "id": "exam-computer-networks-ch4-s5-2021-35-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：与cn-fwd-2重复"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s5",
+      "bank": "past",
+      "id": "exam-computer-networks-ch4-s5-2011-37-b",
+      "action": "revise",
+      "reason": "题目有独立练习价值，但快照只标adapted且无逐字原卷证据；去source按原创练习收纳",
+      "verification": "C：ICMP差错报告且不强制每包回送",
+      "replacement": {
+        "id": "exam-computer-networks-ch4-s5-2011-37-b-r2",
+        "type": "single",
+        "stem": "路由器收到目的网络不可达的分组时，可以通过什么协议报告差错？",
+        "options": {
+          "A": "ARP",
+          "B": "DHCP",
+          "C": "ICMP",
+          "D": "FTP"
+        },
+        "answer": "C",
+        "explanation": "ICMP 用于传送网络层差错报告和诊断信息。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch5-s1",
+      "bank": "practice",
+      "id": "cn-tport-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：进程间逻辑通信"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s1",
+      "bank": "practice",
+      "id": "cn-tport-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：16位编码0..65535但0通常保留"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s1",
+      "bank": "practice",
+      "id": "cn-tport-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：TCP可靠UDP尽力"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s1",
+      "bank": "practice",
+      "id": "cn-tport-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：端口复用分用，连接还需地址协议"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s1",
+      "bank": "practice",
+      "id": "cn-tport-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：segment/datagram标准名称"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s1",
+      "bank": "past",
+      "id": "exam-cn-transport-2024-38",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：TIME_WAIT，属连接管理重复"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s1",
+      "bank": "past",
+      "id": "exam-cn-transport-2022-38",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：RFC5681超时1MSS，ssthresh按FlightSize并至少2MSS"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s2",
+      "bank": "practice",
+      "id": "cn-udp-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：UDP无连接首部8B"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s2",
+      "bank": "practice",
+      "id": "cn-udp-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：四16位字段"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s2",
+      "bank": "practice",
+      "id": "cn-udp-3",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "T：IPv4可0；IPv6原则必须但存在隧道例外",
+      "replacement": {
+        "id": "cn-udp-3-r2",
+        "type": "judge",
+        "stem": "在 IPv4 中，UDP 的校验和字段是可选的（可以置 0 表示不校验）。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "IPv4中UDP校验和0表示未计算校验和；计算结果为0时应编码为全1。IPv6中一般必须校验，但规范允许少数专门配置的UDP隧道例外，不能扩大为绝无例外。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch5-s2",
+      "bank": "practice",
+      "id": "cn-tcpseg-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：TCP5*4=20B"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s2",
+      "bank": "practice",
+      "id": "cn-tcpseg-2",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "T：确认号以初始序号为基准，并非收到字节数+1",
+      "replacement": {
+        "id": "cn-tcpseg-2-r2",
+        "type": "judge",
+        "stem": "ACK标志有效时，TCP确认号表示下一期望收到的序号，SYN/FIN也各占一个序号。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "ACK有效时，确认号是期望收到对方下一个序号，确认其前面已连续收到的序号。序号以随机初始序号为基准，SYN/FIN也各占一个序号，不能简单写成累计数据字节数加1。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch5-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch5-s2-2021-39-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：同cn-udp-2重复"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch5-s2-2014-38-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：同cn-tcpseg-2重复"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s3",
+      "bank": "practice",
+      "id": "cn-tcp-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：三握手同步序号并验证旧连接"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s3",
+      "bank": "practice",
+      "id": "cn-tcp-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：普通主动/被动开握手"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s3",
+      "bank": "practice",
+      "id": "cn-tcp-3",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "TCP关闭并非必须四报文，ACK和FIN可合并",
+      "replacement": {
+        "id": "cn-tcp-3-r2",
+        "type": "judge",
+        "stem": "TCP是全双工的，两个方向可分别关闭；正常关闭一定必须使用四个独立报文段，不能合并ACK和FIN。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "两个方向需要各自FIN并获确认，但确认一个方向的ACK可与另一方向FIN在同一段发送，正常关闭可有三个报文段。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch5-s3",
+      "bank": "practice",
+      "id": "cn-tcp-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：TIME_WAIT重发最终ACK及旧段消亡"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s3",
+      "bank": "practice",
+      "id": "cn-tcp-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：未完成握手占半连接资源"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s3",
+      "bank": "past",
+      "id": "exam-computer-networks-ch5-s3-2021-38-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：同cn-tcp-4重复"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s3",
+      "bank": "past",
+      "id": "exam-computer-networks-ch5-s3-2011-39-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "C：同cn-tcp-2重复"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s4",
+      "bank": "practice",
+      "id": "cn-cc-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需理想ACK逐段/无窗口限制，初始窗口不固定1",
+      "replacement": {
+        "id": "cn-cc-1-r2",
+        "type": "single",
+        "stem": "经典TCP慢开始中，每段分别确认、发送方持续有数据且无接收窗口限制时，cwnd在未到阈值期间按RTT近似如何增长？",
+        "options": {
+          "A": "每经过一个往返时延按指数增长（翻倍）",
+          "B": "每个往返时延加 1",
+          "C": "保持恒定",
+          "D": "线性递减"
+        },
+        "answer": "A",
+        "explanation": "每个新数据ACK增长约1MSS，充分发送且逐段确认时，一个RTT约翻倍。延迟确认、应用受限和接收窗口可能改变增长；初始窗口不必恒为1MSS。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch5-s4",
+      "bank": "practice",
+      "id": "cn-cc-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：三重复ACK的经典快重传"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s4",
+      "bank": "practice",
+      "id": "cn-rel-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：路由网络层非TCP机制"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s4",
+      "bank": "practice",
+      "id": "cn-rel-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：平滑RTT加偏差决定RTO"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s4",
+      "bank": "practice",
+      "id": "cn-cc-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：经典Reno四算法"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s4",
+      "bank": "past",
+      "id": "exam-computer-networks-ch5-s4-2022-38-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：超时退避重启慢开始，与tport题重复"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s4",
+      "bank": "past",
+      "id": "exam-computer-networks-ch5-s4-2019-38-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：重复ACK触发与cn-cc-2重复"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s1",
+      "bank": "practice",
+      "id": "cn-dns-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：递归代查迭代给指引"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s1",
+      "bank": "practice",
+      "id": "cn-dns-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：CS/P2P应用模型"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s1",
+      "bank": "practice",
+      "id": "cn-dns-3",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：根顶级权威类别，不宜遗漏本地域缓存职责"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s1",
+      "bank": "practice",
+      "id": "cn-dns-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：常规传统DNS UDP53但TCP同样支持"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s1",
+      "bank": "practice",
+      "id": "cn-dns-5",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "T：与cn-dns-1重复"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s1",
+      "bank": "past",
+      "id": "exam-cn-app-2024-40",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：HTTP非持久一对象一连接，错节点"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s1",
+      "bank": "past",
+      "id": "exam-cn-app-2022-40",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：HTTP1.1持久复用，错节点重复"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s2",
+      "bank": "practice",
+      "id": "cn-ftp-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A只有主动模式默认数据服务器端口20，不能概括被动",
+      "replacement": {
+        "id": "cn-ftp-1-r2",
+        "type": "single",
+        "stem": "FTP采用经典主动模式且使用默认端口时，控制连接的服务器端口与数据连接的服务器端口通常分别是？",
+        "options": {
+          "A": "控制连接（21）与数据连接（20）",
+          "B": "只有数据连接",
+          "C": "只有控制连接",
+          "D": "加密连接与明文连接"
+        },
+        "answer": "A",
+        "explanation": "经典主动模式控制服务器端口21，数据连接服务器端口20；被动模式由服务器告知另一个监听端口，数据端口不是固定20。RFC959及王道网络OCR第290页。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch6-s2",
+      "bank": "practice",
+      "id": "cn-ftp-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：控制会话保持，数据传输按需建"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s2",
+      "bank": "practice",
+      "id": "cn-mail-1",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：发送SMTP读取POP3/IMAP"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s2",
+      "bank": "practice",
+      "id": "cn-mail-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：MIME非ASCII附件"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s2",
+      "bank": "practice",
+      "id": "cn-mail-3",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A需限定服务器间SMTP端口25",
+      "replacement": {
+        "id": "cn-mail-3-r2",
+        "type": "single",
+        "stem": "邮件服务器之间以SMTP进行邮件投递，标准熟知TCP端口是？",
+        "options": {
+          "A": "25",
+          "B": "80",
+          "C": "53",
+          "D": "110"
+        },
+        "answer": "A",
+        "explanation": "SMTP 默认端口 25（提交常用 587，加密用 465）。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch6-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch6-s2-2011-40-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "C：同cn-mail-1重复"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s2",
+      "bank": "past",
+      "id": "exam-computer-networks-ch6-s2-2019-39-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "A：DNS题错归邮件节点"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s3",
+      "bank": "practice",
+      "id": "cn-http-1",
+      "action": "revise",
+      "reason": "修正条件、唯一性或解释",
+      "verification": "A：http scheme端口80，应用无状态；TCP说明限HTTP1/2",
+      "replacement": {
+        "id": "cn-http-1-r2",
+        "type": "single",
+        "stem": "关于传统HTTP/1.1及http URI，下列说法正确的是？",
+        "options": {
+          "A": "HTTP 是无状态协议，默认端口 80",
+          "B": "HTTP 是面向连接的传输层协议",
+          "C": "HTTP 默认端口是 443",
+          "D": "HTTP 保证可靠传输"
+        },
+        "answer": "A",
+        "explanation": "HTTP 是应用层无状态协议，默认端口 80（HTTPS 为 443），可靠传输由下层的 TCP 保证。"
+      }
+    },
+    {
+      "nodeId": "computer-networks:ch6-s3",
+      "bank": "practice",
+      "id": "cn-http-2",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：scheme/host/port/path形式"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s3",
+      "bank": "practice",
+      "id": "cn-http-3",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "T：四方法存在但过浅"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s3",
+      "bank": "practice",
+      "id": "cn-http-4",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "A：cookie持久标识承载会话"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s3",
+      "bank": "practice",
+      "id": "cn-http-5",
+      "action": "retain",
+      "reason": "答案及核心解释正确，保留该基础概念锚点",
+      "verification": "T：HTTP1.1默认持久"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s3",
+      "bank": "past",
+      "id": "exam-computer-networks-ch6-s3-2024-40-a",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "B：同cn-http-5重复"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s3",
+      "bank": "past",
+      "id": "exam-computer-networks-ch6-s3-2011-40-b",
+      "action": "remove",
+      "reason": "低质枚举或与已保留题重复/错节点；无独立原卷对应证据，不保留真题标签",
+      "verification": "D：FTP题错归HTTP节点"
+    }
+  ],
+  "additions": [
+    {
+      "nodeId": "operating-systems:ch1-s1",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch1-s1-01",
+        "type": "single",
+        "stem": "单核CPU上P、Q交替执行，P发起磁盘I/O后Q继续计算。最准确的判断是？",
+        "options": {
+          "A": "P与Q实现并发，CPU计算可与设备I/O并行",
+          "B": "P与Q在该CPU同时执行指令",
+          "C": "单核无法出现共享",
+          "D": "P阻塞说明系统没有异步性"
+        },
+        "answer": "A",
+        "explanation": "单CPU同一时刻只执行一个进程指令；CPU与独立设备可同时工作。"
+      },
+      "verification": "单CPU同一时刻只执行一个进程指令；CPU与独立设备可同时工作。"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s2",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch1-s2-01",
+        "type": "single",
+        "stem": "控制任务要求传感器异常后5ms内必定完成保护动作，超过时限即系统失败。应优先采用哪种设计目标？",
+        "options": {
+          "A": "硬实时截止时间保证",
+          "B": "只最小化所有作业平均周转时间",
+          "C": "只最大化批处理吞吐量",
+          "D": "只使所有用户平均分到CPU"
+        },
+        "answer": "A",
+        "explanation": "硬实时要求最坏情况下满足截止期限；平均值或吞吐量不能代替期限保证。"
+      },
+      "verification": "硬实时要求最坏情况下满足截止期限；平均值或吞吐量不能代替期限保证。"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s3",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch1-s3-01",
+        "type": "single",
+        "stem": "用户线程调用read等待磁盘数据而阻塞；磁盘完成中断发生时CPU正在运行内核代码。哪项成立？",
+        "options": {
+          "A": "该中断必产生用户态到内核态切换",
+          "B": "read使线程必然立即终止",
+          "C": "中断响应可仍处于内核态，并使等待读的线程就绪",
+          "D": "完成中断必须直接把等待读线程变为运行态"
+        },
+        "answer": "C",
+        "explanation": "中断可打断内核执行；唤醒表示就绪，获得CPU仍需调度。"
+      },
+      "verification": "中断可打断内核执行；唤醒表示就绪，获得CPU仍需调度。"
+    },
+    {
+      "nodeId": "operating-systems:ch1-s4",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch1-s4-01",
+        "type": "single",
+        "stem": "某虚拟机监控器直接运行于物理硬件，上面运行两个客体OS；另一监控器作为宿主OS应用运行。分别属于？",
+        "options": {
+          "A": "两者都是第二类",
+          "B": "第一类与第二类",
+          "C": "第二类与第一类",
+          "D": "两者都是第一类"
+        },
+        "answer": "B",
+        "explanation": "第一类直接管理硬件，第二类依赖宿主操作系统。"
+      },
+      "verification": "第一类直接管理硬件，第二类依赖宿主操作系统。"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s1",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch2-s1-01",
+        "type": "single",
+        "stem": "单CPU多对一用户级线程系统中，内核只认识整个进程。一线程执行真正会阻塞内核执行实体的系统调用时，通常怎样？",
+        "options": {
+          "A": "只有调用线程阻塞，其他线程仍能获CPU",
+          "B": "同进程其他用户线程也不能运行",
+          "C": "所有其他进程必须阻塞",
+          "D": "自动变为一对一线程模型"
+        },
+        "answer": "B",
+        "explanation": "多对一全部用户线程映射同一个内核执行实体；实体阻塞后用户调度器也无法执行。"
+      },
+      "verification": "多对一全部用户线程映射同一个内核执行实体；实体阻塞后用户调度器也无法执行。"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s2",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch2-s2-01",
+        "type": "single",
+        "stem": "三个作业同时在0到达，运行时间分别6、2、4，无I/O与切换开销，非抢占SJF平均等待时间是多少？",
+        "options": {
+          "A": "8/3",
+          "B": "4",
+          "C": "6",
+          "D": "8"
+        },
+        "answer": "A",
+        "explanation": "SJF执行2、4、6；等待0、2、6，平均(0+2+6)/3=8/3。"
+      },
+      "verification": "SJF执行2、4、6；等待0、2、6，平均(0+2+6)/3=8/3。"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s3",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch2-s3-01",
+        "type": "single",
+        "stem": "生产者消费者使用empty=1、full=0、mutex=1。消费者先P(mutex)再P(full)，生产者先P(empty)再P(mutex)，可能怎样？",
+        "options": {
+          "A": "互斥完全失效",
+          "B": "消费者持mutex等待full，生产者持empty等待mutex，可能死锁",
+          "C": "必然直接覆盖未读数据",
+          "D": "所有执行顺序都可安全完成"
+        },
+        "answer": "B",
+        "explanation": "消费者先持锁再等待产品使生产者无法入临界区生产；同步P应置于互斥P之前。"
+      },
+      "verification": "消费者先持锁再等待产品使生产者无法入临界区生产；同步P应置于互斥P之前。"
+    },
+    {
+      "nodeId": "operating-systems:ch2-s4",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch2-s4-01",
+        "type": "single",
+        "stem": "系统只有一种共3个实例的资源。P已分配2最多需3，Q已分配1最多需2，可用0。当前状态是？",
+        "options": {
+          "A": "安全，P可直接完成",
+          "B": "安全，Q可直接完成",
+          "C": "不安全，但未必已经死锁",
+          "D": "必定有安全序列Q,P"
+        },
+        "answer": "C",
+        "explanation": "两者Need均1大于Available0，无安全序列；若两者尚未请求剩余或可提前归还，不等于当前已死锁。"
+      },
+      "verification": "两者Need均1大于Available0，无安全序列；若两者尚未请求剩余或可提前归还，不等于当前已死锁。"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s1",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch3-s1-01",
+        "type": "single",
+        "stem": "页大小4KiB，逻辑地址0x2345的页号为2，该页映射页框7。物理地址为？",
+        "options": {
+          "A": "0x7345",
+          "B": "0x2345",
+          "C": "0x7002",
+          "D": "0x9345"
+        },
+        "answer": "A",
+        "explanation": "偏移0x345，物理7*0x1000+0x345=0x7345。"
+      },
+      "verification": "偏移0x345，物理7*0x1000+0x345=0x7345。"
+    },
+    {
+      "nodeId": "operating-systems:ch3-s2",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch3-s2-01",
+        "type": "single",
+        "stem": "初始内存空，3个页框，访问串1,2,3,1,4,1。LRU与FIFO各发生多少次缺页？",
+        "options": {
+          "A": "LRU4、FIFO5",
+          "B": "LRU5、FIFO4",
+          "C": "均4",
+          "D": "均6"
+        },
+        "answer": "A",
+        "explanation": "前三次装入；访问1命中。LRU访问4淘汰2，此后1命中，共4；FIFO访问4淘汰最早1，最后1缺页，共5。"
+      },
+      "verification": "前三次装入；访问1命中。LRU访问4淘汰2，此后1命中，共4；FIFO访问4淘汰最早1，最后1缺页，共5。"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s1",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch4-s1-01",
+        "type": "single",
+        "stem": "父进程打开文件并取得描述符后fork，子进程继承该描述符。在典型Unix语义下，两者读同一个打开文件描述时，文件偏移如何？",
+        "options": {
+          "A": "各自独立永不影响",
+          "B": "共享同一个打开文件描述中的偏移",
+          "C": "偏移总被设置为0",
+          "D": "必须复制全部数据块"
+        },
+        "answer": "B",
+        "explanation": "fork继承的描述符引用相同打开文件描述，通常共享偏移；重新独立open会产生不同描述。"
+      },
+      "verification": "fork继承的描述符引用相同打开文件描述，通常共享偏移；重新独立open会产生不同描述。"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s2",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch4-s2-01",
+        "type": "single",
+        "stem": "文件f有硬链接h和指向路径f的符号链接s，无进程打开。删除目录项f后，何者正确？",
+        "options": {
+          "A": "h和s都不可用",
+          "B": "h可读原文件，s成为悬空链接",
+          "C": "h悬空但s仍可读",
+          "D": "原文件数据立即回收"
+        },
+        "answer": "B",
+        "explanation": "h引用原inode，s仅保存路径f；删除f不影响h引用，但原路径不再可解析。"
+      },
+      "verification": "h引用原inode，s仅保存路径f；删除f不影响h引用，但原路径不再可解析。"
+    },
+    {
+      "nodeId": "operating-systems:ch4-s3",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch4-s3-01",
+        "type": "single",
+        "stem": "文件系统块大小1KiB，块指针4B，一个一级索引块最多指向多少数据字节（不计索引块本身）？",
+        "options": {
+          "A": "64KiB",
+          "B": "256KiB",
+          "C": "1MiB",
+          "D": "4KiB"
+        },
+        "answer": "B",
+        "explanation": "1024/4=256个指针，每个1KiB，共256KiB。"
+      },
+      "verification": "1024/4=256个指针，每个1KiB，共256KiB。"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s1",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch5-s1-01",
+        "type": "single",
+        "stem": "某设备传64KiB，若中断驱动每字节一次中断，DMA完成整块一次中断，忽略其他异常，二者中断次数是？",
+        "options": {
+          "A": "65536与1",
+          "B": "1024与64",
+          "C": "64与1",
+          "D": "1与65536"
+        },
+        "answer": "A",
+        "explanation": "64*1024字节，逐字节65536次；DMA按题设整块完成通知1次。"
+      },
+      "verification": "64*1024字节，逐字节65536次；DMA按题设整块完成通知1次。"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s2",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch5-s2-01",
+        "type": "single",
+        "stem": "设备向缓冲输入一块需8ms，把缓冲复制到工作区需2ms，CPU在工作区处理需5ms。单缓冲模型中复制时不能输入，处理可与下一块输入重叠。稳定每块平均时间为？",
+        "options": {
+          "A": "8ms",
+          "B": "10ms",
+          "C": "13ms",
+          "D": "15ms"
+        },
+        "answer": "B",
+        "explanation": "周期max(输入8,处理5)+复制2=10ms。初始填充和最后收尾不计入稳定周期。"
+      },
+      "verification": "周期max(输入8,处理5)+复制2=10ms。初始填充和最后收尾不计入稳定周期。"
+    },
+    {
+      "nodeId": "operating-systems:ch5-s3",
+      "question": {
+        "id": "qa-20261002-operating-systems-ch5-s3-01",
+        "type": "single",
+        "stem": "磁道0..199，磁头50向增大方向SCAN，当前请求10,60,90且不再到达新请求，服务完最后请求即可停止。总移动距离？",
+        "options": {
+          "A": "120",
+          "B": "150",
+          "C": "338",
+          "D": "388"
+        },
+        "answer": "C",
+        "explanation": "50→60→90→199→10，149+189=338；120是LOOK到90立即反向。"
+      },
+      "verification": "50→60→90→199→10，149+189=338；120是LOOK到90立即反向。"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s1",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch1-s1-01",
+        "type": "single",
+        "stem": "1Mbit分组经过两条10Mbit/s存储转发链路，每段传播5ms，无排队和处理。末比特到达目的需要？",
+        "options": {
+          "A": "105ms",
+          "B": "110ms",
+          "C": "205ms",
+          "D": "210ms"
+        },
+        "answer": "D",
+        "explanation": "每段发送100ms，两段合200ms，传播合10ms，共210ms。"
+      },
+      "verification": "每段发送100ms，两段合200ms，传播合10ms，共210ms。"
+    },
+    {
+      "nodeId": "computer-networks:ch1-s2",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch1-s2-01",
+        "type": "single",
+        "stem": "应用写入TCP的两个100B数据块，接收应用一次读取200B。这说明？",
+        "options": {
+          "A": "TCP违反报文边界",
+          "B": "TCP提供字节流而不保存应用写入边界",
+          "C": "传输层不能分用",
+          "D": "一定发生IP分片"
+        },
+        "answer": "B",
+        "explanation": "TCP按字节流交付，写与读调用边界不是协议边界。"
+      },
+      "verification": "TCP按字节流交付，写与读调用边界不是协议边界。"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s1",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch2-s1-01",
+        "type": "single",
+        "stem": "理想低通信道W=4kHz，采用16种等概率码元，另有噪声使香农上限24kb/s，两个约束下数据率不得超过？",
+        "options": {
+          "A": "16kb/s",
+          "B": "24kb/s",
+          "C": "32kb/s",
+          "D": "48kb/s"
+        },
+        "answer": "B",
+        "explanation": "奈奎斯特2*4000*4=32kb/s，香农24kb/s，需取两上限最小24kb/s。"
+      },
+      "verification": "奈奎斯特2*4000*4=32kb/s，香农24kb/s，需取两上限最小24kb/s。"
+    },
+    {
+      "nodeId": "computer-networks:ch2-s2",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch2-s2-01",
+        "type": "single",
+        "stem": "差分曼彻斯特约定位开始跳变表示0、不跳变表示1。连续两位0、1中，第一位开始和第二位开始分别？",
+        "options": {
+          "A": "都跳变",
+          "B": "都不跳变",
+          "C": "跳变、不跳变",
+          "D": "不跳变、跳变"
+        },
+        "answer": "C",
+        "explanation": "位中点始终跳变用于同步，数据由每位开始是否跳变决定；题目显式给出位值约定。"
+      },
+      "verification": "位中点始终跳变用于同步，数据由每位开始是否跳变决定；题目显式给出位值约定。"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s1",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch3-s1-01",
+        "type": "single",
+        "stem": "零比特填充用于数据串01111110（不含帧标志）。填充结果为？",
+        "options": {
+          "A": "011111010",
+          "B": "011111100",
+          "C": "001111110",
+          "D": "01111110"
+        },
+        "answer": "A",
+        "explanation": "连续第5个1后插0：0+11111+0+1+0=011111010，避免伪装标志01111110。"
+      },
+      "verification": "连续第5个1后插0：0+11111+0+1+0=011111010，避免伪装标志01111110。"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s2",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch3-s2-01",
+        "type": "single",
+        "stem": "基本CRC数据1101，生成多项式比特串1011，校验余数是？",
+        "options": {
+          "A": "001",
+          "B": "010",
+          "C": "100",
+          "D": "111"
+        },
+        "answer": "A",
+        "explanation": "1101000模2除1011：异或消首项依次得到0110000、0011100、0001010、0000001，余数001；发送1101001可整除。"
+      },
+      "verification": "1101000模2除1011：异或消首项依次得到0110000、0011100、0001010、0000001，余数001；发送1101001可整除。"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s3",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch3-s3-01",
+        "type": "single",
+        "stem": "无差错停止等待，一帧发送1ms，单程传播9ms，ACK发送和处理忽略。发送链路利用率？",
+        "options": {
+          "A": "1/10",
+          "B": "1/19",
+          "C": "1/9",
+          "D": "1/18"
+        },
+        "answer": "B",
+        "explanation": "一个循环发送1+来回传播18=19ms，有效发送占1ms，利用率1/19。"
+      },
+      "verification": "一个循环发送1+来回传播18=19ms，有效发送占1ms，利用率1/19。"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s4",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch3-s4-01",
+        "type": "single",
+        "stem": "共享半双工链路100Mbit/s，最大单程传播2.5微秒，忽略其他延迟。为检测最远冲突，帧至少多少比特？",
+        "options": {
+          "A": "250",
+          "B": "500",
+          "C": "1000",
+          "D": "64"
+        },
+        "answer": "B",
+        "explanation": "发送时长至少5微秒，100*10^6*5*10^-6=500bit；这是物理约束下限，不替代以太网标准最小帧512bit。"
+      },
+      "verification": "发送时长至少5微秒，100*10^6*5*10^-6=500bit；这是物理约束下限，不替代以太网标准最小帧512bit。"
+    },
+    {
+      "nodeId": "computer-networks:ch3-s5",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch3-s5-01",
+        "type": "single",
+        "stem": "交换机表空，A从端口1向B发送，B从端口2回复A，随后A再向B发送，均同VLAN。第三帧通常怎样？",
+        "options": {
+          "A": "泛洪所有端口",
+          "B": "仅发端口2",
+          "C": "仅发端口1",
+          "D": "丢弃"
+        },
+        "answer": "B",
+        "explanation": "第一帧学A→1并未知B泛洪，第二帧学B→2并定向A，第三帧B已知定向2。"
+      },
+      "verification": "第一帧学A→1并未知B泛洪，第二帧学B→2并定向A，第三帧B已知定向2。"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s1",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch4-s1-01",
+        "type": "single",
+        "stem": "IPv4无选项总长4020B，下一链路MTU1500B，允许分片。三片的数据长度和片偏移为？",
+        "options": {
+          "A": "1480,1480,1040；0,185,370",
+          "B": "1500,1500,1020；0,187,374",
+          "C": "1480,1480,1060；0,1480,2960",
+          "D": "1500,1500,1000；0,1500,3000"
+        },
+        "answer": "A",
+        "explanation": "数据4000B，每片20B首部，最大1480且8整倍数；剩1040，偏移按8B单位0、1480/8=185、2960/8=370。"
+      },
+      "verification": "数据4000B，每片20B首部，最大1480且8整倍数；剩1040，偏移按8B单位0、1480/8=185、2960/8=370。"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s2",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch4-s2-01",
+        "type": "single",
+        "stem": "把192.0.2.0/24均分为4个子网，第三个子网（按网络地址升序从1计）的网络地址与广播地址？",
+        "options": {
+          "A": "192.0.2.64与192.0.2.127",
+          "B": "192.0.2.128与192.0.2.191",
+          "C": "192.0.2.128与192.0.2.255",
+          "D": "192.0.2.192与192.0.2.255"
+        },
+        "answer": "B",
+        "explanation": "借2位为/26，网络起点0、64、128、192，第三个范围128..191。"
+      },
+      "verification": "借2位为/26，网络起点0、64、128、192，第三个范围128..191。"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s3",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch4-s3-01",
+        "type": "single",
+        "stem": "A欲发往远端网络B，已知默认网关G同本链路，ARP缓存空。常规发送前A应解析谁的MAC？",
+        "options": {
+          "A": "远端B",
+          "B": "本链路网关G",
+          "C": "根DNS服务器",
+          "D": "任意同网段主机"
+        },
+        "answer": "B",
+        "explanation": "IP目的仍为B，第一跳以太帧目的为G，需要ARP网关本链路IPv4地址。"
+      },
+      "verification": "IP目的仍为B，第一跳以太帧目的为G，需要ARP网关本链路IPv4地址。"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s4",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch4-s4-01",
+        "type": "single",
+        "stem": "路由器R经邻居X的链路代价2，X通告到N代价5；经Y代价4，Y通告到N代价2。距离向量应选择？",
+        "options": {
+          "A": "X，总代价5",
+          "B": "X，总代价7",
+          "C": "Y，总代价6",
+          "D": "Y，总代价2"
+        },
+        "answer": "C",
+        "explanation": "候选2+5=7与4+2=6，选Y6，不能忽略本地到邻居代价。"
+      },
+      "verification": "候选2+5=7与4+2=6，选Y6，不能忽略本地到邻居代价。"
+    },
+    {
+      "nodeId": "computer-networks:ch4-s5",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch4-s5-01",
+        "type": "single",
+        "stem": "转发表10.0.0.0/8→A、10.1.0.0/16→B、10.1.2.0/24→C、默认→D。目的10.1.2.129选？",
+        "options": {
+          "A": "A",
+          "B": "B",
+          "C": "C",
+          "D": "D"
+        },
+        "answer": "C",
+        "explanation": "同时匹配/8 /16 /24，最长/24最具体，选C。"
+      },
+      "verification": "同时匹配/8 /16 /24，最长/24最具体，选C。"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s1",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch5-s1-01",
+        "type": "single",
+        "stem": "同一服务器同时使用TCP端口53和UDP端口53提供DNS，这两个端点如何区分？",
+        "options": {
+          "A": "无法区分，端口不能复用",
+          "B": "根据传输协议与端口共同区分",
+          "C": "仅看MAC地址区分",
+          "D": "必须改成不同IP"
+        },
+        "answer": "B",
+        "explanation": "TCP和UDP有独立端口空间，网络层协议字段先区分TCP与UDP再按端口分用。"
+      },
+      "verification": "TCP和UDP有独立端口空间，网络层协议字段先区分TCP与UDP再按端口分用。"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s2",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch5-s2-01",
+        "type": "single",
+        "stem": "已建立TCP连接，接收方期望序号1000，连续收到序号1000起的300B与序号1400起的100B，尚未收到1300..1399。累计ACK确认号？",
+        "options": {
+          "A": "1300",
+          "B": "1400",
+          "C": "1500",
+          "D": "1000"
+        },
+        "answer": "A",
+        "explanation": "累计确认只推进连续前缀，已收1000..1299，下一个缺1300；乱序1400..1499不能使ACK越过空洞。"
+      },
+      "verification": "累计确认只推进连续前缀，已收1000..1299，下一个缺1300；乱序1400..1499不能使ACK越过空洞。"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s3",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch5-s3-01",
+        "type": "single",
+        "stem": "客户端SYN序号100，服务端SYN+ACK序号500且确认101。普通第三次握手无数据ACK的序号、确认号分别为？",
+        "options": {
+          "A": "100、500",
+          "B": "101、501",
+          "C": "101、500",
+          "D": "102、501"
+        },
+        "answer": "B",
+        "explanation": "SYN各占一个序号；客户端下一个101，期望服务器501。纯ACK不占新序号。"
+      },
+      "verification": "SYN各占一个序号；客户端下一个101，期望服务器501。纯ACK不占新序号。"
+    },
+    {
+      "nodeId": "computer-networks:ch5-s4",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch5-s4-01",
+        "type": "single",
+        "stem": "经典Reno中发生重传超时，FlightSize=12MSS，按RFC5681取ssthresh=max(FlightSize/2,2MSS)，cwnd置1MSS，得到？",
+        "options": {
+          "A": "ssthresh6、cwnd1",
+          "B": "ssthresh12、cwnd6",
+          "C": "ssthresh1、cwnd6",
+          "D": "ssthresh6、cwnd6"
+        },
+        "answer": "A",
+        "explanation": "在途量半数6MSS超过最小2MSS，阈值6；超时窗口1。三重复ACK后的快速恢复处理不同。"
+      },
+      "verification": "在途量半数6MSS超过最小2MSS，阈值6；超时窗口1。三重复ACK后的快速恢复处理不同。"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s1",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch6-s1-01",
+        "type": "single",
+        "stem": "DNS递归解析器收到请求，缓存无记录，根服务器返回相应顶级服务器地址。接下来通常谁询问顶级服务器？",
+        "options": {
+          "A": "原用户必须逐级询问",
+          "B": "递归解析器继续询问",
+          "C": "根服务器必须自己代查到底",
+          "D": "客户端TCP强制关闭"
+        },
+        "answer": "B",
+        "explanation": "解析器对用户提供递归服务，同时通常以迭代方式向根、顶级、权威逐级查询。"
+      },
+      "verification": "解析器对用户提供递归服务，同时通常以迭代方式向根、顶级、权威逐级查询。"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s2",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch6-s2-01",
+        "type": "single",
+        "stem": "FTP被动模式中服务器告知监听端口50000，客户端随后传文件。数据TCP连接通常由谁发起、连接哪个服务器端口？",
+        "options": {
+          "A": "服务器发起，服务器固定20",
+          "B": "客户端发起，服务器50000",
+          "C": "客户端发起，服务器21",
+          "D": "服务器发起，服务器25"
+        },
+        "answer": "B",
+        "explanation": "PASV让服务器监听并通告数据端口，客户端主动连接；21承载控制而20仅经典主动数据默认端口。"
+      },
+      "verification": "PASV让服务器监听并通告数据端口，客户端主动连接；21承载控制而20仅经典主动数据默认端口。"
+    },
+    {
+      "nodeId": "computer-networks:ch6-s3",
+      "question": {
+        "id": "qa-20261002-computer-networks-ch6-s3-01",
+        "type": "single",
+        "stem": "HTTP/1.1无流水线，已无缓存，先取HTML再顺序取2个图片，三对象同服务器且用同一持久TCP连接。忽略传输、DNS、关闭时间，一个TCP建立需1RTT，每对象请求响应需1RTT，共多少RTT？",
+        "options": {
+          "A": "3",
+          "B": "4",
+          "C": "6",
+          "D": "9"
+        },
+        "answer": "B",
+        "explanation": "建连1加HTML1加两个图片各1，合4；若非持久且每对象各建连接则6。"
+      },
+      "verification": "建连1加HTML1加两个图片各1，合4；若非持久且每对象各建连接则6。"
+    }
+  ]
+}

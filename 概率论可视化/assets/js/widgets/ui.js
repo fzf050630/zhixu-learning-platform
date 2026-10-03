@@ -136,7 +136,86 @@
   /** 主题色快捷访问 */
   function C(k) { return D.Theme.get(k); }
 
-  global.UI = { el, shell, shellPlot, slider, seg, legend, readout, f2, f3, f4, pct, C };
+  /** 单步播放条 */
+  function transport(parent, o) {
+    const wrap = el('div', 'transport-viz');
+    const on = o.onChange || (() => { });
+    let i = 0, timer = null, listening = false;
+    const speed = o.speed || 900;
+    let speedScale = Number(o.speedScale || 1);
+    const speedSelect = el('select', 'transport-speed');
+    speedSelect.setAttribute('aria-label', '播放速度');
+    [0.5, 1, 2].forEach(value => {
+      const option = el('option', null, value + '×');
+      option.value = String(value);
+      speedSelect.appendChild(option);
+    });
+    speedSelect.value = String([0.5, 1, 2].includes(speedScale) ? speedScale : 1);
+    const total = o.total || 1;
+    const btnReset = el('button', null, '↺');
+    btnReset.title = '回到起点'; btnReset.setAttribute('aria-label', '回到起点');
+    const btnPrev = el('button', null, '← 上一步');
+    const btnPlay = el('button', 'play', '播放');
+    const btnNext = el('button', null, '下一步 →');
+    const bIdx = el('b', null, '1 / ' + total);
+    bIdx.setAttribute('aria-live', 'polite');
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+      if (listening) { document.removeEventListener('visibilitychange', onVisibilityChange); listening = false; }
+      btnPlay.textContent = '播放';
+      btnPlay.classList.remove('on');
+      btnPlay.setAttribute('aria-pressed', 'false');
+    }
+    function renderIdx() {
+      bIdx.textContent = (i + 1) + ' / ' + total;
+      btnPrev.disabled = i <= 0;
+      btnNext.disabled = i >= total - 1;
+    }
+    function set(k) {
+      i = Math.max(0, Math.min(total - 1, k));
+      renderIdx();
+      return i;
+    }
+    function go(k) {
+      set(k); on(i);
+    }
+    function play() {
+      if (total <= 1) return;
+      stop();
+      if (i >= total - 1) i = -1;
+      btnPlay.textContent = '暂停';
+      btnPlay.classList.add('on');
+      btnPlay.setAttribute('aria-pressed', 'true');
+      document.addEventListener('visibilitychange', onVisibilityChange);
+      listening = true;
+      timer = setInterval(() => { if (i >= total - 1) { stop(); return; } go(i + 1); }, Math.max(60, speed / speedScale));
+    }
+    btnReset.addEventListener('click', () => { stop(); go(0); });
+    btnPrev.addEventListener('click', () => { stop(); go(i - 1); });
+    btnNext.addEventListener('click', () => { stop(); go(i + 1); });
+    btnPlay.addEventListener('click', () => { timer ? stop() : play(); });
+    speedSelect.addEventListener('change', () => {
+      const wasPlaying = !!timer;
+      if (wasPlaying) stop();
+      speedScale = Number(speedSelect.value) || 1;
+      if (wasPlaying) play();
+    });
+    const onVisibilityChange = () => { if (document.hidden) stop(); };
+    wrap.appendChild(btnReset); wrap.appendChild(btnPrev); wrap.appendChild(btnPlay);
+    wrap.appendChild(btnNext);
+    const speedLabel = el('label', 'transport-speed-label', '速度 ');
+    speedLabel.appendChild(speedSelect);
+    wrap.appendChild(speedLabel); wrap.appendChild(bIdx);
+    parent.appendChild(wrap);
+    renderIdx();
+    if (total <= 1) btnPlay.disabled = true;
+    return {
+      go, set, stop, play, pause: stop, get index() { return i; }, speedSelect,
+      destroy() { stop(); document.removeEventListener('visibilitychange', onVisibilityChange); }
+    };
+  }
+
+  global.UI = { el, shell, shellPlot, slider, seg, legend, readout, transport, f2, f3, f4, pct, C };
   global.WIDGETS = global.WIDGETS || {};
 
 })(window);

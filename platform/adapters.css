@@ -76,12 +76,65 @@ html[data-subject='linear-algebra'] .stat .n { color: var(--zx-brand); }
   html[data-subject='linear-algebra'] .sidebar { top: var(--zx-header); height: calc(100dvh - var(--zx-header)); }
   html[data-subject='linear-algebra'] .scrim { top: var(--zx-header); }
 }
+
+/* Touch tablets keep the chapter list available in a drawer instead of
+   letting it cover the active lesson. The lesson takes the full viewport. */
+@media (any-pointer: coarse) and (min-width: 721px) and (max-width: 1500px) and (min-height: 560px) {
+  :root { --zx-header: 52px; }
+  .zx-header { height: var(--zx-header); }
+  html[data-subject='probability'] .app { grid-template-columns: minmax(0,1fr); }
+  html[data-subject='probability'] .main { min-width: 0; }
+  html[data-subject='probability'] .sidebar {
+    position: fixed; inset: var(--zx-header) auto 0 0;
+    width: min(300px, calc(100vw - 64px)); height: calc(100dvh - var(--zx-header));
+    transform: translateX(-102%); transition: transform .2s ease;
+    box-shadow: var(--shadow-lg); z-index: 30;
+  }
+  html[data-subject='probability'] .app.nav-open .sidebar { transform: translateX(0); }
+  html[data-subject='probability'] .only-mobile { display: grid; place-items: center; }
+  html[data-subject='probability'] .only-mobile.icon-btn {
+    width: 38px; height: 38px; border: 1px solid var(--zx-line); border-radius: 9px;
+    background: var(--zx-surface); color: var(--zx-ink); font-size: 19px;
+  }
+  html[data-subject='probability'] .app .scrim { inset: var(--zx-header) 0 0; z-index: 25; }
+  html[data-subject='probability'] .view { max-width: none; padding: 18px 24px 64px; }
+  html[data-subject='probability'] .sec-head { margin-bottom: 18px; }
+  html[data-subject='probability'] .sec-title { font-size: clamp(25px, 2.6vw, 34px); }
+}
 @media (max-width: 720px) {
   html[data-subject='data-structures'] .app-shell { grid-template-columns: minmax(0,1fr); }
   html[data-subject='data-structures'] .sidebar { top: var(--zx-header); height: calc(100dvh - var(--zx-header)); }
   html[data-subject='data-structures'] .scrim { top: var(--zx-header); }
   html[data-subject='data-structures'] .home-view, html[data-subject='data-structures'] .lab-view { padding-top: 23px; }
   html[data-subject] .hero h1 { font-size: 31px; }
+}
+
+@media (any-pointer: coarse) and (min-width: 721px) and (max-width: 1500px) and (min-height: 560px) {
+  html[data-subject] .app { grid-template-columns: minmax(0,1fr); }
+  html[data-subject] .app .main { min-width: 0; min-height: 0; }
+  html[data-subject] .app .sidebar {
+    position: fixed; inset: var(--zx-header) auto 0 0;
+    width: min(300px, calc(100vw - 64px)); height: calc(100dvh - var(--zx-header));
+    transform: translateX(-102%); transition: transform .2s ease;
+    box-shadow: var(--shadow-lg); z-index: 30;
+  }
+  html[data-subject] .app .scrim {
+    position: fixed; inset: var(--zx-header) 0 0; display: block;
+    background: rgb(18 24 35 / .42); opacity: 0; pointer-events: none;
+    transition: opacity .2s ease; z-index: 25;
+  }
+  html[data-subject] .app.nav-open .scrim { opacity: 1; pointer-events: auto; }
+  html[data-subject] .app.nav-open .sidebar { transform: translateX(0); }
+  html[data-subject] .app .only-mobile,
+  html[data-subject] .app .mobile-menu { display: grid; place-items: center; flex: none; }
+  html[data-subject] .app .mobile-menu,
+  html[data-subject] .app .only-mobile.icon-btn {
+    width: 42px; min-width: 42px; height: 38px; border: 1px solid var(--zx-line);
+    border-radius: 9px; background: var(--zx-surface); color: var(--zx-ink); font-size: 19px;
+  }
+  /* The desktop shell reserves a 260px grid track for the sticky sidebar.
+     Remove that track while the sidebar is a fixed, closed chapter drawer. */
+  html[data-subject='data-structures'] .app-shell { grid-template-columns: minmax(0,1fr); }
 }
 @media print {
   :root, html[data-theme='dark'] { --zx-bg: #fff; --zx-side: #fff; --zx-surface: #fff; --zx-soft: #f4f4f4; --zx-ink: #111; --zx-secondary: #333; --zx-muted: #555; --zx-line: #ccc; --zx-brand: #304db0; --zx-brand-soft: #eef1ff; }

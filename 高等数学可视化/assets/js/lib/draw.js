@@ -64,6 +64,7 @@
 
   const clamp = (v, a, b) => v < a ? a : (v > b ? b : v);
   const lerp = (a, b, t) => a + (b - a) * t;
+  const prefersReducedMotion = () => Boolean(global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
   /* ---------- 数学辅助 ---------- */
   const M = {
@@ -475,6 +476,7 @@
 
     /* ---------- 动画 ---------- */
     animate(dur = 620, onDone) {
+      if (prefersReducedMotion()) { this.static(); if (onDone) onDone(); return this; }
       if (this._raf) cancelAnimationFrame(this._raf);
       const t0 = performance.now();
       const step = (now) => {
@@ -546,6 +548,7 @@
       ctx.globalAlpha = 1;
     }
     animate(dur = 620) {
+      if (prefersReducedMotion()) return this.static();
       if (this._raf) cancelAnimationFrame(this._raf);
       const t0 = performance.now();
       const step = (now) => {

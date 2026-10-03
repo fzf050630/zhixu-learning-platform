@@ -5,6 +5,16 @@
   align-items: center;
 }
 
+@media (min-width: 721px) and (max-width: 1120px) {
+  .zx-header .zx-mastery { flex: none; }
+  .zx-header .zx-mastery-badge {
+    flex: none;
+    white-space: nowrap;
+    padding: 6px 9px;
+    font-size: 12px;
+  }
+}
+
 .zx-mastery-badge {
   display: inline-flex;
   align-items: center;
@@ -112,3 +122,4 @@
 @media (max-width: 720px) {
   .zx-mastery-panel { position: fixed; top: auto; bottom: 16px; right: 12px; left: 12px; width: auto; }
 }
+.zx-mastery-source > span { display: block; margin-top: 4px; font-size: 12px; color: var(--zx-muted); }

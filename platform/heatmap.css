@@ -1,50 +1,28 @@
-/* 知序 · 知识热力图 */
-.zx-heatmap-overall {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 16px;
-  border: 1px solid var(--zx-line, #e3e7ee);
-  border-radius: 14px;
-  background: var(--zx-surface, #fff);
-  margin-bottom: 14px;
-}
-.zx-heatmap-overall strong { font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums; }
-.zx-heatmap-overall .zx-heatmap-meta { font-size: 12px; color: var(--zx-muted, #697587); }
-
-.zx-heatmap-subjects { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-.zx-heatmap-subjects > li {
-  border: 1px solid var(--zx-line, #e3e7ee);
-  border-radius: 12px;
-  padding: 12px 14px;
-  background: var(--zx-surface, #fff);
-}
-.zx-heatmap-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
-.zx-heatmap-head span { font-size: 13px; }
-.zx-heatmap-head b { font-size: 16px; font-variant-numeric: tabular-nums; }
-.zx-heatmap-head b[data-level="MASTERED"] { color: #1f7a4d; }
-.zx-heatmap-head b[data-level="PROFICIENT"] { color: #267567; }
-.zx-heatmap-head b[data-level="BASIC"] { color: #a06a12; }
-.zx-heatmap-head b[data-level="EMERGING"] { color: #b45309; }
-.zx-heatmap-head b[data-level="NOT_MASTERED"] { color: #b91c1c; }
-.zx-heatmap-head b[data-level="NONE"] { color: var(--zx-muted, #697587); }
-
-.zx-heatmap-bar { height: 7px; border-radius: 999px; background: var(--zx-line, #e3e7ee); margin: 9px 0; overflow: hidden; }
-.zx-heatmap-bar i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--zx-brand, #405cce), var(--zx-green, #267567)); }
-
+/* Portal preview shares the atlas's quiet surfaces and semantic mastery colors. */
+.zx-heatmap-overall { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; padding: 18px 0; margin-bottom: 16px; border-top: 1px solid var(--zx-line); border-bottom: 1px solid var(--zx-line); }
+.zx-heatmap-overall strong { font: 400 38px/1 Consolas,monospace; letter-spacing: -.06em; color: var(--zx-green); }
+.zx-heatmap-meta { font-size: 11px; line-height: 1.8; color: var(--zx-muted); }
+.zx-heatmap-link { margin-left: auto; display: flex; align-items: center; gap: 8px; min-height: 38px; padding: 8px 12px; background: var(--zx-green-soft); color: var(--zx-green); border-radius: 6px; font-size: 11px; text-decoration: none; }
+.zx-heatmap-link:hover { outline: 1px solid var(--zx-green); }
+.zx-heatmap-subjects { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit,minmax(min(260px,100%),1fr)); }
+.zx-heatmap-subjects > li { min-width: 0; padding: 14px 16px; background: var(--zx-surface); border-left: 2px solid var(--zx-green); border-radius: 4px 8px 8px 4px; }
+.zx-heatmap-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.zx-heatmap-head > span { font-size: 13px; font-weight: 600; color: var(--zx-secondary); }
+.zx-heatmap-head b { font: 400 25px Consolas,monospace; }
+.zx-heatmap-bar { height: 4px; background: var(--zx-line); margin: 13px 0; overflow: hidden; border-radius: 2px; }
+.zx-heatmap-bar i { display: block; height: 100%; background: var(--zx-green); }
 .zx-heatmap-chapters { display: flex; flex-wrap: wrap; gap: 6px; }
-.zx-heatmap-chip {
-  font-size: 11.5px;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: var(--zx-line, #e3e7ee);
-  color: var(--zx-muted, #697587);
-  font-variant-numeric: tabular-nums;
-}
-.zx-heatmap-chip[data-level="MASTERED"] { background: rgba(31, 122, 77, .12); color: #1f7a4d; }
-.zx-heatmap-chip[data-level="PROFICIENT"] { background: rgba(38, 117, 103, .12); color: #267567; }
-.zx-heatmap-chip[data-level="BASIC"] { background: rgba(160, 106, 18, .12); color: #a06a12; }
-.zx-heatmap-chip[data-level="EMERGING"] { background: rgba(180, 83, 9, .12); color: #b45309; }
-.zx-heatmap-chip[data-level="NOT_MASTERED"] { background: rgba(185, 28, 28, .12); color: #b91c1c; }
-
-.zx-heatmap-empty { font-size: 13px; color: var(--zx-muted, #697587); }
+.zx-heatmap-chip { font-size: 10px; line-height: 1.7; padding: 3px 7px; border-radius: 4px; background: var(--zx-soft); color: var(--zx-muted); font-variant-numeric: tabular-nums; }
+.zx-heatmap-head b[data-level='MASTERED'], .zx-heatmap-chip[data-level='MASTERED'] { color: #23775b; }
+.zx-heatmap-head b[data-level='PROFICIENT'], .zx-heatmap-chip[data-level='PROFICIENT'] { color: #327f80; }
+.zx-heatmap-head b[data-level='BASIC'], .zx-heatmap-chip[data-level='BASIC'] { color: #8b6a20; }
+.zx-heatmap-head b[data-level='EMERGING'], .zx-heatmap-chip[data-level='EMERGING'] { color: #a5633c; }
+.zx-heatmap-head b[data-level='NOT_MASTERED'], .zx-heatmap-chip[data-level='NOT_MASTERED'] { color: #a34656; }
+.zx-heatmap-head b[data-level='NONE'] { color: var(--zx-muted); }
+html[data-theme='dark'] .zx-heatmap-head b[data-level='MASTERED'], html[data-theme='dark'] .zx-heatmap-chip[data-level='MASTERED'] { color: #83d5b5; }
+html[data-theme='dark'] .zx-heatmap-head b[data-level='PROFICIENT'], html[data-theme='dark'] .zx-heatmap-chip[data-level='PROFICIENT'] { color: #94ccd0; }
+html[data-theme='dark'] .zx-heatmap-head b[data-level='BASIC'], html[data-theme='dark'] .zx-heatmap-chip[data-level='BASIC'] { color: #d5bf89; }
+html[data-theme='dark'] .zx-heatmap-head b[data-level='EMERGING'], html[data-theme='dark'] .zx-heatmap-chip[data-level='EMERGING'] { color: #d5ad94; }
+html[data-theme='dark'] .zx-heatmap-head b[data-level='NOT_MASTERED'], html[data-theme='dark'] .zx-heatmap-chip[data-level='NOT_MASTERED'] { color: #d397a2; }
+.zx-heatmap-empty { font-size: 12px; color: var(--zx-muted); }
+@media (max-width: 480px) { .zx-heatmap-link { width: 100%; justify-content: space-between; margin-left: 0; } }

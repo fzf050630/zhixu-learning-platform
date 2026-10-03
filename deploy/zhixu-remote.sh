@@ -28,11 +28,23 @@ find "$LIVE" -type d -exec chmod 755 {} +
 find "$LIVE" -type f -exec chmod 644 {} +
 
 echo "== 3/7 部署后端 =="
+# 先停止写入再复制 SQLite 及其 WAL，避免取到不同时间的数据库文件。
+if systemctl is-active --quiet zhixu-backend; then
+  systemctl stop zhixu-backend
+fi
+trap 'if ! systemctl is-active --quiet zhixu-backend; then systemctl start zhixu-backend >/dev/null 2>&1 || true; fi' EXIT
+if [ -d "$BACKEND_DIR" ]; then
+  cp -a "$BACKEND_DIR" "$BACKUP/backend-before"
+fi
 rm -rf /tmp/zhixu-backend && mkdir -p /tmp/zhixu-backend
 tar -xzf /tmp/backend.tar.gz -C /tmp/zhixu-backend
 mkdir -p /tmp/zhixu-backend/server/data
 if [ -d "$BACKEND_DIR/server/data" ]; then
-  cp -a "$BACKEND_DIR/server/data"/*.db* /tmp/zhixu-backend/server/data/ 2>/dev/null || true
+  shopt -s nullglob
+  databases=("$BACKEND_DIR/server/data/"*.db*)
+  if [ ${#databases[@]} -gt 0 ]; then
+    cp -a "${databases[@]}" /tmp/zhixu-backend/server/data/
+  fi
 fi
 mkdir -p "$BACKEND_DIR"
 rm -rf "$BACKEND_DIR"/*

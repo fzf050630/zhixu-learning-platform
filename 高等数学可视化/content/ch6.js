@@ -249,7 +249,7 @@
             ['斯托克斯公式', '空间闭曲线积分 → 曲面积分', '右手法则'],
             ['格林公式', '是斯托克斯公式在平面上的特例', '—']
           ]},
-          { t: 'card', kind: 'key', tag: '必记', title: '三大公式的统一', html:
+          { t: 'card', kind: 'tip', tag: '拓展', title: '拓展：广义斯托克斯公式', html:
             '<p class="tight">格林、高斯、斯托克斯公式本质上都是<b>广义斯托克斯公式</b> \\( \\int_{\\partial M}\\omega=\\int_M\\mathrm{d}\\omega \\) 的特例：边界上的积分等于内部“导数”的积分。它们把复杂的边界积分转化为更好算的内部积分（或反之）。</p>'
           }
         ],
@@ -263,7 +263,7 @@
             no: '例 6.10', meta: '散度与旋度',
             q: '设 \\( \\boldsymbol{A}=(x^2y,\\ yz,\\ xz^2) \\)，求 \\( \\operatorname{div}\\boldsymbol{A} \\) 与 \\( \\operatorname{rot}\\boldsymbol{A} \\)。',
             sol: '<p>\\( \\operatorname{div}\\boldsymbol{A}=2xy+z+2xz \\)。</p>' +
-              '<p>\\( \\operatorname{rot}\\boldsymbol{A}=(0-x,\\ 0-z^2,\\ 0-x^2)=(-x,\\,-z^2,\\,-x^2) \\)。</p>'
+              '<p>\\( \\operatorname{rot}\\boldsymbol{A}=(0-y,\\ 0-z^2,\\ 0-x^2)=(-y,\\,-z^2,\\,-x^2) \\)。按定义，第一分量为 \( R_y-Q_z=0-y \)。</p>'
           }
         ],
         pitfalls: [
@@ -311,6 +311,13 @@
             sol: '<p>区域 \\( D: 0\\leqslant x\\leqslant 1,\\ x^2\\leqslant y\\leqslant x \\)，面积 \\( A=\\int_0^1(x-x^2)\\mathrm{d}x=\\dfrac16 \\)。</p>' +
               '<p>\\( \\bar x=\\dfrac{1}{A}\\int_0^1 x(x-x^2)\\mathrm{d}x=\\dfrac{1}{A}\\left(\\dfrac13-\\dfrac14\\right)=\\dfrac{1/12}{1/6}=\\dfrac12 \\)。</p>' +
               '<p>\\( \\bar y=\\dfrac{1}{A}\\int_0^1\\dfrac{x^2-x^4}{2}\\mathrm{d}x=\\dfrac{\\frac{1}{2}\\left(\\frac13-\\frac15\\right)}{1/6}=\\dfrac25 \\)。形心 \\( \\left(\\dfrac12,\\dfrac25\\right) \\)。</p>'
+          },
+          {
+            no: '补充 6.11-A', meta: '第二类曲线积分 · 变力做功',
+            q: String.raw`力场 \( \boldsymbol F(x,y)=(y,x) \) 使质点沿直线段 \( y=x \) 从 \( (0,0) \) 移动到 \( (1,1) \)。求力场所做的功。`,
+            sol: String.raw`用第二类曲线积分表示功：\( W=\int_L y\,\mathrm{d}x+x\,\mathrm{d}y \)。取参数 \( x=t,\ y=t,\ 0\leqslant t\leqslant1 \)，则 \( \mathrm{d}x=\mathrm{d}y=\mathrm{d}t \)，所以
+              \[ W=\int_0^1(t+t)\,\mathrm{d}t=1. \]
+              这个例子也说明：沿曲线做功要保留路径方向，并把 \( \mathrm{d}x,\mathrm{d}y \) 一起参数化。`
           }
         ],
         pitfalls: [

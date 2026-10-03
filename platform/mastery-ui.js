@@ -110,6 +110,11 @@
     const weakness = data.weakness ? data.weakness.label : '暂无明显薄弱点';
     const action = data.recommendation && data.recommendation.label ? data.recommendation.label : '继续保持';
     const review = formatReview(data.recommendation && data.recommendation.nextReviewAt);
+    const breakdown = data.breakdown || {};
+    const hasJevScore = typeof breakdown.jevScore === 'number' && Number.isFinite(breakdown.jevScore);
+    const scoringSource = hasJevScore
+      ? '规则 + Jev<span>规则 ' + escape(breakdown.ruleScore) + ' · Jev ' + escape(breakdown.jevScore) + '</span>'
+      : '规则评估<span>本次掌握度分数由规则计算</span>';
     badge.hidden = false;
     badge.dataset.level = mastery.level;
     badge.innerHTML = '掌握度 <strong>' + mastery.score + '%</strong> · ' + escape(mastery.label);
@@ -119,6 +124,7 @@
       '<div class="zx-mastery-score"><strong>' + mastery.score + '</strong><span>%</span>' +
       '<span class="zx-mastery-level">' + escape(mastery.label) + '</span></div>' +
       '<div class="zx-mastery-bar"><i style="width:' + Math.max(0, Math.min(100, mastery.score)) + '%"></i></div>' +
+      '<div class="zx-mastery-block zx-mastery-source"><b>评分方式</b>' + scoringSource + '</div>' +
       '<div class="zx-mastery-facts">' +
       '<div>稳定度<b>' + Math.round(data.stability || 0) + '%</b></div>' +
       '<div>复习紧迫度<b>' + Math.round(data.reviewUrgency || 0) + '%</b></div>' +

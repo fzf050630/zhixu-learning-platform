@@ -224,7 +224,7 @@
             '<div class="fml">\\( P\\{X=k\\}=(1-p)^{k-1}p,\\qquad k=1,2,3,\\cdots \\)</div>' +
             '<p class="tight">称 \\( X \\) 服从参数为 \\( p \\) 的<b>几何分布</b>，记作 \\( X\\sim G(p) \\)。</p>'
           },
-          { t: 'card', kind: 'thm', tag: '性质', title: '几何分布的无记忆性', html:
+          { t: 'card', kind: 'tip', tag: '拓展', title: '拓展：几何分布的无记忆性', html:
             '<div class="fml">\\( P\\{X>m+n\\mid X>m\\}=P\\{X>n\\},\\qquad m,n\\geqslant 0 \\)</div>' +
             '<p class="tight"><b>含义：</b>「已经失败了 \\( m \\) 次」并不改变「还需再等 \\( n \\) 次以上」的概率——过去不影响未来。这是几何分布（以及连续型中的指数分布）独有的性质，也是常考点。</p>'
           },
@@ -260,7 +260,7 @@
           },
           { t: 'p', html: '<b>典型背景：</b>单位时间内某电话交换台收到的呼叫次数、某放射源发出的粒子数、某路段交通事故数、稀有缺陷数——统称「稀有事件计数」。' },
           { t: 'viz', build: 'poisson', title: '泊松分布 P(λ) 形态', sub: '拖动 λ，观察分布如何趋于对称' },
-          { t: 'viz', build: 'poissonProcess', title: '泊松流与到达间隔', sub: '观察事件时间线，核对间隔服从 E(λ)、计数服从 P(λT)' },
+          { t: 'viz', build: 'poissonProcess', title: '拓展：泊松流与到达间隔', sub: '观察事件时间线，核对间隔服从 E(λ)、计数服从 P(λT)' },
 
           { t: 'h3', idx: '⑥', text: '泊松定理（大纲：了解结论和应用条件）' },
           { t: 'card', kind: 'thm', tag: '定理', title: '泊松定理', html:
@@ -455,7 +455,7 @@
             '<p class="tight">其分布函数为</p>' +
             '<div class="fml">\\( F(x)=\\begin{cases}1-e^{-\\lambda x}, & x>0\\\\ 0, & x\\leqslant 0\\end{cases} \\)</div>'
           },
-          { t: 'card', kind: 'thm', tag: '性质', title: '指数分布的无记忆性', html:
+          { t: 'card', kind: 'tip', tag: '拓展', title: '拓展：指数分布的无记忆性', html:
             '<div class="fml">\\( P\\{X>s+t\\mid X>s\\}=P\\{X>t\\},\\qquad s,t>0 \\)</div>' +
             '<p class="tight"><b>证明：</b>\\( P\\{X>s+t\\mid X>s\\}=\\dfrac{P\\{X>s+t\\}}{P\\{X>s\\}}=\\dfrac{e^{-\\lambda(s+t)}}{e^{-\\lambda s}}=e^{-\\lambda t}=P\\{X>t\\} \\)。</p>' +
             '<p class="tight"><b>含义：</b>元件已使用 \\( s \\) 小时，其剩余寿命分布与全新时相同——「不老化」。指数分布是<b>唯一</b>具有无记忆性的连续型分布（与几何分布对应）。</p>'

@@ -1,0 +1,4463 @@
+{
+  "subjects": [
+    "calculus"
+  ],
+  "reviewed": [
+    {
+      "nodeId": "calculus:ch1-s1",
+      "bank": "practice",
+      "id": "ca-fn-1",
+      "verification": "给定定义域和逐点对应值便确定实函数，值域由二者导出；A为教材三要素表述。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s1",
+      "bank": "practice",
+      "id": "ca-fn-2",
+      "verification": "f(-x)=-f(x)对应原点，f(-x)=f(x)对应y轴。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s1",
+      "bank": "practice",
+      "id": "ca-fn-3",
+      "verification": "性质枚举正确但无解题区分度。",
+      "action": "remove",
+      "reason": "只肯定性质列表，干扰度和解题价值不足。"
+    },
+    {
+      "nodeId": "calculus:ch1-s1",
+      "bank": "practice",
+      "id": "ca-fn-4",
+      "verification": "仅值域与定义域相交不能保证所有指定x可复合；须逐点检查g(x)∈Dom(f)。",
+      "action": "revise",
+      "reason": "原选项把相交与逐点落入混为一谈；改为可独立计算的定义域题。",
+      "replacement": {
+        "id": "ca-fn-4-r2",
+        "type": "single",
+        "stem": "实函数 h(x)=ln(1−x²) 的最大定义域是？",
+        "options": {
+          "A": "(−1,1)",
+          "B": "[−1,1]",
+          "C": "R",
+          "D": "(−∞,−1)∪(1,+∞)"
+        },
+        "answer": "A",
+        "explanation": "对数真数须严格大于0，1−x²>0，故−1<x<1。仅内外定义域有交集不足以确定全部允许输入。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch1-s1",
+      "bank": "practice",
+      "id": "ca-fn-5",
+      "verification": "非严格单调允许常函数，非一一映射；原T未限定严格。",
+      "action": "revise",
+      "reason": "补清严格与非严格单调，纠正原答案及一一对应断言。",
+      "replacement": {
+        "id": "ca-fn-5-r2",
+        "type": "judge",
+        "stem": "函数在区间上非严格单调，就一定能以其值域为定义域建立单值反函数。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "反函数要求原对应一一映射。常函数非严格单调，却让多个输入对应同一个值；严格单调是足够条件。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch1-s1",
+      "bank": "past",
+      "id": "exam-calculus-limits-2014-1",
+      "verification": "f(x)-x=sin(x)/x→0得y=x，数值正确但属于渐近线应用。",
+      "action": "remove",
+      "reason": "渐近线题与当前函数概念节点错位，且未核验所标原卷。"
+    },
+    {
+      "nodeId": "calculus:ch1-s1",
+      "bank": "past",
+      "id": "exam-calculus-limits-2015-9",
+      "verification": "ln(cos x)=-x²/2+o(x²)，比值-1/2；与函数概念节点错位。",
+      "action": "remove",
+      "reason": "极限计算与当前概念节点错位；在极限节点增加独立计算题，不保留未经核验年份。"
+    },
+    {
+      "nodeId": "calculus:ch1-s2",
+      "bank": "practice",
+      "id": "ca-elem-1",
+      "verification": "常数、幂、指数、对数、三角、反三角均属基础初等类型。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s2",
+      "bank": "practice",
+      "id": "ca-elem-2",
+      "verification": "实指数a^x全域构造要求a>0，标准非平凡指数再排除a=1。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s2",
+      "bank": "practice",
+      "id": "ca-elem-3",
+      "verification": "y=a^x逆解x=log_a y，域/值域交换。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s2",
+      "bank": "practice",
+      "id": "ca-elem-4",
+      "verification": "有限次合法代数运算与复合保持初等表达。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s2",
+      "bank": "practice",
+      "id": "ca-elem-5",
+      "verification": "连续基本函数在合法运算/复合的定义区间内连续。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch1-s2-2015-1-a",
+      "verification": "链式法则成立但属于导数节点。",
+      "action": "remove",
+      "reason": "链式求导与当前初等函数节点错位，原卷题号未核验。"
+    },
+    {
+      "nodeId": "calculus:ch1-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch1-s2-2019-1-b",
+      "verification": "对f(f^{-1}(x))=x求导给倒数关系，属于导数节点。",
+      "action": "remove",
+      "reason": "反函数求导与当前节点错位且已有导数相关题，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch1-s3",
+      "bank": "practice",
+      "id": "ca-lim-1",
+      "verification": "双侧邻域且有限极限的前提下左右极限相同为充要；原句省略域前提。",
+      "action": "revise",
+      "reason": "明确双侧定义域和有限极限，避免端点或无限极限歧义。",
+      "replacement": {
+        "id": "ca-lim-1-r2",
+        "type": "judge",
+        "stem": "实函数在x₀的某删去双侧邻域内有定义。其有限双侧极限存在，当且仅当左右极限均存在、有限且相等。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "两个单侧极限为同一实数L时，取两侧δ的较小值即得双侧ε-δ条件；反向由双侧条件限制到单侧得到。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch1-s3",
+      "bank": "practice",
+      "id": "ca-lim-3",
+      "verification": "局部保号只在极限非零时推出同号，原解析无条件断言错误。",
+      "action": "revise",
+      "reason": "修正局部保号前提，并用ε选取检验性质。",
+      "replacement": {
+        "id": "ca-lim-3-r2",
+        "type": "single",
+        "stem": "已知lim(x→a)f(x)=−2，以下哪项必成立？",
+        "options": {
+          "A": "在a的某删去邻域内f(x)<−1",
+          "B": "f(a)=−2",
+          "C": "f在a处可导",
+          "D": "f在整个定义域有界"
+        },
+        "answer": "A",
+        "explanation": "取ε=1，则去心邻域中−3<f(x)<−1。点值、可导和全域有界均不是极限定义的结论。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch1-s3",
+      "bank": "practice",
+      "id": "ca-lim-4",
+      "verification": "唯一性正确，但与本节点性质题重复。",
+      "action": "remove",
+      "reason": "与本节点已有有限极限性质重复，纯唯一性判断缺区分度。"
+    },
+    {
+      "nodeId": "calculus:ch1-s3",
+      "bank": "practice",
+      "id": "ca-lim-5",
+      "verification": "|a(x)b(x)|≤M|a(x)|→0。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s3",
+      "bank": "practice",
+      "id": "ca-lim-6",
+      "verification": "非零量趋0时倒数绝对值趋∞，不保证有同一符号无穷极限。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch1-s3-2014-3-a",
+      "verification": "ε-δ定义的去心条件与函数值误差关系正确。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch1-s3-2014-3-a-r2",
+        "type": "single",
+        "stem": "若 lim(x→a) f(x)=L，极限定义中 ε>0 对应的 δ 条件是？",
+        "options": {
+          "A": "|x−a|>δ 时 f(x)=L",
+          "B": "x=a 时 f(x)=ε",
+          "C": "0<|x−a|<δ 时 |f(x)−L|<ε",
+          "D": "f(x) 的导数小于 δ"
+        },
+        "answer": "C",
+        "explanation": "ε-δ 定义以函数值距离 L 小于 ε 刻画极限。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch1-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch1-s3-2022-7-b",
+      "verification": "sin x/x→1给等价无穷小。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch1-s3-2022-7-b-r2",
+        "type": "single",
+        "stem": "当 x→0 时，sin x 与 x 的等价无穷小关系是？",
+        "options": {
+          "A": "sin x~x",
+          "B": "sin x~x²",
+          "C": "sin x~1/x",
+          "D": "sin x~eˣ"
+        },
+        "answer": "A",
+        "explanation": "第一重要极限给出 sin x/x→1。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch1-s4",
+      "bank": "practice",
+      "id": "ca-lim-2",
+      "verification": "sin x/x在x→0取1。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s4",
+      "bank": "practice",
+      "id": "ca-limrule-1",
+      "verification": "两个重要极限正确但未注明各自不同趋近方向。",
+      "action": "revise",
+      "reason": "补全方向并增强干扰项，不把无下标lim当完整公式。",
+      "replacement": {
+        "id": "ca-limrule-1-r2",
+        "type": "single",
+        "stem": "以下哪组重要极限及趋近方式均正确？",
+        "options": {
+          "A": "x→0时sin x/x→1；t→+∞时(1+1/t)^t→e",
+          "B": "x→0时sin x/x→0；t→+∞时(1+1/t)^t→e",
+          "C": "x→+∞时sin x/x→1；t→0+时(1+1/t)^t→e",
+          "D": "x→0时sin x/x→1；t→+∞时(1+1/t)^t→1"
+        },
+        "answer": "A",
+        "explanation": "三角极限在角度按弧度且x→0时成立；幂指极限在t→+∞时成立。换错趋近方式会改变极限。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch1-s4",
+      "bank": "practice",
+      "id": "ca-limrule-2",
+      "verification": "夹逼存在应用的陈述虽真但过泛无判断价值。",
+      "action": "remove",
+      "reason": "仅肯定夹逼准则可求极限，未给条件或任务；新增具体应用代替。"
+    },
+    {
+      "nodeId": "calculus:ch1-s4",
+      "bank": "practice",
+      "id": "ca-limrule-3",
+      "verification": "单调+有界共同给实数完备性下的数列收敛。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s4",
+      "bank": "practice",
+      "id": "ca-limrule-4",
+      "verification": "乘除因子替换须配套条件，泛称替换容易误导加减消去。",
+      "action": "revise",
+      "reason": "用可精确复算的反例限定等价替换范围。",
+      "replacement": {
+        "id": "ca-limrule-4-r2",
+        "type": "judge",
+        "stem": "x→0时u(x)=x+x²、v(x)=x满足u~v，因此求lim(u−v)/x²时可以把u直接替换为v。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "u/v=1+x→1，但(u−v)/x²恒为1；直接替换使分子为0，改变结果。等价无穷小不保证相减后的高阶差保持。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch1-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch1-s4-2015-4-a",
+      "verification": "指数函数在0导数1。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch1-s4-2015-4-a-r2",
+        "type": "single",
+        "stem": "lim(x→0)(eˣ−1)/x 等于？",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "−1",
+          "D": "不存在"
+        },
+        "answer": "B",
+        "explanation": "由 eˣ 在 0 处的导数或等价无穷小 eˣ−1~x 得极限为 1。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch1-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch1-s4-2020-8-b",
+      "verification": "-abs(a_n)≤b_n≤abs(a_n)，两边趋0。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch1-s4-2020-8-b-r2",
+        "type": "single",
+        "stem": "数列 aₙ→0 时，若 |bₙ|≤|aₙ|，则 bₙ？",
+        "options": {
+          "A": "必发散",
+          "B": "必趋于 1",
+          "C": "无任何结论",
+          "D": "也趋于 0"
+        },
+        "answer": "D",
+        "explanation": "由夹逼定理，绝对值被趋于零的量控制时 bₙ→0。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch1-s5",
+      "bank": "practice",
+      "id": "ca-cont-1",
+      "verification": "可导增量为f′(x0)h+o(h)，趋0；|x|反例否定反向。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s5",
+      "bank": "practice",
+      "id": "ca-cont-2",
+      "verification": "连续等价于点值与同域极限一致。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s5",
+      "bank": "practice",
+      "id": "ca-cont-3",
+      "verification": "第一类要求两有限单侧极限，第二类至少一侧不满足。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s5",
+      "bank": "practice",
+      "id": "ca-cont-4",
+      "verification": "闭区间连续推出有界、取最值、介值；不可导反例|x|排除B。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch1-s5",
+      "bank": "practice",
+      "id": "ca-cont-5",
+      "verification": "与初等函数连续性和本节定义题重复。",
+      "action": "remove",
+      "reason": "与初等函数连续性及连续定义题重复，删除重复弱题。"
+    },
+    {
+      "nodeId": "calculus:ch1-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch1-s5-2019-1-a",
+      "verification": "与ca-cont-2同一连续定义重复。",
+      "action": "remove",
+      "reason": "与ca-cont-2连续定义完全重复且出处未核验。"
+    },
+    {
+      "nodeId": "calculus:ch1-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch1-s5-2021-4-b",
+      "verification": "两单侧有限且不连续是第一类，正确；原卷来源未核验。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch1-s5-2021-4-b-r2",
+        "type": "single",
+        "stem": "第一类间断点的典型条件是？",
+        "options": {
+          "A": "左右极限都存在且有限，但不满足连续条件",
+          "B": "函数在两侧都无界",
+          "C": "函数处处可导",
+          "D": "左右极限均不存在"
+        },
+        "answer": "A",
+        "explanation": "可去间断和跳跃间断都属于第一类间断点。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s1",
+      "bank": "practice",
+      "id": "ca-deriv-1",
+      "verification": "差商去心极限是导数定义。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s1",
+      "bank": "practice",
+      "id": "ca-deriv-2",
+      "verification": "在有限导数存在时图像切线斜率等于该导数。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s1",
+      "bank": "practice",
+      "id": "ca-deriv-3",
+      "verification": "可导的增量o(1)，推出连续，反向被|x|否定。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s1",
+      "bank": "practice",
+      "id": "ca-deriv-4",
+      "verification": "可微增量线性主部为f′dx。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s1",
+      "bank": "practice",
+      "id": "ca-deriv-5",
+      "verification": "左右有限导数相等且双侧可定义时合成双侧差商极限。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s1",
+      "bank": "past",
+      "id": "exam-calculus-diff-2014-2",
+      "verification": "f″≥0使f′不减并得弦下关系，但此题是凹凸性节点内容。",
+      "action": "remove",
+      "reason": "凹凸弦关系与导数定义节点错位，原卷未核实；凹凸节点已有明确题。"
+    },
+    {
+      "nodeId": "calculus:ch2-s1",
+      "bank": "past",
+      "id": "exam-calculus-diff-2015-1",
+      "verification": "只说两侧f″变号不保证f在点处连续有定义；且题目错位。",
+      "action": "remove",
+      "reason": "缺f在变号点连续/有定义的拐点条件，且错位及来源未核实。"
+    },
+    {
+      "nodeId": "calculus:ch2-s2",
+      "bank": "practice",
+      "id": "ca-rule-1",
+      "verification": "乘积差商拆项得u′v+uv′。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s2",
+      "bank": "practice",
+      "id": "ca-rule-2",
+      "verification": "逐层对中间变量求导给链式关系。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s2",
+      "bank": "practice",
+      "id": "ca-rule-3",
+      "verification": "反函数导数须非零原导数且在对应点，原题无条件断言不足。",
+      "action": "revise",
+      "reason": "补对应点、可导与非零条件。",
+      "replacement": {
+        "id": "ca-rule-3-r2",
+        "type": "judge",
+        "stem": "f在某区间严格单调可导，在x₀处f′(x₀)≠0。其反函数g在y₀=f(x₀)处可导时，g′(y₀)=1/f′(x₀)。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "对g(f(x))=x在对应点求导得g′(y₀)f′(x₀)=1；必须区分x₀与y₀，且不能除以零。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s2",
+      "bank": "practice",
+      "id": "ca-rule-4",
+      "verification": "隐函数应对y(x)链式求导；直接解出y在能解时也是合法方法，改计算消除方式歧义。",
+      "action": "revise",
+      "reason": "用唯一结果取代通常方法选择，避免直接解出也是合法路径。",
+      "replacement": {
+        "id": "ca-rule-4-r2",
+        "type": "single",
+        "stem": "圆x²+y²=25在点(3,4)附近把y看作x的可导函数。y′(3)为？",
+        "options": {
+          "A": "−3/4",
+          "B": "−4/3",
+          "C": "3/4",
+          "D": "4/3"
+        },
+        "answer": "A",
+        "explanation": "隐式求导2x+2yy′=0，y′=−x/y；y=4非零，代入得−3/4。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s2",
+      "bank": "practice",
+      "id": "ca-rule-5",
+      "verification": "参数求导需x′(t)≠0，原题省略。",
+      "action": "revise",
+      "reason": "补非零分母与局部函数条件。",
+      "replacement": {
+        "id": "ca-rule-5-r2",
+        "type": "judge",
+        "stem": "可导参数x(t)、y(t)在t₀满足x′(t₀)≠0，并在附近确定可导y(x)，则dy/dx在t₀等于y′(t₀)/x′(t₀)。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "由y′(t₀)=(dy/dx)x′(t₀)和分母非零得公式。x′=0时不能直接用该比值。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s2-2019-3-a",
+      "verification": "与ca-rule-1同一乘积法则重复。",
+      "action": "remove",
+      "reason": "与乘积求导题完全重复且原卷未核实。"
+    },
+    {
+      "nodeId": "calculus:ch2-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s2-2015-16-b",
+      "verification": "再求一次链式导数，外项f″(g)(g′)²加内项f′(g)g″。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch2-s2-2015-16-b-r2",
+        "type": "single",
+        "stem": "复合函数 y=f(g(x)) 的二阶导数包含？",
+        "options": {
+          "A": "f″(x)+g″(x)",
+          "B": "f″(g(x))[g′(x)]²+f′(g(x))g″(x)",
+          "C": "f′(g(x))g′(x)",
+          "D": "f″(g(x))g″(x)"
+        },
+        "answer": "B",
+        "explanation": "对一阶链式法则再求导，需同时对外层导数和内层导数求导。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s3",
+      "bank": "practice",
+      "id": "ca-mvt-1",
+      "verification": "标准假设是闭区间连续开区间可导，D若指闭区间二阶可导也是更强充分条件，应明确问标准假设。",
+      "action": "revise",
+      "reason": "把最小标准假设与更强充分条件区分，排除原D潜在歧义。",
+      "replacement": {
+        "id": "ca-mvt-1-r2",
+        "type": "single",
+        "stem": "设a<b，拉格朗日中值定理的标准假设是？",
+        "options": {
+          "A": "f在[a,b]连续，在(a,b)可导",
+          "B": "f仅在(a,b)连续",
+          "C": "f仅在a、b连续",
+          "D": "f仅在(a,b)二阶可导，不要求端点连续"
+        },
+        "answer": "A",
+        "explanation": "端点连续和内部可导共同保证存在ξ∈(a,b)，f′(ξ)=[f(b)−f(a)]/(b−a)。仅内部高阶可导不补足端点条件。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s3",
+      "bank": "practice",
+      "id": "ca-mvt-2",
+      "verification": "端点相同使割线斜率0，导数零点。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s3",
+      "bank": "practice",
+      "id": "ca-mvt-3",
+      "verification": "柯西取g=x为拉格朗日，端点相同为罗尔。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s3",
+      "bank": "practice",
+      "id": "ca-mvt-4",
+      "verification": "与上一题包含关系重复。",
+      "action": "remove",
+      "reason": "与三种中值定理包含关系题重复。"
+    },
+    {
+      "nodeId": "calculus:ch2-s3",
+      "bank": "practice",
+      "id": "ca-mvt-5",
+      "verification": "泛用途选择无严格唯一数学判别价值。",
+      "action": "remove",
+      "reason": "证明等式等用途描述过泛，删除无区分度用途枚举。"
+    },
+    {
+      "nodeId": "calculus:ch2-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s3-2015-18-a",
+      "verification": "与ca-mvt-1重复。",
+      "action": "remove",
+      "reason": "与标准假设题重复，原卷对应未核实。"
+    },
+    {
+      "nodeId": "calculus:ch2-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s3-2019-9-b",
+      "verification": "与ca-mvt-2重复。",
+      "action": "remove",
+      "reason": "与罗尔端点条件题重复，原卷对应未核实。"
+    },
+    {
+      "nodeId": "calculus:ch2-s4",
+      "bank": "practice",
+      "id": "ca-lhop-1",
+      "verification": "直接洛必达针对商未定式；导数比无极限不能逆推原比无极限。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s4",
+      "bank": "practice",
+      "id": "ca-lhop-2",
+      "verification": "与ca-lhop-1未定式适用范围重复。",
+      "action": "remove",
+      "reason": "适用类型与综合条件判断重复。"
+    },
+    {
+      "nodeId": "calculus:ch2-s4",
+      "bank": "practice",
+      "id": "ca-lhop-3",
+      "verification": "与适用范围重复，亦不能只检查未定式就满足全部假设。",
+      "action": "remove",
+      "reason": "重复未定式判断，不能误以为类型检查就验证全部假设。"
+    },
+    {
+      "nodeId": "calculus:ch2-s4",
+      "bank": "practice",
+      "id": "ca-lhop-4",
+      "verification": "把乘积改商是合法常用转换，其他项不能直接消除未定式。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s4",
+      "bank": "practice",
+      "id": "ca-lhop-5",
+      "verification": "仍未定式不自动满足新一轮可导/分母导数非零假设。",
+      "action": "revise",
+      "reason": "题干原来略去重复适用的必要前提。",
+      "replacement": {
+        "id": "ca-lhop-5-r2",
+        "type": "judge",
+        "stem": "一次洛必达后仍得到0/0型，仅凭这一点就能再次使用，不必重新检查可导性和新分母的导数是否为零。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "每一轮都要满足该轮分子分母的可导条件、新分母导数非零及相应导数比极限条件；未定式类型不是全部假设。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s4-2019-2-a",
+      "verification": "与ca-lhop-1适用类型重复。",
+      "action": "remove",
+      "reason": "与已有综合条件题重复且未经原卷核验。"
+    },
+    {
+      "nodeId": "calculus:ch2-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s4-2020-8-b",
+      "verification": "原句通常和相应条件空泛，未给新信息且未核实来源。",
+      "action": "remove",
+      "reason": "泛指用洛必达无具体求解内容，条件未完整且来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch2-s5",
+      "bank": "practice",
+      "id": "ca-extrema-1",
+      "verification": "有限可导内点极值由费马得驻点，不可导极值如|x|。",
+      "action": "revise",
+      "reason": "明确内点，避免相对域端点与单侧导数歧义。",
+      "replacement": {
+        "id": "ca-extrema-1-r2",
+        "type": "single",
+        "stem": "对定义域内点x₀，以下极值判断正确的是？",
+        "options": {
+          "A": "若在x₀可导且取局部极值，则f′(x₀)=0；不可导内点也可能取极值",
+          "B": "内点导数为0一定是极值点",
+          "C": "所有内点极值都必须可导",
+          "D": "任何极大值都大于任何极小值"
+        },
+        "answer": "A",
+        "explanation": "费马定理针对可导内点；|x|在0不可导却极小，x³在0为驻点却无极值。端点最值不能套内点驻点条件。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s5",
+      "bank": "practice",
+      "id": "ca-mono-1",
+      "verification": "需整个区间处处导数正，不能只给某点正就断全区间单调。",
+      "action": "revise",
+      "reason": "以计算明确处处符号和区间，替代不带范围的泛称。",
+      "replacement": {
+        "id": "ca-mono-1-r2",
+        "type": "single",
+        "stem": "f(x)=x³−3x的严格递增区间是？",
+        "options": {
+          "A": "(−∞,−1)和(1,+∞)",
+          "B": "(−1,1)",
+          "C": "整个R",
+          "D": "(−∞,1)"
+        },
+        "answer": "A",
+        "explanation": "f′=3(x²−1)，在x<−1或x>1时为正，在−1<x<1为负；两个递增区间分别表述，不把它们的并集当一个全局单调区间。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s5",
+      "bank": "practice",
+      "id": "ca-mono-2",
+      "verification": "|x|在0不可导且极小，正确。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s5",
+      "bank": "practice",
+      "id": "ca-mono-3",
+      "verification": "二阶导正且一阶导零的局部二阶展开给极小。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s5",
+      "bank": "practice",
+      "id": "ca-mono-4",
+      "verification": "连续最值还可能在内部不可导点，原候选集合缺失。",
+      "action": "revise",
+      "reason": "纠正遗漏不可导候选的实质错误。",
+      "replacement": {
+        "id": "ca-mono-4-r2",
+        "type": "judge",
+        "stem": "对闭区间上的连续函数，求最值时只比较内部驻点和端点就总能得到正确结果，无需检查内部不可导点。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "f(x)=|x|在[−1,2]无驻点，端值1、2，最小值却在内部不可导点0取得。候选还应包含内部不可导点。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s5-2019-15-a",
+      "verification": "与ca-extrema-1重复。",
+      "action": "remove",
+      "reason": "费马必要条件与已有极值题重复，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch2-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s5-2014-2-b",
+      "verification": "与单调导数题重复。",
+      "action": "remove",
+      "reason": "导数正判断单调与本节题重复，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch2-s6",
+      "bank": "practice",
+      "id": "ca-concave-1",
+      "verification": "f″>0使割线图像在弦下；凹凸中文名有约定差异，改几何判据。",
+      "action": "revise",
+      "reason": "两侧割线斜率按拉格朗日比较，左割线斜率小于右割线斜率，等价于弦下关系。",
+      "replacement": {
+        "id": "ca-concave-1-r2",
+        "type": "single",
+        "stem": "f在区间上二阶可导且f″>0。对于区间内任意两点，图像与连接两点的弦相比如何？",
+        "options": {
+          "A": "内部图像低于弦",
+          "B": "内部图像高于弦",
+          "C": "一定是直线",
+          "D": "每点都是拐点"
+        },
+        "answer": "A",
+        "explanation": "f″>0使f′严格递增，函数严格凸，内部函数值低于线性插值。使用弦关系避免中英文凹/凸命名差异。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s6",
+      "bank": "practice",
+      "id": "ca-concave-2",
+      "verification": "连续曲线上凹凸性在点两侧改变是拐点核心。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s6",
+      "bank": "practice",
+      "id": "ca-concave-3",
+      "verification": "y=x³为二阶导零拐点，y=x^(1/3)为二阶导不存在拐点。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s6",
+      "bank": "practice",
+      "id": "ca-concave-4",
+      "verification": "水平/垂直/斜线是三种直线渐近线分类。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s6",
+      "bank": "practice",
+      "id": "ca-concave-5",
+      "verification": "泛称由相应极限确定没有计算或公式判断。",
+      "action": "remove",
+      "reason": "泛称渐近线由极限决定过浅，新增实际除法求渐近线题。"
+    },
+    {
+      "nodeId": "calculus:ch2-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s6-2015-1-a",
+      "verification": "与凹凸判据题重复。",
+      "action": "remove",
+      "reason": "与二阶导符号弦关系重复，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch2-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s6-2019-15-b",
+      "verification": "与拐点定义题重复。",
+      "action": "remove",
+      "reason": "与拐点定义重复，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch2-s7",
+      "bank": "practice",
+      "id": "ca-arc-1",
+      "verification": "非负弧长元素一般应为√(1+y′²)|dx|；无绝对值式需固定增x方向。",
+      "action": "revise",
+      "reason": "纠正方向未限定的弧元素记法。",
+      "replacement": {
+        "id": "ca-arc-1-r2",
+        "type": "single",
+        "stem": "对可导图像y=f(x)，若ds表示非负弧长元素，不预先限定运动方向，则ds为？",
+        "options": {
+          "A": "√(1+[f′(x)]²)|dx|",
+          "B": "f′(x)dx",
+          "C": "dx",
+          "D": "√(1+[f″(x)]²)dx"
+        },
+        "answer": "A",
+        "explanation": "弧長元素来自√(dx²+dy²)，dy=f′dx；开方给|dx|。只有沿x增大计算定向微分时可直接写正系数乘dx。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s7",
+      "bank": "practice",
+      "id": "ca-arc-2",
+      "verification": "K=|y″|/(1+y′²)^(3/2)为图像正则曲线公式。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s7",
+      "bank": "practice",
+      "id": "ca-arc-3",
+      "verification": "倒数半径需K>0；K=0不存在有限圆，原题省条件。",
+      "action": "revise",
+      "reason": "补非零曲率条件。",
+      "replacement": {
+        "id": "ca-arc-3-r2",
+        "type": "judge",
+        "stem": "曲线上一点的曲率K>0时，曲率半径R=1/K；K=0时不能得到有限曲率圆。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "圆的曲率为1/R；仅非零曲率可确定有限半径，直线为K=0的极限情况。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch2-s7",
+      "bank": "practice",
+      "id": "ca-arc-4",
+      "verification": "曲率圆在曲率非零处同切线、同弯曲侧和曲率。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s7",
+      "bank": "practice",
+      "id": "ca-arc-5",
+      "verification": "直线切向方向不变，曲率0，有限曲率圆不存在。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch2-s7",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s7-2015-16-a",
+      "verification": "与原弧微分题重复且同样省方向。",
+      "action": "remove",
+      "reason": "与弧长元素题重复且方向缺失，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch2-s7",
+      "bank": "past",
+      "id": "exam-calculus-ch2-s7-2019-16-b",
+      "verification": "K=|d切向角/ds|，是单位弧长方向变化率。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch2-s7-2019-16-b-r2",
+        "type": "single",
+        "stem": "曲率描述曲线在一点附近？",
+        "options": {
+          "A": "函数值的绝对大小",
+          "B": "积分区域面积",
+          "C": "切线方向变化的快慢",
+          "D": "切线截距"
+        },
+        "answer": "C",
+        "explanation": "曲率衡量单位弧长上的切向角变化率。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch3-s1",
+      "bank": "practice",
+      "id": "ca-antideriv-1",
+      "verification": "同一连通区间上差导数0才推出一个常数，原句未限区间。",
+      "action": "revise",
+      "reason": "补连通区间，避免分离定义域常数不同的反例。",
+      "replacement": {
+        "id": "ca-antideriv-1-r2",
+        "type": "single",
+        "stem": "在同一开区间I上，F′=f。f在I上的全体原函数可以表示为？",
+        "options": {
+          "A": "F+C，C为一个任意实常数",
+          "B": "只有F",
+          "C": "所有C·F",
+          "D": "F²+C"
+        },
+        "answer": "A",
+        "explanation": "任意另一原函数G满足(G−F)′=0，由中值定理在区间I上差恒为常数。若定义域不连通，各连通分支的常数可不同。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch3-s1",
+      "bank": "practice",
+      "id": "ca-antideriv-2",
+      "verification": "不定积分是原函数族而非单个数。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s1",
+      "bank": "practice",
+      "id": "ca-antideriv-3",
+      "verification": "连续性经FTC给原函数；仅可积不保证原函数，原解析因果不足。",
+      "action": "revise",
+      "reason": "纠正原解析把可积直接等同于有原函数的逻辑。",
+      "replacement": {
+        "id": "ca-antideriv-3-r2",
+        "type": "judge",
+        "stem": "在开区间上连续的实函数必有原函数。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "固定区间内一点a，令F(x)=∫ₐˣf(t)dt；由连续性和微积分基本定理，F′=f。单独黎曼可积并不足以得原函数。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch3-s1",
+      "bank": "practice",
+      "id": "ca-antideriv-4",
+      "verification": "在实幂合法区间上对x^(n+1)/(n+1)求导为x^n。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s1",
+      "bank": "practice",
+      "id": "ca-antideriv-5",
+      "verification": "与原函数族加常数题重复。",
+      "action": "remove",
+      "reason": "与全体原函数族题同义重复。"
+    },
+    {
+      "nodeId": "calculus:ch3-s1",
+      "bank": "past",
+      "id": "exam-calculus-integral-2015-10",
+      "verification": "u=1+x²积分限1→2得ln2，题正确但属定积分换元。",
+      "action": "remove",
+      "reason": "定积分换元与原函数概念节点错位且年份未核验，改在方法节点增加新例。"
+    },
+    {
+      "nodeId": "calculus:ch3-s1",
+      "bank": "past",
+      "id": "exam-calculus-integral-2017-11",
+      "verification": "u=x²，xdx=du/2得(e−1)/2，题正确但属定积分换元。",
+      "action": "remove",
+      "reason": "定积分换元与本节点错位且原卷未核验。"
+    },
+    {
+      "nodeId": "calculus:ch3-s2",
+      "bank": "practice",
+      "id": "ca-defint-1",
+      "verification": "退化积分按定义为0。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s2",
+      "bank": "practice",
+      "id": "ca-defint-2",
+      "verification": "黎曼积分来自网格任意标记和的极限。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s2",
+      "bank": "practice",
+      "id": "ca-defint-3",
+      "verification": "变量名称是哑变量改名不影响积分。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s2",
+      "bank": "practice",
+      "id": "ca-defint-4",
+      "verification": "正负函数对应面积符号累加。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s2",
+      "bank": "practice",
+      "id": "ca-defint-5",
+      "verification": "反转区间方向改变积分号。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch3-s2-2015-10-a",
+      "verification": "与ca-defint-1完全重复。",
+      "action": "remove",
+      "reason": "退化积分与现有练习重复，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch3-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch3-s2-2014-9-b",
+      "verification": "与几何有向面积概念题重叠，非负特例无新增计算。",
+      "action": "remove",
+      "reason": "有向面积定义的非负特例与本节已有题重复。"
+    },
+    {
+      "nodeId": "calculus:ch3-s3",
+      "bank": "practice",
+      "id": "ca-varlim-1",
+      "verification": "连续f使积分平均值在缩区间上趋f(x)，F′=f。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s3",
+      "bank": "practice",
+      "id": "ca-nl-1",
+      "verification": "牛顿莱布尼茨须f可积且F为相应原函数，原题仅给公式省完整假设。",
+      "action": "revise",
+      "reason": "明确原函数与连续性假设，公式不孤立使用。",
+      "replacement": {
+        "id": "ca-nl-1-r2",
+        "type": "single",
+        "stem": "f在[a,b]连续，F在该区间上满足F′=f。∫ₐᵇf(x)dx等于？",
+        "options": {
+          "A": "F(b)−F(a)",
+          "B": "F(a)−F(b)",
+          "C": "F(a)+F(b)",
+          "D": "f(b)−f(a)"
+        },
+        "answer": "A",
+        "explanation": "在上述假设下牛顿–莱布尼茨公式给原函数端值差，与积分方向一致。不能只看被积函数的端值。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch3-s3",
+      "bank": "practice",
+      "id": "ca-nl-2",
+      "verification": "与变限积分导数题同一命题但强调原函数定义，重复。",
+      "action": "remove",
+      "reason": "与变限积分求导题同一结论，删去重复。"
+    },
+    {
+      "nodeId": "calculus:ch3-s3",
+      "bank": "practice",
+      "id": "ca-nl-3",
+      "verification": "与ca-varlim-1逐字重复。",
+      "action": "remove",
+      "reason": "与ca-varlim-1逐字重复。"
+    },
+    {
+      "nodeId": "calculus:ch3-s3",
+      "bank": "practice",
+      "id": "ca-nl-4",
+      "verification": "泛称FTC联系两积分重复公式知识。",
+      "action": "remove",
+      "reason": "与公式题重复，仅称联系不构成独立任务。"
+    },
+    {
+      "nodeId": "calculus:ch3-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch3-s3-2015-10-a",
+      "verification": "与ca-varlim-1完全重复。",
+      "action": "remove",
+      "reason": "重复变上限求导，出处未核验。"
+    },
+    {
+      "nodeId": "calculus:ch3-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch3-s3-2017-11-b",
+      "verification": "与NL公式完全重复。",
+      "action": "remove",
+      "reason": "重复牛顿–莱布尼茨公式，出处未核验。"
+    },
+    {
+      "nodeId": "calculus:ch3-s4",
+      "bank": "practice",
+      "id": "ca-int-1",
+      "verification": "对(x−1)e^x求导为xe^x。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s4",
+      "bank": "practice",
+      "id": "ca-int-2",
+      "verification": "x³/3端值差1/3，但为直接公式题不是两方法。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s4",
+      "bank": "practice",
+      "id": "ca-sub-1",
+      "verification": "方法枚举过浅，换元与分部确为两常用技巧。",
+      "action": "remove",
+      "reason": "纯方法名称枚举，无计算或条件判断价值。"
+    },
+    {
+      "nodeId": "calculus:ch3-s4",
+      "bank": "practice",
+      "id": "ca-sub-2",
+      "verification": "乘积微分d(uv)=u dv+v du给分部式。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s4",
+      "bank": "practice",
+      "id": "ca-sub-3",
+      "verification": "在换成新变量且不回代的定积分计算中上下限必须相应转换。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch3-s4-2015-10-a",
+      "verification": "与ca-int-1实际计算重复且提示过浅。",
+      "action": "remove",
+      "reason": "与已有xe^x实际积分题重复。"
+    },
+    {
+      "nodeId": "calculus:ch3-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch3-s4-2017-11-b",
+      "verification": "dx=φ′dt为微分链式关系；出处未核验。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch3-s4-2017-11-b-r2",
+        "type": "single",
+        "stem": "定积分换元 x=φ(t) 时，dx 应替换为？",
+        "options": {
+          "A": "φ(t)dt",
+          "B": "φ′(t)dt",
+          "C": "φ″(t)dt",
+          "D": "dt/φ(t)"
+        },
+        "answer": "B",
+        "explanation": "换元时微分需按链式法则乘 φ′(t)。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch3-s5",
+      "bank": "practice",
+      "id": "ca-improp-1",
+      "verification": "尾部p积分由幂原函数判p>1，p=1给log发散。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s5",
+      "bank": "practice",
+      "id": "ca-improp-2",
+      "verification": "截断积分极限且有限为通常收敛定义。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s5",
+      "bank": "practice",
+      "id": "ca-improp-3",
+      "verification": "无穷尾/瑕点均通过极限定义，过泛而重复截断定义。",
+      "action": "remove",
+      "reason": "与截断极限定义重复，缺新条件或计算。"
+    },
+    {
+      "nodeId": "calculus:ch3-s5",
+      "bank": "practice",
+      "id": "ca-improp-4",
+      "verification": "内部无界瑕点积分称瑕积分，需按各侧拆分。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s5",
+      "bank": "practice",
+      "id": "ca-improp-5",
+      "verification": "与ca-improp-1重复。",
+      "action": "remove",
+      "reason": "与p积分充要条件题重复。"
+    },
+    {
+      "nodeId": "calculus:ch3-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch3-s5-2015-10-a",
+      "verification": "与ca-improp-1重复。",
+      "action": "remove",
+      "reason": "与p积分题同一公式重复，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch3-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch3-s5-2019-16-b",
+      "verification": "与ca-improp-2定义重复。",
+      "action": "remove",
+      "reason": "与反常积分定义题重复。"
+    },
+    {
+      "nodeId": "calculus:ch3-s6",
+      "bank": "practice",
+      "id": "ca-app-1",
+      "verification": "面积可定积分，周长也可弧长定积分，原A/B双正确。",
+      "action": "revise",
+      "reason": "原题面积和周长均能用定积分，改唯一计算题。",
+      "replacement": {
+        "id": "ca-app-1-r2",
+        "type": "single",
+        "stem": "y=x与x轴、x=−1、x=1围成图形的几何面积是？",
+        "options": {
+          "A": "1",
+          "B": "0",
+          "C": "2",
+          "D": "−1"
+        },
+        "answer": "A",
+        "explanation": "面积∫_{−1}¹|x|dx=2∫₀¹x dx=1；有向积分为0，不能代替几何面积。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch3-s6",
+      "bank": "practice",
+      "id": "ca-app-2",
+      "verification": "圆盘/壳层积分按截面累积体积。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s6",
+      "bank": "practice",
+      "id": "ca-app-3",
+      "verification": "弧长为速度范数积分，正确。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s6",
+      "bank": "practice",
+      "id": "ca-app-4",
+      "verification": "变力做功及水压力以力微元积分。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch3-s6",
+      "bank": "practice",
+      "id": "ca-app-5",
+      "verification": "仅称微元法重要无应用解答价值。",
+      "action": "remove",
+      "reason": "微元法用途泛称重复方法题，增加实际旋转体计算。"
+    },
+    {
+      "nodeId": "calculus:ch3-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch3-s6-2014-9-a",
+      "verification": "变号几何面积须|f|，来源未核验但数学题独立。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch3-s6-2014-9-a-r2",
+        "type": "single",
+        "stem": "曲线 y=f(x) 与 x 轴围成面积，在 f 变号时应计算？",
+        "options": {
+          "A": "∫f(x)dx 后不考虑符号",
+          "B": "∫|f(x)|dx",
+          "C": "∫f′(x)dx",
+          "D": "∫x f″(x)dx"
+        },
+        "answer": "B",
+        "explanation": "几何面积非负，跨越 x 轴时需按零点分段或取绝对值。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch3-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch3-s6-2017-11-b",
+      "verification": "截面体积必须垂直轴且沿轴积分，成立。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch3-s6-2017-11-b-r2",
+        "type": "single",
+        "stem": "旋转体体积用截面法计算时，常将横截面积对哪个变量积分？",
+        "options": {
+          "A": "曲率变量",
+          "B": "随机变量",
+          "C": "矩阵秩",
+          "D": "沿旋转轴方向的变量"
+        },
+        "answer": "D",
+        "explanation": "体积等于垂直旋转轴的截面积沿轴向累积。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s1",
+      "bank": "practice",
+      "id": "ca-vec-2",
+      "verification": "向量加法数乘闭合，减法属加负向量。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s1",
+      "bank": "practice",
+      "id": "ca-vec-3",
+      "verification": "非零平行向量成非零比例，垂直或等模不等价。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s1",
+      "bank": "practice",
+      "id": "ca-vec-4",
+      "verification": "单位向量范数1，非零向量归一化可得。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s1",
+      "bank": "practice",
+      "id": "ca-vec-5",
+      "verification": "方向余弦需非零向量才能定义；平方和由归一化范数给1。",
+      "action": "revise",
+      "reason": "补非零向量前提。",
+      "replacement": {
+        "id": "ca-vec-5-r2",
+        "type": "single",
+        "stem": "非零空间向量的三个方向余弦满足？",
+        "options": {
+          "A": "cos²α+cos²β+cos²γ=1",
+          "B": "cosα+cosβ+cosγ=1",
+          "C": "三者之积为1",
+          "D": "三者都为1"
+        },
+        "answer": "A",
+        "explanation": "把向量分量除以长度，得到单位向量，三个分量平方和为1；零向量无确定方向余弦。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s1",
+      "bank": "practice",
+      "id": "ca-vec-6",
+      "verification": "共线分量判据须区分零向量及零分母。",
+      "action": "revise",
+      "reason": "补非零与零分母边界，保持坐标判据正确。",
+      "replacement": {
+        "id": "ca-vec-6-r2",
+        "type": "judge",
+        "stem": "对两个非零空间向量，平行等价于存在非零λ使a=λb；检查坐标比例时须单独处理零分量。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "标量倍数定义消除对零分母直接作比的错误；不能要求每一坐标分式都能写出。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s1",
+      "bank": "past",
+      "id": "exam-calculus-space-2024-5",
+      "verification": "三交线可能同一条线，共点不推出唯一公共点，且题目错位。",
+      "action": "remove",
+      "reason": "交线共点可包括全部交线重合，原唯一点答案不成立；且错位和来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch4-s1",
+      "bank": "past",
+      "id": "exam-calculus-space-2014-9",
+      "verification": "法向量系数(2,-1,-1)正确但错归向量线性运算节点。",
+      "action": "remove",
+      "reason": "法向量识别属于平面节点，取消错位和未经核验标签。"
+    },
+    {
+      "nodeId": "calculus:ch4-s2",
+      "bank": "practice",
+      "id": "ca-vector-1",
+      "verification": "两非零向量点积0当且仅当cosθ0。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s2",
+      "bank": "practice",
+      "id": "ca-dot-1",
+      "verification": "数量积由投影给长度乘cosθ。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s2",
+      "bank": "practice",
+      "id": "ca-dot-2",
+      "verification": "叉积长度为底乘高，平行时退化面积0。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s2",
+      "bank": "practice",
+      "id": "ca-dot-3",
+      "verification": "方向只在叉积非零时能由右手法则确定。",
+      "action": "revise",
+      "reason": "用非零正交向量明确右手方向并独立行列式复算。",
+      "replacement": {
+        "id": "ca-dot-3-r2",
+        "type": "single",
+        "stem": "a=(1,0,0)、b=(0,1,0)。a×b为？",
+        "options": {
+          "A": "(0,0,1)",
+          "B": "(0,0,−1)",
+          "C": "(1,1,0)",
+          "D": "(0,0,0)"
+        },
+        "answer": "A",
+        "explanation": "标准右手基下e₁×e₂=e₃；交换顺序才得−e₃。一般叉积为零时不谈方向。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s2",
+      "bank": "practice",
+      "id": "ca-dot-4",
+      "verification": "无非零条件时方向角可能无定义，且与已有点积题重复。",
+      "action": "remove",
+      "reason": "缺非零方向前提且重复点积/叉积判据。"
+    },
+    {
+      "nodeId": "calculus:ch4-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch4-s2-2014-9-a",
+      "verification": "与ca-vector-1完全重复。",
+      "action": "remove",
+      "reason": "与非零向量垂直题重复，出处未核验。"
+    },
+    {
+      "nodeId": "calculus:ch4-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch4-s2-2015-17-b",
+      "verification": "叉积模公式虽对，但与平行四边形面积公式同一考点且浅。",
+      "action": "remove",
+      "reason": "与叉积面积公式重复，出处未核验。"
+    },
+    {
+      "nodeId": "calculus:ch4-s3",
+      "bank": "practice",
+      "id": "ca-plane-1",
+      "verification": "n非零并与平面位移正交确定点法式。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s3",
+      "bank": "practice",
+      "id": "ca-plane-2",
+      "verification": "从一点法向量可同时得到点法式/参数式等，原A/B潜在多解。",
+      "action": "revise",
+      "reason": "逐项代点及核对法向量，替代多种合法方程表示的多答案题。",
+      "replacement": {
+        "id": "ca-plane-2-r2",
+        "type": "single",
+        "stem": "过(1,2,3)且法向量为(1,−2,1)的平面方程为？",
+        "options": {
+          "A": "x−2y+z=0",
+          "B": "x+2y+z=0",
+          "C": "x−2y+z=1",
+          "D": "2x−y+z=0"
+        },
+        "answer": "A",
+        "explanation": "点法式(x−1)−2(y−2)+(z−3)=0，常数项−1+4−3=0。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s3",
+      "bank": "practice",
+      "id": "ca-plane-3",
+      "verification": "对称式分母方向分量不能无条件全写；零分量须另列固定坐标。",
+      "action": "revise",
+      "reason": "补对称式零方向分量条件。",
+      "replacement": {
+        "id": "ca-plane-3-r2",
+        "type": "judge",
+        "stem": "方向向量(0,1,2)且过原点的直线可写为x=0、y=t、z=2t；不能把方向向量的零分量直接作对称式分母。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "参数式r=t(0,1,2)始终合法；若写x/0就是未定义运算，应改成固定坐标x=0。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s3",
+      "bank": "practice",
+      "id": "ca-plane-4",
+      "verification": "法向量夹角或补角决定平面角，最小夹角用绝对点积。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s3",
+      "bank": "practice",
+      "id": "ca-plane-5",
+      "verification": "n·d=0还可为直线包含于平面，原解析遗漏。",
+      "action": "revise",
+      "reason": "纠正原解释遗漏包含关系。",
+      "replacement": {
+        "id": "ca-plane-5-r2",
+        "type": "single",
+        "stem": "直线r(t)=(t,1,0)与平面y=1的位置关系是？",
+        "options": {
+          "A": "直线包含于平面",
+          "B": "平行且无公共点",
+          "C": "只有一个交点",
+          "D": "相互垂直"
+        },
+        "answer": "A",
+        "explanation": "方向(1,0,0)与法向量(0,1,0)正交，且直线任意点满足y=1，故包含；正交方向不能单独推出无交平行。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch4-s3-2014-9-a",
+      "verification": "系数是法向量且平面定义隐含系数不全零。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch4-s3-2014-9-a-r2",
+        "type": "single",
+        "stem": "平面 ax+by+cz+d=0 的一个法向量是？",
+        "options": {
+          "A": "(d,a,b)",
+          "B": "(a,b,c)",
+          "C": "(b,c,d)",
+          "D": "(1,1,1)"
+        },
+        "answer": "B",
+        "explanation": "平面方程中 x、y、z 的系数组成法向量。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch4-s3-2015-17-b",
+      "verification": "法向量平行不足以区分重合与严格平行。",
+      "action": "revise",
+      "reason": "原判据不区分重合；改原创具体方程题并撤除未核验来源。",
+      "replacement": {
+        "id": "exam-calculus-ch4-s3-2015-17-b-r2",
+        "type": "single",
+        "stem": "平面P₁:x+y+z=1与P₂:2x+2y+2z=2如何？",
+        "options": {
+          "A": "重合",
+          "B": "平行且不重合",
+          "C": "垂直",
+          "D": "交于一条直线"
+        },
+        "answer": "A",
+        "explanation": "第二方程为第一方程两倍，点集完全相同；法向量平行并不保证无公共点。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s4",
+      "bank": "practice",
+      "id": "ca-surface-1",
+      "verification": "一般柱面或锥面不必二次，原选项类名不能保证唯一非二次曲面。",
+      "action": "revise",
+      "reason": "用具体方程纠正分类范围歧义。",
+      "replacement": {
+        "id": "ca-surface-1-r2",
+        "type": "single",
+        "stem": "以下哪个方程表示的曲面不是二次曲面？",
+        "options": {
+          "A": "z=sin x",
+          "B": "x²+y²=1",
+          "C": "x²+y²=z²",
+          "D": "z=x²+y²"
+        },
+        "answer": "A",
+        "explanation": "后三个方程均为常见二次曲面；sin x不是坐标的二次多项式。一般柱面、锥面名称本身不保证二次性。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s4",
+      "bank": "practice",
+      "id": "ca-surface-2",
+      "verification": "球面是空间点距原点平方等于R²，R>0隐含半径。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s4",
+      "bank": "practice",
+      "id": "ca-surface-3",
+      "verification": "空间曲线用参数表示是标准描述。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s4",
+      "bank": "practice",
+      "id": "ca-surface-4",
+      "verification": "投影柱面再与坐标面相交得到投影；消元应保留限制。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s4",
+      "bank": "practice",
+      "id": "ca-surface-5",
+      "verification": "母线扫过定轴生成旋转曲面。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch4-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch4-s4-2015-17-a",
+      "verification": "方程不含z，沿z平移保持圆柱面。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch4-s4-2015-17-a-r2",
+        "type": "single",
+        "stem": "圆柱面 x²+y²=1 的母线方向平行于？",
+        "options": {
+          "A": "x 轴",
+          "B": "y 轴且只在一点相交",
+          "C": "z 轴",
+          "D": "法向量方向"
+        },
+        "answer": "C",
+        "explanation": "方程不含 z，沿 z 方向平移保持曲面不变。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch4-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch4-s4-2014-9-b",
+      "verification": "切向r′必须非零才可直接作方向，原通常表述解析已限正则但题干未限。",
+      "action": "revise",
+      "reason": "补正则性，撤除未经原卷核验的来源。",
+      "replacement": {
+        "id": "exam-calculus-ch4-s4-2014-9-b-r2",
+        "type": "single",
+        "stem": "正则参数曲线r(t)在t₀满足r′(t₀)≠0，切线方向可取？",
+        "options": {
+          "A": "r′(t₀)",
+          "B": "r(t₀)",
+          "C": "零向量",
+          "D": "任意固定向量"
+        },
+        "answer": "A",
+        "explanation": "正则条件下参数导向量非零，并与切线方向平行；参数导数为零时不能直接用零向量作方向。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s1",
+      "bank": "practice",
+      "id": "ca-multivar-1",
+      "verification": "二元函数定义域为R²子集，可能为曲线而非二维区域；通常表述不够判定唯一。",
+      "action": "revise",
+      "reason": "纠正把二维区域当成必然定义域的片面表述。",
+      "replacement": {
+        "id": "ca-multivar-1-r2",
+        "type": "single",
+        "stem": "二元实函数f:D→R的定义域D应如何理解？",
+        "options": {
+          "A": "R²的非空子集，可能是区域、曲线或更一般集合",
+          "B": "必须为开矩形",
+          "C": "必须为整个R²",
+          "D": "必须是数轴区间"
+        },
+        "answer": "A",
+        "explanation": "定义只要求每个(x,y)∈D有唯一实值，不要求D含开区域。讨论偏导/全微分时还需相应局部定义域假设。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s1",
+      "bank": "practice",
+      "id": "ca-multivar-2",
+      "verification": "不同路径值不同可否定极限；有限几条同值不证明任意路径。",
+      "action": "revise",
+      "reason": "用实际反例避免把有限路径检查误当充分证明。",
+      "replacement": {
+        "id": "ca-multivar-2-r2",
+        "type": "single",
+        "stem": "f(x,y)=xy/(x²+y²)，(x,y)≠(0,0)。原点处极限如何？",
+        "options": {
+          "A": "不存在",
+          "B": "0，因为沿两坐标轴均为0",
+          "C": "1/2",
+          "D": "1"
+        },
+        "answer": "A",
+        "explanation": "沿y=0得到0，沿y=x且x≠0得到1/2；两条路径的不同值已否定统一极限。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s1",
+      "bank": "practice",
+      "id": "ca-multivar-3",
+      "verification": "不同路径限值矛盾于统一ε邻域定义。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch5-s1",
+      "bank": "practice",
+      "id": "ca-multivar-4",
+      "verification": "同域极限等于定义点值为连续。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch5-s1",
+      "bank": "practice",
+      "id": "ca-multivar-5",
+      "verification": "与路径无关/反例题重复。",
+      "action": "remove",
+      "reason": "路径无关泛称与具体多路径判断重复。"
+    },
+    {
+      "nodeId": "calculus:ch5-s1",
+      "bank": "past",
+      "id": "exam-calculus-multidiff-2024-18",
+      "verification": "可微图像法向(fx,fy,-1)正确但错归多元极限节点。",
+      "action": "remove",
+      "reason": "切平面法向题与极限连续节点错位，后续切平面节点已有题。"
+    },
+    {
+      "nodeId": "calculus:ch5-s1",
+      "bank": "past",
+      "id": "exam-calculus-multidiff-2015-17",
+      "verification": "可微下单位方向最大值梯度模正确，但错归极限节点。",
+      "action": "remove",
+      "reason": "梯度最大方向导数与极限节点错位，梯度节点已有题。"
+    },
+    {
+      "nodeId": "calculus:ch5-s2",
+      "bank": "practice",
+      "id": "ca-partial-1",
+      "verification": "可微的线性增量分解沿坐标轴给偏导；反例xy/(r²)在原点补0。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch5-s2",
+      "bank": "practice",
+      "id": "ca-partial-2",
+      "verification": "固定y沿x方向取差商。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch5-s2",
+      "bank": "practice",
+      "id": "ca-partial-3",
+      "verification": "与ca-partial-1逐字重复。",
+      "action": "remove",
+      "reason": "与ca-partial-1重复。"
+    },
+    {
+      "nodeId": "calculus:ch5-s2",
+      "bank": "practice",
+      "id": "ca-partial-4",
+      "verification": "全微分表达须先存在可微线性主部。",
+      "action": "revise",
+      "reason": "补可微前提。",
+      "replacement": {
+        "id": "ca-partial-4-r2",
+        "type": "single",
+        "stem": "f在(x₀,y₀)处可微，则其全微分df为？",
+        "options": {
+          "A": "fₓ(x₀,y₀)dx+fᵧ(x₀,y₀)dy",
+          "B": "fₓ+fᵧ",
+          "C": "fₓdx−fᵧdy",
+          "D": "fₓfᵧ"
+        },
+        "answer": "A",
+        "explanation": "可微增量为fₓΔx+fᵧΔy+o(√(Δx²+Δy²))，线性主部即全微分；只有偏导存在不够。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s2",
+      "bank": "practice",
+      "id": "ca-partial-5",
+      "verification": "混合偏导在邻域连续给Clairaut换序定理。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch5-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch5-s2-2019-15-a",
+      "verification": "与全微分公式题重复。",
+      "action": "remove",
+      "reason": "与全微分公式重复，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch5-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch5-s2-2024-18-b",
+      "verification": "可微还推出连续，结论正确而同基础题部分重复。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch5-s2-2024-18-b-r2",
+        "type": "single",
+        "stem": "二元函数在一点可微可以推出该点？",
+        "options": {
+          "A": "函数值必为零",
+          "B": "所有二阶偏导均为零",
+          "C": "梯度为单位向量",
+          "D": "连续且偏导数存在"
+        },
+        "answer": "D",
+        "explanation": "可微蕴含连续，并蕴含一阶偏导存在。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s3",
+      "bank": "practice",
+      "id": "ca-chain-1",
+      "verification": "多元复合按每条依赖路径乘偏导再相加。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch5-s3",
+      "bank": "practice",
+      "id": "ca-chain-2",
+      "verification": "公式-Fx/Fy需要可微F及非零Fy，原题未完整。",
+      "action": "revise",
+      "reason": "明确IFT假设并实际代入非零分母。",
+      "replacement": {
+        "id": "ca-chain-2-r2",
+        "type": "single",
+        "stem": "F(x,y)=eˣ+y²−2，在(0,1)附近定义隐函数y(x)。y′(0)为？",
+        "options": {
+          "A": "−1/2",
+          "B": "1/2",
+          "C": "−2",
+          "D": "2"
+        },
+        "answer": "A",
+        "explanation": "F是C¹，F(0,1)=0且Fᵧ=2非零。y′=−Fₓ/Fᵧ=−1/2。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s3",
+      "bank": "practice",
+      "id": "ca-chain-3",
+      "verification": "全导数纳入全部中间变量依赖。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch5-s3",
+      "bank": "practice",
+      "id": "ca-chain-4",
+      "verification": "IFT标准要求点在零集、邻域C1且对应偏导非零，连续可偏导不足。",
+      "action": "revise",
+      "reason": "补全原存在定理条件。",
+      "replacement": {
+        "id": "ca-chain-4-r2",
+        "type": "single",
+        "stem": "在点(x₀,y₀)附近，哪组标准条件保证F(x,y)=0局部唯一确定C¹的y(x)？",
+        "options": {
+          "A": "F为C¹、F(x₀,y₀)=0、Fᵧ(x₀,y₀)≠0",
+          "B": "仅F连续",
+          "C": "仅Fₓ(x₀,y₀)≠0",
+          "D": "仅F(x₀,y₀)=0"
+        },
+        "answer": "A",
+        "explanation": "隐函数定理需对应被解变量的非零偏导及邻域C¹；仅Fₓ非零保证的是可能解x(y)，不能替代Fᵧ。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s3",
+      "bank": "practice",
+      "id": "ca-chain-5",
+      "verification": "泛称注意结构没有可判定求解。",
+      "action": "remove",
+      "reason": "依赖结构提醒过泛，与链式法则题同义。"
+    },
+    {
+      "nodeId": "calculus:ch5-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch5-s3-2019-15-a",
+      "verification": "与ca-chain-1同一链式法则重复。",
+      "action": "remove",
+      "reason": "与链式法则名称题重复。"
+    },
+    {
+      "nodeId": "calculus:ch5-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch5-s3-2024-18-b",
+      "verification": "与隐函数公式题重复，原卷未核实。",
+      "action": "remove",
+      "reason": "与隐函数求导公式重复。"
+    },
+    {
+      "nodeId": "calculus:ch5-s4",
+      "bank": "practice",
+      "id": "ca-grad-1",
+      "verification": "最快方向要有可微且非零梯度，梯度零没有唯一方向。",
+      "action": "revise",
+      "reason": "补可微及非零梯度。",
+      "replacement": {
+        "id": "ca-grad-1-r2",
+        "type": "single",
+        "stem": "f在P可微且∇f(P)≠0。对单位方向求方向导数，唯一最大方向是？",
+        "options": {
+          "A": "∇f(P)/|∇f(P)|",
+          "B": "−∇f(P)/|∇f(P)|",
+          "C": "任意垂直梯度的方向",
+          "D": "任意单位方向"
+        },
+        "answer": "A",
+        "explanation": "Dᵤf=∇f·u≤|∇f|，等号只在同向单位向量时取；非零保证方向唯一。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s4",
+      "bank": "practice",
+      "id": "ca-grad-2",
+      "verification": "方向导数是沿指定方向的一阶变化率。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch5-s4",
+      "bank": "practice",
+      "id": "ca-grad-3",
+      "verification": "与梯度最大方向题重复且缺非零前提。",
+      "action": "remove",
+      "reason": "与最快方向题重复且漏可微/非零条件。"
+    },
+    {
+      "nodeId": "calculus:ch5-s4",
+      "bank": "practice",
+      "id": "ca-grad-4",
+      "verification": "只有偏导存在不保证最大方向导数=梯度模；可微时成立，零梯度边界需明示。",
+      "action": "revise",
+      "reason": "修正原无限定断言并增加零梯度边界。",
+      "replacement": {
+        "id": "ca-grad-4-r2",
+        "type": "single",
+        "stem": "f在P可微且∇f(P)=0，此时各单位方向的方向导数如何？",
+        "options": {
+          "A": "均为0，最大方向不唯一",
+          "B": "只有一个方向为0",
+          "C": "均不存在",
+          "D": "最大值为1"
+        },
+        "answer": "A",
+        "explanation": "可微下Dᵤf=∇f·u=0，所有单位方向都达到同一值；零向量本身没有方向。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s4",
+      "bank": "practice",
+      "id": "ca-grad-5",
+      "verification": "梯度点积公式需要可微，偏导存在不够。",
+      "action": "revise",
+      "reason": "补可微假设。",
+      "replacement": {
+        "id": "ca-grad-5-r2",
+        "type": "judge",
+        "stem": "f在P可微，u为单位向量，则沿u的方向导数为∇f(P)·u；仅各偏导存在不保证此式。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "可微的线性增量对hu除h即得点积。偏导存在只给坐标轴信息，不保证所有方向共享线性主部。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch5-s4-2024-18-a",
+      "verification": "与ca-grad-5公式重复。",
+      "action": "remove",
+      "reason": "与方向导数点积公式重复，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch5-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch5-s4-2015-17-b",
+      "verification": "与ca-grad-1最快方向重复。",
+      "action": "remove",
+      "reason": "与最快方向题重复且缺非零梯度。"
+    },
+    {
+      "nodeId": "calculus:ch5-s5",
+      "bank": "practice",
+      "id": "ca-tangent-1",
+      "verification": "r′非零时可作切线方向；零导参数不提供方向。",
+      "action": "revise",
+      "reason": "补正则性。",
+      "replacement": {
+        "id": "ca-tangent-1-r2",
+        "type": "single",
+        "stem": "C¹参数曲线r(t)在t₀满足r′(t₀)≠0，其切线的方向向量可取？",
+        "options": {
+          "A": "r′(t₀)",
+          "B": "任意法向量",
+          "C": "零向量",
+          "D": "位置向量r(t₀)"
+        },
+        "answer": "A",
+        "explanation": "正则条件保证导向量非零，并给切向；位置向量无此必然关系。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s5",
+      "bank": "practice",
+      "id": "ca-tangent-2",
+      "verification": "正则C1水平集需∇F非零，原题没写前提。",
+      "action": "revise",
+      "reason": "补隐式曲面正则性，避免零梯度代表退化约束。",
+      "replacement": {
+        "id": "ca-tangent-2-r2",
+        "type": "single",
+        "stem": "F为C¹，F(P)=0且∇F(P)≠0。正则曲面F=0在P的切平面法向量可取？",
+        "options": {
+          "A": "∇F(P)",
+          "B": "P的位置向量",
+          "C": "任意切向量",
+          "D": "零向量"
+        },
+        "answer": "A",
+        "explanation": "水平集上任意切向v满足dF(v)=∇F·v=0；非零梯度作有效法向量。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s5",
+      "bank": "practice",
+      "id": "ca-tangent-3",
+      "verification": "与上一题重复且漏正则性。",
+      "action": "remove",
+      "reason": "与隐式曲面法向题重复。"
+    },
+    {
+      "nodeId": "calculus:ch5-s5",
+      "bank": "practice",
+      "id": "ca-tangent-4",
+      "verification": "正常切平面与法线垂直。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch5-s5",
+      "bank": "practice",
+      "id": "ca-tangent-5",
+      "verification": "泛称先求切向量重复方法题，且不是所有作线方法的必须顺序。",
+      "action": "remove",
+      "reason": "方法顺序提醒重复切向量题，缺实质求解。"
+    },
+    {
+      "nodeId": "calculus:ch5-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch5-s5-2024-18-a",
+      "verification": "可微图像法向(-fx,-fy,1)正确，但未显式给可微条件。",
+      "action": "revise",
+      "reason": "改实际可微曲面计算并撤未核验来源。",
+      "replacement": {
+        "id": "exam-calculus-ch5-s5-2024-18-a-r2",
+        "type": "single",
+        "stem": "曲面z=x²+y²在P=(1,2,5)的一个法向量为？",
+        "options": {
+          "A": "(−2,−4,1)",
+          "B": "(2,4,1)",
+          "C": "(1,1,1)",
+          "D": "(−1,−2,0)"
+        },
+        "answer": "A",
+        "explanation": "写F=x²+y²−z，梯度在P为(2,4,−1)；其相反向量(-2,-4,1)也有效，其他项不成比例。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch5-s5-2015-17-b",
+      "verification": "叉积需要两法向不平行，才能非零确定交线切向。",
+      "action": "revise",
+      "reason": "用横截交线保证非零叉积，撤未核验来源。",
+      "replacement": {
+        "id": "exam-calculus-ch5-s5-2015-17-b-r2",
+        "type": "single",
+        "stem": "两平面x+y+z=0和x−y=0交线的方向向量可取？",
+        "options": {
+          "A": "(1,1,−2)",
+          "B": "(1,0,1)",
+          "C": "(1,−1,0)",
+          "D": "(1,1,1)"
+        },
+        "answer": "A",
+        "explanation": "法向量(1,1,1)与(1,-1,0)叉积(1,1,-2)非零，且分别点积为0。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s6",
+      "bank": "practice",
+      "id": "ca-lagrange-1",
+      "verification": "乘数法适用于约束极值的常用正则必要条件。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch5-s6",
+      "bank": "practice",
+      "id": "ca-extrema-2",
+      "verification": "需可微内点/C2且二阶判据可不确定；不可导点也可能极值。",
+      "action": "revise",
+      "reason": "三个显式反例独立比较正负值，排除固定分类。",
+      "replacement": {
+        "id": "ca-extrema-2-r2",
+        "type": "single",
+        "stem": "f在内点P邻域为C²，且∇f(P)=0。若Hessian行列式为0，二阶判别法给什么结论？",
+        "options": {
+          "A": "此法不能决定，需进一步分析",
+          "B": "必为极小值",
+          "C": "必为极大值",
+          "D": "必为鞍点"
+        },
+        "answer": "A",
+        "explanation": "x⁴+y⁴、−x⁴−y⁴、x⁴−y⁴在原点Hessian均零，却分别极小、极大、鞍点。二阶退化不能作充分分类。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s6",
+      "bank": "practice",
+      "id": "ca-extrema-3",
+      "verification": "与乘数法名称重复，且把L当无约束极值误解。",
+      "action": "remove",
+      "reason": "与乘数法方法题重复，错误解释把必要驻点关系当无约束极值。"
+    },
+    {
+      "nodeId": "calculus:ch5-s6",
+      "bank": "practice",
+      "id": "ca-extrema-4",
+      "verification": "Hessian行列式判据需驻点与邻域C2，原题省前提。",
+      "action": "revise",
+      "reason": "补C2和驻点前提，使二阶充分判据合法。",
+      "replacement": {
+        "id": "ca-extrema-4-r2",
+        "type": "single",
+        "stem": "f在P附近为C²、∇f(P)=0。令A=fₓₓ(P)、B=fₓᵧ(P)、C=fᵧᵧ(P)，AC−B²>0且A>0，则P为？",
+        "options": {
+          "A": "严格局部极小值点",
+          "B": "严格局部极大值点",
+          "C": "鞍点",
+          "D": "以上条件不足以判断"
+        },
+        "answer": "A",
+        "explanation": "Hessian为正定，非零小增量的二阶主部正，余项阶更高，因此严格局部极小。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s6",
+      "bank": "practice",
+      "id": "ca-extrema-5",
+      "verification": "乘数方程仅候选，解出驻点不保证极值。",
+      "action": "revise",
+      "reason": "纠正解出乘数方程即可判极值的错误。",
+      "replacement": {
+        "id": "ca-extrema-5-r2",
+        "type": "judge",
+        "stem": "f=x³，约束y=0。在(0,0)满足拉格朗日乘数方程，所以(0,0)必是约束极值点。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "取λ=0可满足∇f+λ∇y=0，但约束线上f=x³在原点两侧异号，原点不是极值；乘数方程仅给候选。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch5-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch5-s6-2019-15-a",
+      "verification": "与驻点候选题重复，且未限可微内点。",
+      "action": "remove",
+      "reason": "与驻点/Hessian题重复，且原题未写可微内点假设。"
+    },
+    {
+      "nodeId": "calculus:ch5-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch5-s6-2015-18-b",
+      "verification": "与构造L的题重复。",
+      "action": "remove",
+      "reason": "与乘数法构造L重复，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch6-s1",
+      "bank": "practice",
+      "id": "ca-double-1",
+      "verification": "适当可积/Fubini条件下可改累次，教学常用基本方法。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s1",
+      "bank": "practice",
+      "id": "ca-double-2",
+      "verification": "与ca-double-1逐字重复。",
+      "action": "remove",
+      "reason": "与ca-double-1逐字重复。"
+    },
+    {
+      "nodeId": "calculus:ch6-s1",
+      "bank": "practice",
+      "id": "ca-double-3",
+      "verification": "r≥0极坐标变换绝对Jacobian=r。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s1",
+      "bank": "practice",
+      "id": "ca-double-4",
+      "verification": "三维坐标可按形状选直角/柱/球。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s1",
+      "bank": "practice",
+      "id": "ca-double-5",
+      "verification": "非负被积函数时解释为曲顶体积，存在性措辞正确。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s1",
+      "bank": "past",
+      "id": "exam-calculus-multiintegral-2015-4",
+      "verification": "与极坐标面积元重复。",
+      "action": "remove",
+      "reason": "与极坐标Jacobian题重复。"
+    },
+    {
+      "nodeId": "calculus:ch6-s1",
+      "bank": "past",
+      "id": "exam-calculus-multiintegral-2014-3",
+      "verification": "交换次序须对同一集合重新定限，知识成立但可改具体任务增强价值。",
+      "action": "revise",
+      "reason": "改具体区域判断，撤未核验来源。",
+      "replacement": {
+        "id": "exam-calculus-multiintegral-2014-3-r2",
+        "type": "single",
+        "stem": "设f在原三角区域上连续。∫₀¹dx∫ₓ¹ f(x,y)dy交换次序后，正确的完整表达式为？",
+        "options": {
+          "A": "∫₀¹dy∫₀ʸf(x,y)dx",
+          "B": "∫₀¹dy∫ᵧ¹f(x,y)dx",
+          "C": "∫₀¹dy∫₀¹f(x,y)dx",
+          "D": "∫₀¹dy∫₀ʸf(y,x)dx"
+        },
+        "answer": "A",
+        "explanation": "原区域0≤x≤y≤1。先固定y∈[0,1]，x从0到y，保持被积函数变量含义不变；假定f可积且允许换序。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch6-s2",
+      "bank": "practice",
+      "id": "ca-lineint-1",
+      "verification": "第一类用ds非负长度元素。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s2",
+      "bank": "practice",
+      "id": "ca-lineint-2",
+      "verification": "第二类用Pdx+Qdy有向坐标元素。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s2",
+      "bank": "practice",
+      "id": "ca-lineint-3",
+      "verification": "固定被积函数后反参数方向不改变ds。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s2",
+      "bank": "practice",
+      "id": "ca-lineint-4",
+      "verification": "同一线段反定向使dx,dy反号，整体积分反号。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s2",
+      "bank": "practice",
+      "id": "ca-lineint-5",
+      "verification": "非负线密度对ds积分给质量。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch6-s2-2017-11-a",
+      "verification": "与ca-lineint-4重复。",
+      "action": "remove",
+      "reason": "重复第二类反向变号。"
+    },
+    {
+      "nodeId": "calculus:ch6-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch6-s2-2014-9-b",
+      "verification": "与ca-lineint-3重复。",
+      "action": "remove",
+      "reason": "重复第一类方向无关。"
+    },
+    {
+      "nodeId": "calculus:ch6-s3",
+      "bank": "practice",
+      "id": "ca-green-1",
+      "verification": "Green边界与curl面积关系正确，原解析把零curl无条件推出路径无关错误。",
+      "action": "revise",
+      "reason": "纠正原解析遗漏拓扑，同时明示Green正则条件。",
+      "replacement": {
+        "id": "ca-green-1-r2",
+        "type": "single",
+        "stem": "D为有界平面区域，边界由有限条分段C¹简单闭曲线组成（可有孔）；P,Q在包含闭区域的邻域内为C¹，边界按正向。格林公式联系哪两种积分？",
+        "options": {
+          "A": "边界第二类曲线积分与D上的二重积分",
+          "B": "曲面积分与三重积分",
+          "C": "第一类曲线积分与弧长",
+          "D": "不定积分与反函数"
+        },
+        "answer": "A",
+        "explanation": "∮∂D(Pdx+Qdy)=∬D(Qₓ−Pᵧ)dA。零curl若要推出全域路径独立，还需合适拓扑条件，不能单凭这一等式泛化。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch6-s3",
+      "bank": "practice",
+      "id": "ca-green-2",
+      "verification": "与ca-green-1逐字重复。",
+      "action": "remove",
+      "reason": "与ca-green-1逐字重复。"
+    },
+    {
+      "nodeId": "calculus:ch6-s3",
+      "bank": "practice",
+      "id": "ca-green-3",
+      "verification": "缺单连通等全局条件；绕原点旋场为反例。",
+      "action": "revise",
+      "reason": "修正缺少单连通条件的错误。",
+      "replacement": {
+        "id": "ca-green-3-r2",
+        "type": "judge",
+        "stem": "在任意平面开域内，只要P,Q为C¹且Qₓ=Pᵧ，就一定全域路径无关，不需考虑区域是否有孔。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "穿孔平面上P=−y/(x²+y²)、Q=x/(x²+y²)满足Qₓ=Pᵧ，但单位圆逆时针积分为2π；没有全局势。单连通等条件不能省略。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch6-s3",
+      "bank": "practice",
+      "id": "ca-green-4",
+      "verification": "连续梯度势的端值定理给路径独立，逆向按积分构造势。",
+      "action": "revise",
+      "reason": "补开连通域、连续系数及路径正则性。",
+      "replacement": {
+        "id": "ca-green-4-r2",
+        "type": "single",
+        "stem": "P,Q在开连通平面域内连续。对所有分段C¹路径，∫Pdx+Qdy只依赖起终点，等价于哪项？",
+        "options": {
+          "A": "存在C¹势函数u且uₓ=P、uᵧ=Q",
+          "B": "P和Q均恒为0",
+          "C": "区域必须无界",
+          "D": "每条路径都是直线"
+        },
+        "answer": "A",
+        "explanation": "路径独立可从固定起点积分定义u；开域内沿短水平/竖直段求差商，连续性给uₓ=P、uᵧ=Q。反向由全微分积分等于势函数端值差。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch6-s3",
+      "bank": "practice",
+      "id": "ca-green-5",
+      "verification": "多孔区域正向边界内圈顺时针，不能一律每圈逆时针。",
+      "action": "revise",
+      "reason": "补多边界定向条件。",
+      "replacement": {
+        "id": "ca-green-5-r2",
+        "type": "judge",
+        "stem": "平面环形区域的格林正向边界为：外圈逆时针、内圈顺时针，使区域始终位于行进方向左侧。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "外边界包围区域用逆时针；孔边界反向才令有物质区域在左侧。不是所有边界分支都逆时针。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch6-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch6-s3-2014-9-a",
+      "verification": "与ca-green-1重复。",
+      "action": "remove",
+      "reason": "与Green积分联系题重复。"
+    },
+    {
+      "nodeId": "calculus:ch6-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch6-s3-2020-18-b",
+      "verification": "假设不足完整且与路径无关条件题重复。",
+      "action": "remove",
+      "reason": "与修订路径无关条件题重复且来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch6-s4",
+      "bank": "practice",
+      "id": "ca-surfint-1",
+      "verification": "第一类表面积元dS。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s4",
+      "bank": "practice",
+      "id": "ca-surfint-2",
+      "verification": "第二类为向量通量，可用有向坐标投影面积元。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s4",
+      "bank": "practice",
+      "id": "ca-surfint-3",
+      "verification": "固定f和曲面点集，dS不随选法向方向改变。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s4",
+      "bank": "practice",
+      "id": "ca-surfint-4",
+      "verification": "通量也可依面积等因素，原与什么有关并非唯一A。",
+      "action": "revise",
+      "reason": "替代方向/面积均可能影响通量的多答案问法。",
+      "replacement": {
+        "id": "ca-surfint-4-r2",
+        "type": "single",
+        "stem": "固定向量场和曲面点集，原选定向的通量为3。仅反转法向定向后通量为？",
+        "options": {
+          "A": "−3",
+          "B": "3",
+          "C": "9",
+          "D": "0"
+        },
+        "answer": "A",
+        "explanation": "通量∬F·n dS，n变为−n使积分变号；面积没有改变。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch6-s4",
+      "bank": "practice",
+      "id": "ca-surfint-5",
+      "verification": "面密度非负时第一类积分给质量。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch6-s4-2020-19-a",
+      "verification": "与第一类定义题重复。",
+      "action": "remove",
+      "reason": "重复第一类dS记号定义，来源未核验。"
+    },
+    {
+      "nodeId": "calculus:ch6-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch6-s4-2020-20-b",
+      "verification": "与第二类定向题重复。",
+      "action": "remove",
+      "reason": "重复第二类定向考点，干扰项无区分度。"
+    },
+    {
+      "nodeId": "calculus:ch6-s5",
+      "bank": "practice",
+      "id": "ca-gauss-1",
+      "verification": "闭边界外向通量等于体域散度积分。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s5",
+      "bank": "practice",
+      "id": "ca-gauss-2",
+      "verification": "Stokes联系空间有向边界线积分与curl曲面通量。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s5",
+      "bank": "practice",
+      "id": "ca-gauss-3",
+      "verification": "外法向为Gauss标准方向。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s5",
+      "bank": "practice",
+      "id": "ca-gauss-4",
+      "verification": "与Stokes/Green关系已经解释重复，且干扰文字无意义。",
+      "action": "remove",
+      "reason": "重复推广关系且干扰项文字不具数学含义。"
+    },
+    {
+      "nodeId": "calculus:ch6-s5",
+      "bank": "practice",
+      "id": "ca-gauss-5",
+      "verification": "散度与curl分别对应两个积分定理。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch6-s5-2020-20-a",
+      "verification": "与ca-gauss-1重复。",
+      "action": "remove",
+      "reason": "重复Gauss积分联系。"
+    },
+    {
+      "nodeId": "calculus:ch6-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch6-s5-2020-19-b",
+      "verification": "与ca-gauss-2重复。",
+      "action": "remove",
+      "reason": "重复Stokes积分联系。"
+    },
+    {
+      "nodeId": "calculus:ch6-s6",
+      "bank": "practice",
+      "id": "ca-field-1",
+      "verification": "div是单位体积净外流的局部极限，源汇强度。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s6",
+      "bank": "practice",
+      "id": "ca-field-2",
+      "verification": "curl刻画局部环量密度/转动趋势。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s6",
+      "bank": "practice",
+      "id": "ca-field-3",
+      "verification": "无旋仅在适当单连通域全局保守；原无条件T错误。",
+      "action": "revise",
+      "reason": "纠正原无旋必保守的全局断言，明确正反方向不同条件。",
+      "replacement": {
+        "id": "ca-field-3-r2",
+        "type": "judge",
+        "stem": "若φ为C²且F=∇φ，则curl F=0；但C¹无旋场在任意开域中不一定存在全域势函数。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "第一句由混合偏导换序得到；逆向存在全域势要排除非零闭路环量，区域有孔可使无旋但非保守。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch6-s6",
+      "bank": "practice",
+      "id": "ca-field-4",
+      "verification": "无源即div处处0不等于零场。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s6",
+      "bank": "practice",
+      "id": "ca-field-5",
+      "verification": "梯度场沿路径端值差给独立路径。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch6-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch6-s6-2020-20-a",
+      "verification": "与散度物理意义题重复。",
+      "action": "remove",
+      "reason": "散度概念重复。"
+    },
+    {
+      "nodeId": "calculus:ch6-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch6-s6-2020-19-b",
+      "verification": "与无旋保守条件题重复。",
+      "action": "remove",
+      "reason": "与无旋保守关系题重复。"
+    },
+    {
+      "nodeId": "calculus:ch7-s1",
+      "bank": "practice",
+      "id": "ca-series-2",
+      "verification": "级数有限收敛是部分和有有限实极限。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s1",
+      "bank": "practice",
+      "id": "ca-series-3",
+      "verification": "a_n=S_n−S_{n−1}→0。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s1",
+      "bank": "practice",
+      "id": "ca-series-4",
+      "verification": "与通项必要条件的逆否重复。",
+      "action": "remove",
+      "reason": "与通项必要条件逆否同考点重复。"
+    },
+    {
+      "nodeId": "calculus:ch7-s1",
+      "bank": "practice",
+      "id": "ca-series-5",
+      "verification": "线性运算收敛成立，条件重排/去括号不普遍保持。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s1",
+      "bank": "practice",
+      "id": "ca-series-6",
+      "verification": "按顺序每组有限项的括号部分和是原部分和子列。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s1",
+      "bank": "past",
+      "id": "exam-calculus-series-2015-3",
+      "verification": "x=1代入同条件收敛级数，但为幂级数边界题错位。",
+      "action": "remove",
+      "reason": "幂级数端点题与常数项基础节点错位，后续新增完整收敛域题。"
+    },
+    {
+      "nodeId": "calculus:ch7-s1",
+      "bank": "past",
+      "id": "exam-calculus-series-2019-3",
+      "verification": "系数比3给半径3，题目正确但属幂级数节点。",
+      "action": "remove",
+      "reason": "幂级数半径题错位且后续有相同公式。"
+    },
+    {
+      "nodeId": "calculus:ch7-s2",
+      "bank": "practice",
+      "id": "ca-posseries-1",
+      "verification": "p级数比较积分判p>1，p=1调和发散。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s2",
+      "bank": "practice",
+      "id": "ca-posseries-2",
+      "verification": "只列判别方法过浅。",
+      "action": "remove",
+      "reason": "方法名称枚举，新增实际正项求和题替代。"
+    },
+    {
+      "nodeId": "calculus:ch7-s2",
+      "bank": "practice",
+      "id": "ca-posseries-3",
+      "verification": "正项部分和单调，实数有界单调则收敛。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s2",
+      "bank": "practice",
+      "id": "ca-posseries-4",
+      "verification": "正项比值极限ρ<1时尾部受几何级数控制。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s2",
+      "bank": "practice",
+      "id": "ca-posseries-5",
+      "verification": "与p级数充要条件题重复。",
+      "action": "remove",
+      "reason": "与p级数充要条件重复。"
+    },
+    {
+      "nodeId": "calculus:ch7-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch7-s2-2015-3-a",
+      "verification": "与上一基础节点通项必要条件重复。",
+      "action": "remove",
+      "reason": "与上一节点通项必要条件重复，原卷未核验。"
+    },
+    {
+      "nodeId": "calculus:ch7-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch7-s2-2019-3-b",
+      "verification": "仅说比较参照级数过浅且干扰项无数学价值。",
+      "action": "remove",
+      "reason": "比较参照方法泛称，干扰项错位且过浅。"
+    },
+    {
+      "nodeId": "calculus:ch7-s3",
+      "bank": "practice",
+      "id": "ca-alt-1",
+      "verification": "交错级数也可用绝对收敛比值等方法，泛问常用不应作唯一技术判定。",
+      "action": "revise",
+      "reason": "明确级数，替代方法名称多可用的泛问。",
+      "replacement": {
+        "id": "ca-alt-1-r2",
+        "type": "single",
+        "stem": "Σ_{n=1}∞(−1)^{n−1}/n的敛散性为？",
+        "options": {
+          "A": "条件收敛",
+          "B": "绝对收敛",
+          "C": "发散",
+          "D": "有限项之和"
+        },
+        "answer": "A",
+        "explanation": "1/n单调趋0，交错和依莱布尼茨收敛；绝对值级数为发散调和级数，因此条件收敛。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch7-s3",
+      "bank": "practice",
+      "id": "ca-alt-2",
+      "verification": "与ca-alt-1完全重复。",
+      "action": "remove",
+      "reason": "与ca-alt-1逐字重复。"
+    },
+    {
+      "nodeId": "calculus:ch7-s3",
+      "bank": "practice",
+      "id": "ca-alt-3",
+      "verification": "绝对Cauchy界蕴含普通级数Cauchy收敛。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s3",
+      "bank": "practice",
+      "id": "ca-alt-4",
+      "verification": "条件收敛为原和有限但绝对和发散。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s3",
+      "bank": "practice",
+      "id": "ca-alt-5",
+      "verification": "绝对可和保证任何排列同和。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch7-s3-2015-3-a",
+      "verification": "与莱布尼茨法题重复。",
+      "action": "remove",
+      "reason": "重复莱布尼茨条件判断。"
+    },
+    {
+      "nodeId": "calculus:ch7-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch7-s3-2019-3-b",
+      "verification": "与绝对蕴含收敛题重复。",
+      "action": "remove",
+      "reason": "重复绝对收敛蕴含收敛。"
+    },
+    {
+      "nodeId": "calculus:ch7-s4",
+      "bank": "practice",
+      "id": "ca-series-1",
+      "verification": "存在尾部有效比值极限给半径；根式应为limsup而不是任何时候lim。",
+      "action": "revise",
+      "reason": "补比值合法前提并纠正原解析把limsup写成无条件lim。",
+      "replacement": {
+        "id": "ca-series-1-r2",
+        "type": "single",
+        "stem": "幂级数Σaₙxⁿ的系数从某项起非零，且lim|aₙ/aₙ₊₁|存在为R，则收敛半径为？",
+        "options": {
+          "A": "R",
+          "B": "1/R",
+          "C": "R²",
+          "D": "必为0"
+        },
+        "answer": "A",
+        "explanation": "尾部非零比值极限存在时用比值判别得半径R；更一般是1/R=limsup |aₙ|^{1/n}，不能擅自假设根式极限总存在。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch7-s4",
+      "bank": "practice",
+      "id": "ca-series-7",
+      "verification": "与ca-series-1重复。",
+      "action": "remove",
+      "reason": "与ca-series-1重复比值半径。"
+    },
+    {
+      "nodeId": "calculus:ch7-s4",
+      "bank": "practice",
+      "id": "ca-series-8",
+      "verification": "只有严格内点绝对收敛，边界可条件收敛。",
+      "action": "revise",
+      "reason": "明确内部与边界，避免把完整收敛域都当绝对收敛。",
+      "replacement": {
+        "id": "ca-series-8-r2",
+        "type": "judge",
+        "stem": "幂级数以x₀为中心、半径R>0，在|x−x₀|<R处绝对收敛；边界点可能条件收敛或发散。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "绝对收敛保证的是严格内部，端点要分别代入原系数级数。Σxⁿ/n在−1条件收敛、1发散。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch7-s4",
+      "bank": "practice",
+      "id": "ca-series-9",
+      "verification": "端点不由半径判断，须原级数分别检验。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s4",
+      "bank": "practice",
+      "id": "ca-series-10",
+      "verification": "逐项导/积分系数n的根式因子趋1，半径不变。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch7-s4-2019-3-a",
+      "verification": "与半径开区间知识题重复。",
+      "action": "remove",
+      "reason": "与半径和内部收敛范围重复。"
+    },
+    {
+      "nodeId": "calculus:ch7-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch7-s4-2023-11-b",
+      "verification": "与ca-series-1比值公式重复。",
+      "action": "remove",
+      "reason": "与比值半径公式重复。"
+    },
+    {
+      "nodeId": "calculus:ch7-s5",
+      "bank": "practice",
+      "id": "ca-taylor-1",
+      "verification": "任意C∞函数不必等于Taylor级数；原解析把形式Taylor等同函数展开错误。",
+      "action": "revise",
+      "reason": "纠正无条件把光滑与解析等同。",
+      "replacement": {
+        "id": "ca-taylor-1-r2",
+        "type": "judge",
+        "stem": "函数在0附近有任意阶导数，就必定在邻域内等于其0点Taylor级数。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "反例f(x)=e^{−1/x²}（x≠0），f(0)=0，各阶导数在0均0，但任意非零x的f>0。Taylor级数恒0，不等于函数。需解析性或相应余项趋0等条件。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch7-s5",
+      "bank": "practice",
+      "id": "ca-taylor-2",
+      "verification": "Maclaurin中心为0。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s5",
+      "bank": "practice",
+      "id": "ca-taylor-3",
+      "verification": "常见函数有展开正确但纯肯定过浅。",
+      "action": "remove",
+      "reason": "纯肯定几个常见函数有展开，缺条件和计算。"
+    },
+    {
+      "nodeId": "calculus:ch7-s5",
+      "bank": "practice",
+      "id": "ca-taylor-4",
+      "verification": "系数唯一需固定同一中心且真正在邻域表示函数。",
+      "action": "revise",
+      "reason": "明确固定中心和实际表示条件。",
+      "replacement": {
+        "id": "ca-taylor-4-r2",
+        "type": "single",
+        "stem": "若函数在同一中心x₀的一个邻域内由收敛幂级数表示，则这组系数如何？",
+        "options": {
+          "A": "唯一，aₙ=f⁽ⁿ⁾(x₀)/n!",
+          "B": "可任意改变",
+          "C": "全为0",
+          "D": "只由函数最大值决定"
+        },
+        "answer": "A",
+        "explanation": "在收敛圆内部逐项求导，代中心得f⁽ⁿ⁾(x₀)=n!aₙ。不同中心的系数不要求相同。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch7-s5",
+      "bank": "practice",
+      "id": "ca-taylor-5",
+      "verification": "展开可近似，但泛用途和缺误差条件不值得单独设题。",
+      "action": "remove",
+      "reason": "近似用途泛称，缺收敛/误差任务。"
+    },
+    {
+      "nodeId": "calculus:ch7-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch7-s5-2019-3-a",
+      "verification": "真正的幂级数展开系数为f^(n)/n!，正确但未核原卷。",
+      "action": "remove",
+      "reason": "与修订后的系数唯一性公式重复。"
+    },
+    {
+      "nodeId": "calculus:ch7-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch7-s5-2023-11-b",
+      "verification": "e^x正确展开需从n0含常数项，原省指标。",
+      "action": "revise",
+      "reason": "补起始指标并撤未核验来源。",
+      "replacement": {
+        "id": "exam-calculus-ch7-s5-2023-11-b-r2",
+        "type": "single",
+        "stem": "eˣ的0点展开式为哪一项（每个Σ从n=0到∞）？",
+        "options": {
+          "A": "Σ(−1)ⁿxⁿ",
+          "B": "Σxⁿ/n!",
+          "C": "Σn!xⁿ",
+          "D": "Σx^{2n}"
+        },
+        "answer": "B",
+        "explanation": "eˣ各阶导数在0均1，系数1/n!，全实轴收敛。n=0常数项不可遗漏。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch7-s6",
+      "bank": "practice",
+      "id": "ca-fourier-1",
+      "verification": "周期函数傅里叶基为三角函数，但不能无条件断言任意周期函数都逐点等于级数。",
+      "action": "revise",
+      "reason": "区分定义与点态收敛条件。",
+      "replacement": {
+        "id": "ca-fourier-1-r2",
+        "type": "single",
+        "stem": "对2π周期的可积实函数，通常定义的傅里叶级数使用哪组基函数？",
+        "options": {
+          "A": "1、cos(nx)、sin(nx)，n为正整数",
+          "B": "只有xⁿ",
+          "C": "只有e^{−nx}",
+          "D": "只有常数"
+        },
+        "answer": "A",
+        "explanation": "三角正交系定义傅里叶系数；定义级数不等于保证任意可积函数在每点都收敛到该点值。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch7-s6",
+      "bank": "practice",
+      "id": "ca-fourier-2",
+      "verification": "正交性给一周期积分系数；要求可积。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s6",
+      "bank": "practice",
+      "id": "ca-fourier-3",
+      "verification": "原解析有限间断未限有限单侧值，可能无界不可积，须足够正则条件。",
+      "action": "revise",
+      "reason": "补足够收敛假设，避免有限个无穷间断也误套定理。",
+      "replacement": {
+        "id": "ca-fourier-3-r2",
+        "type": "judge",
+        "stem": "周期函数在一周期内分段C¹且各分段端点单侧函数值/导数有限，则其傅里叶级数在每点收敛到左右极限平均值。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "这些足够正则条件保证通常Dirichlet结论；连续点平均等于点值，跳跃点可不等于人为指定点值。不能省略有限值等条件。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch7-s6",
+      "bank": "practice",
+      "id": "ca-fourier-4",
+      "verification": "关于0奇偶性使cos或sin的相应系数0，偶项还含常数。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch7-s6",
+      "bank": "practice",
+      "id": "ca-fourier-5",
+      "verification": "跳跃均值需Dirichlet等前提，不能对任意函数断言。",
+      "action": "revise",
+      "reason": "补Dirichlet并用具体均值区分点值和级数和。",
+      "replacement": {
+        "id": "ca-fourier-5-r2",
+        "type": "single",
+        "stem": "满足Dirichlet条件的周期函数，在某跳点左右极限分别为−1与3，点值指定为100。级数在该点和为？",
+        "options": {
+          "A": "1",
+          "B": "100",
+          "C": "−1",
+          "D": "3"
+        },
+        "answer": "A",
+        "explanation": "和为(−1+3)/2=1；单点重新赋值不改变积分系数，也不改变左右极限平均。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch7-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch7-s6-2020-20-a",
+      "verification": "2π的基频1，整数倍n是谐波频率，原问基本频率而答案全部谐波不准确。",
+      "action": "remove",
+      "reason": "把基频与各整数谐波混为一谈，修订基函数题已覆盖。"
+    },
+    {
+      "nodeId": "calculus:ch7-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch7-s6-2023-20-b",
+      "verification": "与跳跃平均结论题重复。",
+      "action": "remove",
+      "reason": "与跳跃平均题重复。"
+    },
+    {
+      "nodeId": "calculus:ch8-s1",
+      "bank": "practice",
+      "id": "ca-ode-2",
+      "verification": "微分方程包含未知函数与导数。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s1",
+      "bank": "practice",
+      "id": "ca-ode-3",
+      "verification": "最高有效导数阶为阶数，不看项数。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s1",
+      "bank": "practice",
+      "id": "ca-ode-4",
+      "verification": "通解的常规正规n参数定义含n独立常数，不表示任意退化方程必有此解族。",
+      "action": "revise",
+      "reason": "补正规线性与连续系数前提，排除实域(y′)²+y²=0只有零解的反例。",
+      "replacement": {
+        "id": "ca-ode-4-r2",
+        "type": "judge",
+        "stem": "在区间I上，正规n阶线性常微分方程的系数和右端连续，其通解包含n个独立任意常数。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "正规指最高阶导数系数在I上不为零，可化成标准式。存在唯一初值解给n维齐次解空间，非齐次通解为特解加此空间；任意非线性或退化隐式方程不保证有n参数解族。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s1",
+      "bank": "practice",
+      "id": "ca-ode-5",
+      "verification": "确定合法初值后的一个解是特解，不能保证任何初值都相容。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s1",
+      "bank": "practice",
+      "id": "ca-ode-6",
+      "verification": "与通解/特解定义重复且遗漏奇解等讨论。",
+      "action": "remove",
+      "reason": "与通解常数/特解定义重复，过于简化分类。"
+    },
+    {
+      "nodeId": "calculus:ch8-s1",
+      "bank": "past",
+      "id": "exam-calculus-ode-2015-2",
+      "verification": "代e^x得(1+a+b)e^x0，必a+b=-1。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ode-2015-2-r2",
+        "type": "single",
+        "stem": "若 y=eˣ 是齐次方程 y″+ay′+by=0 的解，则系数必须满足什么关系？",
+        "options": {
+          "A": "a+b=1",
+          "B": "a−b=1",
+          "C": "a+b=−1",
+          "D": "a−b=−1"
+        },
+        "answer": "C",
+        "explanation": "代入 y=eˣ 得到 (1+a+b)eˣ=0，所以 1+a+b=0。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s1",
+      "bank": "past",
+      "id": "exam-calculus-ode-2017-10",
+      "verification": "线性ODE解Ce^{-2x}，初值3给3e^{-2x}，数值正确。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ode-2017-10-r2",
+        "type": "single",
+        "stem": "微分方程 y′+2y=0 且 y(0)=3 的解是哪一个？",
+        "options": {
+          "A": "3e²ˣ",
+          "B": "3e⁻²ˣ",
+          "C": "2e⁻³ˣ",
+          "D": "3−2x"
+        },
+        "answer": "B",
+        "explanation": "方程通解为 Ce⁻²ˣ；代入初值 y(0)=3 得 C=3。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s2",
+      "bank": "practice",
+      "id": "ca-ode-1",
+      "verification": "积分因子μ满足μ′=Pμ，从而(μy)′=μQ。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s2",
+      "bank": "practice",
+      "id": "ca-ode-7",
+      "verification": "f(x)/x或y′0也是可分离特例，原选项泛问可能多解。",
+      "action": "revise",
+      "reason": "消除可分离特例多答案，并补除因子失解条件。",
+      "replacement": {
+        "id": "ca-ode-7-r2",
+        "type": "single",
+        "stem": "求y′=y(1−y)时，直接除以y(1−y)再分离变量，需要另查什么？",
+        "options": {
+          "A": "常值解y=0与y=1",
+          "B": "只有y=2",
+          "C": "只有y=x",
+          "D": "不可能漏任何解"
+        },
+        "answer": "A",
+        "explanation": "两个常值解使原方程两边均0，却令被除因子为0。非零分支积分不能包含它们，须单独补查。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s2",
+      "bank": "practice",
+      "id": "ca-ode-8",
+      "verification": "与积分因子题重复。",
+      "action": "remove",
+      "reason": "与积分因子题重复。"
+    },
+    {
+      "nodeId": "calculus:ch8-s2",
+      "bank": "practice",
+      "id": "ca-ode-9",
+      "verification": "x非零已由φ(y/x)域隐含，令y=ux给u+xu′=φ(u)。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s2",
+      "bank": "practice",
+      "id": "ca-ode-10",
+      "verification": "Bernoulli代换需n≠1与合法非零y分支，原题未完整。",
+      "action": "revise",
+      "reason": "补指数、分支和失解边界。",
+      "replacement": {
+        "id": "ca-ode-10-r2",
+        "type": "judge",
+        "stem": "Bernoulli方程y′+P(x)y=Q(x)yⁿ，n≠0,1。在y≠0且幂有实意义的分支上，z=y^{1−n}使其化为一阶线性方程；被除去的常值解须另查。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "z′=(1−n)y^{−n}y′，得到z′+(1−n)Pz=(1−n)Q。n=1代换不可逆，y=0也不能直接除。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch8-s2-2017-10-a",
+      "verification": "与积分因子题重复。",
+      "action": "remove",
+      "reason": "积分因子重复，原卷未核验。"
+    },
+    {
+      "nodeId": "calculus:ch8-s2",
+      "bank": "past",
+      "id": "exam-calculus-ch8-s2-2014-2-b",
+      "verification": "分离过程可能除掉h(y)0的常值解，题干与解析无说明。",
+      "action": "remove",
+      "reason": "分离变量过程泛称重复，新题已查除因子失解。"
+    },
+    {
+      "nodeId": "calculus:ch8-s3",
+      "bank": "practice",
+      "id": "ca-reduce-1",
+      "verification": "积分两次和先p=y′降阶都是合法方法，原A/B双正确。",
+      "action": "revise",
+      "reason": "纠正原方法选择双答案，改初值求解。",
+      "replacement": {
+        "id": "ca-reduce-1-r2",
+        "type": "single",
+        "stem": "y″=2，y(0)=1，y′(0)=3。解为？",
+        "options": {
+          "A": "x²+3x+1",
+          "B": "2x²+3x+1",
+          "C": "x²+x+3",
+          "D": "x²+1"
+        },
+        "answer": "A",
+        "explanation": "先积分y′=2x+C₁，初值给C₁3；再积分y=x²+3x+C₂，C₂1。先设p=y′也合法，原方式题不能排除此法。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s3",
+      "bank": "practice",
+      "id": "ca-reduce-2",
+      "verification": "不显y，p(x)=y′给p′=f(x,p)。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s3",
+      "bank": "practice",
+      "id": "ca-reduce-3",
+      "verification": "改以y为变量需局部合法，链式y″=p dp/dy不能无条件在转折点套。",
+      "action": "revise",
+      "reason": "补局部代换与退化分支条件。",
+      "replacement": {
+        "id": "ca-reduce-3-r2",
+        "type": "judge",
+        "stem": "对不显x的方程y″=f(y,y′)，在可局部以y为自变量且p(y)=y′可导的分支上，有y″=p·dp/dy；常值或退化分支须另查。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "由p(y(x))链式求导给y″=(dp/dy)y′。不得把不能局部反解/不可导的p分支当作同样合法。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s3",
+      "bank": "practice",
+      "id": "ca-reduce-4",
+      "verification": "降阶目的名称过浅。",
+      "action": "remove",
+      "reason": "仅肯定降低阶数目的，无判定求解价值。"
+    },
+    {
+      "nodeId": "calculus:ch8-s3",
+      "bank": "practice",
+      "id": "ca-reduce-5",
+      "verification": "与两种降阶方法题重复。",
+      "action": "remove",
+      "reason": "与已给两类降阶方法重复。"
+    },
+    {
+      "nodeId": "calculus:ch8-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch8-s3-2017-10-a",
+      "verification": "积分一次y′原函数+常数正确。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch8-s3-2017-10-a-r2",
+        "type": "single",
+        "stem": "若 y″=f(x)，先对方程积分一次可得到？",
+        "options": {
+          "A": "y=f(x)+C",
+          "B": "y″=0",
+          "C": "y′=∫f(x)dx+C",
+          "D": "y′=f′(x)"
+        },
+        "answer": "C",
+        "explanation": "逐次积分降低阶数，每次引入一个积分常数。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s3",
+      "bank": "past",
+      "id": "exam-calculus-ch8-s3-2015-17-b",
+      "verification": "与ca-reduce-2不显y降阶题重复。",
+      "action": "remove",
+      "reason": "与不显y降阶题重复。"
+    },
+    {
+      "nodeId": "calculus:ch8-s4",
+      "bank": "practice",
+      "id": "ca-linst-1",
+      "verification": "正规二阶线性方程在系数连续区间有2维基本解系，须同区间线性无关。",
+      "action": "revise",
+      "reason": "补正常区间与连续系数条件。",
+      "replacement": {
+        "id": "ca-linst-1-r2",
+        "type": "single",
+        "stem": "在p,q连续的区间I上，y″+p(x)y′+q(x)y=0有两个线性无关解y₁、y₂，其通解为？",
+        "options": {
+          "A": "C₁y₁+C₂y₂",
+          "B": "只有y₁+y₂",
+          "C": "y₁y₂",
+          "D": "任意常数函数"
+        },
+        "answer": "A",
+        "explanation": "正规二阶线性方程解空间维数2，两个线性无关解构成基；常数需独立可选。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s4",
+      "bank": "practice",
+      "id": "ca-linst-2",
+      "verification": "任意非齐次解减一个特解即齐次解。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s4",
+      "bank": "practice",
+      "id": "ca-linst-3",
+      "verification": "线性齐次解对加法数乘封闭且含零。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s4",
+      "bank": "practice",
+      "id": "ca-linst-4",
+      "verification": "不同右端项特解之和对应右端和，括号前提正确。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s4",
+      "bank": "practice",
+      "id": "ca-linst-5",
+      "verification": "同一非零右端特解相加产生2f，不仍为原方程特解。",
+      "action": "revise",
+      "reason": "纠正无前提非齐次叠加断言。",
+      "replacement": {
+        "id": "ca-linst-5-r2",
+        "type": "judge",
+        "stem": "对线性算子L，同一个非齐次方程L[y]=f（f不恒为0）的两个特解相加，仍一定是该方程的特解。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "L[y₁+y₂]=2f而非f。可叠加的是分别对应不同右端f₁、f₂的特解，得到右端f₁+f₂。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch8-s4-2015-2-a",
+      "verification": "与齐次解空间闭包题重复。",
+      "action": "remove",
+      "reason": "与齐次解向量空间/叠加题重复。"
+    },
+    {
+      "nodeId": "calculus:ch8-s4",
+      "bank": "past",
+      "id": "exam-calculus-ch8-s4-2017-10-b",
+      "verification": "与非齐次通解结构题重复。",
+      "action": "remove",
+      "reason": "与非齐次通解结构题重复。"
+    },
+    {
+      "nodeId": "calculus:ch8-s5",
+      "bank": "practice",
+      "id": "ca-ode2-1",
+      "verification": "代e^{rx}给二次特征方程。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s5",
+      "bank": "practice",
+      "id": "ca-ode2-2",
+      "verification": "与ca-ode2-1逐字重复。",
+      "action": "remove",
+      "reason": "与ca-ode2-1逐字重复。"
+    },
+    {
+      "nodeId": "calculus:ch8-s5",
+      "bank": "practice",
+      "id": "ca-ode2-3",
+      "verification": "仅肯定根类型通解不同，无求解任务。",
+      "action": "remove",
+      "reason": "仅肯定三类根形式不同，无实质判断。"
+    },
+    {
+      "nodeId": "calculus:ch8-s5",
+      "bank": "practice",
+      "id": "ca-ode2-4",
+      "verification": "待定系数只适合特定右端类型，泛常用方法需明确右端及共振。",
+      "action": "revise",
+      "reason": "补待定系数适用右端，并测试共振重数。",
+      "replacement": {
+        "id": "ca-ode2-4-r2",
+        "type": "single",
+        "stem": "用待定系数法求y″−2y′+y=eˣ的特解，最低次数试探形式为？",
+        "options": {
+          "A": "Cx²eˣ",
+          "B": "Ceˣ",
+          "C": "Cxeˣ",
+          "D": "Cx³eˣ"
+        },
+        "answer": "A",
+        "explanation": "特征根1为二重根，eˣ和xeˣ已经齐次，必须乘x²；代入L[Cx²eˣ]=2Ceˣ，C=1/2。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s5",
+      "bank": "practice",
+      "id": "ca-ode2-5",
+      "verification": "二重特征根对应(e^{rx},xe^{rx})独立基。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch8-s5-2017-10-a",
+      "verification": "与特征方程题重复。",
+      "action": "remove",
+      "reason": "与特征方程题重复。"
+    },
+    {
+      "nodeId": "calculus:ch8-s5",
+      "bank": "past",
+      "id": "exam-calculus-ch8-s5-2015-2-b",
+      "verification": "非实共轭根alpha±i beta给实指数包络sin/cos基，beta非零。",
+      "action": "revise",
+      "reason": "知识解答成立，但未核验所标原卷对应关系，撤除真题标签并作为原创考点练习。",
+      "replacement": {
+        "id": "exam-calculus-ch8-s5-2015-2-b-r2",
+        "type": "single",
+        "stem": "特征方程有一对共轭复根 α±iβ 时，实通解包含？",
+        "options": {
+          "A": "C₁e^(αx)+C₂e^(βx)",
+          "B": "C₁x+C₂",
+          "C": "C₁cosαx+C₂sinβx",
+          "D": "e^(αx)(C₁cosβx+C₂sinβx)"
+        },
+        "answer": "D",
+        "explanation": "共轭复根对应指数包络乘正弦、余弦的实解。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s6",
+      "bank": "practice",
+      "id": "ca-odeapp-1",
+      "verification": "按物理变化率建模是常见步骤，不能跳过模型假设。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s6",
+      "bank": "practice",
+      "id": "ca-odeapp-2",
+      "verification": "Malthus比率恒定时P′kP，k是参数。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s6",
+      "bank": "practice",
+      "id": "ca-odeapp-3",
+      "verification": "恒环境牛顿温差律给一阶方程。",
+      "action": "retain",
+      "reason": "独立解答后题干条件、唯一答案及解析成立，保留。"
+    },
+    {
+      "nodeId": "calculus:ch8-s6",
+      "bank": "practice",
+      "id": "ca-odeapp-4",
+      "verification": "混合问题可一阶线性，但泛用途题可改物质守恒计算。",
+      "action": "revise",
+      "reason": "逐项单位与浓度流率复算，平衡盐量30g对应流入浓度3g/L。",
+      "replacement": {
+        "id": "ca-odeapp-4-r2",
+        "type": "single",
+        "stem": "10 L充分混合溶液初始无盐。以2 L/min流入浓度3 g/L盐水，同时2 L/min流出。盐量S(t)（g）的方程为？",
+        "options": {
+          "A": "S′=6−S/5，S(0)=0",
+          "B": "S′=6−2S，S(0)=0",
+          "C": "S′=3−S/10，S(0)=0",
+          "D": "S′=6−S/10，S(0)=0"
+        },
+        "answer": "A",
+        "explanation": "体积保持10 L；流入盐6 g/min，流出盐2·S/10=S/5 g/min，物质守恒给A。"
+      }
+    },
+    {
+      "nodeId": "calculus:ch8-s6",
+      "bank": "practice",
+      "id": "ca-odeapp-5",
+      "verification": "与初值确定特解的基础节点重复。",
+      "action": "remove",
+      "reason": "与初值确定特解的基础节点重复，删除泛用途题。"
+    },
+    {
+      "nodeId": "calculus:ch8-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch8-s6-2017-10-a",
+      "verification": "与ca-odeapp-5重复。",
+      "action": "remove",
+      "reason": "与初值确定常数的基础知识重复。"
+    },
+    {
+      "nodeId": "calculus:ch8-s6",
+      "bank": "past",
+      "id": "exam-calculus-ch8-s6-2015-17-b",
+      "verification": "k常数时指数族，k0或C0会是常数子解，原必然形式须表明兼容退化。",
+      "action": "revise",
+      "reason": "补常值退化兼容并撤未核验来源。",
+      "replacement": {
+        "id": "exam-calculus-ch8-s6-2015-17-b-r2",
+        "type": "judge",
+        "stem": "常数k的一阶模型y′=ky，其全体解为y=Ce^{kx}；k=0或C=0时包含常值退化情形。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "积分因子或分离得Ce^{kx}，允许k0给任意常数、C0给零解；不能把指数形式与不变常数互斥。"
+      }
+    }
+  ],
+  "additions": [
+    {
+      "nodeId": "calculus:ch1-s1",
+      "question": {
+        "id": "qa-20261002-ca-inverse-domain",
+        "type": "single",
+        "stem": "f(x)=x²，定义域为[0,+∞)，以值域为反函数定义域。反函数是什么？",
+        "options": {
+          "A": "√x，x≥0",
+          "B": "±√x，x≥0",
+          "C": "√x，x∈R",
+          "D": "x²，x≥0"
+        },
+        "answer": "A",
+        "explanation": "限制原定义域后f严格递增，值域[0,+∞)；反解取非负根。±√x不是单值函数。"
+      },
+      "verification": "x≥0时平方为单射，解y=x²得x=√y，逐项排除多值与错误域。"
+    },
+    {
+      "nodeId": "calculus:ch1-s2",
+      "question": {
+        "id": "qa-20261002-ca-log-base",
+        "type": "single",
+        "stem": "f(x)=log_{1/2}x。下列哪项正确？",
+        "options": {
+          "A": "定义域(0,+∞)，严格递减",
+          "B": "定义域R，严格递增",
+          "C": "定义域[0,+∞)，严格递减",
+          "D": "值域(0,+∞)"
+        },
+        "answer": "A",
+        "explanation": "ln(1/2)<0，f(x)=ln x/ln(1/2)随x增大而减小；真数严格为正，值域R。"
+      },
+      "verification": "由换底公式和ln单调性独立判域、单调性、值域。"
+    },
+    {
+      "nodeId": "calculus:ch1-s3",
+      "question": {
+        "id": "qa-20261002-ca-oscillating-reciprocal",
+        "type": "single",
+        "stem": "aₙ=(−1)ⁿ/n。关于bₙ=1/aₙ，下列哪项正确？",
+        "options": {
+          "A": "|bₙ|→+∞，但bₙ既不趋+∞也不趋−∞",
+          "B": "bₙ→+∞",
+          "C": "bₙ→−∞",
+          "D": "bₙ→0"
+        },
+        "answer": "A",
+        "explanation": "bₙ=(−1)ⁿn，偶数子列趋+∞，奇数子列趋−∞；绝对值为n。无穷小的倒数须区分绝对值发散与带符号的无限极限。"
+      },
+      "verification": "分别计算奇偶子列及绝对值，三个错误项均被反例排除。"
+    },
+    {
+      "nodeId": "calculus:ch1-s4",
+      "question": {
+        "id": "qa-20261002-ca-squeeze",
+        "type": "single",
+        "stem": "x≠0时f(x)=x²sin(1/x²)。lim(x→0)f(x)为？",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "不存在，因为sin(1/x²)无极限",
+          "D": "+∞"
+        },
+        "answer": "A",
+        "explanation": "−x²≤x²sin(1/x²)≤x²，两侧均趋0，夹逼得0。内部振荡不能单独决定乘积极限。"
+      },
+      "verification": "使用绝对值≤x²的直接界，不依赖对振荡因子取不存在的极限。"
+    },
+    {
+      "nodeId": "calculus:ch1-s5",
+      "question": {
+        "id": "qa-20261002-ca-removable",
+        "type": "single",
+        "stem": "x≠0时f(x)=sin x/x，f(0)=c。f在0处连续所需c为？",
+        "options": {
+          "A": "1",
+          "B": "0",
+          "C": "−1",
+          "D": "任意实数"
+        },
+        "answer": "A",
+        "explanation": "去心极限为1；连续要求f(0)等于该极限，因此c=1，其余值产生可去间断。"
+      },
+      "verification": "重要极限与点值条件分别计算，唯一匹配为1。"
+    },
+    {
+      "nodeId": "calculus:ch2-s1",
+      "question": {
+        "id": "qa-20261002-ca-piecewise-differentiability",
+        "type": "single",
+        "stem": "f(x)=x²（x≥0），f(x)=ax（x<0），且f(0)=0。f在0可导的条件是？",
+        "options": {
+          "A": "a=0",
+          "B": "a=1",
+          "C": "a=2",
+          "D": "任意a"
+        },
+        "answer": "A",
+        "explanation": "右差商h²/h=h→0，左差商ah/h=a；二者相等要求a=0。函数对任意a连续，但可导另有条件。"
+      },
+      "verification": "分别由定义求有限左/右导数，不把连续充作可导。"
+    },
+    {
+      "nodeId": "calculus:ch2-s2",
+      "question": {
+        "id": "qa-20261002-ca-chain-second",
+        "type": "single",
+        "stem": "y=e^{x²}。y″(0)为？",
+        "options": {
+          "A": "2",
+          "B": "0",
+          "C": "1",
+          "D": "4"
+        },
+        "answer": "A",
+        "explanation": "y′=2xe^{x²}，y″=(2+4x²)e^{x²}，在0取2。只对外函数再求导会漏掉内层二阶项。"
+      },
+      "verification": "独立两次乘积/链式求导，内层x²二阶导为2。"
+    },
+    {
+      "nodeId": "calculus:ch2-s3",
+      "question": {
+        "id": "qa-20261002-ca-rolle-polynomial",
+        "type": "single",
+        "stem": "f(x)=x²−x在[0,1]满足罗尔定理。满足f′(ξ)=0的ξ为？",
+        "options": {
+          "A": "1/2",
+          "B": "0",
+          "C": "1",
+          "D": "不存在"
+        },
+        "answer": "A",
+        "explanation": "多项式闭区间连续、内部可导，端值均0；2ξ−1=0得ξ=1/2，属于开区间。"
+      },
+      "verification": "逐项验证三假设，再独立解线性导数方程。"
+    },
+    {
+      "nodeId": "calculus:ch2-s4",
+      "question": {
+        "id": "qa-20261002-ca-lhop-counterexample",
+        "type": "single",
+        "stem": "x→0时x²sin(1/x)/x的极限是0，但分子分母导数之比2xsin(1/x)−cos(1/x)没有极限。这说明？",
+        "options": {
+          "A": "导数比无极限，不能断定原比值无极限",
+          "B": "原比值极限也不存在",
+          "C": "原比值极限必为1",
+          "D": "洛必达条件不需要导数比极限"
+        },
+        "answer": "A",
+        "explanation": "原式为xsin(1/x)，绝对值≤|x|，极限0；导数比沿cos=±1子列取不同极限。洛必达结论不可逆。"
+      },
+      "verification": "夹逼原式，并沿x=1/(2πn)与x=1/((2n+1)π)分别算导数比−1与1。"
+    },
+    {
+      "nodeId": "calculus:ch2-s5",
+      "question": {
+        "id": "qa-20261002-ca-stationary-not-extremum",
+        "type": "single",
+        "stem": "f(x)=x³在0处满足f′(0)=0。以下判断正确的是？",
+        "options": {
+          "A": "0为驻点但不是极值点",
+          "B": "0必为极小值点",
+          "C": "0必为极大值点",
+          "D": "f在0不连续"
+        },
+        "answer": "A",
+        "explanation": "f′=3x²≥0，0两侧函数继续递增；左值负、右值正，均无局部极大/小。驻点只是可导极值的必要候选。"
+      },
+      "verification": "对任意小h>0比较f(-h)<f(0)<f(h)。"
+    },
+    {
+      "nodeId": "calculus:ch2-s6",
+      "question": {
+        "id": "qa-20261002-ca-rational-asymptote",
+        "type": "single",
+        "stem": "f(x)=(x²+1)/(x−1)。当x→+∞时的斜渐近线是？",
+        "options": {
+          "A": "y=x+1",
+          "B": "y=x−1",
+          "C": "y=x",
+          "D": "y=1"
+        },
+        "answer": "A",
+        "explanation": "多项式除法得f=x+1+2/(x−1)，差项趋0；故k=1、b=1。"
+      },
+      "verification": "精确等式相减再取极限，逐项排除错误截距和水平线。"
+    },
+    {
+      "nodeId": "calculus:ch2-s7",
+      "question": {
+        "id": "qa-20261002-ca-parabola-curvature",
+        "type": "single",
+        "stem": "曲线y=x²在x=1处的曲率K是？",
+        "options": {
+          "A": "2/(5√5)",
+          "B": "2/√5",
+          "C": "2",
+          "D": "5√5/2"
+        },
+        "answer": "A",
+        "explanation": "y′=2、y″=2，K=2/(1+4)^{3/2}=2/(5√5)。最后一项是半径而不是曲率。"
+      },
+      "verification": "独立代入导数及幂次，K·R=1交叉验证半径干扰项。"
+    },
+    {
+      "nodeId": "calculus:ch3-s1",
+      "question": {
+        "id": "qa-20261002-ca-disconnected-antiderivative",
+        "type": "single",
+        "stem": "f(x)=1/x定义在(−∞,0)∪(0,+∞)。令F=ln|x|，G在x<0取ln|x|，x>0取ln|x|+1。哪项正确？",
+        "options": {
+          "A": "F、G都是原函数，但G−F不在整个定义域恒为同一个常数",
+          "B": "G不是原函数",
+          "C": "F不是原函数",
+          "D": "G−F在整个定义域恒为1"
+        },
+        "answer": "A",
+        "explanation": "两分支中F′=G′=1/x；差在负半轴0、正半轴1。一个常数的结论需要同一连通区间。"
+      },
+      "verification": "逐分支求导和求差，域不含0因此无须在0检查导数。"
+    },
+    {
+      "nodeId": "calculus:ch3-s2",
+      "question": {
+        "id": "qa-20261002-ca-symmetry-integral",
+        "type": "single",
+        "stem": "f在[−2,2]可积且f(−x)=−f(x)。∫_{−2}²f(x)dx为？",
+        "options": {
+          "A": "0",
+          "B": "2",
+          "C": "−2",
+          "D": "仅凭奇性不能确定"
+        },
+        "answer": "A",
+        "explanation": "把负区间作x=−t换元，得到−∫₀²f(t)dt，与正区间积分抵消。可积条件确保操作合法。"
+      },
+      "verification": "独立换元拆区间证明，并未把奇性误当可积性。"
+    },
+    {
+      "nodeId": "calculus:ch3-s3",
+      "question": {
+        "id": "qa-20261002-ca-moving-both-limits",
+        "type": "single",
+        "stem": "F(x)=∫_{x}^{x²}(1+t²)dt。F′(1)为？",
+        "options": {
+          "A": "2",
+          "B": "4",
+          "C": "0",
+          "D": "−2"
+        },
+        "answer": "A",
+        "explanation": "上下限均变化，F′(x)=(1+x⁴)·2x−(1+x²)，代1得4−2=2。下限项不能漏。"
+      },
+      "verification": "直接原函数t+t³/3代入F并求导，独立交叉验证Leibniz规则。"
+    },
+    {
+      "nodeId": "calculus:ch3-s4",
+      "question": {
+        "id": "qa-20261002-ca-substitution-bound",
+        "type": "single",
+        "stem": "计算∫₀¹ 2x/(1+x²)dx，令u=1+x²。新上下限与结果为？",
+        "options": {
+          "A": "u从1到2，结果ln2",
+          "B": "u从0到1，结果ln2",
+          "C": "u从1到2，结果2",
+          "D": "u从0到2，结果ln2"
+        },
+        "answer": "A",
+        "explanation": "du=2x dx；x=0对应u=1，x=1对应u=2，∫₁²du/u=ln2。错误上下限不能仅因结果看似正确而选。"
+      },
+      "verification": "由单调换元端点计算，再积分1/u。"
+    },
+    {
+      "nodeId": "calculus:ch3-s5",
+      "question": {
+        "id": "qa-20261002-ca-principal-value-not-convergence",
+        "type": "single",
+        "stem": "关于∫_{−1}¹(1/x)dx，采用通常反常积分定义而非柯西主值，正确的是？",
+        "options": {
+          "A": "发散，虽对称截断值为0",
+          "B": "收敛到0，因为函数奇",
+          "C": "收敛到1",
+          "D": "收敛到−1"
+        },
+        "answer": "A",
+        "explanation": "0为内部瑕点，必须分别要求∫_{−1}⁰与∫₀¹收敛；两侧各自对数发散。对称截断相消只给主值0，不是通常收敛。"
+      },
+      "verification": "分别算ln|x|的左右极限为−∞和+∞，不把无穷相减作0。"
+    },
+    {
+      "nodeId": "calculus:ch3-s6",
+      "question": {
+        "id": "qa-20261002-ca-washer-volume",
+        "type": "single",
+        "stem": "区域0≤x≤1、0≤y≤x绕x轴旋转，体积为？",
+        "options": {
+          "A": "π/3",
+          "B": "π/2",
+          "C": "π",
+          "D": "1/3"
+        },
+        "answer": "A",
+        "explanation": "垂直x轴截面为半径x的圆盘，A(x)=πx²；V=π∫₀¹x²dx=π/3。"
+      },
+      "verification": "圆盘截面积独立累积，排除漏π及把半径当面积。"
+    },
+    {
+      "nodeId": "calculus:ch4-s1",
+      "question": {
+        "id": "qa-20261002-ca-normalize-vector",
+        "type": "single",
+        "stem": "向量a=(1,2,2)的同向单位向量为？",
+        "options": {
+          "A": "(1/3,2/3,2/3)",
+          "B": "(1,2,2)",
+          "C": "(1/9,2/9,2/9)",
+          "D": "(−1/3,−2/3,−2/3)"
+        },
+        "answer": "A",
+        "explanation": "|a|=√(1+4+4)=3，除以3；D单位但反向，C长度1/3。"
+      },
+      "verification": "分别核对长度与方向，避免只看归一化外观。"
+    },
+    {
+      "nodeId": "calculus:ch4-s2",
+      "question": {
+        "id": "qa-20261002-ca-triangle-cross",
+        "type": "single",
+        "stem": "a=(1,0,0)，b=(0,2,0)。以a、b为两边的三角形面积为？",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "0",
+          "D": "4"
+        },
+        "answer": "A",
+        "explanation": "|a×b|=2为平行四边形面积，三角形面积取一半得1。"
+      },
+      "verification": "显式叉积(0,0,2)，独立几何底1高2除2。"
+    },
+    {
+      "nodeId": "calculus:ch4-s3",
+      "question": {
+        "id": "qa-20261002-ca-three-planes-common-line",
+        "type": "single",
+        "stem": "平面x=0、y=0、x+y=0两两相交。三者的公共交集是什么？",
+        "options": {
+          "A": "z轴",
+          "B": "仅原点",
+          "C": "空集",
+          "D": "整个xy平面"
+        },
+        "answer": "A",
+        "explanation": "同时x=0,y=0即满足第三式，z任意。三条两两交线都是z轴，交线共点不能保证唯一公共点。"
+      },
+      "verification": "独立解线性约束并保留自由变量z。"
+    },
+    {
+      "nodeId": "calculus:ch4-s4",
+      "question": {
+        "id": "qa-20261002-ca-projection-ellipse",
+        "type": "single",
+        "stem": "空间曲线由x²+y²+z²=1与z=x联立。其在xy平面的投影为？",
+        "options": {
+          "A": "2x²+y²=1，z=0",
+          "B": "x²+y²=1，z=0",
+          "C": "x+y=1，z=0",
+          "D": "2x²+y²≤1，z=0"
+        },
+        "answer": "A",
+        "explanation": "代z=x得到2x²+y²=1；每个投影点唯一对应z=x，因此是椭圆边界而非内部区域。"
+      },
+      "verification": "精确代入消元并验证投影的正反两方向。"
+    },
+    {
+      "nodeId": "calculus:ch5-s1",
+      "question": {
+        "id": "qa-20261002-ca-polar-bound",
+        "type": "single",
+        "stem": "f(x,y)=x²y²/(x²+y²)，原点外定义。原点处极限为？",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "1/4",
+          "D": "不存在"
+        },
+        "answer": "A",
+        "explanation": "由4x²y²≤(x²+y²)²，0≤f≤(x²+y²)/4→0，给全方向统一界，不只验证有限路径。"
+      },
+      "verification": "使用( x²−y² )²≥0得到全域界并夹逼。"
+    },
+    {
+      "nodeId": "calculus:ch5-s2",
+      "question": {
+        "id": "qa-20261002-ca-partials-not-continuous",
+        "type": "single",
+        "stem": "f=xy/(x²+y²)在原点外，f(0,0)=0。原点处哪项正确？",
+        "options": {
+          "A": "两偏导均存在且为0，但f不连续",
+          "B": "f可微",
+          "C": "只有x偏导存在",
+          "D": "只有y偏导存在"
+        },
+        "answer": "A",
+        "explanation": "两轴上函数恒0，差商均0；沿y=x函数恒1/2，不趋点值0，故不连续、更不可微。"
+      },
+      "verification": "独立算两个轴向差商和一条斜线路径。"
+    },
+    {
+      "nodeId": "calculus:ch5-s3",
+      "question": {
+        "id": "qa-20261002-ca-two-path-chain",
+        "type": "single",
+        "stem": "z=u²+v²，u=x+y、v=x−y。zₓ在(1,2)的值为？",
+        "options": {
+          "A": "4",
+          "B": "6",
+          "C": "−2",
+          "D": "8"
+        },
+        "answer": "A",
+        "explanation": "zₓ=2u·1+2v·1=2(x+y)+2(x−y)=4x；代入1得4。两条依赖路径都要相加。"
+      },
+      "verification": "另把z展开为2x²+2y²求导，交叉验证4x。"
+    },
+    {
+      "nodeId": "calculus:ch5-s4",
+      "question": {
+        "id": "qa-20261002-ca-unit-direction",
+        "type": "single",
+        "stem": "f(x,y)=x²+3y。在(1,0)沿单位方向(3/5,4/5)的方向导数为？",
+        "options": {
+          "A": "18/5",
+          "B": "√13",
+          "C": "2",
+          "D": "3"
+        },
+        "answer": "A",
+        "explanation": "梯度(2,3)，点积2·3/5+3·4/5=18/5；√13是最大值，不是给定方向值。"
+      },
+      "verification": "范数验证方向为单位向量，直接坐标点积复算。"
+    },
+    {
+      "nodeId": "calculus:ch5-s5",
+      "question": {
+        "id": "qa-20261002-ca-helix-tangent",
+        "type": "single",
+        "stem": "r(t)=(cos t,sin t,t)。在t=0处的切线参数式为？",
+        "options": {
+          "A": "(x,y,z)=(1,0,0)+s(0,1,1)",
+          "B": "(x,y,z)=s(1,0,0)",
+          "C": "(x,y,z)=(1,0,0)+s(1,1,0)",
+          "D": "(x,y,z)=(0,1,0)+s(0,1,1)"
+        },
+        "answer": "A",
+        "explanation": "r(0)=(1,0,0)，r′(0)=(0,1,1)非零；切线通过该点沿导向量。"
+      },
+      "verification": "分别核对经过点和导向量；错误项分别漏点、错方向或错点。"
+    },
+    {
+      "nodeId": "calculus:ch5-s6",
+      "question": {
+        "id": "qa-20261002-ca-constraint-max",
+        "type": "single",
+        "stem": "在约束x²+y²=1下，f(x,y)=xy的最大值是？",
+        "options": {
+          "A": "1/2",
+          "B": "1",
+          "C": "0",
+          "D": "−1/2"
+        },
+        "answer": "A",
+        "explanation": "由(x−y)²≥0得2xy≤x²+y²=1，等号在x=y=±1/√2取得。约束是闭有界圆，确能取最大。"
+      },
+      "verification": "代数全局界与等号点验证，不只求乘数候选。"
+    },
+    {
+      "nodeId": "calculus:ch6-s1",
+      "question": {
+        "id": "qa-20261002-ca-unit-disk",
+        "type": "single",
+        "stem": "D为单位圆盘。∬_D(x²+y²)dA为？",
+        "options": {
+          "A": "π/2",
+          "B": "π",
+          "C": "2π",
+          "D": "1/4"
+        },
+        "answer": "A",
+        "explanation": "极坐标被积为r²，面积元r dr dθ，∫₀^{2π}dθ∫₀¹r³dr=π/2。"
+      },
+      "verification": "直接径向原函数r⁴/4乘2π，必须计Jacobian。"
+    },
+    {
+      "nodeId": "calculus:ch6-s2",
+      "question": {
+        "id": "qa-20261002-ca-line-orientation",
+        "type": "single",
+        "stem": "L为(0,0)到(1,1)的直线段。I₁=∫_Lds，I₂=∫_L(x dx+y dy)。反向后两值分别为？",
+        "options": {
+          "A": "√2、−1",
+          "B": "−√2、−1",
+          "C": "√2、1",
+          "D": "1、−√2"
+        },
+        "answer": "A",
+        "explanation": "第一类为段长√2，与方向无关。第二类原值[(x²+y²)/2]起终点差=1，反向为−1。"
+      },
+      "verification": "参数t∈[0,1]，ds=√2dt，x dx+y dy=2t dt独立积分。"
+    },
+    {
+      "nodeId": "calculus:ch6-s3",
+      "question": {
+        "id": "qa-20261002-ca-green-area",
+        "type": "single",
+        "stem": "L为单位圆逆时针边界。∮_L(−y/2 dx+x/2 dy)为？",
+        "options": {
+          "A": "π",
+          "B": "2π",
+          "C": "0",
+          "D": "−π"
+        },
+        "answer": "A",
+        "explanation": "Qₓ−Pᵧ=1，Green给单位圆盘面积π；逆时针为正向。"
+      },
+      "verification": "参数x=cos t,y=sin t得到被积1/2 dt，0至2π独立复算。"
+    },
+    {
+      "nodeId": "calculus:ch6-s4",
+      "question": {
+        "id": "qa-20261002-ca-tilted-surface-area",
+        "type": "single",
+        "stem": "S为z=x+y，0≤x≤1、0≤y≤1上的曲面片。∬_S1 dS为？",
+        "options": {
+          "A": "√3",
+          "B": "1",
+          "C": "3",
+          "D": "2"
+        },
+        "answer": "A",
+        "explanation": "图像面积元√(1+zₓ²+zᵧ²)dxdy=√3 dxdy，投影单位正方形面积1。"
+      },
+      "verification": "参数( x,y,x+y )的两个切向叉积(-1,-1,1)模√3交叉验证。"
+    },
+    {
+      "nodeId": "calculus:ch6-s5",
+      "question": {
+        "id": "qa-20261002-ca-sphere-flux",
+        "type": "single",
+        "stem": "F=(x,y,z)，S为单位球面并取外向。通量∬_S F·n dS为？",
+        "options": {
+          "A": "4π",
+          "B": "4π/3",
+          "C": "3",
+          "D": "0"
+        },
+        "answer": "A",
+        "explanation": "F全空间C¹，divF=3，Gauss给3乘单位球体积4π/3=4π。球面上F=n亦可直接得面积4π。"
+      },
+      "verification": "散度体积分与球面F·n=1两法独立一致。"
+    },
+    {
+      "nodeId": "calculus:ch6-s6",
+      "question": {
+        "id": "qa-20261002-ca-div-curl-compute",
+        "type": "single",
+        "stem": "F(x,y,z)=(x²,yz,y²)。在(1,2,3)处的(divF,curlF)是？",
+        "options": {
+          "A": "(5,(2,0,0))",
+          "B": "(3,(2,0,0))",
+          "C": "(5,(0,0,2))",
+          "D": "(5,(0,0,0))"
+        },
+        "answer": "A",
+        "explanation": "divF=2x+z；curlF=(2y−y,0,0)=(y,0,0)，代点得5和(2,0,0)。"
+      },
+      "verification": "按坐标偏导逐项计算，未把旋度误当散度标量。"
+    },
+    {
+      "nodeId": "calculus:ch7-s1",
+      "question": {
+        "id": "qa-20261002-ca-grouping-converse",
+        "type": "single",
+        "stem": "级数1−1+1−1+⋯按(1−1)+(1−1)+⋯分组后收敛到0。能否据此断定原级数收敛？",
+        "options": {
+          "A": "不能，原部分和在1、0间振荡",
+          "B": "能，分组和就是原和",
+          "C": "能，通项趋0",
+          "D": "能，原和必为1/2"
+        },
+        "answer": "A",
+        "explanation": "分组部分和是原部分和的子列；子列收敛不保证全数列收敛。原通项±1也不趋0。"
+      },
+      "verification": "显式计算偶部分和0、奇部分和1，区分合法加括号方向与错误逆推。"
+    },
+    {
+      "nodeId": "calculus:ch7-s2",
+      "question": {
+        "id": "qa-20261002-ca-telescoping",
+        "type": "single",
+        "stem": "Σ_{n=1}∞1/[n(n+1)]的和为？",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "0",
+          "D": "发散，因为项趋0"
+        },
+        "answer": "A",
+        "explanation": "1/[n(n+1)]=1/n−1/(n+1)，S_N=1−1/(N+1)→1。通项趋0并不能判发散。"
+      },
+      "verification": "精确有限部分和望远镜抵消，最后才取极限。"
+    },
+    {
+      "nodeId": "calculus:ch7-s3",
+      "question": {
+        "id": "qa-20261002-ca-alternating-error",
+        "type": "single",
+        "stem": "用莱布尼茨“误差不超过首个舍去项”估计Σ_{n=1}∞(−1)^{n−1}/n。为保证误差≤0.01，至少保留几项？",
+        "options": {
+          "A": "99",
+          "B": "100",
+          "C": "98",
+          "D": "50"
+        },
+        "answer": "A",
+        "explanation": "保留N项后该估计给|余项|≤1/(N+1)，要求N+1≥100，所以最小N=99。100项也能保证，但不是最小项数。"
+      },
+      "verification": "解整数不等式并检查N98给1/99>0.01、N99给1/100=0.01。"
+    },
+    {
+      "nodeId": "calculus:ch7-s4",
+      "question": {
+        "id": "qa-20261002-ca-endpoint-domain",
+        "type": "single",
+        "stem": "幂级数Σ_{n=1}∞xⁿ/n的实收敛域是？",
+        "options": {
+          "A": "[−1,1)",
+          "B": "(−1,1)",
+          "C": "[−1,1]",
+          "D": "(−1,1]"
+        },
+        "answer": "A",
+        "explanation": "比值法得R=1。x=1为调和级数发散，x=−1为交错调和级数收敛；严格内部绝对收敛。"
+      },
+      "verification": "分别独立判两端，不以半径替代边界核查。"
+    },
+    {
+      "nodeId": "calculus:ch7-s5",
+      "question": {
+        "id": "qa-20261002-ca-log-coefficient",
+        "type": "single",
+        "stem": "ln(1+x)在0处的幂级数中，x³的系数为？",
+        "options": {
+          "A": "1/3",
+          "B": "−1/3",
+          "C": "1/6",
+          "D": "3"
+        },
+        "answer": "A",
+        "explanation": "展开x−x²/2+x³/3−⋯，亦可算f‴(0)=2，除3!=6得1/3，展开在|x|<1有效。"
+      },
+      "verification": "独立三阶导数与几何级数积分两法确认符号和阶乘。"
+    },
+    {
+      "nodeId": "calculus:ch7-s6",
+      "question": {
+        "id": "qa-20261002-ca-periodic-sawtooth",
+        "type": "single",
+        "stem": "f(x)=x在(−π,π)上，作2π周期延拓并任意定义端点值。其傅里叶级数在x=π处收敛到？",
+        "options": {
+          "A": "0",
+          "B": "π",
+          "C": "−π",
+          "D": "任意端点指定值"
+        },
+        "answer": "A",
+        "explanation": "周期延拓在π的左极限π、右极限−π，满足分段光滑，平均0。端点赋值不改变傅里叶系数。"
+      },
+      "verification": "明确周期右侧极限来自−π端，独立均值计算。"
+    },
+    {
+      "nodeId": "calculus:ch8-s1",
+      "question": {
+        "id": "qa-20261002-ca-verify-solution",
+        "type": "single",
+        "stem": "函数y=x²满足哪一组微分方程与初值？",
+        "options": {
+          "A": "y′=2x，y(1)=1",
+          "B": "y′=x，y(1)=1",
+          "C": "y′=2x，y(1)=0",
+          "D": "y″=x，y(1)=1"
+        },
+        "answer": "A",
+        "explanation": "y′=2x、y″=2，且y(1)=1；必须同时验证方程和给定初值。"
+      },
+      "verification": "直接两阶求导和代点排除各错误项。"
+    },
+    {
+      "nodeId": "calculus:ch8-s2",
+      "question": {
+        "id": "qa-20261002-ca-linear-initial",
+        "type": "single",
+        "stem": "y′+y=eˣ，y(0)=0。解为？",
+        "options": {
+          "A": "(eˣ−e^{−x})/2",
+          "B": "eˣ",
+          "C": "(eˣ+e^{−x})/2",
+          "D": "xeˣ"
+        },
+        "answer": "A",
+        "explanation": "乘eˣ得(yeˣ)′=e^{2x}，积分并用初值确定常数−1/2；除eˣ给答案。"
+      },
+      "verification": "代答案求y′+y=eˣ，y0=0；其余逐项不满足方程或初值。"
+    },
+    {
+      "nodeId": "calculus:ch8-s3",
+      "question": {
+        "id": "qa-20261002-ca-reduce-exponential",
+        "type": "single",
+        "stem": "y″=y′，y(0)=0，y′(0)=2。令p=y′降阶后所得y为？",
+        "options": {
+          "A": "2(eˣ−1)",
+          "B": "2xeˣ",
+          "C": "e^{2x}−1",
+          "D": "2"
+        },
+        "answer": "A",
+        "explanation": "p′=p且p(0)=2，故p=2eˣ；再积分并用y0=0得2eˣ−2。"
+      },
+      "verification": "直接两次求导A满足y″=y′及两个初值。"
+    },
+    {
+      "nodeId": "calculus:ch8-s4",
+      "question": {
+        "id": "qa-20261002-ca-nonhomogeneous-structure",
+        "type": "single",
+        "stem": "方程y″−y=x的通解为？",
+        "options": {
+          "A": "−x+C₁eˣ+C₂e^{−x}",
+          "B": "x+C₁eˣ+C₂e^{−x}",
+          "C": "(C₁+C₂x)eˣ",
+          "D": "C₁eˣ+C₂e^{−x}"
+        },
+        "answer": "A",
+        "explanation": "yp=−x代入给x；齐次根±1。A为特解加齐次通解，B右端−x，D右端0。"
+      },
+      "verification": "独立代入每个表达式，不只按形式猜特解符号。"
+    },
+    {
+      "nodeId": "calculus:ch8-s5",
+      "question": {
+        "id": "qa-20261002-ca-oscillator-initial",
+        "type": "single",
+        "stem": "y″+4y=0，y(0)=0，y′(0)=2。解为？",
+        "options": {
+          "A": "sin(2x)",
+          "B": "2sin(2x)",
+          "C": "cos(2x)",
+          "D": "e^{2x}"
+        },
+        "answer": "A",
+        "explanation": "通解C₁cos2x+C₂sin2x，初值C₁0、2C₂2，故C₂1。"
+      },
+      "verification": "独立代入二阶方程和两个初值；B导数初值4，C点值1，D方程不成立。"
+    },
+    {
+      "nodeId": "calculus:ch8-s6",
+      "question": {
+        "id": "qa-20261002-ca-newton-cooling",
+        "type": "single",
+        "stem": "恒环境20℃，物体初温80℃，按牛顿冷却，10分钟后50℃。20分钟后温度为？",
+        "options": {
+          "A": "35℃",
+          "B": "25℃",
+          "C": "40℃",
+          "D": "20℃"
+        },
+        "answer": "A",
+        "explanation": "温差初始60、10分钟后30，温差每10分钟乘1/2；20分钟后15，加环境20得35。"
+      },
+      "verification": "T−20=60e^{-kt}，从10分钟比值得e^{-10k}=1/2，再平方计算。"
+    }
+  ]
+}

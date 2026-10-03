@@ -520,6 +520,28 @@ details.acc .acc-body > :first-child { margin-top: 13px; }
 .ctrl-label { font-size: 13px; color: var(--ink-3); white-space: nowrap; }
 .ctrl-label b { color: var(--ink-2); font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
+.transport-viz {
+  display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+  margin: 4px 16px 2px; padding: 7px 9px;
+  border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--card-2);
+}
+.transport-viz button, .transport-viz select {
+  min-height: 32px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--card); color: var(--ink-2); font: 650 13px var(--sans);
+  padding: 5px 10px; cursor: pointer;
+}
+.transport-viz button:hover:not(:disabled) { border-color: var(--brand); color: var(--brand); }
+.transport-viz button.play { background: var(--brand); border-color: var(--brand); color: #fff; }
+.transport-viz button.play.on { background: var(--accent); border-color: var(--accent); }
+.transport-viz button:disabled { opacity: .45; cursor: not-allowed; }
+.transport-viz button:focus-visible, .transport-viz select:focus-visible {
+  outline: 2px solid var(--brand); outline-offset: 2px;
+}
+.transport-speed-label { display: inline-flex; align-items: center; gap: 5px; color: var(--ink-3); font-size: 12px; }
+.transport-speed-label select { padding-right: 7px; font-variant-numeric: tabular-nums; }
+.transport-viz b { margin-left: 3px; color: var(--ink-3); font: 600 12px var(--mono); font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { .transport-viz button { transition: none; } }
+
 input[type="range"] {
   -webkit-appearance: none; appearance: none;
   height: 4px; border-radius: 99px; background: var(--line-2);

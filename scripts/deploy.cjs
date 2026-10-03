@@ -13,6 +13,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
+const { renderDeployConfig } = require('./render-deploy-config.cjs');
 
 const root = path.resolve(__dirname, '..');
 const host = process.env.ZHIXU_DEPLOY_HOST || 'my-server';
@@ -63,16 +64,13 @@ try {
   console.log('== 生成远程脚本 ==');
   const template = fs.readFileSync(path.join(root, 'deploy', 'zhixu-remote.sh'), 'utf8');
   const scriptPath = path.join(temp, 'deploy.sh');
-  fs.writeFileSync(scriptPath, template
-    .replace('__API_KEY__', apiKey)
-    .replace(/__SESSION_SECRET__/g, sessionSecret)
-    .replace(/__ADMIN_TOKEN__/g, adminToken));
+  fs.writeFileSync(scriptPath, renderDeployConfig(template, { apiKey, sessionSecret, adminToken }), { mode: 0o600 });
 
   console.log('== 上传到 ' + host + ' ==');
   run('scp', ['-o', 'BatchMode=yes', site, backend, scriptPath, host + ':/tmp/']);
 
   console.log('== 远程部署 ==');
-  run('ssh', ['-o', 'BatchMode=yes', host, 'bash /tmp/deploy.sh']);
+  run('ssh', ['-o', 'BatchMode=yes', host, 'chmod 600 /tmp/deploy.sh && bash /tmp/deploy.sh; result=$?; rm -f /tmp/deploy.sh; exit $result']);
 
   console.log('部署完成。');
 } finally {

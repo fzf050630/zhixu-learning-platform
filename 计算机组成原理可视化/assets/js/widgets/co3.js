@@ -144,9 +144,10 @@
       { label: '全相联', value: 'fully' },
       { label: '组相联', value: 'set' }
     ], v => { state.mode = v; render(); }, 0);
-    UI.slider(ctrl, { label: 'Cache 容量', min: 1, max: 32, step: 1, value: state.cacheKB, fmt: v => v + ' KB', onInput: v => { state.cacheKB = v; render(); } });
-    UI.slider(ctrl, { label: '块大小', min: 4, max: 64, step: 4, value: state.blockB, fmt: v => v + ' B', onInput: v => { state.blockB = v; render(); } });
-    UI.slider(ctrl, { label: '组相联路数', min: 2, max: 16, step: 2, value: state.ways, fmt: v => v + ' 路', onInput: v => { state.ways = v; render(); } });
+    UI.note(host, '本图按二进制连续位字段划分地址，容量、块长与相联路数均选2的幂；其他组织不能直接套用此位段模型。');
+    UI.slider(ctrl, { label: 'Cache 容量', min: 0, max: 5, step: 1, value: Math.log2(state.cacheKB), fmt: v => (2 ** v) + ' KB', onInput: v => { state.cacheKB = 2 ** v; render(); } });
+    UI.slider(ctrl, { label: '块大小', min: 2, max: 6, step: 1, value: Math.log2(state.blockB), fmt: v => (2 ** v) + ' B', onInput: v => { state.blockB = 2 ** v; render(); } });
+    UI.slider(ctrl, { label: '组相联路数', min: 1, max: 4, step: 1, value: Math.log2(state.ways), fmt: v => (2 ** v) + ' 路', onInput: v => { state.ways = 2 ** v; render(); } });
 
     function model() {
       const cacheBytes = state.cacheKB * 1024;
@@ -272,10 +273,10 @@
     const s = UI.shell(host, 300);
     const { scene, ctrl, out, body } = s;
     body.classList.add('pad0');
-    const state = { va: 0x00501A2C, pageKB: 4, pt: [5, 9, 2, 12, 0, 3, 7, 1, 14, 6] };
+    const state = { va: 0x00001A2C, pageKB: 4, pt: [5, 9, 2, 12, null, 3, 7, 1, 14, 6] };
     // 页表：虚页号 -> 物理页框号（部分）
 
-    UI.note(host, '页式虚拟存储器：虚拟地址 = 虚页号 + 页内偏移；硬件用页表把虚页号翻译为物理页框号。TLB 缓存最近的页表项。');
+    UI.note(host, '页式虚拟存储器：按完整虚页号查页表，页内偏移不变。本示例列出虚页0~9，虚页4未驻留；超出已列页表范围时不猜测映射。TLB缓存页表项。');
     const inp = UI.number(ctrl, { label: '虚拟地址(十进制)', value: state.va, min: 0, max: 0xFFFFFF, step: 1, width: 130 });
     inp.onChange(v => { state.va = v; render(); });
 
@@ -285,8 +286,9 @@
       const va = state.va >>> 0;
       const vpn = Math.floor(va / pageBytes);
       const offset = va % pageBytes;
-      const pfn = state.pt[vpn % state.pt.length];
-      const pa = pfn * pageBytes + offset;
+      const pfn = state.pt[vpn];
+      const mapped = Number.isInteger(pfn);
+      const pa = mapped ? pfn * pageBytes + offset : null;
       scene.clearLayers();
       scene.layer((p, ctx) => {
         const T = D.Theme.cache;
@@ -306,15 +308,19 @@
         state.pt.forEach((pfn2, i) => {
           const r = Math.floor(i / cols), c = i % cols;
           const x = 20 + c * cw, y = 120 + r * 30;
-          const act = i === vpn % state.pt.length;
+          const act = i === vpn;
           G.box(ctx, x, y, cw - 10, 24, {
             fill: act ? D.withAlpha(T['--brand'], 0.16) : T['--card-2'],
             stroke: act ? T['--brand'] : T['--line'], radius: 6
           });
           G.label(ctx, x + 12, y + 12, `页 ${i}`, { align: 'left', size: 10.5, color: T['--ink-3'], mono: true });
-          G.label(ctx, x + cw - 24, y + 12, `→ 框 ${pfn2}`, { align: 'right', size: 11, weight: act ? 800 : 600, color: act ? T['--brand'] : T['--ink-2'], mono: true });
+          G.label(ctx, x + cw - 24, y + 12, pfn2 === null ? '未驻留' : `→ 框 ${pfn2}`, { align: 'right', size: 11, weight: act ? 800 : 600, color: act ? T['--brand'] : T['--ink-2'], mono: true });
         });
         // 物理地址
+        if (!mapped) {
+          G.label(ctx, p.w / 2, p.h - 36, pfn === null ? '装入位无效：发生缺页异常，调页后重试' : '该虚页的页表项未列出，无法确定物理地址', { size: 11, weight: 700, color: T['--red'] });
+          return;
+        }
         const paBits = B.toBits(pa, 32);
         G.label(ctx, p.w / 2, p.h - 54, '物理地址', { size: 12, weight: 700, color: T['--ink'] });
         G.bits(ctx, 16, p.h - 42, p.w - 32, 30, {
@@ -328,8 +334,8 @@
       UI.readout(out, [
         ['虚页号 VPN', vpn + '（' + B.group(B.toBits(vpn, 32 - offsetBits), 4) + '₂）'],
         ['页内偏移', offset + '（' + B.group(B.toBits(offset, offsetBits), 4) + '₂）'],
-        ['物理页框号', pfn],
-        ['物理地址', '0x' + pa.toString(16).toUpperCase().padStart(8, '0')]
+        ['物理页框号', mapped ? pfn : (pfn === null ? '未驻留' : '未列出')],
+        ['物理地址', mapped ? '0x' + pa.toString(16).toUpperCase().padStart(8, '0') : (pfn === null ? '缺页，需调页后重试' : '无法由当前页表确定')]
       ]);
     }
     render();
@@ -533,7 +539,7 @@
         G.lines(ctx, bx + 12, 212, [
           `数据传输率 = ${state.spt} × 512 B × ${r.toFixed(0)} 转/s ≈ ${(rate / 1e6).toFixed(2)} MB/s`,
           `每道容量 = ${state.spt} × 512 B = ${(trackBytes / 1024).toFixed(1)} KB　·　每面磁道数 ${state.tracks / 1000} K`,
-          `非格式化容量 ≈ 磁道数 × 每道字节数 × 2 面 ≈ ${(state.tracks * trackBytes * 2 / 1e6).toFixed(0)} MB`
+          `格式化容量 ≈ 磁道数 × 每道有效字节数 × 2 面 ≈ ${(state.tracks * trackBytes * 2 / 1e6).toFixed(0)} MB`
         ], { align: 'left', size: 10.5, lineHeight: 19, color: T['--ink-2'] });
 
         G.box(ctx, bx, 272, bwe, 62, { fill: D.withAlpha(T['--accent'], 0.08), stroke: D.withAlpha(T['--accent'], 0.45), radius: 8 });
@@ -710,7 +716,7 @@
         };
         G.box(ctx, 14, descY, p.w - 28, 46, { fill: T['--card-2'], stroke: T['--line'], radius: 8 });
         G.fitted(ctx, 26, descY + 23, descs[state.algo], p.w - 52, { align: 'left', size: 10.5, weight: 500, color: T['--ink-2'] });
-        G.label(ctx, p.w / 2, p.h - 8, 'LRU 与 CLOCK 不会出现 FIFO 的 Belady 异常（增加行数命中率反而下降）', { size: 10.5, color: T['--ink-3'] });
+        G.label(ctx, p.w / 2, p.h - 8, '严格 LRU 具有栈性质，不出现 Belady 异常；FIFO 和 CLOCK 不具此保证', { size: 10.5, color: T['--ink-3'] });
       });
       scene.render();
       const hits = cur.filter(x => x.hit).length;

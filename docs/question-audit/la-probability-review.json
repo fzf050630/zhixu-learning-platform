@@ -1,0 +1,5844 @@
+{
+  "subjects": [
+    "linear-algebra",
+    "probability"
+  ],
+  "reviewed": [
+    {
+      "nodeId": "linear-algebra:ch1-s1",
+      "bank": "practice",
+      "id": "la-det-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "交换一次等于乘−1；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s1",
+      "bank": "practice",
+      "id": "la-det-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "零行使每个排列乘积为0；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s1",
+      "bank": "practice",
+      "id": "la-det-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "倍加利用多线性重复行项为0；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s1",
+      "bank": "practice",
+      "id": "la-det-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "排列逆对应转置值相等；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s1",
+      "bank": "practice",
+      "id": "la-det-6",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "相关行使交替多线性形式为0；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s1",
+      "bank": "past",
+      "id": "exam-linear-det-2014-5",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "分块det=detM·detM=(ad−bc)²；只有C恒成立。",
+      "replacement": {
+        "id": "exam-linear-det-2014-5-r2",
+        "type": "single",
+        "stem": "令 M=[[a,b],[c,d]]。由两个相同的 M 组成的 4 阶分块对角矩阵，其行列式等于？",
+        "options": {
+          "A": "ad−bc",
+          "B": "2(ad−bc)",
+          "C": "(ad−bc)²",
+          "D": "−(ad−bc)²"
+        },
+        "answer": "C",
+        "explanation": "分块对角矩阵的行列式等于各对角块行列式的乘积。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s1",
+      "bank": "past",
+      "id": "exam-linear-det-2015-13",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "三行各乘2，倍数2³=8；C。",
+      "replacement": {
+        "id": "exam-linear-det-2015-13-r2",
+        "type": "single",
+        "stem": "若 A 为 3 阶矩阵，则 det(2A) 与 det(A) 的关系是？",
+        "options": {
+          "A": "det(2A)=2det(A)",
+          "B": "det(2A)=4det(A)",
+          "C": "det(2A)=8det(A)",
+          "D": "det(2A)=det(A)"
+        },
+        "answer": "C",
+        "explanation": "n 阶矩阵整体乘以常数 k，行列式乘以 kⁿ；此处为 2³=8。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s2",
+      "bank": "practice",
+      "id": "la-det-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "三角阵仅恒等排列贡献；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s2",
+      "bank": "practice",
+      "id": "la-det-7",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "消元可减少展开量但效率取决于结构；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s2",
+      "bank": "practice",
+      "id": "la-det-8",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "换行与倍乘会改变值，原命题假；原标记答案 T。",
+      "replacement": {
+        "id": "la-det-8-r2",
+        "type": "judge",
+        "stem": "利用初等行变换把行列式化为上三角后，其值等于主对角线元素之积。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "任意初等行变换可能改变行列式。例diag(1,2)交换两行后再三角化会涉及符号；若第一行乘3，三角阵对角积变6而原值2。倍加不改变值，换行与倍乘需追踪因子。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s2",
+      "bank": "practice",
+      "id": "la-det-9",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "n行各提出k得k^n；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s2",
+      "bank": "practice",
+      "id": "la-det-10",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "需指定标准幂次排列，否则符号随行列顺序变化；原标记答案 T。",
+      "replacement": {
+        "id": "la-det-10-r2",
+        "type": "judge",
+        "stem": "标准范德蒙德矩阵 V 的第 i 行为 (1,xᵢ,…,xᵢⁿ⁻¹)，则 det(V)=∏ᵢ<ⱼ(xⱼ−xᵢ)。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "指定幂次与行顺序后，交替多项式被每个xⱼ−xᵢ整除且首项系数为1；交换行或倒序幂次会改变符号。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch1-s2-2015-13-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“交换行列式的两行，行列式的值会？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：三角阵仅恒等排列贡献；消元可减少展开量但效率取决于结构；换行与倍乘会改变值，原命题假；n行各提出k得k^n；需指定标准幂次排列，否则符号随行列顺序变化。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch1-s2-2014-5-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“方阵 A 满足 det(A)=0 时，A？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：三角阵仅恒等排列贡献；消元可减少展开量但效率取决于结构；换行与倍乘会改变值，原命题假；n行各提出k得k^n；需指定标准幂次排列，否则符号随行列顺序变化。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s1",
+      "bank": "practice",
+      "id": "la-trans-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "逐项(AB)ji=ΣBj k Ak i得反序；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s1",
+      "bank": "practice",
+      "id": "la-mat-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "E12E21与E21E12不同；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s1",
+      "bank": "practice",
+      "id": "la-mat-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "有限求和可交换结合次序；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s1",
+      "bank": "practice",
+      "id": "la-mat-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "逐项加法转置可分配，其余非恒等式；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s1",
+      "bank": "practice",
+      "id": "la-mat-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "diag(1,0)diag(0,1)=0；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s1",
+      "bank": "past",
+      "id": "exam-linear-matrix-2024-7",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "迹直接相加2+3+4=9；D。",
+      "replacement": {
+        "id": "exam-linear-matrix-2024-7-r2",
+        "type": "single",
+        "stem": "矩阵 A 的主对角线元素为 2、3、4，则 tr(A) 等于多少？",
+        "options": {
+          "A": "5",
+          "B": "6",
+          "C": "7",
+          "D": "9"
+        },
+        "answer": "D",
+        "explanation": "矩阵的迹是主对角线元素之和。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s1",
+      "bank": "past",
+      "id": "exam-linear-matrix-2019-5",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 n 阶矩阵 A 可逆，以下哪个结论一定成立？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：逐项(AB)ji=ΣBj k Ak i得反序；E12E21与E21E12不同；有限求和可交换结合次序；逐项加法转置可分配，其余非恒等式；diag(1,0)diag(0,1)=0。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s2",
+      "bank": "practice",
+      "id": "la-inv-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "AB(B逆A逆)=I；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s2",
+      "bank": "practice",
+      "id": "la-inv-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "det非零等价满秩；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s2",
+      "bank": "practice",
+      "id": "la-inv-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "余子式展开得AA*=det(A)I；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s2",
+      "bank": "practice",
+      "id": "la-inv-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "转置逆恒等式得到唯一逆；原标记答案 T。",
+      "replacement": {
+        "id": "la-inv-4-r2",
+        "type": "judge",
+        "stem": "设方阵 A 可逆，则 (Aᵀ)⁻¹=(A⁻¹)ᵀ。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "转置与求逆可交换次序。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s2",
+      "bank": "practice",
+      "id": "la-inv-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "行列式乘法得倒数；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch2-s2-2019-5-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“方阵 A 可逆的充要条件是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：AB(B逆A逆)=I；det非零等价满秩；余子式展开得AA*=det(A)I；转置逆恒等式得到唯一逆；行列式乘法得倒数。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch2-s2-2024-7-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 A 可逆，则 (A⁻¹)⁻¹ 等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：AB(B逆A逆)=I；det非零等价满秩；余子式展开得AA*=det(A)I；转置逆恒等式得到唯一逆；行列式乘法得倒数。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s3",
+      "bank": "practice",
+      "id": "la-rank-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "可逆左乘保持行空间；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s3",
+      "bank": "practice",
+      "id": "la-rank-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "像空间维数受两个因子限制；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s3",
+      "bank": "practice",
+      "id": "la-rank-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "左乘作用于行；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s3",
+      "bank": "practice",
+      "id": "la-rank-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "逆操作仍是初等操作；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s3",
+      "bank": "practice",
+      "id": "la-rank-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "仅可逆A能把左块化为I；原标记答案 A。",
+      "replacement": {
+        "id": "la-rank-5-r2",
+        "type": "single",
+        "stem": "设方阵 A 可逆，用初等行变换求 A⁻¹ 的做法是？",
+        "options": {
+          "A": "对 (A|E) 做行变换化为 (E|A⁻¹)",
+          "B": "对 (A|E) 做列变换",
+          "C": "直接转置",
+          "D": "求伴随矩阵即可"
+        },
+        "answer": "A",
+        "explanation": "对增广矩阵 (A|E) 实施初等行变换，A 化为 E 时右侧即为 A⁻¹。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s3",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch2-s3-2019-6-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“矩阵初等行变换不改变矩阵的？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：可逆左乘保持行空间；像空间维数受两个因子限制；左乘作用于行；逆操作仍是初等操作；仅可逆A能把左块化为I。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s3",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch2-s3-2015-20-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“矩阵的秩等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：可逆左乘保持行空间；像空间维数受两个因子限制；左乘作用于行；逆操作仍是初等操作；仅可逆A能把左块化为I。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s4",
+      "bank": "practice",
+      "id": "la-block-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "各块逆构成整体逆；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s4",
+      "bank": "practice",
+      "id": "la-block-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "内层块宽度必须匹配高度；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s4",
+      "bank": "practice",
+      "id": "la-block-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "方形对角块的排列展开分离；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s4",
+      "bank": "practice",
+      "id": "la-block-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "非对角块不参与跨下三角排列；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s4",
+      "bank": "practice",
+      "id": "la-block-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "块内索引与块间索引同时交换；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s4",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch2-s4-2014-5-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“分块矩阵乘法仍需满足的基本条件是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：各块逆构成整体逆；内层块宽度必须匹配高度；方形对角块的排列展开分离；非对角块不参与跨下三角排列；块内索引与块间索引同时交换。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s4",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch2-s4-2015-13-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“对角分块矩阵 diag(A,B) 的行列式等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：各块逆构成整体逆；内层块宽度必须匹配高度；方形对角块的排列展开分离；非对角块不参与跨下三角排列；块内索引与块间索引同时交换。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s1",
+      "bank": "practice",
+      "id": "la-combo-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "能表示即系数方程相容；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s1",
+      "bank": "practice",
+      "id": "la-combo-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "等价是张成子空间相同；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s1",
+      "bank": "practice",
+      "id": "la-combo-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "全部零系数产生零向量；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s1",
+      "bank": "practice",
+      "id": "la-combo-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "张成B包含于张成A故维数不增；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s1",
+      "bank": "practice",
+      "id": "la-combo-5",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "e1与e2各秩1但张成不同；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s1",
+      "bank": "past",
+      "id": "exam-linear-vector-2024-6",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "任两独立给r≥2而整体依赖给r<3，故r=2；C。",
+      "replacement": {
+        "id": "exam-linear-vector-2024-6-r2",
+        "type": "single",
+        "stem": "三个向量整体线性相关，但任取其中两个都线性无关，则该向量组的秩是多少？",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "2",
+          "D": "3"
+        },
+        "answer": "C",
+        "explanation": "任意两个向量独立说明秩至少为 2；三个整体相关说明秩小于 3，因此秩为 2。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s1",
+      "bank": "past",
+      "id": "exam-linear-vector-2015-20",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“在三维空间中，三个向量构成一组基的充要条件是什么？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：能表示即系数方程相容；等价是张成子空间相同；全部零系数产生零向量；张成B包含于张成A故维数不增；e1与e2各秩1但张成不同。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s2",
+      "bank": "practice",
+      "id": "la-indep-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "零向量系数取1构造依赖式；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s2",
+      "bank": "practice",
+      "id": "la-indep-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "齐次n方程n+1未知数存在自由量；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s2",
+      "bank": "practice",
+      "id": "la-indep-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "非平凡核向量就是依赖关系；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s2",
+      "bank": "practice",
+      "id": "la-indep-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "局部关系补零推广全组；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s2",
+      "bank": "practice",
+      "id": "la-indep-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "列秩满列等价核为0；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch3-s2-2015-20-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“向量组线性无关的定义要求？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：零向量系数取1构造依赖式；齐次n方程n+1未知数存在自由量；非平凡核向量就是依赖关系；局部关系补零推广全组；列秩满列等价核为0。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch3-s2-2024-6-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“三个向量整体相关但任意两个都无关时，该组向量的秩是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：零向量系数取1构造依赖式；齐次n方程n+1未知数存在自由量；非平凡核向量就是依赖关系；局部关系补零推广全组；列秩满列等价核为0。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s3",
+      "bank": "practice",
+      "id": "la-maxindep-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "基底个数定义秩；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s3",
+      "bank": "practice",
+      "id": "la-maxindep-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "e1,e2,e1+e2可有多个二元极大组；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s3",
+      "bank": "practice",
+      "id": "la-maxindep-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "行列排布不改变线性关系的维数；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s3",
+      "bank": "practice",
+      "id": "la-maxindep-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "须取原矩阵主元对应列；原标记答案 A。",
+      "replacement": {
+        "id": "la-maxindep-4-r2",
+        "type": "single",
+        "stem": "求极大线性无关组的常用方法是？",
+        "options": {
+          "A": "对列向量组成的矩阵做行阶梯化，取原矩阵中主元对应的列",
+          "B": "取变换后全部非零列",
+          "C": "取全部零列",
+          "D": "取任意与秩相同数量的列"
+        },
+        "answer": "A",
+        "explanation": "化行阶梯形后，主元所在列对应的原向量构成一个极大无关组。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s3",
+      "bank": "practice",
+      "id": "la-maxindep-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "行列秩由阶梯主元数一致；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s3",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch3-s3-2024-6-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“向量组极大无关组的向量个数等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：基底个数定义秩；e1,e2,e1+e2可有多个二元极大组；行列排布不改变线性关系的维数；须取原矩阵主元对应列；行列秩由阶梯主元数一致。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s3",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch3-s3-2015-20-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“向量组的秩为 r，意味着其中最多有多少个线性无关向量？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：基底个数定义秩；e1,e2,e1+e2可有多个二元极大组；行列排布不改变线性关系的维数；须取原矩阵主元对应列；行列秩由阶梯主元数一致。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s4",
+      "bank": "practice",
+      "id": "la-vspace-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "闭合要求和及标量倍仍在空间；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s4",
+      "bank": "practice",
+      "id": "la-vspace-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "须是整个空间的极大无关集而非任意子组；原标记答案 A。",
+      "replacement": {
+        "id": "la-vspace-2-r2",
+        "type": "single",
+        "stem": "向量空间的一组基是指？",
+        "options": {
+          "A": "空间中线性无关且张成整个空间的向量组",
+          "B": "任意有限无关向量组",
+          "C": "所有向量的集合",
+          "D": "零向量的集合"
+        },
+        "answer": "A",
+        "explanation": "基是线性无关且能生成整个空间的向量组，即极大无关组。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s4",
+      "bank": "practice",
+      "id": "la-vspace-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "基之间可逆变换强制相同个数；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s4",
+      "bank": "practice",
+      "id": "la-vspace-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "若新基=旧基P则旧坐标=P新坐标；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s4",
+      "bank": "practice",
+      "id": "la-vspace-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "独立n向量张成n维空间；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s4",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch3-s4-2015-20-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“n 维向量空间的一组基必须包含？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：闭合要求和及标量倍仍在空间；须是整个空间的极大无关集而非任意子组；基之间可逆变换强制相同个数；若新基=旧基P则旧坐标=P新坐标；独立n向量张成n维空间。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s4",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch3-s4-2020-21-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“可逆坐标变换矩阵意味着两组基之间？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：闭合要求和及标量倍仍在空间；须是整个空间的极大无关集而非任意子组；基之间可逆变换强制相同个数；若新基=旧基P则旧坐标=P新坐标；独立n向量张成n维空间。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s5",
+      "bank": "practice",
+      "id": "la-orth-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "减投影保持张成且归一化；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s5",
+      "bank": "practice",
+      "id": "la-orth-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "依赖式分别内积迫使系数0；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s5",
+      "bank": "practice",
+      "id": "la-orth-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "零向量无夹角，正交定义是内积0；原标记答案 T。",
+      "replacement": {
+        "id": "la-orth-3-r2",
+        "type": "judge",
+        "stem": "两向量正交的充要条件是它们的内积为 0。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "正交定义为内积为0。两个非零向量时这等价于夹角90°；零向量也与任意向量正交，但零向量的夹角没有定义。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s5",
+      "bank": "practice",
+      "id": "la-orth-4",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与首题同一操作，无新增考点；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s5",
+      "bank": "practice",
+      "id": "la-orth-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "内积δij刻画标准正交组；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s5",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch3-s5-2020-21-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“标准正交基中任意两个不同基向量的内积为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：减投影保持张成且归一化；依赖式分别内积迫使系数0；零向量无夹角，正交定义是内积0；与首题同一操作，无新增考点；内积δij刻画标准正交组。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s5",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch3-s5-2015-20-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“Gram–Schmidt 正交化过程中，每一步需减去？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：减投影保持张成且归一化；依赖式分别内积迫使系数0；零向量无夹角，正交定义是内积0；与首题同一操作，无新增考点；内积δij刻画标准正交组。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s1",
+      "bank": "practice",
+      "id": "la-cramer-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "detA非零给唯一解；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s1",
+      "bank": "practice",
+      "id": "la-cramer-2",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与首题同一可逆条件；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s1",
+      "bank": "practice",
+      "id": "la-cramer-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "可逆左乘得到x=0；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s1",
+      "bank": "practice",
+      "id": "la-cramer-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "Ai须第i列替换b；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s1",
+      "bank": "practice",
+      "id": "la-cramer-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "逐个独立计算n+1行列式通常不适宜规模化；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s1",
+      "bank": "past",
+      "id": "exam-linear-system-2015-5",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“含 n 个未知数的线性方程组有无穷多解，需要满足哪项秩条件？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：detA非零给唯一解；与首题同一可逆条件；可逆左乘得到x=0；Ai须第i列替换b；逐个独立计算n+1行列式通常不适宜规模化。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s1",
+      "bank": "past",
+      "id": "exam-linear-system-2019-6",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“非齐次线性方程组 Ax=b 有解的充要秩条件是哪一个？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：detA非零给唯一解；与首题同一可逆条件；可逆左乘得到x=0；Ai须第i列替换b；逐个独立计算n+1行列式通常不适宜规模化。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s2",
+      "bank": "practice",
+      "id": "la-homo-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "秩零化度公式给非零解条件；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s2",
+      "bank": "practice",
+      "id": "la-homo-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "核维数=n−r；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s2",
+      "bank": "practice",
+      "id": "la-homo-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "核在加法数乘下封闭；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s2",
+      "bank": "practice",
+      "id": "la-homo-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "基础解系是核的一组基；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s2",
+      "bank": "practice",
+      "id": "la-homo-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "代入0总满足等式；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch4-s2-2015-5-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“齐次线性方程组 Ax=0 一定有？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：秩零化度公式给非零解条件；核维数=n−r；核在加法数乘下封闭；基础解系是核的一组基；代入0总满足等式。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch4-s2-2019-6-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“齐次方程组有非零解的充要条件是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：秩零化度公式给非零解条件；核维数=n−r；核在加法数乘下封闭；基础解系是核的一组基；代入0总满足等式。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s3",
+      "bank": "practice",
+      "id": "la-nonhomo-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "增广列属于列空间才相容；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s3",
+      "bank": "practice",
+      "id": "la-nonhomo-2",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与首题逐字相同；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s3",
+      "bank": "practice",
+      "id": "la-nonhomo-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "任两非齐次解差属于核；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s3",
+      "bank": "practice",
+      "id": "la-nonhomo-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "相容并满列秩消除自由变量；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s3",
+      "bank": "practice",
+      "id": "la-nonhomo-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "正自由维度给实数域无穷多解；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s3",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch4-s3-2019-6-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“非齐次方程组 Ax=b 有解的秩条件是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：增广列属于列空间才相容；与首题逐字相同；任两非齐次解差属于核；相容并满列秩消除自由变量；正自由维度给实数域无穷多解。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s3",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch4-s3-2015-5-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 rank(A)=rank(A|b)=n，n 为未知数个数，则方程组？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：增广列属于列空间才相容；与首题逐字相同；任两非齐次解差属于核；相容并满列秩消除自由变量；正自由维度给实数域无穷多解。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s1",
+      "bank": "practice",
+      "id": "la-eig-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "特征多项式系数给和与积需计代数重数；原标记答案 A。",
+      "replacement": {
+        "id": "la-eig-1-r2",
+        "type": "single",
+        "stem": "在复数域中按代数重数计数 n 阶矩阵 A 的全部特征值，下列说法正确的是？",
+        "options": {
+          "A": "全部特征值之和等于 A 的迹，之积等于 |A|",
+          "B": "特征值之和等于 |A|",
+          "C": "特征值一定都是实数",
+          "D": "特征值之积等于迹"
+        },
+        "answer": "A",
+        "explanation": "由特征多项式，Σλᵢ = tr(A)，Πλᵢ = |A|；实矩阵的特征值可能是复数。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s1",
+      "bank": "practice",
+      "id": "la-eig-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "特征向量非零使λI−A奇异；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s1",
+      "bank": "practice",
+      "id": "la-eig-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "0对所有λ成立故不能充当特征向量；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s1",
+      "bank": "practice",
+      "id": "la-eig-4",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与首题迹部分重复；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s1",
+      "bank": "practice",
+      "id": "la-eig-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "不同根的特征向量可用消去法证明独立；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s1",
+      "bank": "past",
+      "id": "exam-linear-eigen-2015-21",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若矩阵 A 与 B 相似，下列性质一定成立的是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：特征多项式系数给和与积需计代数重数；特征向量非零使λI−A奇异；0对所有λ成立故不能充当特征向量；与首题迹部分重复；不同根的特征向量可用消去法证明独立。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s1",
+      "bank": "past",
+      "id": "exam-linear-eigen-2020-21",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "迹按代数重数相加1+2+4=7；C。",
+      "replacement": {
+        "id": "exam-linear-eigen-2020-21-r2",
+        "type": "single",
+        "stem": "3 阶矩阵的三个特征值为 1、2、4，则其迹等于多少？",
+        "options": {
+          "A": "4",
+          "B": "6",
+          "C": "7",
+          "D": "8"
+        },
+        "answer": "C",
+        "explanation": "矩阵的迹等于全部特征值之和，即 1+2+4=7。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s2",
+      "bank": "practice",
+      "id": "la-diag-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "特征向量作可逆列阵即对角化；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s2",
+      "bank": "practice",
+      "id": "la-diag-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "相似多项式det(λI−P逆AP)保持；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s2",
+      "bank": "practice",
+      "id": "la-diag-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "可逆左右乘保秩且迹循环；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s2",
+      "bank": "practice",
+      "id": "la-diag-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "实域还要求特征多项式在实域分裂；原标记答案 A。",
+      "replacement": {
+        "id": "la-diag-4-r2",
+        "type": "single",
+        "stem": "复数域上的 n 阶矩阵可相似对角化的充要条件是？",
+        "options": {
+          "A": "每个特征值的几何重数等于其代数重数",
+          "B": "特征值互不相同",
+          "C": "|A| ≠ 0",
+          "D": "A 对称"
+        },
+        "answer": "A",
+        "explanation": "在复数域特征多项式分裂，对每个根几何重数等于代数重数即给出n个无关特征向量。实数域还需所有特征值为实数。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s2",
+      "bank": "practice",
+      "id": "la-diag-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "实对称谱定理可取正交特征基；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch5-s2-2015-21-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“相似矩阵一定具有相同的？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：特征向量作可逆列阵即对角化；相似多项式det(λI−P逆AP)保持；可逆左右乘保秩且迹循环；实域还要求特征多项式在实域分裂；实对称谱定理可取正交特征基。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch5-s2-2020-21-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“矩阵可相似对角化需要存在？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：特征向量作可逆列阵即对角化；相似多项式det(λI−P逆AP)保持；可逆左右乘保秩且迹循环；实域还要求特征多项式在实域分裂；实对称谱定理可取正交特征基。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s3",
+      "bank": "practice",
+      "id": "la-sym-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "对称性给(λ−μ)uTv=0；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s3",
+      "bank": "practice",
+      "id": "la-sym-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "复特征向量内积证明λ为实；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s3",
+      "bank": "practice",
+      "id": "la-sym-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "谱定理给QTAQ对角；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s3",
+      "bank": "practice",
+      "id": "la-sym-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "正交基有n列；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s3",
+      "bank": "practice",
+      "id": "la-sym-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "谱定理使几何与代数重数相同；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s3",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch5-s3-2020-21-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“实对称矩阵的不同特征值对应的特征向量？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：对称性给(λ−μ)uTv=0；复特征向量内积证明λ为实；谱定理给QTAQ对角；正交基有n列；谱定理使几何与代数重数相同。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s3",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch5-s3-2015-21-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“实对称矩阵一定可以通过什么矩阵对角化？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：对称性给(λ−μ)uTv=0；复特征向量内积证明λ为实；谱定理给QTAQ对角；正交基有n列；谱定理使几何与代数重数相同。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s1",
+      "bank": "practice",
+      "id": "la-quad-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "反对称部分对xTAx贡献0；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s1",
+      "bank": "practice",
+      "id": "la-quad-2",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "限定实对称代表后交叉系数确定唯一矩阵；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s1",
+      "bank": "practice",
+      "id": "la-quad-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "合同标准化保秩；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s1",
+      "bank": "practice",
+      "id": "la-quad-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "代入x=Cy得CTAC；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s1",
+      "bank": "practice",
+      "id": "la-quad-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "可逆左右乘不改秩；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s1",
+      "bank": "past",
+      "id": "exam-linear-quadratic-2015-6",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "系数2,1,−1中正2负1；B。",
+      "replacement": {
+        "id": "exam-linear-quadratic-2015-6-r2",
+        "type": "single",
+        "stem": "二次型在正交变换下化为 2y₁²+y₂²−y₃²，其正惯性指数和负惯性指数分别是多少？",
+        "options": {
+          "A": "1 和 2",
+          "B": "2 和 1",
+          "C": "3 和 0",
+          "D": "0 和 3"
+        },
+        "answer": "B",
+        "explanation": "标准形中有两个正系数和一个负系数。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s1",
+      "bank": "past",
+      "id": "exam-linear-quadratic-2014-13",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "非退化秩3，p+q=3且q=1，p=2；C。",
+      "replacement": {
+        "id": "exam-linear-quadratic-2014-13-r2",
+        "type": "single",
+        "stem": "一个非退化三元二次型的负惯性指数为 1，则其正惯性指数是多少？",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "2",
+          "D": "3"
+        },
+        "answer": "C",
+        "explanation": "非退化三元二次型的正、负惯性指数之和为 3；负惯性指数为 1 时正惯性指数为 2。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s2",
+      "bank": "practice",
+      "id": "la-std-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "标准形只留下平方项；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s2",
+      "bank": "practice",
+      "id": "la-std-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "缩放非零系数到±1；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s2",
+      "bank": "practice",
+      "id": "la-std-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "实合同保正负子空间最大维数；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s2",
+      "bank": "practice",
+      "id": "la-std-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "配方消交叉或谱分解；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s2",
+      "bank": "practice",
+      "id": "la-std-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "固定维数且允许变量重排时p,q确定规范形；原标记答案 T。",
+      "replacement": {
+        "id": "la-std-5-r2",
+        "type": "judge",
+        "stem": "在固定维数的实二次型中，允许变量重排时，规范形由其正、负惯性指数唯一确定。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "不同方法得到的规范形相同，只由 p、q（及秩）决定。"
+      }
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch6-s2-2015-6-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“实二次型化为标准形时，常用的变量变换是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：标准形只留下平方项；缩放非零系数到±1；实合同保正负子空间最大维数；配方消交叉或谱分解；固定维数且允许变量重排时p,q确定规范形。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s2",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch6-s2-2014-13-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“二次型规范形中正、负平方项个数由什么保持不变？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：标准形只留下平方项；缩放非零系数到±1；实合同保正负子空间最大维数；配方消交叉或谱分解；固定维数且允许变量重排时p,q确定规范形。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s3",
+      "bank": "practice",
+      "id": "la-pd-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "Sylvester判据要求实对称；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s3",
+      "bank": "practice",
+      "id": "la-pd-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "正交谱展开使正特征值等价正定；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s3",
+      "bank": "practice",
+      "id": "la-pd-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "正惯性指数满维等价各平方系数正；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s3",
+      "bank": "practice",
+      "id": "la-pd-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "正特征值之积为正；原标记答案 T。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s3",
+      "bank": "practice",
+      "id": "la-pd-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "取ei检验得到aii>0；原标记答案 A。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s3",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch6-s3-2015-6-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“实对称矩阵正定的一个等价条件是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：Sylvester判据要求实对称；正交谱展开使正特征值等价正定；正惯性指数满维等价各平方系数正；正特征值之积为正；取ei检验得到aii>0。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s3",
+      "bank": "past",
+      "id": "exam-linear-algebra-ch6-s3-2014-13-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“正定二次型对任意非零向量 x 满足？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：Sylvester判据要求实对称；正交谱展开使正特征值等价正定；正惯性指数满维等价各平方系数正；正特征值之积为正；取ei检验得到aii>0。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s1",
+      "bank": "practice",
+      "id": "pr-event-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "互斥交为空容斥化为加法；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s1",
+      "bank": "practice",
+      "id": "pr-ss-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "已知的是全部可能结果而非本次结果；原标记答案 A。",
+      "replacement": {
+        "id": "pr-ss-1-r2",
+        "type": "single",
+        "stem": "随机试验通常具有哪些特点？",
+        "options": {
+          "A": "可在相同条件下重复、全部可能结果已知、本次结果事先不确定",
+          "B": "不可重复",
+          "C": "全部可能结果都未知",
+          "D": "本次结果事先确定"
+        },
+        "answer": "A",
+        "explanation": "随机试验可重复进行，所有可能结果已知，但每次结果事先不确定。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s1",
+      "bank": "practice",
+      "id": "pr-ss-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "Ω由所有可能结果定义；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s1",
+      "bank": "practice",
+      "id": "pr-ss-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "全集必发生空集不发生；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s1",
+      "bank": "practice",
+      "id": "pr-ss-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "单点事件不能拆为两个非空子事件；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s1",
+      "bank": "past",
+      "id": "exam-prob-event-2014-7",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "0.3=P(A)·0.5故P(A)=0.6；P(B−A)=0.5·0.4=0.2；B。",
+      "replacement": {
+        "id": "exam-prob-event-2014-7-r2",
+        "type": "single",
+        "stem": "事件 A、B 相互独立，P(B)=0.5，P(A−B)=0.3，则 P(B−A) 等于多少？",
+        "options": {
+          "A": "0.1",
+          "B": "0.2",
+          "C": "0.3",
+          "D": "0.4"
+        },
+        "answer": "B",
+        "explanation": "先由 P(A−B)=P(A)(1−P(B)) 得 P(A)=0.6，再由 P(AB)=0.3 得 P(B−A)=0.2。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s1",
+      "bank": "past",
+      "id": "exam-prob-event-2015-7",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "独立交概率0.6·0.5=0.3；C。",
+      "replacement": {
+        "id": "exam-prob-event-2015-7-r2",
+        "type": "single",
+        "stem": "A、B 相互独立，P(A)=0.6、P(B)=0.5，则 P(A∩B) 等于多少？",
+        "options": {
+          "A": "0.1",
+          "B": "0.2",
+          "C": "0.3",
+          "D": "0.5"
+        },
+        "answer": "C",
+        "explanation": "独立事件满足 P(A∩B)=P(A)P(B)=0.6×0.5=0.3。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s2",
+      "bank": "practice",
+      "id": "pr-op-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "集合包含保证A发生则B发生；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s2",
+      "bank": "practice",
+      "id": "pr-op-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "逐点否定或运算得到且；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s2",
+      "bank": "practice",
+      "id": "pr-op-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "差集是A且非B；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s2",
+      "bank": "practice",
+      "id": "pr-op-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "对立还要求覆盖全集；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s2",
+      "bank": "practice",
+      "id": "pr-op-5",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与上一题同一辨析；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s2",
+      "bank": "past",
+      "id": "exam-probability-ch1-s2-2014-7-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“事件差 A−B 可表示为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：集合包含保证A发生则B发生；逐点否定或运算得到且；差集是A且非B；对立还要求覆盖全集；与上一题同一辨析。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s2",
+      "bank": "past",
+      "id": "exam-probability-ch1-s2-2015-7-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“对任意事件 A、B，P(A∪B) 等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：集合包含保证A发生则B发生；逐点否定或运算得到且；差集是A且非B；对立还要求覆盖全集；与上一题同一辨析。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s3",
+      "bank": "practice",
+      "id": "pr-def-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "测度公理是非负归一可列可加；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s3",
+      "bank": "practice",
+      "id": "pr-def-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "A与补集不交且并为Ω；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s3",
+      "bank": "practice",
+      "id": "pr-def-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "空集加自身迫使P空=0；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s3",
+      "bank": "practice",
+      "id": "pr-def-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "交集在和中计算两次须减去；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s3",
+      "bank": "practice",
+      "id": "pr-def-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "B分为A与B差A且不交；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s3",
+      "bank": "past",
+      "id": "exam-probability-ch1-s3-2014-7-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“概率 P(A) 必须满足的基本范围是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：测度公理是非负归一可列可加；A与补集不交且并为Ω；空集加自身迫使P空=0；交集在和中计算两次须减去；B分为A与B差A且不交。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s3",
+      "bank": "past",
+      "id": "exam-probability-ch1-s3-2019-1-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 A、B 互斥，则 P(A∪B) 等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：测度公理是非负归一可列可加；A与补集不交且并为Ω；空集加自身迫使P空=0；交集在和中计算两次须减去；B分为A与B差A且不交。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s4",
+      "bank": "practice",
+      "id": "pr-classic-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "有限等可能使计数可除总数；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s4",
+      "bank": "practice",
+      "id": "pr-classic-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "每点概率1/N相加得k/N；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s4",
+      "bank": "practice",
+      "id": "pr-classic-3",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与首题相同条件；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s4",
+      "bank": "practice",
+      "id": "pr-classic-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "组合处理无序选择排列处理有序；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s4",
+      "bank": "practice",
+      "id": "pr-classic-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "0≤k≤n整数才有阶乘式；原标记答案 T。",
+      "replacement": {
+        "id": "pr-classic-5-r2",
+        "type": "judge",
+        "stem": "对于整数 0≤k≤n，从 n 个不同元素中无序选取 k 个的组合数为 C(n,k)=n!/[k!(n−k)!]。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "组合不计顺序，排列 A(n,k)=C(n,k)·k!。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s4",
+      "bank": "past",
+      "id": "exam-probability-ch1-s4-2015-7-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“古典概型中事件 A 的概率等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：有限等可能使计数可除总数；每点概率1/N相加得k/N；与首题相同条件；组合处理无序选择排列处理有序；0≤k≤n整数才有阶乘式。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s4",
+      "bank": "past",
+      "id": "exam-probability-ch1-s4-2020-8-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“从 n 个等可能基本结果中选出 k 个组成事件 A，则 P(A)=？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：有限等可能使计数可除总数；每点概率1/N相加得k/N；与首题相同条件；组合处理无序选择排列处理有序；0≤k≤n整数才有阶乘式。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s5",
+      "bank": "practice",
+      "id": "pr-geo-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "均匀测度模型有利区域除总体测度；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s5",
+      "bank": "practice",
+      "id": "pr-geo-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "单点同为0不意味着任意区域均匀；原标记答案 A。",
+      "replacement": {
+        "id": "pr-geo-2-r2",
+        "type": "single",
+        "stem": "几何概型的样本空间具有什么特点？",
+        "options": {
+          "A": "在有限正测度的连续区域内均匀分布，子区域概率正比于其测度",
+          "B": "任何无限样本空间均符合几何概型",
+          "C": "各单点概率均为0就足以说明均匀",
+          "D": "样本空间只有一个点"
+        },
+        "answer": "A",
+        "explanation": "几何概型需要均匀测度假设。单点概率全为0的指数分布并不均匀，所以不能用单点等可能替代均匀性。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s5",
+      "bank": "practice",
+      "id": "pr-geo-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "连续均匀测度单点质量0；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s5",
+      "bank": "practice",
+      "id": "pr-geo-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "会面时间和投针位置角度均是连续参数；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s5",
+      "bank": "practice",
+      "id": "pr-geo-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "均匀假设使测度比例成立；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s5",
+      "bank": "past",
+      "id": "exam-probability-ch1-s5-2019-1-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“几何概型中，事件概率通常等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：均匀测度模型有利区域除总体测度；单点同为0不意味着任意区域均匀；连续均匀测度单点质量0；会面时间和投针位置角度均是连续参数；均匀假设使测度比例成立。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s5",
+      "bank": "past",
+      "id": "exam-probability-ch1-s5-2021-7-b",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "均匀单位方形子区域面积除总面积=1/4；C。",
+      "replacement": {
+        "id": "exam-probability-ch1-s5-2021-7-b-r2",
+        "type": "single",
+        "stem": "在单位正方形内均匀取点，落入面积为 1/4 的子区域的概率是？",
+        "options": {
+          "A": "1/2",
+          "B": "3/4",
+          "C": "1/4",
+          "D": "1"
+        },
+        "answer": "C",
+        "explanation": "均匀取点时概率等于子区域面积与总面积之比。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s6",
+      "bank": "practice",
+      "id": "pr-cond-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "P交除以P条件要求分母正；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s6",
+      "bank": "practice",
+      "id": "pr-cond-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "必须补P(B)>0才构成概率测度；原标记答案 A。",
+      "replacement": {
+        "id": "pr-cond-2-r2",
+        "type": "single",
+        "stem": "固定 P(B)>0 的事件 B，条件概率 P(·|B) 作为 A 的函数是否满足概率的三条公理？",
+        "options": {
+          "A": "满足，是一个概率",
+          "B": "不满足",
+          "C": "只满足非负性",
+          "D": "只满足规范性"
+        },
+        "answer": "A",
+        "explanation": "固定 B 后，P(A|B) 关于 A 满足非负性、规范性与可列可加性。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s6",
+      "bank": "practice",
+      "id": "pr-cond-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "两条件概率要求各条件事件正概率；原标记答案 T。",
+      "replacement": {
+        "id": "pr-cond-3-r2",
+        "type": "judge",
+        "stem": "当 P(A)>0、P(B)>0 时，乘法公式为 P(AB)=P(A|B)P(B)=P(B|A)P(A)。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "由条件概率定义直接得到，用于计算积事件概率。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s6",
+      "bank": "practice",
+      "id": "pr-cond-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "P(AB)>0才使末项有定义；原标记答案 A。",
+      "replacement": {
+        "id": "pr-cond-4-r2",
+        "type": "single",
+        "stem": "设 P(AB)>0，三个事件的乘法公式 P(ABC) 等于？",
+        "options": {
+          "A": "P(A)P(B|A)P(C|AB)",
+          "B": "P(A)P(B)P(C)",
+          "C": "P(A)+P(B)+P(C)",
+          "D": "P(A|B)P(B|C)P(C|A)"
+        },
+        "answer": "A",
+        "explanation": "逐步使用条件概率：P(ABC)=P(A)P(B|A)P(C|AB)。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s6",
+      "bank": "practice",
+      "id": "pr-cond-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "条件B必须正概率才能用初等定义；原标记答案 T。",
+      "replacement": {
+        "id": "pr-cond-5-r2",
+        "type": "judge",
+        "stem": "当 P(B)>0 时，初等条件概率相当于把样本空间限制到事件 B 并重新归一化。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "在已知 B 发生的条件下，讨论范围限制在 B 内。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s6",
+      "bank": "past",
+      "id": "exam-probability-ch1-s6-2014-7-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“P(B)>0 时，条件概率 P(A|B) 的定义为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：P交除以P条件要求分母正；必须补P(B)>0才构成概率测度；两条件概率要求各条件事件正概率；P(AB)>0才使末项有定义；条件B必须正概率才能用初等定义。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s6",
+      "bank": "past",
+      "id": "exam-probability-ch1-s6-2022-6-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 A 与 B 独立且 P(B)>0，则 P(A|B) 等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：P交除以P条件要求分母正；必须补P(B)>0才构成概率测度；两条件概率要求各条件事件正概率；P(AB)>0才使末项有定义；条件B必须正概率才能用初等定义。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s7",
+      "bank": "practice",
+      "id": "pr-bayes-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "后验需要先验正且P(A)>0；原标记答案 A。",
+      "replacement": {
+        "id": "pr-bayes-1-r2",
+        "type": "single",
+        "stem": "设 B₁,B₂ 构成样本空间划分，P(Bᵢ)>0、P(A)>0。已知先验及 P(A|Bᵢ)，求 P(Bᵢ|A) 应使用？",
+        "options": {
+          "A": "贝叶斯公式",
+          "B": "全概率公式",
+          "C": "伯努利概型",
+          "D": "切比雪夫不等式"
+        },
+        "answer": "A",
+        "explanation": "P(Bᵢ|A)=P(A|Bᵢ)P(Bᵢ)/ΣP(A|Bⱼ)P(Bⱼ)，即贝叶斯公式；分母用全概率公式计算。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s7",
+      "bank": "practice",
+      "id": "pr-total-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "P(Bi)>0才能逐项写条件概率；原标记答案 A。",
+      "replacement": {
+        "id": "pr-total-1-r2",
+        "type": "single",
+        "stem": "设 B₁,…,Bₙ 两两互斥且并为 Ω，P(Bᵢ)>0。全概率公式为？",
+        "options": {
+          "A": "P(A)=Σ P(A|Bᵢ)P(Bᵢ)",
+          "B": "P(A)=P(A|B₁)P(B₁)",
+          "C": "P(A)=ΠP(A|Bᵢ)",
+          "D": "P(A)=ΣP(Bᵢ)"
+        },
+        "answer": "A",
+        "explanation": "全概率公式把复杂事件 A 按划分分解后加权求和。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s7",
+      "bank": "practice",
+      "id": "pr-total-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "划分下交事件求和加权；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s7",
+      "bank": "practice",
+      "id": "pr-bayes-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "后验是在已观察事件上归一化先验权重；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s7",
+      "bank": "practice",
+      "id": "pr-bayes-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "集合划分是两两不交且并为全集；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s7",
+      "bank": "past",
+      "id": "exam-probability-ch1-s7-2014-7-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“全概率公式中，互斥完备事件组 {Bᵢ} 满足？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：后验需要先验正且P(A)>0；P(Bi)>0才能逐项写条件概率；划分下交事件求和加权；后验是在已观察事件上归一化先验权重；集合划分是两两不交且并为全集。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s7",
+      "bank": "past",
+      "id": "exam-probability-ch1-s7-2024-7-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“观察到 A 后求原因 Bᵢ 的后验概率，应使用？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：后验需要先验正且P(A)>0；P(Bi)>0才能逐项写条件概率；划分下交事件求和加权；后验是在已观察事件上归一化先验权重；集合划分是两两不交且并为全集。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s8",
+      "bank": "practice",
+      "id": "pr-indep-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "独立定义乘积不要求条件概率存在；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s8",
+      "bank": "practice",
+      "id": "pr-indep-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "除以P(B)得到P(A)；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s8",
+      "bank": "practice",
+      "id": "pr-indep-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "互斥加独立给两边乘积0；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s8",
+      "bank": "practice",
+      "id": "pr-indep-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "公平两位比特的相等事件是经典反例；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s8",
+      "bank": "practice",
+      "id": "pr-indep-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "用A分解为AB与AB补证明；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s8",
+      "bank": "past",
+      "id": "exam-probability-ch1-s8-2015-7-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“事件 A、B 独立的判据是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：独立定义乘积不要求条件概率存在；除以P(B)得到P(A)；互斥加独立给两边乘积0；公平两位比特的相等事件是经典反例；用A分解为AB与AB补证明。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s8",
+      "bank": "past",
+      "id": "exam-probability-ch1-s8-2021-10-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 P(A)>0、P(B)>0 且 A、B 互斥，二者能否独立？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：独立定义乘积不要求条件概率存在；除以P(B)得到P(A)；互斥加独立给两边乘积0；公平两位比特的相等事件是经典反例；用A分解为AB与AB补证明。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch1-s9",
+      "bank": "practice",
+      "id": "pr-bern-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "选择k个成功位置每序列同概率；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s9",
+      "bank": "practice",
+      "id": "pr-bern-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "单次伯努利与独立重复系列应区分；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s9",
+      "bank": "practice",
+      "id": "pr-bern-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "系列独立让联合概率可乘；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s9",
+      "bank": "practice",
+      "id": "pr-bern-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "成功次数是伯努利指示和；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch1-s9",
+      "bank": "practice",
+      "id": "pr-bern-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "固定p才能得到同参数二项律；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch1-s9",
+      "bank": "past",
+      "id": "exam-probability-ch1-s9-2015-22-a",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "末次成功且前k−1中一次成功，组合数k−1乘p²(1−p)^(k−2)；A，需k≥2。",
+      "replacement": {
+        "id": "exam-probability-ch1-s9-2015-22-a-r2",
+        "type": "single",
+        "stem": "独立重复试验每次成功概率为 p，直到第 2 次成功停止。恰好进行 k 次的概率是？（0<p<1，整数 k≥2）",
+        "options": {
+          "A": "C(k−1,1)p²(1−p)^(k−2)",
+          "B": "p^k",
+          "C": "(1−p)^k",
+          "D": "C(k,2)p(1−p)"
+        },
+        "answer": "A",
+        "explanation": "前 k−1 次中恰有一次成功，且第 k 次成功。"
+      }
+    },
+    {
+      "nodeId": "probability:ch1-s9",
+      "bank": "past",
+      "id": "exam-probability-ch1-s9-2014-7-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“n 次独立伯努利试验中成功次数的期望为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：选择k个成功位置每序列同概率；单次伯努利与独立重复系列应区分；系列独立让联合概率可乘；成功次数是伯努利指示和；固定p才能得到同参数二项律。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s1",
+      "bank": "practice",
+      "id": "pr-cdf-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "单调性右连续由事件连续性得到；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s1",
+      "bank": "practice",
+      "id": "pr-rv-1",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与首题同一性质；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s1",
+      "bank": "practice",
+      "id": "pr-rv-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "两嵌套事件作差得到开闭区间公式；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s1",
+      "bank": "practice",
+      "id": "pr-rv-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "离散律和绝对连续密度是本节两种常见情形；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s1",
+      "bank": "practice",
+      "id": "pr-rv-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "CDF确定所有Borel区间质量；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s1",
+      "bank": "past",
+      "id": "exam-prob-onevar-2015-22",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“独立重复进行成功率为 p 的试验，直到第 2 次成功停止。恰好进行 k 次才停止的概率为？（k≥2）”及选项，数学核心与本专题定义/公式重叠。相关独立推导：单调性右连续由事件连续性得到；与首题同一性质；两嵌套事件作差得到开闭区间公式；离散律和绝对连续密度是本节两种常见情形；CDF确定所有Borel区间质量。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s1",
+      "bank": "past",
+      "id": "exam-prob-onevar-2024-10",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "尾概率e^(−λt)²=e^(−2λt)，最小值参数2λ；A。",
+      "replacement": {
+        "id": "exam-prob-onevar-2024-10-r2",
+        "type": "single",
+        "stem": "X、Y 相互独立且均服从参数为 λ 的指数分布。min(X,Y) 服从什么分布？",
+        "options": {
+          "A": "指数分布，参数 2λ",
+          "B": "指数分布，参数 λ/2",
+          "C": "均匀分布",
+          "D": "正态分布"
+        },
+        "answer": "A",
+        "explanation": "P(min(X,Y)>t)=P(X>t)P(Y>t)=e⁻²λᵗ，因此最小值服从参数 2λ 的指数分布。"
+      }
+    },
+    {
+      "nodeId": "probability:ch2-s2",
+      "bank": "practice",
+      "id": "pr-discrete-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "离散支撑概率可列可加为1；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s2",
+      "bank": "practice",
+      "id": "pr-disc-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "非负且总和1给合法质量函数；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s2",
+      "bank": "practice",
+      "id": "pr-disc-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "单次0/1质量就是B(1,p)；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s2",
+      "bank": "practice",
+      "id": "pr-disc-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "无限稠密可数支撑不一定普通阶梯状，需有限支撑；原标记答案 A。",
+      "replacement": {
+        "id": "pr-disc-4-r2",
+        "type": "single",
+        "stem": "只取有限多个值的离散型随机变量，其分布函数呈什么形式？",
+        "options": {
+          "A": "阶梯函数",
+          "B": "连续函数",
+          "C": "常数",
+          "D": "指数函数"
+        },
+        "answer": "A",
+        "explanation": "有限支撑时在各取值点跳跃并在相邻点间为常数，呈阶梯形；一般可数支撑可能稠密，不能不加限定地说普通阶梯函数。"
+      }
+    },
+    {
+      "nodeId": "probability:ch2-s2",
+      "bank": "practice",
+      "id": "pr-disc-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "离散事件概率按支撑求和；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s2",
+      "bank": "past",
+      "id": "exam-probability-ch2-s2-2015-22-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“离散型随机变量 X 的分布律必须满足？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：离散支撑概率可列可加为1；非负且总和1给合法质量函数；单次0/1质量就是B(1,p)；无限稠密可数支撑不一定普通阶梯状，需有限支撑；离散事件概率按支撑求和。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s2",
+      "bank": "past",
+      "id": "exam-probability-ch2-s2-2022-9-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 X 只取有限个值 xᵢ，E(X) 的计算式为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：离散支撑概率可列可加为1；非负且总和1给合法质量函数；单次0/1质量就是B(1,p)；无限稠密可数支撑不一定普通阶梯状，需有限支撑；离散事件概率按支撑求和。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s3",
+      "bank": "practice",
+      "id": "pr-dist-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "固定n独立同p成功和服从二项；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s3",
+      "bank": "practice",
+      "id": "pr-dist-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "泊松阶乘矩算得EX=λ且EX²=λ²+λ；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s3",
+      "bank": "practice",
+      "id": "pr-dist-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "极限需p→0且np→有限λ；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s3",
+      "bank": "practice",
+      "id": "pr-dist-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "几何两种约定可数成功前失败次数，需指定支撑；原标记答案 A。",
+      "replacement": {
+        "id": "pr-dist-4-r2",
+        "type": "single",
+        "stem": "采用取值为 1,2,… 的几何分布约定时，它描述什么？",
+        "options": {
+          "A": "首次成功所需的总试验次数（含成功那次）",
+          "B": "固定n次试验中的成功总次数",
+          "C": "首次成功之前的失败次数",
+          "D": "固定样本容量"
+        },
+        "answer": "A",
+        "explanation": "P(X=k)=(1−p)^(k−1)p。若改记首次成功前失败次数，则支撑从0开始，两者相差1。"
+      }
+    },
+    {
+      "nodeId": "probability:ch2-s3",
+      "bank": "practice",
+      "id": "pr-dist-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "不放回成功数是超几何；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s3",
+      "bank": "past",
+      "id": "exam-probability-ch2-s3-2024-10-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“参数为 λ 的指数分布具有的无记忆性表述是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：固定n独立同p成功和服从二项；泊松阶乘矩算得EX=λ且EX²=λ²+λ；极限需p→0且np→有限λ；几何两种约定可数成功前失败次数，需指定支撑；不放回成功数是超几何。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s3",
+      "bank": "past",
+      "id": "exam-probability-ch2-s3-2015-22-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“X~B(n,p) 时，E(X) 与 D(X) 分别为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：固定n独立同p成功和服从二项；泊松阶乘矩算得EX=λ且EX²=λ²+λ；极限需p→0且np→有限λ；几何两种约定可数成功前失败次数，需指定支撑；不放回成功数是超几何。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s4",
+      "bank": "practice",
+      "id": "pr-pdf-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "密度可超过1但非负积分1；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s4",
+      "bank": "practice",
+      "id": "pr-pdf-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "累积密度积分得到区间质量；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s4",
+      "bank": "practice",
+      "id": "pr-pdf-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "单点Lebesgue测度0；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s4",
+      "bank": "practice",
+      "id": "pr-pdf-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "连续点微积分基本定理给导数；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s4",
+      "bank": "practice",
+      "id": "pr-pdf-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "有限点改动不改积分但须保持非负合法代表；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s4",
+      "bank": "past",
+      "id": "exam-probability-ch2-s4-2024-10-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“连续型随机变量 X 的密度 f(x) 满足？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：密度可超过1但非负积分1；累积密度积分得到区间质量；单点Lebesgue测度0；连续点微积分基本定理给导数；有限点改动不改积分但须保持非负合法代表。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s4",
+      "bank": "past",
+      "id": "exam-probability-ch2-s4-2015-14-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“连续型 X 在区间 [a,b] 上的概率为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：密度可超过1但非负积分1；累积密度积分得到区间质量；单点Lebesgue测度0；连续点微积分基本定理给导数；有限点改动不改积分但须保持非负合法代表。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s5",
+      "bank": "practice",
+      "id": "pr-cont-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "正态μσ²决定密度其它陈述不普遍成立；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s5",
+      "bank": "practice",
+      "id": "pr-cont-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "σ>0时标准化得到均值0方差1；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s5",
+      "bank": "practice",
+      "id": "pr-cont-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "积分归一化常密度=1/(b−a)；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s5",
+      "bank": "practice",
+      "id": "pr-cont-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "指数尾e负λt相除保尾；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s5",
+      "bank": "practice",
+      "id": "pr-cont-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "对称中心μ；D在μ=0时与A重叠需改；原标记答案 A。",
+      "replacement": {
+        "id": "pr-cont-5-r2",
+        "type": "single",
+        "stem": "正态分布 N(μ,σ²) 的密度函数图像关于哪条直线对称？",
+        "options": {
+          "A": "x=μ",
+          "B": "x=μ+σ（σ>0）",
+          "C": "x=μ−σ（σ>0）",
+          "D": "y=μ"
+        },
+        "answer": "A",
+        "explanation": "正态密度只依赖(x−μ)²，故关于x=μ对称；σ>0时其他所列直线不是对称轴。"
+      }
+    },
+    {
+      "nodeId": "probability:ch2-s5",
+      "bank": "past",
+      "id": "exam-probability-ch2-s5-2015-14-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“标准正态随机变量 Z 的期望与方差是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：正态μσ²决定密度其它陈述不普遍成立；σ>0时标准化得到均值0方差1；积分归一化常密度=1/(b−a)；指数尾e负λt相除保尾；对称中心μ；D在μ=0时与A重叠需改。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s5",
+      "bank": "past",
+      "id": "exam-probability-ch2-s5-2024-10-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 X~U(a,b)，其期望为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：正态μσ²决定密度其它陈述不普遍成立；σ>0时标准化得到均值0方差1；积分归一化常密度=1/(b−a)；指数尾e负λt相除保尾；对称中心μ；D在μ=0时与A重叠需改。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s6",
+      "bank": "practice",
+      "id": "pr-func-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "映射原像概率相加；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s6",
+      "bank": "practice",
+      "id": "pr-func-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "CDF始终适用密度公式需额外条件；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s6",
+      "bank": "practice",
+      "id": "pr-func-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "变换分布定义即原像事件概率；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s6",
+      "bank": "practice",
+      "id": "pr-func-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "仿射变换均值aμ+b方差a²σ²；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch2-s6",
+      "bank": "practice",
+      "id": "pr-func-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "单调分支逆导数给雅可比；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch2-s6",
+      "bank": "past",
+      "id": "exam-probability-ch2-s6-2015-22-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 Y=g(X) 且 g 严格单调可导，连续型 Y 的密度变换需乘？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：映射原像概率相加；CDF始终适用密度公式需额外条件；变换分布定义即原像事件概率；仿射变换均值aμ+b方差a²σ²；单调分支逆导数给雅可比。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch2-s6",
+      "bank": "past",
+      "id": "exam-probability-ch2-s6-2024-10-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“相互独立的 X、Y 分别服从参数 λ 的指数分布，则 min(X,Y) 的参数为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：映射原像概率相加；CDF始终适用密度公式需额外条件；变换分布定义即原像事件概率；仿射变换均值aμ+b方差a²σ²；单调分支逆导数给雅可比。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s1",
+      "bank": "practice",
+      "id": "pr-joint-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "联合CDF定义是两个不等式同时发生；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s1",
+      "bank": "practice",
+      "id": "pr-joint-2",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与首题相同定义；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s1",
+      "bank": "practice",
+      "id": "pr-joint-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "相同伯努利边缘可以独立或X=Y；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch3-s1",
+      "bank": "practice",
+      "id": "pr-joint-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "Y≤y增大到全集；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s1",
+      "bank": "practice",
+      "id": "pr-joint-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "逐坐标增事件概率不减还需矩形增量非负；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch3-s1",
+      "bank": "past",
+      "id": "exam-prob-multivar-2024-9",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "边缘∫0^x2dy=2x，条件2/(2x)=1/x仅在0<y<x；B，需0<x<1。",
+      "replacement": {
+        "id": "exam-prob-multivar-2024-9-r2",
+        "type": "single",
+        "stem": "若 (X,Y) 在区域 0<y<x<1 上的联合密度为 2，则给定 X=x 后，Y 的条件密度在什么区间非零？（给定 0<x<1）",
+        "options": {
+          "A": "0<y<1，密度 1",
+          "B": "0<y<x，密度 1/x",
+          "C": "x<y<1，密度 1/(1−x)",
+          "D": "0<x<y，密度 x"
+        },
+        "answer": "B",
+        "explanation": "边缘密度 fX(x)=2x，故 fY|X(y|x)=2/(2x)=1/x，定义域为 0<y<x。"
+      }
+    },
+    {
+      "nodeId": "probability:ch3-s1",
+      "bank": "past",
+      "id": "exam-prob-multivar-2015-14",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“二维正态随机变量 (X,Y) 的相关系数为 0 时，X 与 Y 一定具备什么关系？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：联合CDF定义是两个不等式同时发生；与首题相同定义；相同伯努利边缘可以独立或X=Y；Y≤y增大到全集；逐坐标增事件概率不减还需矩形增量非负。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s2",
+      "bank": "practice",
+      "id": "pr-2d-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "每个取值对质量定义联合律；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s2",
+      "bank": "practice",
+      "id": "pr-2d-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "固定X将互斥Y取值求和；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s2",
+      "bank": "practice",
+      "id": "pr-2d-3",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与上一题同一求边缘方法；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch3-s2",
+      "bank": "practice",
+      "id": "pr-2d-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "所有单元质量等于边缘乘积才独立；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s2",
+      "bank": "practice",
+      "id": "pr-2d-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "需全体乘积关系但有归一性可减少独立检查数；原标记答案 T。",
+      "replacement": {
+        "id": "pr-2d-5-r2",
+        "type": "judge",
+        "stem": "二维离散变量独立性等价于：对所有可能取值对 (i,j)，联合质量 pᵢⱼ 都等于两个边缘质量的乘积。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "等价条件涉及全体取值对。但实际验证时可借助归一性推出未单独检验的单元，因此不应说程序上必须逐个单元直接检验。"
+      }
+    },
+    {
+      "nodeId": "probability:ch3-s2",
+      "bank": "past",
+      "id": "exam-probability-ch3-s2-2015-14-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“二维离散随机变量的联合分布律需要满足？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：每个取值对质量定义联合律；固定X将互斥Y取值求和；与上一题同一求边缘方法；所有单元质量等于边缘乘积才独立；需全体乘积关系但有归一性可减少独立检查数。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s2",
+      "bank": "past",
+      "id": "exam-probability-ch3-s2-2014-8-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“由联合分布律求边缘分布 P(X=xᵢ)，应对哪个指标求和？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：每个取值对质量定义联合律；固定X将互斥Y取值求和；与上一题同一求边缘方法；所有单元质量等于边缘乘积才独立；需全体乘积关系但有归一性可减少独立检查数。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s3",
+      "bank": "practice",
+      "id": "pr-2dc-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "非负及平面总积分1；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s3",
+      "bank": "practice",
+      "id": "pr-2dc-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "固定x对y累积质量得边缘；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s3",
+      "bank": "practice",
+      "id": "pr-2dc-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "独立只要求密度乘积几乎处处，非每点；原标记答案 T。",
+      "replacement": {
+        "id": "pr-2dc-3-r2",
+        "type": "judge",
+        "stem": "连续型 X、Y 独立，当且仅当联合密度等于边缘密度之积几乎处处成立。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "密度只在几乎处处意义上确定，零测集上改值不改变分布。独立性要求的是几乎处处的乘积分解。"
+      }
+    },
+    {
+      "nodeId": "probability:ch3-s3",
+      "bank": "practice",
+      "id": "pr-2dc-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "均匀分布下子区域面积比例；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s3",
+      "bank": "practice",
+      "id": "pr-2dc-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "区域指标函数乘密度积分；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch3-s3",
+      "bank": "past",
+      "id": "exam-probability-ch3-s3-2015-14-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“联合密度 f(x,y) 在平面区域 D 上的概率为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：非负及平面总积分1；固定x对y累积质量得边缘；独立只要求密度乘积几乎处处，非每点；均匀分布下子区域面积比例；区域指标函数乘密度积分。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s3",
+      "bank": "past",
+      "id": "exam-probability-ch3-s3-2024-9-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“已知联合密度后求 X 的边缘密度，通常需要？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：非负及平面总积分1；固定x对y累积质量得边缘；独立只要求密度乘积几乎处处，非每点；均匀分布下子区域面积比例；区域指标函数乘密度积分。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s4",
+      "bank": "practice",
+      "id": "pr-indep2-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "独立Cauchy反例使协方差未定义，需二阶矩；原标记答案 T。",
+      "replacement": {
+        "id": "pr-indep2-1-r2",
+        "type": "judge",
+        "stem": "若 X、Y 有有限二阶矩且相互独立，则 Cov(X,Y)=0。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "有限二阶矩保证协方差有定义，独立再给E(XY)=EX EY。不加矩存在条件，独立Cauchy变量没有协方差。"
+      }
+    },
+    {
+      "nodeId": "probability:ch3-s4",
+      "bank": "practice",
+      "id": "pr-indep2-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "联合CDF分解对所有x,y即独立；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s4",
+      "bank": "practice",
+      "id": "pr-indep2-3",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "须补有限二阶矩且与首题重复；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch3-s4",
+      "bank": "practice",
+      "id": "pr-indep2-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "可积乘积下代数展开中心化定义；原标记答案 A。",
+      "replacement": {
+        "id": "pr-indep2-4-r2",
+        "type": "single",
+        "stem": "设 X、Y 有有限二阶矩。它们不相关的等价条件是？",
+        "options": {
+          "A": "Cov(X,Y)=0 即 E(XY)=E(X)E(Y)",
+          "B": "E(X)=E(Y)",
+          "C": "D(X)=D(Y)",
+          "D": "联合分布等于边缘乘积"
+        },
+        "answer": "A",
+        "explanation": "不相关 ⇔ 协方差为 0 ⇔ E(XY)=E(X)E(Y)。"
+      }
+    },
+    {
+      "nodeId": "probability:ch3-s4",
+      "bank": "practice",
+      "id": "pr-indep2-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "联合正态且方差正有ρ=0时密度分解；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch3-s4",
+      "bank": "past",
+      "id": "exam-probability-ch3-s4-2015-14-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 Cov(X,Y)=0，则可直接断定？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：独立Cauchy反例使协方差未定义，需二阶矩；联合CDF分解对所有x,y即独立；须补有限二阶矩且与首题重复；可积乘积下代数展开中心化定义；联合正态且方差正有ρ=0时密度分解。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s4",
+      "bank": "past",
+      "id": "exam-probability-ch3-s4-2024-9-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“独立随机变量且方差存在时，Cov(X,Y) 等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：独立Cauchy反例使协方差未定义，需二阶矩；联合CDF分解对所有x,y即独立；须补有限二阶矩且与首题重复；可积乘积下代数展开中心化定义；联合正态且方差正有ρ=0时密度分解。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s5",
+      "bank": "practice",
+      "id": "pr-2dist-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "有限正面积才可取归一常数；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s5",
+      "bank": "practice",
+      "id": "pr-2dist-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "两均值两方差一相关系数共五；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s5",
+      "bank": "practice",
+      "id": "pr-2dist-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "积分或线性投影保持正态；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch3-s5",
+      "bank": "practice",
+      "id": "pr-2dist-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "非退化联合正态密度ρ=0分离；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s5",
+      "bank": "practice",
+      "id": "pr-2dist-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "零系数组合退化常数需约定或要求非零系数；原标记答案 T。",
+      "replacement": {
+        "id": "pr-2dist-5-r2",
+        "type": "judge",
+        "stem": "非退化二维正态随机变量的非零系数线性组合 aX+bY（a²+b²>0）仍服从非退化一维正态分布。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "线性组合正态，协方差矩阵正定使非零系数组合方差严格正；零系数组合则为常数，不属于本题的非退化正态。"
+      }
+    },
+    {
+      "nodeId": "probability:ch3-s5",
+      "bank": "past",
+      "id": "exam-probability-ch3-s5-2015-14-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“二维正态变量 X、Y 不相关时，可以推出？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：有限正面积才可取归一常数；两均值两方差一相关系数共五；积分或线性投影保持正态；非退化联合正态密度ρ=0分离；零系数组合退化常数需约定或要求非零系数。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s5",
+      "bank": "past",
+      "id": "exam-probability-ch3-s5-2024-9-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“二维正态分布的边缘分布属于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：有限正面积才可取归一常数；两均值两方差一相关系数共五；积分或线性投影保持正态；非退化联合正态密度ρ=0分离；零系数组合退化常数需约定或要求非零系数。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s6",
+      "bank": "practice",
+      "id": "pr-sum-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "独立联合密度分解后沿x+y=z积分；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s6",
+      "bank": "practice",
+      "id": "pr-sum-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "所有Xi≤x的交事件独立相乘；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s6",
+      "bank": "practice",
+      "id": "pr-sum-3",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与上一题重复；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch3-s6",
+      "bank": "practice",
+      "id": "pr-sum-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "取反所有Xi>x得1−尾乘积；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch3-s6",
+      "bank": "practice",
+      "id": "pr-sum-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "独立正态特征函数相乘仍正态；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch3-s6",
+      "bank": "past",
+      "id": "exam-probability-ch3-s6-2015-14-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“独立随机变量 X、Y 的和的特征函数满足？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：独立联合密度分解后沿x+y=z积分；所有Xi≤x的交事件独立相乘；与上一题重复；取反所有Xi>x得1−尾乘积；独立正态特征函数相乘仍正态。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch3-s6",
+      "bank": "past",
+      "id": "exam-probability-ch3-s6-2024-9-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“求两个连续随机变量和的分布，常用的方法之一是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：独立联合密度分解后沿x+y=z积分；所有Xi≤x的交事件独立相乘；与上一题重复；取反所有Xi>x得1−尾乘积；独立正态特征函数相乘仍正态。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch4-s1",
+      "bank": "practice",
+      "id": "pr-exp-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "可积X时线性积分给aEX+b；原标记答案 T。",
+      "replacement": {
+        "id": "pr-exp-1-r2",
+        "type": "judge",
+        "stem": "若 E|X|<∞，对任意常数 a、b 都有 E(aX+b)=aE(X)+b。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "数学期望具有线性性，无需 X、Y 独立。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s1",
+      "bank": "practice",
+      "id": "pr-exp-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "绝对可积下取值按质量加权；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch4-s1",
+      "bank": "practice",
+      "id": "pr-exp-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "可积X,Y下积分分配无需独立；原标记答案 T。",
+      "replacement": {
+        "id": "pr-exp-3-r2",
+        "type": "judge",
+        "stem": "若 X、Y 可积，则 E(aX+bY)=aE(X)+bE(Y)，无需独立。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "期望的线性性无需 X、Y 独立。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s1",
+      "bank": "practice",
+      "id": "pr-exp-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "全轴积分需绝对收敛；原标记答案 A。",
+      "replacement": {
+        "id": "pr-exp-4-r2",
+        "type": "single",
+        "stem": "若连续型 X 满足 ∫全轴 |x|f(x)dx<∞，其有限数学期望定义为？",
+        "options": {
+          "A": "∫ x f(x)dx",
+          "B": "∫ f(x)dx",
+          "C": "f(0)",
+          "D": "∫ x²f(x)dx"
+        },
+        "answer": "A",
+        "explanation": "连续型期望是 x 与密度乘积的积分。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s1",
+      "bank": "practice",
+      "id": "pr-exp-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "本课有限期望约定要求绝对可积；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch4-s1",
+      "bank": "past",
+      "id": "exam-prob-moments-2015-8",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "Var和=3+4=7，均值和=3，二阶矩7+9=16；D。",
+      "replacement": {
+        "id": "exam-prob-moments-2015-8-r2",
+        "type": "single",
+        "stem": "X、Y 不相关，E(X)=2、E(Y)=1、D(X)=3、D(Y)=4，则 E[(X+Y)²] 等于多少？",
+        "options": {
+          "A": "7",
+          "B": "12",
+          "C": "14",
+          "D": "16"
+        },
+        "answer": "D",
+        "explanation": "不相关时 Cov(X,Y)=0；E[(X+Y)²]=D(X+Y)+[E(X+Y)]²=7+9=16。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s1",
+      "bank": "past",
+      "id": "exam-prob-moments-2014-8",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“X、Y 不相关且方差分别为 2 和 3，则 D(X+Y) 等于多少？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：可积X时线性积分给aEX+b；绝对可积下取值按质量加权；可积X,Y下积分分配无需独立；全轴积分需绝对收敛；本课有限期望约定要求绝对可积。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch4-s2",
+      "bank": "practice",
+      "id": "pr-var-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "中心化后缩放平方得a²Var；原标记答案 A。",
+      "replacement": {
+        "id": "pr-var-1-r2",
+        "type": "single",
+        "stem": "设 X 有有限二阶矩。对常数 a，D(aX) 等于？",
+        "options": {
+          "A": "a²D(X)",
+          "B": "aD(X)",
+          "C": "D(X)",
+          "D": "a²D(X) + a"
+        },
+        "answer": "A",
+        "explanation": "D(aX)=a²D(X)，常数倍使方差按平方缩放；D(X+b)=D(X)。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s2",
+      "bank": "practice",
+      "id": "pr-var-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "展开平方并用EX得二阶矩差；原标记答案 A。",
+      "replacement": {
+        "id": "pr-var-2-r2",
+        "type": "single",
+        "stem": "设 X 有有限二阶矩。方差 D(X) 的计算公式是？",
+        "options": {
+          "A": "E(X²) − [E(X)]²",
+          "B": "E(X²) + [E(X)]²",
+          "C": "[E(X)]²",
+          "D": "E(X) − E(X²)"
+        },
+        "answer": "A",
+        "explanation": "这是方差最常用的计算公式，常比按定义计算更简便。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s2",
+      "bank": "practice",
+      "id": "pr-var-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "非负平方期望0意味几乎处处0；原标记答案 T。",
+      "replacement": {
+        "id": "pr-var-3-r2",
+        "type": "judge",
+        "stem": "设 X 有有限二阶矩。D(X)=0 当且仅当 X 几乎处处等于一个常数。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "方差衡量偏离均值的程度，为 0 表示没有波动。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s2",
+      "bank": "practice",
+      "id": "pr-var-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "展开(X中心+Y中心)²得交叉项；原标记答案 A。",
+      "replacement": {
+        "id": "pr-var-4-r2",
+        "type": "single",
+        "stem": "设 X、Y 有有限二阶矩。D(X+Y) 等于？",
+        "options": {
+          "A": "D(X)+D(Y)+2Cov(X,Y)",
+          "B": "D(X)+D(Y)",
+          "C": "D(X)·D(Y)",
+          "D": "D(X)−D(Y)"
+        },
+        "answer": "A",
+        "explanation": "一般地 D(X+Y)=D(X)+D(Y)+2Cov(X,Y)；独立时协方差为 0。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s2",
+      "bank": "practice",
+      "id": "pr-var-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "有限方差下独立令交叉项0；原标记答案 T。",
+      "replacement": {
+        "id": "pr-var-5-r2",
+        "type": "judge",
+        "stem": "设 X、Y 有有限二阶矩。若 X、Y 独立，则 D(X+Y)=D(X)+D(Y)。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "独立使 Cov(X,Y)=0，故方差可加。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s2",
+      "bank": "past",
+      "id": "exam-probability-ch4-s2-2014-8-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“常数 a、b 下，D(aX+b) 等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：中心化后缩放平方得a²Var；展开平方并用EX得二阶矩差；非负平方期望0意味几乎处处0；展开(X中心+Y中心)²得交叉项；有限方差下独立令交叉项0。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch4-s2",
+      "bank": "past",
+      "id": "exam-probability-ch4-s2-2015-8-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 X、Y 不相关，则 D(X+Y) 等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：中心化后缩放平方得a²Var；展开平方并用EX得二阶矩差；非负平方期望0意味几乎处处0；展开(X中心+Y中心)²得交叉项；有限方差下独立令交叉项0。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch4-s3",
+      "bank": "practice",
+      "id": "pr-efunc-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "LOTUS通过原像可直接用原变量积分；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch4-s3",
+      "bank": "practice",
+      "id": "pr-efunc-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "原取值g(x)乘原概率相加；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch4-s3",
+      "bank": "practice",
+      "id": "pr-efunc-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "独立可积时Fubini分解乘积；原标记答案 T。",
+      "replacement": {
+        "id": "pr-efunc-3-r2",
+        "type": "judge",
+        "stem": "若 X、Y 独立且 E|X|、E|Y| 均有限，则 E(XY)=E(X)E(Y)。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "独立时乘积的期望等于期望的乘积。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s3",
+      "bank": "practice",
+      "id": "pr-efunc-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "A和B均可是线性性用途需清晰区分；原标记答案 A。",
+      "replacement": {
+        "id": "pr-efunc-4-r2",
+        "type": "single",
+        "stem": "利用期望的线性性可以？",
+        "options": {
+          "A": "无需独立，把可积变量的和的期望写成各期望之和",
+          "B": "对任意g都可用g(EX)代替E(g(X))",
+          "C": "把所有相关变量的方差直接相加",
+          "D": "从EX=EY推出独立"
+        },
+        "answer": "A",
+        "explanation": "如 E(X₁+…+Xₙ)=ΣE(Xᵢ)，即使变量不独立也成立。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s3",
+      "bank": "practice",
+      "id": "pr-efunc-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "非线性也可能偶然相等如对称X与g=x³；原标记答案 T。",
+      "replacement": {
+        "id": "pr-efunc-5-r2",
+        "type": "judge",
+        "stem": "一般地 E(g(X)) ≠ g(E(X))。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "通常不能交换非线性函数与期望，例P(X=±1)=1/2时E(X²)=1≠(EX)²=0。但非线性也可能相等，例如同一X下E(X³)=0=(EX)³，因此线性是充分条件而非必要条件。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s3",
+      "bank": "past",
+      "id": "exam-probability-ch4-s3-2014-8-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 E(X)=μ，Var(X)=σ²，则 E(X²) 等于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：LOTUS通过原像可直接用原变量积分；原取值g(x)乘原概率相加；独立可积时Fubini分解乘积；A和B均可是线性性用途需清晰区分；非线性也可能偶然相等如对称X与g=x³。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch4-s3",
+      "bank": "past",
+      "id": "exam-probability-ch4-s3-2015-8-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“期望的线性性质要求随机变量相互独立吗？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：LOTUS通过原像可直接用原变量积分；原取值g(x)乘原概率相加；独立可积时Fubini分解乘积；A和B均可是线性性用途需清晰区分；非线性也可能偶然相等如对称X与g=x³。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch4-s4",
+      "bank": "practice",
+      "id": "pr-corr-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "正有限方差时Cauchy给归一协方差≤1；原标记答案 A。",
+      "replacement": {
+        "id": "pr-corr-1-r2",
+        "type": "single",
+        "stem": "设 X、Y 的方差均有限且严格大于0。相关系数 ρ 的取值范围是？",
+        "options": {
+          "A": "[−1, 1]",
+          "B": "[0, 1]",
+          "C": "(−∞, +∞)",
+          "D": "[0, +∞)"
+        },
+        "answer": "A",
+        "explanation": "相关系数 |ρ|≤1；|ρ|=1 表示 X 与 Y 以概率 1 存在线性关系。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s4",
+      "bank": "practice",
+      "id": "pr-cov-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "展开中心化乘积得EXY−EXEY；原标记答案 A。",
+      "replacement": {
+        "id": "pr-cov-1-r2",
+        "type": "single",
+        "stem": "设 X、Y 有有限二阶矩。Cov(X,Y) 等于？",
+        "options": {
+          "A": "E(XY) − E(X)E(Y)",
+          "B": "E(XY) + E(X)E(Y)",
+          "C": "E(X)E(Y)",
+          "D": "D(X)D(Y)"
+        },
+        "answer": "A",
+        "explanation": "协方差衡量 X、Y 的线性相关程度。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s4",
+      "bank": "practice",
+      "id": "pr-cov-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "自己与自己中心化平方即方差；原标记答案 T。",
+      "replacement": {
+        "id": "pr-cov-2-r2",
+        "type": "judge",
+        "stem": "设 X 有有限二阶矩，则 Cov(X,X)=D(X)。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "变量与自身的协方差就是其方差。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s4",
+      "bank": "practice",
+      "id": "pr-cov-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "分母标准差乘积要求正且有限；原标记答案 A。",
+      "replacement": {
+        "id": "pr-cov-3-r2",
+        "type": "single",
+        "stem": "设 X、Y 的方差均有限且严格大于0。相关系数 ρ 的计算公式是？",
+        "options": {
+          "A": "Cov(X,Y) / (σ_X σ_Y)",
+          "B": "Cov(X,Y) / (σ_X + σ_Y)",
+          "C": "σ_X σ_Y / Cov",
+          "D": "E(XY)"
+        },
+        "answer": "A",
+        "explanation": "相关系数是标准化后的协方差。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s4",
+      "bank": "practice",
+      "id": "pr-cov-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "等号由中心化变量线性依赖刻画；原标记答案 T。",
+      "replacement": {
+        "id": "pr-cov-4-r2",
+        "type": "judge",
+        "stem": "设 X、Y 的方差均有限且严格大于0。相关系数满足 |ρ|≤1，且 |ρ|=1 时 X 与 Y 以概率1存在线性关系。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "|ρ|=1 表示完全线性相关（正相关或负相关）。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s4",
+      "bank": "past",
+      "id": "exam-probability-ch4-s4-2015-8-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“相关系数 ρ 等于协方差除以？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：正有限方差时Cauchy给归一协方差≤1；展开中心化乘积得EXY−EXEY；自己与自己中心化平方即方差；分母标准差乘积要求正且有限；等号由中心化变量线性依赖刻画。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch4-s4",
+      "bank": "past",
+      "id": "exam-probability-ch4-s4-2020-8-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 X、Y 独立且二阶矩存在，则 Cov(X,Y)=？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：正有限方差时Cauchy给归一协方差≤1；展开中心化乘积得EXY−EXEY；自己与自己中心化平方即方差；分母标准差乘积要求正且有限；等号由中心化变量线性依赖刻画。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch4-s5",
+      "bank": "practice",
+      "id": "pr-df-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "伯努利和求EX=np，Var=np(1−p)；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch4-s5",
+      "bank": "practice",
+      "id": "pr-df-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "指数积分得一阶1/λ二阶2/λ²；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch4-s5",
+      "bank": "practice",
+      "id": "pr-df-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "正态参数定义位置与中心二阶矩；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch4-s5",
+      "bank": "practice",
+      "id": "pr-df-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "对称Cauchy无期望，须先要求可积；原标记答案 A。",
+      "replacement": {
+        "id": "pr-df-4-r2",
+        "type": "single",
+        "stem": "已知随机变量的期望有限，利用对称性求期望通常适用于哪类分布？",
+        "options": {
+          "A": "关于某点对称的分布（如正态、均匀）",
+          "B": "只有离散分布",
+          "C": "只有偏态分布",
+          "D": "任意分布"
+        },
+        "answer": "A",
+        "explanation": "可积且关于c对称时EX=c；对称Cauchy分布没有有限期望，单有对称性不够。"
+      }
+    },
+    {
+      "nodeId": "probability:ch4-s5",
+      "bank": "practice",
+      "id": "pr-df-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "Markov施于中心平方给偏差上界；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch4-s5",
+      "bank": "past",
+      "id": "exam-probability-ch4-s5-2014-8-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“Cov(X,Y) 的定义是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：伯努利和求EX=np，Var=np(1−p)；指数积分得一阶1/λ二阶2/λ²；正态参数定义位置与中心二阶矩；对称Cauchy无期望，须先要求可积；Markov施于中心平方给偏差上界。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch4-s5",
+      "bank": "past",
+      "id": "exam-probability-ch4-s5-2020-8-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“相关系数 ρ 的取值范围是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：伯努利和求EX=np，Var=np(1−p)；指数积分得一阶1/λ二阶2/λ²；正态参数定义位置与中心二阶矩；对称Cauchy无期望，须先要求可积；Markov施于中心平方给偏差上界。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch5-s1",
+      "bank": "practice",
+      "id": "pr-cheb-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "Markov对(X−EX)²使用ε²阈值；原标记答案 A。",
+      "replacement": {
+        "id": "pr-cheb-1-r2",
+        "type": "single",
+        "stem": "设 X 的方差有限且 ε>0，切比雪夫不等式给出的是？",
+        "options": {
+          "A": "P{|X−E(X)| ≥ ε} ≤ D(X)/ε²",
+          "B": "P{|X−E(X)| ≥ ε} ≥ D(X)/ε²",
+          "C": "P{X ≥ ε} = D(X)/ε²",
+          "D": "P{|X| ≤ ε} = 1"
+        },
+        "answer": "A",
+        "explanation": "切比雪夫不等式用方差给出偏离均值概率的上界：P{|X−μ|≥ε} ≤ σ²/ε²。"
+      }
+    },
+    {
+      "nodeId": "probability:ch5-s1",
+      "bank": "practice",
+      "id": "pr-cheb-2",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与首题相同不等式；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch5-s1",
+      "bank": "practice",
+      "id": "pr-cheb-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "有限方差足够无正态要求；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch5-s1",
+      "bank": "practice",
+      "id": "pr-cheb-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "上界一般不能给精确概率；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch5-s1",
+      "bank": "practice",
+      "id": "pr-cheb-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "ε>0且σ²固定时上界非增，σ²=0时恒0；原标记答案 T。",
+      "replacement": {
+        "id": "pr-cheb-5-r2",
+        "type": "judge",
+        "stem": "在切比雪夫不等式中，固定有限方差，ε>0 增大时 σ²/ε² 不会增大。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "σ²/ε² 随 ε 增大而减小，偏离越远概率上界越小。"
+      }
+    },
+    {
+      "nodeId": "probability:ch5-s1",
+      "bank": "past",
+      "id": "exam-prob-limit-2020-8",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "4/4²=1/4；B，并不能推出精确概率等于上界。",
+      "replacement": {
+        "id": "exam-prob-limit-2020-8-r2",
+        "type": "single",
+        "stem": "随机变量 X 的方差为 4。根据切比雪夫不等式，P(|X−E(X)|≥4) 的上界是多少？",
+        "options": {
+          "A": "1/16",
+          "B": "1/4",
+          "C": "1/2",
+          "D": "3/4"
+        },
+        "answer": "B",
+        "explanation": "切比雪夫不等式给出 P(|X−E(X)|≥a)≤D(X)/a²=4/16=1/4。"
+      }
+    },
+    {
+      "nodeId": "probability:ch5-s1",
+      "bank": "past",
+      "id": "exam-prob-limit-2022-9",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“独立同分布样本具有有限期望 μ。样本均值随样本量增大依概率收敛到什么？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：Markov对(X−EX)²使用ε²阈值；与首题相同不等式；有限方差足够无正态要求；上界一般不能给精确概率；ε>0且σ²固定时上界非增，σ²=0时恒0。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch5-s2",
+      "bank": "practice",
+      "id": "pr-lln-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "辛钦要求iid且绝对可积；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch5-s2",
+      "bank": "practice",
+      "id": "pr-lln-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "伯努利指示均值频率依概率趋p；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch5-s2",
+      "bank": "practice",
+      "id": "pr-lln-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "大数稳定说的是概率收敛非每条序列单调；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch5-s2",
+      "bank": "practice",
+      "id": "pr-lln-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "均值方差下降后Chebyshev控制；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch5-s2",
+      "bank": "practice",
+      "id": "pr-lln-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "频率是指示均值可应用伯努利定理；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch5-s2",
+      "bank": "past",
+      "id": "exam-probability-ch5-s2-2022-9-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“大数定律说明独立同分布样本均值随 n 增大趋近于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：辛钦要求iid且绝对可积；伯努利指示均值频率依概率趋p；大数稳定说的是概率收敛非每条序列单调；均值方差下降后Chebyshev控制；频率是指示均值可应用伯努利定理。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch5-s2",
+      "bank": "past",
+      "id": "exam-probability-ch5-s2-2015-14-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“切比雪夫不等式使用哪个量控制偏离均值的概率？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：辛钦要求iid且绝对可积；伯努利指示均值频率依概率趋p；大数稳定说的是概率收敛非每条序列单调；均值方差下降后Chebyshev控制；频率是指示均值可应用伯努利定理。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch5-s3",
+      "bank": "practice",
+      "id": "pr-clt-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "必须有0<σ²<∞才可标准化；原标记答案 A。",
+      "replacement": {
+        "id": "pr-clt-1-r2",
+        "type": "single",
+        "stem": "Xᵢ 独立同分布，EXᵢ=μ、0<Var(Xᵢ)=σ²<∞。当 n 趋于无穷时，(ΣXᵢ−nμ)/(σ√n) 的极限分布是？",
+        "options": {
+          "A": "标准正态分布 N(0,1)",
+          "B": "均匀分布",
+          "C": "指数分布",
+          "D": "χ² 分布"
+        },
+        "answer": "A",
+        "explanation": "林德伯格–列维定理：独立同分布且方差有限的变量，其和标准化后依分布收敛于 N(0,1)。"
+      }
+    },
+    {
+      "nodeId": "probability:ch5-s3",
+      "bank": "practice",
+      "id": "pr-clt-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "有限方差还需非零；原标记答案 A。",
+      "replacement": {
+        "id": "pr-clt-2-r2",
+        "type": "single",
+        "stem": "林德伯格–列维中心极限定理的条件是？",
+        "options": {
+          "A": "独立同分布且方差有限、严格大于0",
+          "B": "仅变量只有两个取值，不要求独立",
+          "C": "仅期望为0",
+          "D": "仅变量两两相关"
+        },
+        "answer": "A",
+        "explanation": "独立同分布、方差有限时，标准化样本和趋于标准正态。"
+      }
+    },
+    {
+      "nodeId": "probability:ch5-s3",
+      "bank": "practice",
+      "id": "pr-clt-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "Cauchy无有限方差故未加条件命题假；原标记答案 T。",
+      "replacement": {
+        "id": "pr-clt-3-r2",
+        "type": "judge",
+        "stem": "独立同分布且方差有限、严格大于0的随机变量之和，在减去均值并除以标准差后依分布收敛于标准正态。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "这是中心极限定理的核心结论。"
+      }
+    },
+    {
+      "nodeId": "probability:ch5-s3",
+      "bank": "practice",
+      "id": "pr-clt-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "固定0<p<1伯努利和CLT给二项正态；原标记答案 A。",
+      "replacement": {
+        "id": "pr-clt-4-r2",
+        "type": "single",
+        "stem": "固定 0<p<1，棣莫弗–拉普拉斯定理是关于什么的？",
+        "options": {
+          "A": "二项分布的正态近似",
+          "B": "泊松分布",
+          "C": "指数分布",
+          "D": "均匀分布"
+        },
+        "answer": "A",
+        "explanation": "棣莫弗–拉普拉斯定理是中心极限定理在二项分布上的特例。"
+      }
+    },
+    {
+      "nodeId": "probability:ch5-s3",
+      "bank": "practice",
+      "id": "pr-clt-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "极限收敛不保证有限n误差单调递减；原标记答案 T。",
+      "replacement": {
+        "id": "pr-clt-5-r2",
+        "type": "judge",
+        "stem": "中心极限定理保证：对所有满足其条件的总体，正态近似误差随每一次样本量增加都严格减小。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "CLT保证极限收敛，不给有限n的严格单调误差结论。格点分布的跳跃位置随n变化；正态总体则对每个n误差均为0，已反驳严格减小。"
+      }
+    },
+    {
+      "nodeId": "probability:ch5-s3",
+      "bank": "past",
+      "id": "exam-probability-ch5-s3-2015-14-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“中心极限定理中，独立同分布样本和标准化后在大样本下近似？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：必须有0<σ²<∞才可标准化；有限方差还需非零；Cauchy无有限方差故未加条件命题假；固定0<p<1伯努利和CLT给二项正态；极限收敛不保证有限n误差单调递减。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch5-s3",
+      "bank": "past",
+      "id": "exam-probability-ch5-s3-2022-9-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“若 Xi 独立同分布且方差有限，样本均值的标准误差随 n 大约按什么变化？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：必须有0<σ²<∞才可标准化；有限方差还需非零；Cauchy无有限方差故未加条件命题假；固定0<p<1伯努利和CLT给二项正态；极限收敛不保证有限n误差单调递减。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch5-s4",
+      "bank": "practice",
+      "id": "pr-norm-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "整数概率用半单位区间近似；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch5-s4",
+      "bank": "practice",
+      "id": "pr-norm-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "np(1−p)>0使标准化定义；原标记答案 A。",
+      "replacement": {
+        "id": "pr-norm-2-r2",
+        "type": "single",
+        "stem": "设 n≥1 且 0<p<1，对二项分布 B(n,p) 使用正态近似时的标准化变量是？",
+        "options": {
+          "A": "(X − np)/√(np(1−p))",
+          "B": "(X − p)/n",
+          "C": "(X − np)/n",
+          "D": "X/n"
+        },
+        "answer": "A",
+        "explanation": "按中心极限定理对二项分布标准化后近似 N(0,1)。"
+      }
+    },
+    {
+      "nodeId": "probability:ch5-s4",
+      "bank": "practice",
+      "id": "pr-norm-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "整数边界对应长度1格子的两端；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch5-s4",
+      "bank": "practice",
+      "id": "pr-norm-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "n大并不足够p极端时np仍很小；原标记答案 A。",
+      "replacement": {
+        "id": "pr-norm-4-r2",
+        "type": "single",
+        "stem": "对二项分布使用通常较可靠的正态近似，常用的经验检查条件是？",
+        "options": {
+          "A": "np 与 n(1−p) 都不太小（如均至少5，仅为经验准则）",
+          "B": "仅n很大，无论p如何",
+          "C": "仅n为偶数",
+          "D": "仅p接近0"
+        },
+        "answer": "A",
+        "explanation": "p极端时即使n很大，成功数或失败数仍很少并明显偏斜，正态近似可能很差；阈值5不是普适误差保证。"
+      }
+    },
+    {
+      "nodeId": "probability:ch5-s4",
+      "bank": "practice",
+      "id": "pr-norm-5",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "广泛应用陈述无区分度应替换计算；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch5-s4",
+      "bank": "past",
+      "id": "exam-probability-ch5-s4-2015-14-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“利用中心极限定理近似二项分布时，通常近似为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：整数概率用半单位区间近似；np(1−p)>0使标准化定义；整数边界对应长度1格子的两端；n大并不足够p极端时np仍很小；广泛应用陈述无区分度应替换计算。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch5-s4",
+      "bank": "past",
+      "id": "exam-probability-ch5-s4-2021-10-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“正态近似离散分布概率时常进行连续性修正，原因是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：整数概率用半单位区间近似；np(1−p)>0使标准化定义；整数边界对应长度1格子的两端；n大并不足够p极端时np仍很小；广泛应用陈述无区分度应替换计算。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch6-s1",
+      "bank": "practice",
+      "id": "pr-pop-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "总体集合和个体基本单元；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch6-s1",
+      "bank": "practice",
+      "id": "pr-pop-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "数理统计简单随机样本指iid；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch6-s1",
+      "bank": "practice",
+      "id": "pr-pop-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "同分布是iid中的id；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch6-s1",
+      "bank": "practice",
+      "id": "pr-pop-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "容量计观测个数不是总体数；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch6-s1",
+      "bank": "practice",
+      "id": "pr-pop-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "推断是从样本到总体；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch6-s1",
+      "bank": "past",
+      "id": "exam-prob-statistics-2000-5",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "A/B/C均含未知μ或σ²，只有D是观测样本函数。",
+      "replacement": {
+        "id": "exam-prob-statistics-2000-5-r2",
+        "type": "single",
+        "stem": "X̄ 为样本均值，S² 为样本方差，μ、σ² 为未知总体参数。下列哪一个一定是统计量？",
+        "options": {
+          "A": "X̄−μ",
+          "B": "(X̄−μ)/(S/√n)",
+          "C": "S²+σ²",
+          "D": "X̄"
+        },
+        "answer": "D",
+        "explanation": "统计量只能由样本构成，不能含未知总体参数；样本均值满足这一条件。"
+      }
+    },
+    {
+      "nodeId": "probability:ch6-s1",
+      "bank": "past",
+      "id": "exam-prob-statistics-2005-14",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "S²分母n−1，归一残差平方(n−1)S²/1~χ²(n−1)；B。",
+      "replacement": {
+        "id": "exam-prob-statistics-2005-14-r2",
+        "type": "single",
+        "stem": "来自 N(0,1) 的容量为 n 的简单随机样本，其样本方差记为 S²。哪一个量服从自由度 n−1 的卡方分布？（n≥2，S²=(1/(n−1))Σ(Xᵢ−X̄)²）",
+        "options": {
+          "A": "nS²",
+          "B": "(n−1)S²",
+          "C": "√n S",
+          "D": "S²/(n−1)"
+        },
+        "answer": "B",
+        "explanation": "正态总体样本方差满足 (n−1)S²/σ² 服从自由度 n−1 的 χ² 分布；此处 σ²=1。"
+      }
+    },
+    {
+      "nodeId": "probability:ch6-s2",
+      "bank": "practice",
+      "id": "pr-sample-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "均值线性及独立方差可加给σ²/n；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch6-s2",
+      "bank": "practice",
+      "id": "pr-stat-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "样本函数不含未知量才统计量；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch6-s2",
+      "bank": "practice",
+      "id": "pr-stat-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "Σ偏差平方期望=(n−1)σ²；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch6-s2",
+      "bank": "practice",
+      "id": "pr-stat-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "k阶样本矩直接平均幂；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch6-s2",
+      "bank": "practice",
+      "id": "pr-stat-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "已知常数可含未知参数不可含；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch6-s2",
+      "bank": "past",
+      "id": "exam-probability-ch6-s2-2000-5-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“简单随机样本的函数若只依赖样本观测值和已知常数，则称为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：均值线性及独立方差可加给σ²/n；样本函数不含未知量才统计量；Σ偏差平方期望=(n−1)σ²；k阶样本矩直接平均幂；已知常数可含未知参数不可含。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch6-s2",
+      "bank": "past",
+      "id": "exam-probability-ch6-s2-2005-14-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“样本均值 X̄ 的期望是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：均值线性及独立方差可加给σ²/n；样本函数不含未知量才统计量；Σ偏差平方期望=(n−1)σ²；k阶样本矩直接平均幂；已知常数可含未知参数不可含。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch6-s3",
+      "bank": "practice",
+      "id": "pr-chi-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "n个独立标准正态平方和定义卡方；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch6-s3",
+      "bank": "practice",
+      "id": "pr-chi-2",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与首题重复；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch6-s3",
+      "bank": "practice",
+      "id": "pr-chi-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "Z对称且正独立分母保对称；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch6-s3",
+      "bank": "practice",
+      "id": "pr-chi-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "两个归一独立卡方比定义F；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch6-s3",
+      "bank": "practice",
+      "id": "pr-chi-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "t=Z/√(V/n)平方得F(1,n)；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch6-s3",
+      "bank": "past",
+      "id": "exam-probability-ch6-s3-2005-14-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“n 个独立标准正态变量平方和服从？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：n个独立标准正态平方和定义卡方；与首题重复；Z对称且正独立分母保对称；两个归一独立卡方比定义F；t=Z/√(V/n)平方得F(1,n)。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch6-s3",
+      "bank": "past",
+      "id": "exam-probability-ch6-s3-2018-8-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“正态总体方差未知时，样本均值标准化后使用的分布通常是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：n个独立标准正态平方和定义卡方；与首题重复；Z对称且正独立分母保对称；两个归一独立卡方比定义F；t=Z/√(V/n)平方得F(1,n)。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch6-s4",
+      "bank": "practice",
+      "id": "pr-quant-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "连续分布尾质量α定义上侧临界值；原标记答案 A。",
+      "replacement": {
+        "id": "pr-quant-1-r2",
+        "type": "single",
+        "stem": "对于连续分布，上侧 α 分位数 u_α 的尾概率条件是？",
+        "options": {
+          "A": "P(X > u_α) = α",
+          "B": "P(X < u_α) = α",
+          "C": "P(X = u_α) = α",
+          "D": "P(X > u_α) = 1−α"
+        },
+        "answer": "A",
+        "explanation": "上侧 α 分位数右侧面积为 α。"
+      }
+    },
+    {
+      "nodeId": "probability:ch6-s4",
+      "bank": "practice",
+      "id": "pr-quant-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "标准正态CDF(1.96)约0.975；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch6-s4",
+      "bank": "practice",
+      "id": "pr-quant-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "偶密度使互补分位数互为相反；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch6-s4",
+      "bank": "practice",
+      "id": "pr-quant-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "积分数值反演或查表但部分特殊自由度有初等式；原标记答案 A。",
+      "replacement": {
+        "id": "pr-quant-4-r2",
+        "type": "single",
+        "stem": "χ²、t、F 分布的分位数通常通过什么获得？",
+        "options": {
+          "A": "查表或统计软件",
+          "B": "手工求导",
+          "C": "积分公式直接计算",
+          "D": "不能获得"
+        },
+        "answer": "A",
+        "explanation": "常用分位数通过查表或数值反演CDF获得；部分特殊自由度可用初等表达式，例如t(1)即Cauchy，因此不应断言全部都没有初等原函数。"
+      }
+    },
+    {
+      "nodeId": "probability:ch6-s4",
+      "bank": "practice",
+      "id": "pr-quant-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "临界值是拒绝域及枢轴事件边界；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch6-s4",
+      "bank": "past",
+      "id": "exam-probability-ch6-s4-2018-8-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“连续分布的上侧 α 分位数 uα 通常满足？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：连续分布尾质量α定义上侧临界值；标准正态CDF(1.96)约0.975；偶密度使互补分位数互为相反；积分数值反演或查表但部分特殊自由度有初等式；临界值是拒绝域及枢轴事件边界。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch6-s4",
+      "bank": "past",
+      "id": "exam-probability-ch6-s4-2021-10-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“标准正态分布关于哪个点对称？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：连续分布尾质量α定义上侧临界值；标准正态CDF(1.96)约0.975；偶密度使互补分位数互为相反；积分数值反演或查表但部分特殊自由度有初等式；临界值是拒绝域及枢轴事件边界。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch6-s5",
+      "bank": "practice",
+      "id": "pr-t-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "正态iid n≥2且σ>0给t(n−1)；原标记答案 A。",
+      "replacement": {
+        "id": "pr-t-1-r2",
+        "type": "single",
+        "stem": "设 X₁,…,Xₙ 为 N(μ,σ²) 的独立同分布样本，n≥2、σ²>0，S²=(1/(n−1))Σ(Xᵢ−X̄)²。(X̄−μ)/(S/√n) 服从什么分布？",
+        "options": {
+          "A": "自由度为 n−1 的 t 分布",
+          "B": "标准正态分布",
+          "C": "自由度为 n 的 χ² 分布",
+          "D": "F 分布"
+        },
+        "answer": "A",
+        "explanation": "σ² 未知时用样本标准差 S 代替 σ，得到服从 t(n−1) 的统计量。"
+      }
+    },
+    {
+      "nodeId": "probability:ch6-s5",
+      "bank": "practice",
+      "id": "pr-samp-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "样本方差定义分母n−1给卡方；原标记答案 A。",
+      "replacement": {
+        "id": "pr-samp-2-r2",
+        "type": "single",
+        "stem": "设 X₁,…,Xₙ 为 N(μ,σ²) 的独立同分布样本，n≥2、σ²>0，S²=(1/(n−1))Σ(Xᵢ−X̄)²。(n−1)S²/σ² 服从什么分布？",
+        "options": {
+          "A": "χ²(n−1)",
+          "B": "N(0,1)",
+          "C": "t(n)",
+          "D": "F(n,n)"
+        },
+        "answer": "A",
+        "explanation": "这是正态总体样本方差的抽样分布，自由度为 n−1。"
+      }
+    },
+    {
+      "nodeId": "probability:ch6-s5",
+      "bank": "practice",
+      "id": "pr-samp-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "正交投影把均值与残差分离；原标记答案 T。",
+      "replacement": {
+        "id": "pr-samp-3-r2",
+        "type": "judge",
+        "stem": "设 X₁,…,Xₙ 为 N(μ,σ²) 的独立同分布样本，n≥2、σ²>0，S²=(1/(n−1))Σ(Xᵢ−X̄)²。样本均值 X̄ 与样本方差 S² 相互独立。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "正态总体的一个重要性质：X̄ 与 S² 独立。"
+      }
+    },
+    {
+      "nodeId": "probability:ch6-s5",
+      "bank": "practice",
+      "id": "pr-samp-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "σ>0且iid给均值标准化N(0,1)；原标记答案 A。",
+      "replacement": {
+        "id": "pr-samp-4-r2",
+        "type": "single",
+        "stem": "设 X₁,…,Xₙ 为 N(μ,σ²) 的独立同分布样本，n≥2、σ²>0，S²=(1/(n−1))Σ(Xᵢ−X̄)²。(X̄−μ)/(σ/√n) 服从什么分布？",
+        "options": {
+          "A": "N(0,1)",
+          "B": "t(n−1)",
+          "C": "χ²(n)",
+          "D": "F(1,n)"
+        },
+        "answer": "A",
+        "explanation": "σ 已知时样本均值标准化后服从标准正态分布。"
+      }
+    },
+    {
+      "nodeId": "probability:ch6-s5",
+      "bank": "practice",
+      "id": "pr-samp-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "必须明确正态iid条件及n≥2；原标记答案 T。",
+      "replacement": {
+        "id": "pr-samp-5-r2",
+        "type": "judge",
+        "stem": "设 X₁,…,Xₙ 为 N(μ,σ²) 的独立同分布样本，n≥2、σ²>0，S²=(1/(n−1))Σ(Xᵢ−X̄)²。用样本标准差 S 代替 σ，(X̄−μ)/(S/√n) 服从 t(n−1)。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "这是 t 分布的典型来源，也是 t 检验的基础。"
+      }
+    },
+    {
+      "nodeId": "probability:ch6-s5",
+      "bank": "past",
+      "id": "exam-probability-ch6-s5-2005-14-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“正态总体样本方差 S² 满足的经典统计量是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：正态iid n≥2且σ>0给t(n−1)；样本方差定义分母n−1给卡方；正交投影把均值与残差分离；σ>0且iid给均值标准化N(0,1)；必须明确正态iid条件及n≥2。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch6-s5",
+      "bank": "past",
+      "id": "exam-probability-ch6-s5-2018-8-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“两个独立正态总体方差比的常见抽样分布是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：正态iid n≥2且σ>0给t(n−1)；样本方差定义分母n−1给卡方；正交投影把均值与残差分离；σ>0且iid给均值标准化N(0,1)；必须明确正态iid条件及n≥2。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch7-s1",
+      "bank": "practice",
+      "id": "pr-moment-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "经验矩代替总体矩求参数；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch7-s1",
+      "bank": "practice",
+      "id": "pr-moment-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "一阶原点矩方程μ=X均值；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch7-s1",
+      "bank": "practice",
+      "id": "pr-moment-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "不同矩或非单射矩可多解；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch7-s1",
+      "bank": "practice",
+      "id": "pr-moment-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "点估计输出一个参数候选数值；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch7-s1",
+      "bank": "practice",
+      "id": "pr-moment-5",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "与不唯一题重复且效率要按模型判断；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch7-s1",
+      "bank": "past",
+      "id": "exam-prob-estimation-2015-23",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“样本来自 U(0,θ)，θ>0。θ 的极大似然估计量是哪一个？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：经验矩代替总体矩求参数；一阶原点矩方程μ=X均值；不同矩或非单射矩可多解；点估计输出一个参数候选数值；与不唯一题重复且效率要按模型判断。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch7-s1",
+      "bank": "past",
+      "id": "exam-prob-estimation-2024-21",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“参数 θ 的估计量具有无偏性，表示其期望满足什么关系？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：经验矩代替总体矩求参数；一阶原点矩方程μ=X均值；不同矩或非单射矩可多解；点估计输出一个参数候选数值；与不唯一题重复且效率要按模型判断。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch7-s2",
+      "bank": "practice",
+      "id": "pr-mle-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "连续观测点概率0，应最大化密度似然；原标记答案 A。",
+      "replacement": {
+        "id": "pr-mle-1-r2",
+        "type": "single",
+        "stem": "最大似然估计的基本思想是？",
+        "options": {
+          "A": "在参数空间中最大化已观测样本的联合密度或概率质量作为参数函数的似然",
+          "B": "令样本均值等于总体均值",
+          "C": "使估计量方差最小",
+          "D": "随机选参数"
+        },
+        "answer": "A",
+        "explanation": "连续样本每个精确观测点概率为0，最大化的是密度似然而非单点概率。还需比较边界与内部极值。"
+      }
+    },
+    {
+      "nodeId": "probability:ch7-s2",
+      "bank": "practice",
+      "id": "pr-mle-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "一般联合密度；乘积式要独立；原标记答案 A。",
+      "replacement": {
+        "id": "pr-mle-2-r2",
+        "type": "single",
+        "stem": "似然函数 L(θ) 的定义是？",
+        "options": {
+          "A": "样本联合密度/分布律作为 θ 的函数",
+          "B": "θ 的分布函数",
+          "C": "样本均值",
+          "D": "θ 的期望"
+        },
+        "answer": "A",
+        "explanation": "把已观测数据固定，样本联合密度或联合概率质量作为θ的函数即L(θ)。独立样本才分解成乘积。连续密度的数值不是精确样本点的概率。"
+      }
+    },
+    {
+      "nodeId": "probability:ch7-s2",
+      "bank": "practice",
+      "id": "pr-mle-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "求驻点还须比较边界和检验全局最大；原标记答案 T。",
+      "replacement": {
+        "id": "pr-mle-3-r2",
+        "type": "judge",
+        "stem": "对于可导的对数似然，令其导数为0可寻找内部候选极值，但还须检查边界与是否达到全局最大值。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "驻点可能是极小值且最大值可能在边界；U(0,θ)的MLE就在θ=maxXi的边界。"
+      }
+    },
+    {
+      "nodeId": "probability:ch7-s2",
+      "bank": "practice",
+      "id": "pr-mle-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "变换参数用剖面似然得不变性；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch7-s2",
+      "bank": "practice",
+      "id": "pr-mle-5",
+      "action": "remove",
+      "reason": "同一知识断言已被本节或相邻节点的保留题覆盖；无新增计算、反例或条件辨析，删除重复浅题。",
+      "verification": "连续型不能字面最大化单点出现概率；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch7-s2",
+      "bank": "past",
+      "id": "exam-probability-ch7-s2-2015-23-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“极大似然估计的基本做法是选择使什么最大的参数值？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：连续观测点概率0，应最大化密度似然；一般联合密度；乘积式要独立；求驻点还须比较边界和检验全局最大；变换参数用剖面似然得不变性；连续型不能字面最大化单点出现概率。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch7-s2",
+      "bank": "past",
+      "id": "exam-probability-ch7-s2-2024-21-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“独立样本的联合似然函数通常等于各样本密度的？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：连续观测点概率0，应最大化密度似然；一般联合密度；乘积式要独立；求驻点还须比较边界和检验全局最大；变换参数用剖面似然得不变性；连续型不能字面最大化单点出现概率。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch7-s3",
+      "bank": "practice",
+      "id": "pr-unbiased-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "无偏定义对每个参数EX估计=参数；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch7-s3",
+      "bank": "practice",
+      "id": "pr-unbiased-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "三个标准对应期望方差收敛；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch7-s3",
+      "bank": "practice",
+      "id": "pr-unbiased-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "应说明比较同一参数的无偏类；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch7-s3",
+      "bank": "practice",
+      "id": "pr-unbiased-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "一致性是任意ε偏差概率趋0；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch7-s3",
+      "bank": "practice",
+      "id": "pr-unbiased-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "X1估均值无偏但均值方差更小；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch7-s3",
+      "bank": "past",
+      "id": "exam-probability-ch7-s3-2024-21-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“估计量 θ̂ 满足 E(θ̂)=θ 时，称 θ̂ 对 θ？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：无偏定义对每个参数EX估计=参数；三个标准对应期望方差收敛；应说明比较同一参数的无偏类；一致性是任意ε偏差概率趋0；X1估均值无偏但均值方差更小。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch7-s3",
+      "bank": "past",
+      "id": "exam-probability-ch7-s3-2015-23-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“一致估计量要求样本量增大时估计量？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：无偏定义对每个参数EX估计=参数；三个标准对应期望方差收敛；应说明比较同一参数的无偏类；一致性是任意ε偏差概率趋0；X1估均值无偏但均值方差更小。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch7-s4",
+      "bank": "practice",
+      "id": "pr-ci-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "正态iid σ已知给z枢轴；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch7-s4",
+      "bank": "practice",
+      "id": "pr-ci-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "概率是抽样前随机区间覆盖固定参数；原标记答案 A。",
+      "replacement": {
+        "id": "pr-ci-2-r2",
+        "type": "single",
+        "stem": "置信水平 1−α 的含义是？",
+        "options": {
+          "A": "抽样前随机区间在重复抽样中覆盖固定参数真值的比例为1−α",
+          "B": "观测后的固定区间使参数变成随机变量",
+          "C": "每个观测区间的长度是1−α",
+          "D": "观测后的参数真值以1−α概率改变"
+        },
+        "answer": "A",
+        "explanation": "频率置信度描述构造程序的重复抽样覆盖率。数据确定后区间与参数都固定，不能给参数分配后验概率。"
+      }
+    },
+    {
+      "nodeId": "probability:ch7-s4",
+      "bank": "practice",
+      "id": "pr-ci-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "正态iid方差未知n≥2给t；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch7-s4",
+      "bank": "practice",
+      "id": "pr-ci-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "残差平方归一服从卡方；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch7-s4",
+      "bank": "practice",
+      "id": "pr-ci-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "固定数据与同一构造法提高水平临界值增大；原标记答案 T。",
+      "replacement": {
+        "id": "pr-ci-5-r2",
+        "type": "judge",
+        "stem": "对于同一份正态样本、同一常规双侧均值区间构造且标准误严格为正，提高置信水平会使置信区间变宽。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "提高置信水平需要更大的临界值，区间随之变宽。"
+      }
+    },
+    {
+      "nodeId": "probability:ch7-s4",
+      "bank": "past",
+      "id": "exam-probability-ch7-s4-2015-23-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“正态总体方差已知时，总体均值的双侧置信区间常使用？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：正态iid σ已知给z枢轴；概率是抽样前随机区间覆盖固定参数；正态iid方差未知n≥2给t；残差平方归一服从卡方；固定数据与同一构造法提高水平临界值增大。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch7-s4",
+      "bank": "past",
+      "id": "exam-probability-ch7-s4-2014-8-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“在其他条件不变时，提高置信水平会使置信区间通常？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：正态iid σ已知给z枢轴；概率是抽样前随机区间覆盖固定参数；正态iid方差未知n≥2给t；残差平方归一服从卡方；固定数据与同一构造法提高水平临界值增大。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch7-s5",
+      "bank": "practice",
+      "id": "pr-ci2-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "独立iid两样本公共未知方差用合并t；原标记答案 A。",
+      "replacement": {
+        "id": "pr-ci2-1-r2",
+        "type": "single",
+        "stem": "两个独立正态总体的独立简单随机样本，方差未知但相等时，均值差的区间估计常用？",
+        "options": {
+          "A": "合并方差构造的 t 统计量",
+          "B": "标准正态",
+          "C": "χ² 分布",
+          "D": "F 分布"
+        },
+        "answer": "A",
+        "explanation": "方差相等时用合并方差估计公共方差，得到 t 分布统计量。"
+      }
+    },
+    {
+      "nodeId": "probability:ch7-s5",
+      "bank": "practice",
+      "id": "pr-ci2-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "独立正态样本归一方差比用F；原标记答案 A。",
+      "replacement": {
+        "id": "pr-ci2-2-r2",
+        "type": "single",
+        "stem": "两个独立正态总体的独立简单随机样本，方差比的区间估计使用什么分布？",
+        "options": {
+          "A": "F 分布",
+          "B": "t 分布",
+          "C": "χ² 分布",
+          "D": "正态分布"
+        },
+        "answer": "A",
+        "explanation": "由两样本方差之比构造 F 统计量估计方差比。"
+      }
+    },
+    {
+      "nodeId": "probability:ch7-s5",
+      "bank": "practice",
+      "id": "pr-ci2-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "差值需独立并满足所选单样本方法条件；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch7-s5",
+      "bank": "practice",
+      "id": "pr-ci2-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "两独立样本不要求等容量等均值；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch7-s5",
+      "bank": "practice",
+      "id": "pr-ci2-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "同置信双侧区间与对应检验互为反演；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch7-s5",
+      "bank": "past",
+      "id": "exam-probability-ch7-s5-2015-23-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“两个独立正态总体均值差的区间估计，方差处理取决于？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：独立iid两样本公共未知方差用合并t；独立正态样本归一方差比用F；差值需独立并满足所选单样本方法条件；两独立样本不要求等容量等均值；同置信双侧区间与对应检验互为反演。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch7-s5",
+      "bank": "past",
+      "id": "exam-probability-ch7-s5-2020-8-b",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "方差未知不等不能合并，Welch使用S1²/n1+S2²/n2；A。",
+      "replacement": {
+        "id": "exam-probability-ch7-s5-2020-8-b-r2",
+        "type": "single",
+        "stem": "比较两个独立正态总体均值时，若总体方差未知且不等，常用？",
+        "options": {
+          "A": "Welch t 方法",
+          "B": "单样本 z 检验",
+          "C": "χ² 拟合优度检验",
+          "D": "几何分布区间"
+        },
+        "answer": "A",
+        "explanation": "不等方差两样本均值推断使用 Welch t 统计量及近似自由度。"
+      }
+    },
+    {
+      "nodeId": "probability:ch8-s1",
+      "bank": "practice",
+      "id": "pr-test-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "拒绝域须事先控制H0下概率；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch8-s1",
+      "bank": "practice",
+      "id": "pr-test-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "先规定问题及假设再选统计量；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch8-s1",
+      "bank": "practice",
+      "id": "pr-test-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "不能把连续点概率0作为拒绝依据；原标记答案 T。",
+      "replacement": {
+        "id": "pr-test-3-r2",
+        "type": "judge",
+        "stem": "假设检验的拒绝域应事先规定，并控制原假设下落入拒绝域的概率足够小。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "连续样本每个精确结果的概率都为0，不能因观测点本身概率小而拒绝H0；应使用预先规定的极端区域及其尾概率。"
+      }
+    },
+    {
+      "nodeId": "probability:ch8-s1",
+      "bank": "practice",
+      "id": "pr-test-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "拒绝域与水平在看数据前确定；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch8-s1",
+      "bank": "practice",
+      "id": "pr-test-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "随机抽样造成决策误差；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch8-s1",
+      "bank": "past",
+      "id": "exam-prob-hypothesis-2021-10",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“显著性水平 α 在假设检验中主要控制哪一类错误的概率？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：拒绝域须事先控制H0下概率；先规定问题及假设再选统计量；不能把连续点概率0作为拒绝依据；拒绝域与水平在看数据前确定；随机抽样造成决策误差。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch8-s1",
+      "bank": "past",
+      "id": "exam-prob-hypothesis-2018-8",
+      "action": "revise",
+      "reason": "数学内容独立求解有效，但未核对原卷；移除source作为原创练习，不声称已核实真题。",
+      "verification": "同一嵌套双侧检验α降低使临界值远离中心，未拒绝域扩大；B。",
+      "replacement": {
+        "id": "exam-prob-hypothesis-2018-8-r2",
+        "type": "single",
+        "stem": "同一双侧检验中，检验水平从 0.05 降到 0.01，原假设的接受域通常怎样变化？",
+        "options": {
+          "A": "变小",
+          "B": "变大",
+          "C": "不变",
+          "D": "必为空集"
+        },
+        "answer": "B",
+        "explanation": "显著性水平变小会使拒绝域收窄，接受域相应变大。"
+      }
+    },
+    {
+      "nodeId": "probability:ch8-s2",
+      "bank": "practice",
+      "id": "pr-error-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "显著性水平一般是第一类概率上限；原标记答案 A。",
+      "replacement": {
+        "id": "pr-error-1-r2",
+        "type": "single",
+        "stem": "在假设检验中，第一类错误（弃真）的概率通常记为？",
+        "options": {
+          "A": "α",
+          "B": "β",
+          "C": "1−α",
+          "D": "1−β"
+        },
+        "answer": "A",
+        "explanation": "第一类错误是H0为真却被拒绝；显著性水平α通常是其概率的上限，离散检验或复合原假设下实际错误概率未必恰好等于α。"
+      }
+    },
+    {
+      "nodeId": "probability:ch8-s2",
+      "bank": "practice",
+      "id": "pr-error-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "真H0下错误拒绝定义第一类；原标记答案 A。",
+      "replacement": {
+        "id": "pr-error-2-r2",
+        "type": "single",
+        "stem": "第一类错误的含义是？",
+        "options": {
+          "A": "原假设为真却拒绝它（弃真）",
+          "B": "原假设为假却接受它",
+          "C": "样本量过大",
+          "D": "计算错误"
+        },
+        "answer": "A",
+        "explanation": "第一类错误定义为弃真。显著性水平控制弃真概率不超过α，并非所有检验下实际概率都恰好α。"
+      }
+    },
+    {
+      "nodeId": "probability:ch8-s2",
+      "bank": "practice",
+      "id": "pr-error-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "备择下未拒绝概率定义β；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch8-s2",
+      "bank": "practice",
+      "id": "pr-error-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "功效为备择下拒绝率1−β；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch8-s2",
+      "bank": "practice",
+      "id": "pr-error-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "同一嵌套拒绝域缩小通常β非减；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch8-s2",
+      "bank": "past",
+      "id": "exam-probability-ch8-s2-2018-8-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“第一类错误是？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：显著性水平一般是第一类概率上限；真H0下错误拒绝定义第一类；备择下未拒绝概率定义β；功效为备择下拒绝率1−β；同一嵌套拒绝域缩小通常β非减。原答案B不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch8-s2",
+      "bank": "past",
+      "id": "exam-probability-ch8-s2-2021-10-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“第二类错误的概率通常记为？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：显著性水平一般是第一类概率上限；真H0下错误拒绝定义第一类；备择下未拒绝概率定义β；功效为备择下拒绝率1−β；同一嵌套拒绝域缩小通常β非减。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch8-s3",
+      "bank": "practice",
+      "id": "pr-ht1-1",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "已知σ正态均值使用z；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch8-s3",
+      "bank": "practice",
+      "id": "pr-ht1-2",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "未知σ正态iid n≥2使用t；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch8-s3",
+      "bank": "practice",
+      "id": "pr-ht1-3",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "方差枢轴卡方在正态iid下有效；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch8-s3",
+      "bank": "practice",
+      "id": "pr-ht1-4",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "双侧备择通常两个尾域；原标记答案 A。"
+    },
+    {
+      "nodeId": "probability:ch8-s3",
+      "bank": "practice",
+      "id": "pr-ht1-5",
+      "action": "retain",
+      "reason": "独立核对定义、适用条件、正确选项及其他选项后可保留。",
+      "verification": "方向性备择对应单尾域；原标记答案 T。"
+    },
+    {
+      "nodeId": "probability:ch8-s3",
+      "bank": "past",
+      "id": "exam-probability-ch8-s3-2018-8-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“单个正态总体均值、方差已知时，检验总体均值常使用？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：已知σ正态均值使用z；未知σ正态iid n≥2使用t；方差枢轴卡方在正态iid下有效；双侧备择通常两个尾域；方向性备择对应单尾域。原答案D不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch8-s3",
+      "bank": "past",
+      "id": "exam-probability-ch8-s3-2021-10-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“右侧检验的拒绝域通常位于检验统计量分布的？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：已知σ正态均值使用z；未知σ正态iid n≥2使用t；方差枢轴卡方在正态iid下有效；双侧备择通常两个尾域；方向性备择对应单尾域。原答案A不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch8-s4",
+      "bank": "practice",
+      "id": "pr-ht2-1",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "独立正态且方差未知才可用两样本t；原标记答案 A。",
+      "replacement": {
+        "id": "pr-ht2-1-r2",
+        "type": "single",
+        "stem": "两个独立正态总体的独立简单随机样本，方差未知时，比较均值常用？",
+        "options": {
+          "A": "两样本 t 检验",
+          "B": "χ² 检验",
+          "C": "F 检验",
+          "D": "符号检验"
+        },
+        "answer": "A",
+        "explanation": "两均值差的检验在方差未知时用 t 检验（视方差是否齐性）。"
+      }
+    },
+    {
+      "nodeId": "probability:ch8-s4",
+      "bank": "practice",
+      "id": "pr-ht2-2",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "独立正态iid方差比给F；原标记答案 A。",
+      "replacement": {
+        "id": "pr-ht2-2-r2",
+        "type": "single",
+        "stem": "两个独立正态总体的独立简单随机样本，检验方差是否相等使用？",
+        "options": {
+          "A": "F 检验",
+          "B": "t 检验",
+          "C": "u 检验",
+          "D": "χ² 检验"
+        },
+        "answer": "A",
+        "explanation": "两样本方差之比服从 F 分布，故用 F 检验比较方差。"
+      }
+    },
+    {
+      "nodeId": "probability:ch8-s4",
+      "bank": "practice",
+      "id": "pr-ht2-3",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "只有正态独立样本时经典F检验精确；原标记答案 T。",
+      "replacement": {
+        "id": "pr-ht2-3-r2",
+        "type": "judge",
+        "stem": "两个独立正态总体的独立简单随机样本，其方差齐性检验可使用经典 F 分布。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "T",
+        "explanation": "F 检验用于判断两总体方差是否相等（方差齐性）。"
+      }
+    },
+    {
+      "nodeId": "probability:ch8-s4",
+      "bank": "practice",
+      "id": "pr-ht2-4",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "配对差值须独立正态才有精确单样本t；原标记答案 A。",
+      "replacement": {
+        "id": "pr-ht2-4-r2",
+        "type": "single",
+        "stem": "配对差值是来自正态总体的独立简单随机样本时，配对均值差检验可转化为？",
+        "options": {
+          "A": "对差值的单样本 t 检验",
+          "B": "两独立样本 F 检验",
+          "C": "χ² 检验",
+          "D": "方差分析"
+        },
+        "answer": "A",
+        "explanation": "配对数据求差后按单个正态总体均值检验处理。"
+      }
+    },
+    {
+      "nodeId": "probability:ch8-s4",
+      "bank": "practice",
+      "id": "pr-ht2-5",
+      "action": "revise",
+      "reason": "独立审查发现前提、唯一性、解释或措辞不足，按核查记录修订。",
+      "verification": "无需先齐性检验才能比较均值，Welch可直接使用；原标记答案 T。",
+      "replacement": {
+        "id": "pr-ht2-5-r2",
+        "type": "judge",
+        "stem": "两个独立正态总体方差未知时，必须先做方差齐性检验，才能对均值差使用 Welch t 方法。",
+        "options": {
+          "T": "正确",
+          "F": "错误"
+        },
+        "answer": "F",
+        "explanation": "Welch方法直接按两组各自样本方差计算标准误与近似自由度，不依赖先接受方差齐性；把预检验作为必经步骤并不成立。"
+      }
+    },
+    {
+      "nodeId": "probability:ch8-s4",
+      "bank": "past",
+      "id": "exam-probability-ch8-s4-2018-8-a",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“两个独立正态总体方差相等性检验常使用？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：独立正态且方差未知才可用两样本t；独立正态iid方差比给F；只有正态独立样本时经典F检验精确；配对差值须独立正态才有精确单样本t；无需先齐性检验才能比较均值，Welch可直接使用。原答案C不能据分章链接视为原卷核实。"
+    },
+    {
+      "nodeId": "probability:ch8-s4",
+      "bank": "past",
+      "id": "exam-probability-ch8-s4-2020-8-b",
+      "action": "remove",
+      "reason": "概念改编且未核对原卷，所测定义/公式已由本专题练习覆盖，没有新增有效辨析或计算；删除重复题。",
+      "verification": "逐项核对题干“配对样本均值差检验应先构造？”及选项，数学核心与本专题定义/公式重叠。相关独立推导：独立正态且方差未知才可用两样本t；独立正态iid方差比给F；只有正态独立样本时经典F检验精确；配对差值须独立正态才有精确单样本t；无需先齐性检验才能比较均值，Welch可直接使用。原答案B不能据分章链接视为原卷核实。"
+    }
+  ],
+  "additions": [
+    {
+      "nodeId": "linear-algebra:ch1-s1",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch1-s1",
+        "type": "single",
+        "stem": "3阶A满足detA=2，B由A交换一次两行并把第一行乘3得到，detB是多少？",
+        "options": {
+          "A": "−6",
+          "B": "6",
+          "C": "−12",
+          "D": "2"
+        },
+        "answer": "A",
+        "explanation": "交换给−2，单行乘3再给−6。"
+      },
+      "verification": "独立构造并求解：交换给−2，单行乘3再给−6。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch1-s2",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch1-s2",
+        "type": "single",
+        "stem": "行列式 [[1,2,3],[0,2,1],[2,4,7]] 的值是多少？",
+        "options": {
+          "A": "14",
+          "B": "2",
+          "C": "0",
+          "D": "4"
+        },
+        "answer": "B",
+        "explanation": "第三行减第一行2倍得到[0,0,1]，三角对角积1·2·1=2。"
+      },
+      "verification": "独立构造并求解：第三行减第一行2倍得到[0,0,1]，三角对角积1·2·1=2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s1",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch2-s1",
+        "type": "single",
+        "stem": "A=[[0,1],[0,0]]、B=[[0,0],[1,0]]。AB−BA 等于？",
+        "options": {
+          "A": "单位矩阵",
+          "B": "diag(−1,1)",
+          "C": "diag(1,−1)",
+          "D": "零矩阵"
+        },
+        "answer": "C",
+        "explanation": "逐项乘法给AB=diag(1,0)，BA=diag(0,1)。"
+      },
+      "verification": "独立构造并求解：逐项乘法给AB=diag(1,0)，BA=diag(0,1)。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s2",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch2-s2",
+        "type": "single",
+        "stem": "A=[[2,1],[1,1]]，A⁻¹ 的第二行是？",
+        "options": {
+          "A": "(1,2)",
+          "B": "(−1,1)",
+          "C": "(1,−2)",
+          "D": "(−1,2)"
+        },
+        "answer": "D",
+        "explanation": "detA=1，余子式转置逆为[[1,−1],[−1,2]]。"
+      },
+      "verification": "独立构造并求解：detA=1，余子式转置逆为[[1,−1],[−1,2]]。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s3",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch2-s3",
+        "type": "single",
+        "stem": "A=[[1,2,3],[2,4,6],[1,1,1]]。A 的秩是多少？",
+        "options": {
+          "A": "2",
+          "B": "1",
+          "C": "3",
+          "D": "0"
+        },
+        "answer": "A",
+        "explanation": "第二行依赖第一行，第一与第三行的前两列子式−1非零，秩恰为2。"
+      },
+      "verification": "独立构造并求解：第二行依赖第一行，第一与第三行的前两列子式−1非零，秩恰为2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch2-s4",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch2-s4",
+        "type": "single",
+        "stem": "分块矩阵 M=[[A,C],[0,B]]，A=diag(2,3)、B=[4]，C任意相容。detM是多少？",
+        "options": {
+          "A": "依赖C",
+          "B": "24",
+          "C": "9",
+          "D": "6"
+        },
+        "answer": "B",
+        "explanation": "分块上三角det=detA detB=2·3·4=24。"
+      },
+      "verification": "独立构造并求解：分块上三角det=detA detB=2·3·4=24。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s1",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch3-s1",
+        "type": "single",
+        "stem": "α=(1,0,1)、β=(0,1,1)。γ=(2,−1,t) 可由α、β线性表示，t须为？",
+        "options": {
+          "A": "2",
+          "B": "任意实数",
+          "C": "1",
+          "D": "−1"
+        },
+        "answer": "C",
+        "explanation": "前两坐标强制系数2与−1，第三坐标2−1=1。"
+      },
+      "verification": "独立构造并求解：前两坐标强制系数2与−1，第三坐标2−1=1。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s2",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch3-s2",
+        "type": "single",
+        "stem": "三个列向量 (1,0,1)、(0,1,1)、(1,1,t) 线性相关，t须为？",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "任意实数",
+          "D": "2"
+        },
+        "answer": "D",
+        "explanation": "第三列减前两列为(0,0,t−2)，行列式t−2，相关当且仅当t=2。"
+      },
+      "verification": "独立构造并求解：第三列减前两列为(0,0,t−2)，行列式t−2，相关当且仅当t=2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s3",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch3-s3",
+        "type": "single",
+        "stem": "α₁=(1,0)、α₂=(0,1)、α₃=(1,1)、α₄=(2,2)。哪组可作极大无关组？",
+        "options": {
+          "A": "α₁,α₃",
+          "B": "α₃,α₄",
+          "C": "α₁,α₂,α₃",
+          "D": "仅α₄"
+        },
+        "answer": "A",
+        "explanation": "α₁与α₃行列式1非零，张成二维；α₃和α₄相关，三元相关，单元不极大。"
+      },
+      "verification": "独立构造并求解：α₁与α₃行列式1非零，张成二维；α₃和α₄相关，三元相关，单元不极大。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s4",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch3-s4",
+        "type": "single",
+        "stem": "旧基为e₁,e₂，新基β₁=(1,1)、β₂=(1,−1)。向量旧坐标(3,1)的新坐标是？",
+        "options": {
+          "A": "(1,2)",
+          "B": "(2,1)",
+          "C": "(3,1)",
+          "D": "(4,2)"
+        },
+        "answer": "B",
+        "explanation": "解u+v=3、u−v=1，得u=2,v=1。"
+      },
+      "verification": "独立构造并求解：解u+v=3、u−v=1，得u=2,v=1。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch3-s5",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch3-s5",
+        "type": "single",
+        "stem": "对u=(1,1,0)、v=(1,0,1)做施密特，v减其在u上的投影得到？",
+        "options": {
+          "A": "(1,1,0)",
+          "B": "(1/2,1/2,1)",
+          "C": "(1/2,−1/2,1)",
+          "D": "(0,−1,1)"
+        },
+        "answer": "C",
+        "explanation": "投影系数内积1除u平方范数2，为1/2，减后(1/2,−1/2,1)。"
+      },
+      "verification": "独立构造并求解：投影系数内积1除u平方范数2，为1/2，减后(1/2,−1/2,1)。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s1",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch4-s1",
+        "type": "single",
+        "stem": "方程 2x+y=5、x−y=1 的克拉默法则给出x是多少？",
+        "options": {
+          "A": "1",
+          "B": "3",
+          "C": "−2",
+          "D": "2"
+        },
+        "answer": "D",
+        "explanation": "系数det=−3，换第一列det=−6，比值2；回代y=1。"
+      },
+      "verification": "独立构造并求解：系数det=−3，换第一列det=−6，比值2；回代y=1。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s2",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch4-s2",
+        "type": "single",
+        "stem": "齐次方程 x+2y−z=0 的基础解系可取哪组？",
+        "options": {
+          "A": "(−2,1,0),(1,0,1)",
+          "B": "(1,0,0),(0,1,0)",
+          "C": "(−2,1,0)仅一个",
+          "D": "(0,0,0),(1,0,1)"
+        },
+        "answer": "A",
+        "explanation": "自由变量y,z给x=−2y+z，两列独立且生成全部解。"
+      },
+      "verification": "独立构造并求解：自由变量y,z给x=−2y+z，两列独立且生成全部解。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch4-s3",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch4-s3",
+        "type": "single",
+        "stem": "方程 x+y=1、2x+2y=b 有无穷多解的条件是？",
+        "options": {
+          "A": "任意b",
+          "B": "b=2",
+          "C": "b=1",
+          "D": "b=0"
+        },
+        "answer": "B",
+        "explanation": "第二行系数为第一行2倍，常数需同倍；b=2时秩1小于未知数2。"
+      },
+      "verification": "独立构造并求解：第二行系数为第一行2倍，常数需同倍；b=2时秩1小于未知数2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s1",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch5-s1",
+        "type": "single",
+        "stem": "A=[[2,1],[0,2]]，关于λ=2的特征空间维数是？",
+        "options": {
+          "A": "0",
+          "B": "不能确定",
+          "C": "1",
+          "D": "2"
+        },
+        "answer": "C",
+        "explanation": "A−2I仅第一行第二列为1，核要求x₂=0，自由x₁，维数1。"
+      },
+      "verification": "独立构造并求解：A−2I仅第一行第二列为1，核要求x₂=0，自由x₁，维数1。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s2",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch5-s2",
+        "type": "single",
+        "stem": "A=[[1,1],[0,1]]、B=单位矩阵。哪项正确？",
+        "options": {
+          "A": "A与B相似",
+          "B": "A可对角化",
+          "C": "A有两个无关特征向量",
+          "D": "A与B特征值相同但不相似"
+        },
+        "answer": "D",
+        "explanation": "A的λ=1特征空间一维，B二维；相似保几何重数，故不相似。"
+      },
+      "verification": "独立构造并求解：A的λ=1特征空间一维，B二维；相似保几何重数，故不相似。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch5-s3",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch5-s3",
+        "type": "single",
+        "stem": "实对称矩阵 A=[[2,1],[1,2]]，向量(1,−1)的特征值是？",
+        "options": {
+          "A": "1",
+          "B": "2",
+          "C": "3",
+          "D": "−1"
+        },
+        "answer": "A",
+        "explanation": "矩阵乘向量=(1,−1)=1倍原向量，另一个特征值3对应(1,1)。"
+      },
+      "verification": "独立构造并求解：矩阵乘向量=(1,−1)=1倍原向量，另一个特征值3对应(1,1)。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s1",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch6-s1",
+        "type": "single",
+        "stem": "实二次型 x₁²+4x₁x₂+3x₂² 的对称矩阵是？",
+        "options": {
+          "A": "[[1,1],[1,3]]",
+          "B": "[[1,2],[2,3]]",
+          "C": "[[1,4],[4,3]]",
+          "D": "[[1,0],[4,3]]"
+        },
+        "answer": "B",
+        "explanation": "xTAx交叉系数2a12=4，故a12=a21=2。"
+      },
+      "verification": "独立构造并求解：xTAx交叉系数2a12=4，故a12=a21=2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s2",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch6-s2",
+        "type": "single",
+        "stem": "实二次型 x²+4xy+3y² 的正、负惯性指数是？",
+        "options": {
+          "A": "0和2",
+          "B": "1和0",
+          "C": "1和1",
+          "D": "2和0"
+        },
+        "answer": "C",
+        "explanation": "配方(x+2y)²−y²，可逆变换下一个正平方一个负平方。"
+      },
+      "verification": "独立构造并求解：配方(x+2y)²−y²，可逆变换下一个正平方一个负平方。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "linear-algebra:ch6-s3",
+      "question": {
+        "id": "qa-20261002-linear-algebra-ch6-s3",
+        "type": "single",
+        "stem": "实对称矩阵 [[1,t],[t,4]] 正定，当且仅当？",
+        "options": {
+          "A": "t>0",
+          "B": "t≠±2",
+          "C": "任意t",
+          "D": "−2<t<2"
+        },
+        "answer": "D",
+        "explanation": "顺序主子式1>0及4−t²>0，得绝对值t<2。"
+      },
+      "verification": "独立构造并求解：顺序主子式1>0及4−t²>0，得绝对值t<2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch1-s1",
+      "question": {
+        "id": "qa-20261002-probability-ch1-s1",
+        "type": "single",
+        "stem": "公平六面骰一次，A={1,2,3}、B={3,4}。恰发生A、B之一的概率是？",
+        "options": {
+          "A": "1/2",
+          "B": "2/3",
+          "C": "1/3",
+          "D": "5/6"
+        },
+        "answer": "A",
+        "explanation": "对称差{1,2,4}三个结果，概率3/6。"
+      },
+      "verification": "独立构造并求解：对称差{1,2,4}三个结果，概率3/6。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch1-s2",
+      "question": {
+        "id": "qa-20261002-probability-ch1-s2",
+        "type": "single",
+        "stem": "公平六面骰一次，A={1,2,3}、B={3,4}，事件 (A∪B)ᶜ 对应？",
+        "options": {
+          "A": "{4,5,6}",
+          "B": "{5,6}",
+          "C": "{1,2}",
+          "D": "{3}"
+        },
+        "answer": "B",
+        "explanation": "先并得到{1,2,3,4}，相对全集取补为{5,6}。"
+      },
+      "verification": "独立构造并求解：先并得到{1,2,3,4}，相对全集取补为{5,6}。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch1-s3",
+      "question": {
+        "id": "qa-20261002-probability-ch1-s3",
+        "type": "single",
+        "stem": "P(A)=0.7、P(B)=0.6，P(A∩B) 的最小可能值是？",
+        "options": {
+          "A": "0.1",
+          "B": "0.6",
+          "C": "0.3",
+          "D": "0"
+        },
+        "answer": "C",
+        "explanation": "容斥并概率≤1给交≥0.7+0.6−1=0.3，可构造并为全集达到。"
+      },
+      "verification": "独立构造并求解：容斥并概率≤1给交≥0.7+0.6−1=0.3，可构造并为全集达到。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch1-s4",
+      "question": {
+        "id": "qa-20261002-probability-ch1-s4",
+        "type": "single",
+        "stem": "5件产品中2件次品，无放回随机抽2件。恰1件次品的概率是？",
+        "options": {
+          "A": "2/5",
+          "B": "1/5",
+          "C": "4/5",
+          "D": "3/5"
+        },
+        "answer": "D",
+        "explanation": "等可能无序对共C5,2=10，有利C2,1C3,1=6。"
+      },
+      "verification": "独立构造并求解：等可能无序对共C5,2=10，有利C2,1C3,1=6。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch1-s5",
+      "question": {
+        "id": "qa-20261002-probability-ch1-s5",
+        "type": "single",
+        "stem": "X,Y在单位正方形内联合均匀，P(X+Y≤1/2)是多少？",
+        "options": {
+          "A": "1/8",
+          "B": "1/4",
+          "C": "1/2",
+          "D": "3/4"
+        },
+        "answer": "A",
+        "explanation": "左下三角直角边各1/2，面积(1/2)(1/2)/2=1/8。"
+      },
+      "verification": "独立构造并求解：左下三角直角边各1/2，面积(1/2)(1/2)/2=1/8。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch1-s6",
+      "question": {
+        "id": "qa-20261002-probability-ch1-s6",
+        "type": "single",
+        "stem": "公平六面骰一次，已知结果为偶数，结果大于3的条件概率是？",
+        "options": {
+          "A": "1",
+          "B": "2/3",
+          "C": "1/2",
+          "D": "1/3"
+        },
+        "answer": "B",
+        "explanation": "条件集合{2,4,6}，有利{4,6}，归一计数2/3。"
+      },
+      "verification": "独立构造并求解：条件集合{2,4,6}，有利{4,6}，归一计数2/3。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch1-s7",
+      "question": {
+        "id": "qa-20261002-probability-ch1-s7",
+        "type": "single",
+        "stem": "两厂供货占比为3/4与1/4，次品率为1/100与3/100。抽得次品来自第二厂的概率是？",
+        "options": {
+          "A": "3/4",
+          "B": "1/3",
+          "C": "1/2",
+          "D": "1/4"
+        },
+        "answer": "C",
+        "explanation": "后验=(1/4·3/100)/(3/4·1/100+1/4·3/100)=1/2。"
+      },
+      "verification": "独立构造并求解：后验=(1/4·3/100)/(3/4·1/100+1/4·3/100)=1/2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch1-s8",
+      "question": {
+        "id": "qa-20261002-probability-ch1-s8",
+        "type": "single",
+        "stem": "两枚独立公平硬币。A为第一枚正面，B为第二枚正面，C为两枚相同。哪项正确？",
+        "options": {
+          "A": "相互独立",
+          "B": "A与C不独立",
+          "C": "B与C互斥",
+          "D": "两两独立但不相互独立"
+        },
+        "answer": "D",
+        "explanation": "各概率1/2，任意两交1/4，但三交只有HH概率1/4≠1/8。"
+      },
+      "verification": "独立构造并求解：各概率1/2，任意两交1/4，但三交只有HH概率1/4≠1/8。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch1-s9",
+      "question": {
+        "id": "qa-20261002-probability-ch1-s9",
+        "type": "single",
+        "stem": "独立重复试验成功率1/3，3次恰成功2次的概率是？",
+        "options": {
+          "A": "2/9",
+          "B": "1/9",
+          "C": "1/3",
+          "D": "4/9"
+        },
+        "answer": "A",
+        "explanation": "C3,2(1/3)²(2/3)=2/9。"
+      },
+      "verification": "独立构造并求解：C3,2(1/3)²(2/3)=2/9。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch2-s1",
+      "question": {
+        "id": "qa-20261002-probability-ch2-s1",
+        "type": "single",
+        "stem": "P(X=0)=1/4、P(X=1)=3/4。P(0≤X<1) 等于？",
+        "options": {
+          "A": "0",
+          "B": "1/4",
+          "C": "3/4",
+          "D": "1"
+        },
+        "answer": "B",
+        "explanation": "区间含0不含1，所以只取0质量；不可误用F(1)−F(0)。"
+      },
+      "verification": "独立构造并求解：区间含0不含1，所以只取0质量；不可误用F(1)−F(0)。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch2-s2",
+      "question": {
+        "id": "qa-20261002-probability-ch2-s2",
+        "type": "single",
+        "stem": "X只取0,1,2，概率依次c,2c,3c。P(X≥1)是多少？",
+        "options": {
+          "A": "2/3",
+          "B": "1/6",
+          "C": "5/6",
+          "D": "1/2"
+        },
+        "answer": "C",
+        "explanation": "归一6c=1得c=1/6，后两质量相加5/6。"
+      },
+      "verification": "独立构造并求解：归一6c=1得c=1/6，后两质量相加5/6。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch2-s3",
+      "question": {
+        "id": "qa-20261002-probability-ch2-s3",
+        "type": "single",
+        "stem": "独立成功率p=1/4，X是含首次成功的总试验次数。P(X>3)是多少？",
+        "options": {
+          "A": "1/64",
+          "B": "3/4",
+          "C": "37/64",
+          "D": "27/64"
+        },
+        "answer": "D",
+        "explanation": "前三次全失败，概率(3/4)³=27/64。"
+      },
+      "verification": "独立构造并求解：前三次全失败，概率(3/4)³=27/64。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch2-s4",
+      "question": {
+        "id": "qa-20261002-probability-ch2-s4",
+        "type": "single",
+        "stem": "f(x)=cx在0<x<2，其余为0。使其成为概率密度的c是？",
+        "options": {
+          "A": "1/2",
+          "B": "1",
+          "C": "1/4",
+          "D": "2"
+        },
+        "answer": "A",
+        "explanation": "∫0²cx dx=2c=1，c=1/2，非负满足。"
+      },
+      "verification": "独立构造并求解：∫0²cx dx=2c=1，c=1/2，非负满足。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch2-s5",
+      "question": {
+        "id": "qa-20261002-probability-ch2-s5",
+        "type": "single",
+        "stem": "X服从参数2的指数分布，P(X>3∣X>1)是？",
+        "options": {
+          "A": "1−e⁻⁴",
+          "B": "e⁻⁴",
+          "C": "e⁻⁶",
+          "D": "e⁻²"
+        },
+        "answer": "B",
+        "explanation": "生存函数e^(−2t)相除e^(−6)/e^(−2)=e^(−4)。"
+      },
+      "verification": "独立构造并求解：生存函数e^(−2t)相除e^(−6)/e^(−2)=e^(−4)。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch2-s6",
+      "question": {
+        "id": "qa-20261002-probability-ch2-s6",
+        "type": "single",
+        "stem": "X~U(−1,1)，Y=X²。对0<y<1，F_Y(y)是？",
+        "options": {
+          "A": "y²",
+          "B": "1−√y",
+          "C": "√y",
+          "D": "y"
+        },
+        "answer": "C",
+        "explanation": "事件为−√y≤X≤√y，区间长2√y除总长2。"
+      },
+      "verification": "独立构造并求解：事件为−√y≤X≤√y，区间长2√y除总长2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch3-s1",
+      "question": {
+        "id": "qa-20261002-probability-ch3-s1",
+        "type": "single",
+        "stem": "(X,Y)只取(0,0),(0,1),(1,0),(1,1)，概率1/10,2/10,3/10,4/10。F(0,0)是多少？",
+        "options": {
+          "A": "3/10",
+          "B": "4/10",
+          "C": "1",
+          "D": "1/10"
+        },
+        "answer": "D",
+        "explanation": "左下事件只包含(0,0)一个质量点。"
+      },
+      "verification": "独立构造并求解：左下事件只包含(0,0)一个质量点。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch3-s2",
+      "question": {
+        "id": "qa-20261002-probability-ch3-s2",
+        "type": "single",
+        "stem": "联合质量p00=1/4,p01=1/4,p10=1/2,p11=0。P(Y=1∣X=0)是多少？",
+        "options": {
+          "A": "1/2",
+          "B": "1/4",
+          "C": "0",
+          "D": "1"
+        },
+        "answer": "A",
+        "explanation": "X=0边缘1/2，交质量1/4，相除1/2。"
+      },
+      "verification": "独立构造并求解：X=0边缘1/2，交质量1/4，相除1/2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch3-s3",
+      "question": {
+        "id": "qa-20261002-probability-ch3-s3",
+        "type": "single",
+        "stem": "f(x,y)=2在0<y<x<1，其余0。X的边缘密度在0<x<1为？",
+        "options": {
+          "A": "x²",
+          "B": "2x",
+          "C": "2(1−x)",
+          "D": "1"
+        },
+        "answer": "B",
+        "explanation": "对y的正确积分范围0到x，∫2dy=2x。"
+      },
+      "verification": "独立构造并求解：对y的正确积分范围0到x，∫2dy=2x。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch3-s4",
+      "question": {
+        "id": "qa-20261002-probability-ch3-s4",
+        "type": "single",
+        "stem": "X~U(−1,1)，Y=X²。哪项正确？",
+        "options": {
+          "A": "Cov(X,Y)>0",
+          "B": "Y方差为0",
+          "C": "X,Y不相关但不独立",
+          "D": "X,Y独立"
+        },
+        "answer": "C",
+        "explanation": "EX=EX³=0所以Cov=0；Y由X决定且非恒定，因此不独立。"
+      },
+      "verification": "独立构造并求解：EX=EX³=0所以Cov=0；Y由X决定且非恒定，因此不独立。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch3-s5",
+      "question": {
+        "id": "qa-20261002-probability-ch3-s5",
+        "type": "single",
+        "stem": "联合正态X,Y均值0、方差1、相关系数1/2。Var(X−Y)是多少？",
+        "options": {
+          "A": "2",
+          "B": "3",
+          "C": "1/2",
+          "D": "1"
+        },
+        "answer": "D",
+        "explanation": "Cov=1/2，差方差1+1−2(1/2)=1。"
+      },
+      "verification": "独立构造并求解：Cov=1/2，差方差1+1−2(1/2)=1。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch3-s6",
+      "question": {
+        "id": "qa-20261002-probability-ch3-s6",
+        "type": "single",
+        "stem": "X,Y独立且都服从U(0,1)，M=max(X,Y)。P(M≤1/2)是多少？",
+        "options": {
+          "A": "1/4",
+          "B": "1/2",
+          "C": "3/4",
+          "D": "1/8"
+        },
+        "answer": "A",
+        "explanation": "最大≤1/2要求两者均≤1/2，独立概率(1/2)²。"
+      },
+      "verification": "独立构造并求解：最大≤1/2要求两者均≤1/2，独立概率(1/2)²。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch4-s1",
+      "question": {
+        "id": "qa-20261002-probability-ch4-s1",
+        "type": "single",
+        "stem": "P(X=−1)=1/4，P(X=3)=3/4。E(X)是多少？",
+        "options": {
+          "A": "5/2",
+          "B": "2",
+          "C": "1",
+          "D": "3/2"
+        },
+        "answer": "B",
+        "explanation": "按质量加权−1/4+9/4=2。"
+      },
+      "verification": "独立构造并求解：按质量加权−1/4+9/4=2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch4-s2",
+      "question": {
+        "id": "qa-20261002-probability-ch4-s2",
+        "type": "single",
+        "stem": "EX=2、E(X²)=7。Var(3X−5)是多少？",
+        "options": {
+          "A": "63",
+          "B": "3",
+          "C": "27",
+          "D": "9"
+        },
+        "answer": "C",
+        "explanation": "VarX=7−4=3，平方缩放乘9得27。"
+      },
+      "verification": "独立构造并求解：VarX=7−4=3，平方缩放乘9得27。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch4-s3",
+      "question": {
+        "id": "qa-20261002-probability-ch4-s3",
+        "type": "single",
+        "stem": "X取−1,0,1的概率分别1/4,1/2,1/4。E(X²)是多少？",
+        "options": {
+          "A": "0",
+          "B": "1",
+          "C": "1/4",
+          "D": "1/2"
+        },
+        "answer": "D",
+        "explanation": "非零两点平方均1，加权1/4+1/4=1/2；(EX)²=0。"
+      },
+      "verification": "独立构造并求解：非零两点平方均1，加权1/4+1/4=1/2；(EX)²=0。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch4-s4",
+      "question": {
+        "id": "qa-20261002-probability-ch4-s4",
+        "type": "single",
+        "stem": "Var(X)=4，Y=−3X+1。ρ(X,Y)是多少？",
+        "options": {
+          "A": "−1",
+          "B": "1",
+          "C": "−3",
+          "D": "0"
+        },
+        "answer": "A",
+        "explanation": "Cov=−3·4=−12，σX=2，σY=6，归一为−1。"
+      },
+      "verification": "独立构造并求解：Cov=−3·4=−12，σX=2，σY=6，归一为−1。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch4-s5",
+      "question": {
+        "id": "qa-20261002-probability-ch4-s5",
+        "type": "single",
+        "stem": "X,Y独立，各自均值1方差2。E[(X+Y)²]是多少？",
+        "options": {
+          "A": "10",
+          "B": "8",
+          "C": "4",
+          "D": "6"
+        },
+        "answer": "B",
+        "explanation": "均值和2，方差和4，二阶矩4+2²=8。"
+      },
+      "verification": "独立构造并求解：均值和2，方差和4，二阶矩4+2²=8。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch5-s1",
+      "question": {
+        "id": "qa-20261002-probability-ch5-s1",
+        "type": "single",
+        "stem": "EX=10、VarX=9。Chebyshev给P(绝对值(X−10)≥6)的上界是？",
+        "options": {
+          "A": "3/4",
+          "B": "1/6",
+          "C": "1/4",
+          "D": "1/2"
+        },
+        "answer": "C",
+        "explanation": "方差9除阈值平方36为1/4。"
+      },
+      "verification": "独立构造并求解：方差9除阈值平方36为1/4。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch5-s2",
+      "question": {
+        "id": "qa-20261002-probability-ch5-s2",
+        "type": "single",
+        "stem": "独立样本均为Bernoulli(1/2)，均值X̄。Chebyshev给P(绝对值(X̄−1/2)≥1/10)≤？",
+        "options": {
+          "A": "5/n",
+          "B": "1/(4n)",
+          "C": "1/n²",
+          "D": "25/n"
+        },
+        "answer": "D",
+        "explanation": "均值方差1/(4n)除(1/10)²=25/n，可再与1取最小。"
+      },
+      "verification": "独立构造并求解：均值方差1/(4n)除(1/10)²=25/n，可再与1取最小。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch5-s3",
+      "question": {
+        "id": "qa-20261002-probability-ch5-s3",
+        "type": "single",
+        "stem": "Xᵢ iid，均值2、方差9。用于CLT的标准化样本和是？",
+        "options": {
+          "A": "(ΣXᵢ−2n)/(3√n)",
+          "B": "(ΣXᵢ−2)/(9n)",
+          "C": "(ΣXᵢ−2n)/(9n)",
+          "D": "(ΣXᵢ)/(3√n)"
+        },
+        "answer": "A",
+        "explanation": "和均值2n，标准差√(9n)=3√n。"
+      },
+      "verification": "独立构造并求解：和均值2n，标准差√(9n)=3√n。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch5-s4",
+      "question": {
+        "id": "qa-20261002-probability-ch5-s4",
+        "type": "single",
+        "stem": "X~B(100,1/2)。用连续性修正近似P(45≤X≤55)时，正态标准化上下限是？",
+        "options": {
+          "A": "−2.2与2.2",
+          "B": "−1.1与1.1",
+          "C": "−1与1",
+          "D": "−0.9与0.9"
+        },
+        "answer": "B",
+        "explanation": "均值50标准差5，边界44.5及55.5，标准化为±1.1。"
+      },
+      "verification": "独立构造并求解：均值50标准差5，边界44.5及55.5，标准化为±1.1。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch6-s1",
+      "question": {
+        "id": "qa-20261002-probability-ch6-s1",
+        "type": "single",
+        "stem": "从有限总体{0,1}无放回抽取两个对象，观测顺序记X₁,X₂。它们是数理统计定义的iid简单随机样本吗？",
+        "options": {
+          "A": "是，所有无放回样本均独立",
+          "B": "不是，因为容量必须大于2",
+          "C": "不是，二者依赖",
+          "D": "是，边缘同分布就够"
+        },
+        "answer": "C",
+        "explanation": "P(X₂=1∣X₁=0)=1而P(X₂=1)=1/2，不能独立。"
+      },
+      "verification": "独立构造并求解：P(X₂=1∣X₁=0)=1而P(X₂=1)=1/2，不能独立。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch6-s2",
+      "question": {
+        "id": "qa-20261002-probability-ch6-s2",
+        "type": "single",
+        "stem": "观测值1,2,3。分母为n−1的样本方差S²是多少？",
+        "options": {
+          "A": "2/3",
+          "B": "2",
+          "C": "3",
+          "D": "1"
+        },
+        "answer": "D",
+        "explanation": "均值2，残差平方和1+0+1=2，除n−1=2得1。"
+      },
+      "verification": "独立构造并求解：均值2，残差平方和1+0+1=2，除n−1=2得1。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch6-s3",
+      "question": {
+        "id": "qa-20261002-probability-ch6-s3",
+        "type": "single",
+        "stem": "Z~N(0,1)、V~χ²(5)，两者独立。Z/√(V/5)服从？",
+        "options": {
+          "A": "t(5)",
+          "B": "t(4)",
+          "C": "F(1,5)",
+          "D": "χ²(5)"
+        },
+        "answer": "A",
+        "explanation": "标准正态除独立归一卡方的正平方根，是t分布定义。"
+      },
+      "verification": "独立构造并求解：标准正态除独立归一卡方的正平方根，是t分布定义。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch6-s4",
+      "question": {
+        "id": "qa-20261002-probability-ch6-s4",
+        "type": "single",
+        "stem": "标准正态上侧0.05分位数约1.645，则上侧0.95分位数约为？",
+        "options": {
+          "A": "0.95",
+          "B": "−1.645",
+          "C": "1.645",
+          "D": "0.05"
+        },
+        "answer": "B",
+        "explanation": "标准正态对称uα=−u1−α。"
+      },
+      "verification": "独立构造并求解：标准正态对称uα=−u1−α。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch6-s5",
+      "question": {
+        "id": "qa-20261002-probability-ch6-s5",
+        "type": "single",
+        "stem": "来自N(μ,σ²)的iid样本容量9，S²分母8。8S²/σ²服从？",
+        "options": {
+          "A": "t(8)",
+          "B": "F(8,9)",
+          "C": "χ²(8)",
+          "D": "χ²(9)"
+        },
+        "answer": "C",
+        "explanation": "n−1残差自由度为8，标准化平方和服从卡方8。"
+      },
+      "verification": "独立构造并求解：n−1残差自由度为8，标准化平方和服从卡方8。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch7-s1",
+      "question": {
+        "id": "qa-20261002-probability-ch7-s1",
+        "type": "single",
+        "stem": "样本来自U(0,θ)，θ>0，观测均值为3。一阶矩估计θ是？",
+        "options": {
+          "A": "3",
+          "B": "3/2",
+          "C": "9",
+          "D": "6"
+        },
+        "answer": "D",
+        "explanation": "总体均值θ/2=样本均值3，解θ=6。"
+      },
+      "verification": "独立构造并求解：总体均值θ/2=样本均值3，解θ=6。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch7-s2",
+      "question": {
+        "id": "qa-20261002-probability-ch7-s2",
+        "type": "single",
+        "stem": "采用闭区间密度 f(x;θ)=1/θ（0≤x≤θ，θ>0），观测为1,2,4。θ的MLE是？",
+        "options": {
+          "A": "4",
+          "B": "14/3",
+          "C": "7/3",
+          "D": "2"
+        },
+        "answer": "A",
+        "explanation": "似然θ⁻³指示θ≥4，递减，边界θ=4最大；显式约定避免开端点不取最大问题。"
+      },
+      "verification": "独立构造并求解：似然θ⁻³指示θ≥4，递减，边界θ=4最大；显式约定避免开端点不取最大问题。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch7-s3",
+      "question": {
+        "id": "qa-20261002-probability-ch7-s3",
+        "type": "single",
+        "stem": "Xi iid均值μ方差σ²>0。估计量X₁与X̄均无偏，n>1时哪个方差小？",
+        "options": {
+          "A": "不能比较",
+          "B": "X̄",
+          "C": "X₁",
+          "D": "二者相同"
+        },
+        "answer": "B",
+        "explanation": "VarX₁=σ²，VarX̄=σ²/n，n>1下后者更小。"
+      },
+      "verification": "独立构造并求解：VarX₁=σ²，VarX̄=σ²/n，n>1下后者更小。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch7-s4",
+      "question": {
+        "id": "qa-20261002-probability-ch7-s4",
+        "type": "single",
+        "stem": "正态总体σ=2已知，n=16，X̄=10，z0.025=1.96。95%均值区间是？",
+        "options": {
+          "A": "[9.51,10.49]",
+          "B": "[9.5,10.5]",
+          "C": "[9.02,10.98]",
+          "D": "[8.04,11.96]"
+        },
+        "answer": "C",
+        "explanation": "标准误2/4=0.5，半宽1.96·0.5=0.98。"
+      },
+      "verification": "独立构造并求解：标准误2/4=0.5，半宽1.96·0.5=0.98。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch7-s5",
+      "question": {
+        "id": "qa-20261002-probability-ch7-s5",
+        "type": "single",
+        "stem": "两个独立正态样本n₁=5,n₂=7，未知总体方差相等。合并方差t枢轴的自由度是？",
+        "options": {
+          "A": "12",
+          "B": "11",
+          "C": "6",
+          "D": "10"
+        },
+        "answer": "D",
+        "explanation": "两残差自由度相加(n₁−1)+(n₂−1)=10。"
+      },
+      "verification": "独立构造并求解：两残差自由度相加(n₁−1)+(n₂−1)=10。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch8-s1",
+      "question": {
+        "id": "qa-20261002-probability-ch8-s1",
+        "type": "single",
+        "stem": "某连续检验p值0.03，预设显著性水平0.05。决策是？",
+        "options": {
+          "A": "拒绝H₀",
+          "B": "证明H₀为假",
+          "C": "证明H₀为真",
+          "D": "把α改为0.01再作决定"
+        },
+        "answer": "A",
+        "explanation": "预设规则p≤α拒绝；决定可能犯第一类错误，不是数学证明。"
+      },
+      "verification": "独立构造并求解：预设规则p≤α拒绝；决定可能犯第一类错误，不是数学证明。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch8-s2",
+      "question": {
+        "id": "qa-20261002-probability-ch8-s2",
+        "type": "single",
+        "stem": "在某固定备择下，检验功效为0.8，第二类错误概率是？",
+        "options": {
+          "A": "0.95",
+          "B": "0.2",
+          "C": "0.8",
+          "D": "0.05"
+        },
+        "answer": "B",
+        "explanation": "拒绝与未拒绝分割样本空间，β=1−功效=0.2。"
+      },
+      "verification": "独立构造并求解：拒绝与未拒绝分割样本空间，β=1−功效=0.2。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch8-s3",
+      "question": {
+        "id": "qa-20261002-probability-ch8-s3",
+        "type": "single",
+        "stem": "正态总体σ=2已知，n=25，X̄=11，检验H₀:μ=10。Z统计量是？",
+        "options": {
+          "A": "5",
+          "B": "1.25",
+          "C": "2.5",
+          "D": "0.5"
+        },
+        "answer": "C",
+        "explanation": "Z=(11−10)/(2/√25)=1/0.4=2.5。"
+      },
+      "verification": "独立构造并求解：Z=(11−10)/(2/√25)=1/0.4=2.5。 其余三个数值/条件均与所得结果不符。"
+    },
+    {
+      "nodeId": "probability:ch8-s4",
+      "question": {
+        "id": "qa-20261002-probability-ch8-s4",
+        "type": "single",
+        "stem": "两个独立正态样本n₁=n₂=10，均值差2，S₁²=4,S₂²=9。Welch统计量是？",
+        "options": {
+          "A": "2/√13",
+          "B": "2/1.3",
+          "C": "2/√0.5",
+          "D": "2/√1.3"
+        },
+        "answer": "D",
+        "explanation": "标准误√(4/10+9/10)=√1.3，均值差除标准误。"
+      },
+      "verification": "独立构造并求解：标准误√(4/10+9/10)=√1.3，均值差除标准误。 其余三个数值/条件均与所得结果不符。"
+    }
+  ]
+}

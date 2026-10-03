@@ -23,8 +23,21 @@
   header.id = 'platformHeader';
   const homeURL = new URL('index.html', P.root).href;
   const masteryURL = new URL('mastery.html', P.root).href;
-  header.innerHTML = `<a class="zx-wordmark" href="${escape(homeURL)}" aria-label="知序，返回平台总览"><span class="zx-logo" aria-hidden="true">知</span><strong>${escape(P.name)}</strong></a><span class="zx-product">408 × 考研数学 · 交互学习</span><div class="zx-header-actions">${subjectId ? `<a class="zx-home" id="platformHome" href="${escape(homeURL)}">← 平台总览</a><a class="zx-home" id="platformMastery" href="${escape(masteryURL)}">掌握度</a><label class="zx-sr" for="platformSubject">切换科目</label><select class="zx-select" id="platformSubject"><option value="home">平台总览</option>${['408', 'math'].map(group => `<optgroup label="${group === '408' ? '408 计算机基础' : '考研数学'}">${P.subjects.filter(subject => subject.group === group).map(subject => `<option value="${subject.id}" ${subject.id === subjectId ? 'selected' : ''} ${subject.status !== 'ready' ? 'disabled' : ''}>${escape(subject.title)}${subject.status !== 'ready' ? ' · 待建设' : ''}</option>`).join('')}</optgroup>`).join('')}</select>` : `<a class="zx-home" id="platformMastery" href="${escape(masteryURL)}">掌握度热力图</a>`}<button class="zx-theme" id="platformTheme" type="button"></button></div>`;
+  const mainSiteURL = 'https://recaord.top/';
+  const labURL = 'https://recaord.top/threebody/';
+  header.innerHTML = `<a class="zx-wordmark" href="${escape(homeURL)}" aria-label="知序，返回平台总览"><span class="zx-logo" aria-hidden="true"></span><span class="zx-parent">李嘉图笔记 /</span><strong>${escape(P.name)}</strong></a><span class="zx-product">408 × 考研数学 · 交互学习</span><div class="zx-header-actions">${subjectId ? `<a class="zx-home" id="platformHome" href="${escape(homeURL)}">← 平台总览</a><a class="zx-home" id="platformMastery" href="${escape(masteryURL)}">掌握度</a><label class="zx-sr" for="platformSubject">切换科目</label><select class="zx-select" id="platformSubject"><option value="home">平台总览</option>${['408', 'math'].map(group => `<optgroup label="${group === '408' ? '408 计算机基础' : '考研数学'}">${P.subjects.filter(subject => subject.group === group).map(subject => `<option value="${subject.id}" ${subject.id === subjectId ? 'selected' : ''} ${subject.status !== 'ready' ? 'disabled' : ''}>${escape(subject.title)}${subject.status !== 'ready' ? ' · 待建设' : ''}</option>`).join('')}</optgroup>`).join('')}</select>` : `<a class="zx-home" id="platformMastery" href="${escape(masteryURL)}">掌握度热力图</a>`}<button class="zx-theme" id="platformTheme" type="button"></button></div>`;
+  header.querySelector('.zx-header-actions').insertAdjacentHTML('beforebegin', `<nav class="zx-network" aria-label="站点导航"><a href="${mainSiteURL}">李嘉图笔记</a><span aria-current="page">知序</span><a href="${labURL}">三体实验室</a></nav><details class="zx-network-mobile"><summary>站点</summary><nav aria-label="站点导航"><a href="${mainSiteURL}">李嘉图笔记</a><span aria-current="page">知序</span><a href="${labURL}">三体实验室</a></nav></details>`);
   document.body.prepend(header);
+  const networkMenu = header.querySelector('.zx-network-mobile');
+  document.addEventListener('click', event => {
+    if (networkMenu.open && !networkMenu.contains(event.target)) networkMenu.open = false;
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && networkMenu.open) {
+      networkMenu.open = false;
+      networkMenu.querySelector('summary').focus();
+    }
+  });
   const skip = document.createElement('a');
   skip.className = 'zx-skip';
   skip.href = '#zx-content';

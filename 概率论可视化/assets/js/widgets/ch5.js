@@ -183,7 +183,9 @@
      ================================================================ */
   W.lln = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 330);
-    let key = 'uniform', runs = 12, N = 400, seed = 20260910;
+    let key = 'uniform', runs = 12, N = 400, visibleN = N, seed = 20260910;
+    const FRAME_COUNT = 21;
+    let playback = null, nControl = null, cacheKey = '', cachedTracks = [], cachedMin = Infinity, cachedMax = -Infinity;
 
     const SOURCES = {
       uniform: { label: '均匀 U(0,1)', mu: 0.5, varr: 1 / 12 },
@@ -195,7 +197,16 @@
 
     UI.seg(ctrl, srcKeys.map(k => ({ label: SOURCES[k].label, value: k })), v => { key = v; draw(); }, 0);
     UI.slider(ctrl, { label: '模拟轮数', min: 1, max: 30, value: runs, onInput: v => { runs = v; draw(); } });
-    UI.slider(ctrl, { label: '最大 n', min: 50, max: 1500, step: 50, value: N, onInput: v => { N = v; draw(); } });
+    UI.slider(ctrl, { label: '最大 n', min: 50, max: 1500, step: 50, value: N, onInput: v => {
+      N = v; visibleN = N;
+      if (nControl) { nControl.input.max = N; nControl.set(visibleN); }
+      if (playback) playback.go(FRAME_COUNT - 1); else draw();
+    } });
+    nControl = UI.slider(ctrl, { label: '观察样本量 n', min: 1, max: N, value: visibleN, onInput: v => {
+      visibleN = v;
+      if (playback) playback.set(Math.round((visibleN - 1) / Math.max(1, N - 1) * (FRAME_COUNT - 1)));
+      draw();
+    } });
     const seedSlider = UI.slider(ctrl, { label: '随机种子', min: 1, max: 999, value: seed % 1000, onInput: v => { seed = v; draw(); } });
 
     function oneSample(rand) {
@@ -210,32 +221,37 @@
     function draw() {
       const T = D.Theme.cache;
       const src = SOURCES[key];
-      const rand = S.rng(seed * 7919 + 13);
+      visibleN = Math.max(1, Math.min(N, visibleN));
       const PALETTE = ['--brand', '--purple', '--teal', '--accent', '--green', '--red'];
       const colorAt = i => D.withAlpha(C(PALETTE[i % PALETTE.length]), Math.max(0.3, 0.78 - 0.14 * Math.floor(i / PALETTE.length)));
 
-      // 生成 runs 条轨道
-      const tracks = [];
-      let allMin = Infinity, allMax = -Infinity;
-      for (let r = 0; r < runs; r++) {
-        const arr = new Float64Array(N);
-        let sum = 0;
-        for (let i = 0; i < N; i++) { sum += oneSample(rand); arr[i] = sum / (i + 1); }
-        tracks.push(arr);
-        for (let i = 0; i < N; i++) {
-          if (arr[i] < allMin) allMin = arr[i];
-          if (arr[i] > allMax) allMax = arr[i];
+      const nextCacheKey = `${key}|${runs}|${N}|${seed}`;
+      if (cacheKey !== nextCacheKey) {
+        cacheKey = nextCacheKey;
+        cachedTracks = [];
+        cachedMin = Infinity; cachedMax = -Infinity;
+        for (let r = 0; r < runs; r++) {
+          const rand = S.rng(seed * 7919 + 13 + r * 104729);
+          const arr = new Float64Array(N);
+          let sum = 0;
+          for (let i = 0; i < N; i++) { sum += oneSample(rand); arr[i] = sum / (i + 1); }
+          cachedTracks.push(arr);
+          for (let i = 0; i < N; i++) {
+            if (arr[i] < cachedMin) cachedMin = arr[i];
+            if (arr[i] > cachedMax) cachedMax = arr[i];
+          }
         }
       }
-      const pad = Math.max(0.1 * (allMax - allMin), 0.02);
-      const yLo = Math.min(allMin - pad, src.mu - pad), yHi = Math.max(allMax + pad, src.mu + pad);
+      const tracks = cachedTracks;
+      const pad = Math.max(0.1 * (cachedMax - cachedMin), 0.02);
+      const yLo = Math.min(cachedMin - pad, src.mu - pad), yHi = Math.max(cachedMax + pad, src.mu + pad);
 
       scene.clearLayers();
       scene.layer((sc, ctx) => {
         const W_ = sc.w, H_ = sc.h;
         const padL = 58, padR = 26, padT = 48, padB = 58;
         const pw = W_ - padL - padR, ph = H_ - padT - padB;
-        const X = i => padL + i / (N - 1) * pw;
+        const X = i => padL + i / Math.max(1, visibleN - 1) * pw;
         const Y = v => padT + ph - (v - yLo) / (yHi - yLo) * ph;
 
         ctx.fillStyle = T['--ink-2']; ctx.font = '700 11.5px ' + D.FONT_SANS;
@@ -265,24 +281,26 @@
         // ±ε 带（ε = 3σ/√n）：展示收敛速度
         ctx.beginPath();
         const epsAt = n => 3 * Math.sqrt(src.varr / n);
-        for (let i = 1; i < N; i += 2) ctx.lineTo(X(i), Y(src.mu + epsAt(i + 1)));
-        for (let i = N - 1; i >= 1; i -= 2) ctx.lineTo(X(i), Y(src.mu - epsAt(i + 1)));
+        for (let i = 0; i < visibleN; i += 2) ctx.lineTo(X(i), Y(src.mu + epsAt(i + 1)));
+        for (let i = visibleN - 1; i >= 0; i -= 2) ctx.lineTo(X(i), Y(src.mu - epsAt(i + 1)));
         ctx.closePath();
         ctx.fillStyle = D.withAlpha(C('--green'), 0.10);
         ctx.fill();
 
         // 轨道（轨道多时按步长抽样，保证绘制流畅）
-        const stride = Math.max(1, Math.ceil(N / 700));
+        const stride = Math.max(1, Math.ceil(visibleN / 700));
         tracks.forEach((arr, r) => {
           ctx.beginPath();
-          for (let i = 0; i < N; i += stride) {
+          for (let i = 0; i < visibleN; i += stride) {
             const x = X(i), y = Y(arr[i]);
             i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
           }
-          ctx.lineTo(X(N - 1), Y(arr[N - 1]));
+          ctx.lineTo(X(visibleN - 1), Y(arr[visibleN - 1]));
           ctx.strokeStyle = colorAt(r);
           ctx.lineWidth = 1.4;
           ctx.stroke();
+          ctx.beginPath(); ctx.arc(X(visibleN - 1), Y(arr[visibleN - 1]), 2.3, 0, Math.PI * 2);
+          ctx.fillStyle = colorAt(r); ctx.fill();
         });
 
         // 轴
@@ -291,7 +309,7 @@
         ctx.fillStyle = T['--ink-3']; ctx.font = '500 10px ' + D.FONT_MONO;
         ctx.textAlign = 'center'; ctx.textBaseline = 'top';
         for (let i = 0; i <= 5; i++) {
-          const n = 1 + Math.round((N - 1) * i / 5);
+          const n = 1 + Math.round((visibleN - 1) * i / 5);
           ctx.fillText('n=' + n, X(n - 1), padT + ph + 6);
         }
 
@@ -303,20 +321,25 @@
       scene.static();
 
       // 统计：最后一轮的均值
-      const last = tracks.map(a => a[N - 1]);
+      const last = tracks.map(a => a[visibleN - 1]);
       const avgLast = last.reduce((a, b) => a + b, 0) / last.length;
       const sdLast = Math.sqrt(last.reduce((a, b) => a + (b - avgLast) * (b - avgLast), 0) / Math.max(1, last.length - 1));
       UI.readout(out, [
         ['总体分布', src.label],
         ['理论 μ', f4(src.mu)],
         ['理论 D(X)', f4(src.varr)],
-        ['n = ' + N + ' 时的理论标准差 σ/√n', f4(Math.sqrt(src.varr / N))],
+        ['当前 n', visibleN],
+        ['n = ' + visibleN + ' 时的理论标准差 σ/√n', f4(Math.sqrt(src.varr / visibleN))],
         ['模拟：各轮末 Ᾱₙ 平均', f4(avgLast)],
         ['模拟：各轮末 Ᾱₙ 标准差', f4(sdLast)],
         ['与 μ 的偏离', f4(avgLast - src.mu)]
       ]);
     }
-    draw();
+    playback = UI.transport(ctrl, { total: FRAME_COUNT, speed: 450, onChange: k => {
+      visibleN = 1 + Math.round((N - 1) * k / (FRAME_COUNT - 1));
+      nControl.set(visibleN); draw();
+    } });
+    playback.go(FRAME_COUNT - 1);
   };
 
   /* ================================================================
@@ -325,6 +348,9 @@
   W.clt = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 330);
     let key = 'uniform', n = 2, reps = 4000, seed = 20260910;
+    const MAX_N = 50;
+    const N_STEPS = [...Array.from({ length: 10 }, (_, i) => i + 1), ...Array.from({ length: 20 }, (_, i) => (i + 6) * 2)];
+    let playback = null, nControl = null, cacheKey = '', cumulative = null;
 
     const POPS = {
       uniform: { label: '均匀 U(0,1)', mu: 0.5, varr: 1 / 12, gen: r => r() },
@@ -342,22 +368,38 @@
     const popKeys = ['uniform', 'bernoulli', 'expon', 'bimodal'];
 
     UI.seg(ctrl, popKeys.map(k => ({ label: POPS[k].label, value: k })), v => { key = v; draw(); }, 0);
-    UI.slider(ctrl, { label: '样本量 n', min: 1, max: 50, value: n, onInput: v => { n = v; draw(); } });
+    const nearestStep = value => N_STEPS.reduce((best, item, i) => Math.abs(item - value) < Math.abs(N_STEPS[best] - value) ? i : best, 0);
+    nControl = UI.slider(ctrl, { label: '样本量 n', min: 1, max: MAX_N, value: n, onInput: v => {
+      n = v;
+      if (playback) playback.set(nearestStep(n));
+      draw();
+    } });
     UI.slider(ctrl, { label: '模拟次数', min: 500, max: 8000, step: 500, value: reps, onInput: v => { reps = v; draw(); } });
     UI.slider(ctrl, { label: '随机种子', min: 1, max: 999, value: seed % 1000, onInput: v => { seed = v; draw(); } });
 
     function draw() {
       const T = D.Theme.cache;
       const pop = POPS[key];
-      const rand = S.rng(seed * 104729 + n * 31 + 7);
+      const nextCacheKey = `${key}|${reps}|${seed}`;
+      if (cacheKey !== nextCacheKey) {
+        cacheKey = nextCacheKey;
+        cumulative = new Float32Array(reps * MAX_N);
+        for (let t = 0; t < reps; t++) {
+          const trialRand = S.rng(seed * 104729 + t * 15485863 + 7);
+          let sum = 0;
+          for (let i = 0; i < MAX_N; i++) {
+            sum += pop.gen(trialRand);
+            cumulative[t * MAX_N + i] = sum;
+          }
+        }
+      }
 
       // 直接由总体参数标准化（避免有限样本的均值/方差偏差）
       const sdSum = Math.sqrt(pop.varr * n);
       const BINS = 61, R = 4.2;
       const hist = new Float64Array(BINS);
       for (let t = 0; t < reps; t++) {
-        let s = 0;
-        for (let i = 0; i < n; i++) s += pop.gen(rand);
+        const s = cumulative[t * MAX_N + n - 1];
         const z = (s - n * pop.mu) / sdSum;
         const b = Math.floor((z + R) / (2 * R) * BINS);
         if (b >= 0 && b < BINS) hist[b]++;
@@ -443,7 +485,10 @@
         ['判定', maxDev < 0.05 ? '已非常接近正态 ✓' : (maxDev < 0.12 ? '接近正态（n 可再增大）' : '差距明显，n 偏小')]
       ]);
     }
-    draw();
+    playback = UI.transport(ctrl, { total: N_STEPS.length, speed: 450, onChange: k => {
+      n = N_STEPS[k]; nControl.set(n); draw();
+    } });
+    playback.go(nearestStep(n));
   };
 
   /* ================================================================
@@ -560,35 +605,52 @@
      ================================================================ */
   W.llnFrequency = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 326);
-    let p = 0.35, runs = 10, N = 500, seed = 20260910;
+    let p = 0.35, runs = 10, N = 500, visibleN = N, seed = 20260910;
+    const FRAME_COUNT = 21;
+    let playback = null, nControl = null, cacheKey = '', cachedTracks = [], cachedYLo = 0, cachedYHi = 1;
 
     UI.slider(ctrl, { label: '成功概率 p', min: 0.05, max: 0.95, step: 0.05, value: p, fmt: v => v.toFixed(2), onInput: v => { p = v; draw(); } });
     UI.slider(ctrl, { label: '模拟轮数', min: 1, max: 30, value: runs, onInput: v => { runs = v; draw(); } });
-    UI.slider(ctrl, { label: '最大试验次数 n', min: 100, max: 2000, step: 50, value: N, onInput: v => { N = v; draw(); } });
+    UI.slider(ctrl, { label: '最大试验次数 n', min: 100, max: 2000, step: 50, value: N, onInput: v => {
+      N = v; visibleN = N;
+      if (nControl) { nControl.input.max = N; nControl.set(visibleN); }
+      if (playback) playback.go(FRAME_COUNT - 1); else draw();
+    } });
+    nControl = UI.slider(ctrl, { label: '观察样本量 n', min: 1, max: N, value: visibleN, onInput: v => {
+      visibleN = v;
+      if (playback) playback.set(Math.round((visibleN - 1) / Math.max(1, N - 1) * (FRAME_COUNT - 1)));
+      draw();
+    } });
     UI.slider(ctrl, { label: '随机种子', min: 1, max: 999, value: seed % 1000, onInput: v => { seed = v; draw(); } });
 
     function draw() {
       const T = D.Theme.cache;
-      const rand = S.rng(seed * 6151 + 29);
+      visibleN = Math.max(1, Math.min(N, visibleN));
       const PALETTE = ['--brand', '--purple', '--teal', '--accent', '--green', '--red'];
       const colorAt = i => D.withAlpha(C(PALETTE[i % PALETTE.length]), Math.max(0.3, 0.78 - 0.14 * Math.floor(i / PALETTE.length)));
-      const tracks = [];
-      let yLo = 1, yHi = 0;
-      for (let r = 0; r < runs; r++) {
-        const arr = new Float64Array(N);
-        let hit = 0;
-        for (let i = 0; i < N; i++) {
-          if (rand() < p) hit++;
-          arr[i] = hit / (i + 1);
-        }
-        tracks.push(arr);
-        for (let i = 0; i < N; i++) {
-          if (arr[i] < yLo) yLo = arr[i];
-          if (arr[i] > yHi) yHi = arr[i];
+      const nextCacheKey = `${p}|${runs}|${N}|${seed}`;
+      if (cacheKey !== nextCacheKey) {
+        cacheKey = nextCacheKey;
+        cachedTracks = [];
+        cachedYLo = 1; cachedYHi = 0;
+        for (let r = 0; r < runs; r++) {
+          const rand = S.rng(seed * 6151 + 29 + r * 104729);
+          const arr = new Float64Array(N);
+          let hit = 0;
+          for (let i = 0; i < N; i++) {
+            if (rand() < p) hit++;
+            arr[i] = hit / (i + 1);
+          }
+          cachedTracks.push(arr);
+          for (let i = 0; i < N; i++) {
+            if (arr[i] < cachedYLo) cachedYLo = arr[i];
+            if (arr[i] > cachedYHi) cachedYHi = arr[i];
+          }
         }
       }
-      yLo = Math.max(0, Math.min(yLo, p) - 0.12);
-      yHi = Math.min(1, Math.max(yHi, p) + 0.12);
+      const tracks = cachedTracks;
+      const yLo = Math.max(0, Math.min(cachedYLo, p) - 0.12);
+      const yHi = Math.min(1, Math.max(cachedYHi, p) + 0.12);
       const seq = S.bernoulliSeq(p, 64, S.rng(seed * 97 + 1));
 
       scene.clearLayers();
@@ -616,7 +678,7 @@
         ctx.fillText('前 64 次中成功 ' + seq.filter(v => v).length + ' 次，频率 ' + (seq.filter(v => v).length / 64).toFixed(3), padL, padT + 12);
 
         const Y = v => gy + gh - (v - yLo) / (yHi - yLo) * gh;
-        const X = i => padL + i / (N - 1) * pw;
+        const X = i => padL + i / Math.max(1, visibleN - 1) * pw;
         ctx.strokeStyle = D.withAlpha(C('--line'), 0.85); ctx.lineWidth = 1;
         for (let i = 0; i <= 4; i++) {
           const y = gy + gh * i / 4;
@@ -627,17 +689,19 @@
         }
         // ±3σ/√n 带
         ctx.beginPath();
-        for (let i = 1; i < N; i += 2) ctx.lineTo(X(i), Y(D.clamp(p + 3 * Math.sqrt(p * (1 - p) / (i + 1)), 0, 1)));
-        for (let i = N - 1; i >= 1; i -= 2) ctx.lineTo(X(i), Y(D.clamp(p - 3 * Math.sqrt(p * (1 - p) / (i + 1)), 0, 1)));
+        for (let i = 0; i < visibleN; i += 2) ctx.lineTo(X(i), Y(D.clamp(p + 3 * Math.sqrt(p * (1 - p) / (i + 1)), 0, 1)));
+        for (let i = visibleN - 1; i >= 0; i -= 2) ctx.lineTo(X(i), Y(D.clamp(p - 3 * Math.sqrt(p * (1 - p) / (i + 1)), 0, 1)));
         ctx.closePath();
         ctx.fillStyle = D.withAlpha(C('--green'), 0.10); ctx.fill();
-        const stride = Math.max(1, Math.ceil(N / 700));
+        const stride = Math.max(1, Math.ceil(visibleN / 700));
         tracks.forEach((arr, r) => {
           ctx.beginPath();
-          for (let i = 0; i < N; i += stride) i ? ctx.lineTo(X(i), Y(arr[i])) : ctx.moveTo(X(i), Y(arr[i]));
-          ctx.lineTo(X(N - 1), Y(arr[N - 1]));
+          for (let i = 0; i < visibleN; i += stride) i ? ctx.lineTo(X(i), Y(arr[i])) : ctx.moveTo(X(i), Y(arr[i]));
+          ctx.lineTo(X(visibleN - 1), Y(arr[visibleN - 1]));
           ctx.strokeStyle = colorAt(r);
           ctx.lineWidth = 1.5; ctx.stroke();
+          ctx.beginPath(); ctx.arc(X(visibleN - 1), Y(arr[visibleN - 1]), 2.3, 0, Math.PI * 2);
+          ctx.fillStyle = colorAt(r); ctx.fill();
         });
         ctx.save();
         ctx.setLineDash([6, 4]);
@@ -652,7 +716,7 @@
         ctx.fillStyle = T['--ink-3']; ctx.font = '500 10px ' + D.FONT_MONO;
         ctx.textAlign = 'center'; ctx.textBaseline = 'top';
         for (let i = 0; i <= 5; i++) {
-          const nn = 1 + Math.round((N - 1) * i / 5);
+          const nn = 1 + Math.round((visibleN - 1) * i / 5);
           ctx.fillText('n=' + nn, X(nn - 1), gy + gh + 6);
         }
         ctx.fillStyle = T['--ink-3']; ctx.font = '500 10.5px ' + D.FONT_SANS;
@@ -661,20 +725,24 @@
       });
       scene.static();
 
-      const last = tracks.map(a => a[N - 1]);
+      const last = tracks.map(a => a[visibleN - 1]);
       const avg = last.reduce((a, b) => a + b, 0) / last.length;
       const sd = Math.sqrt(last.reduce((a, b) => a + (b - avg) * (b - avg), 0) / Math.max(1, last.length - 1));
       UI.readout(out, [
         ['p', f3(p)],
-        ['最大 n', N],
-        ['理论标准差 √(p(1−p)/n)', f4(Math.sqrt(p * (1 - p) / N))],
+        ['当前 n', visibleN],
+        ['理论标准差 √(p(1−p)/n)', f4(Math.sqrt(p * (1 - p) / visibleN))],
         ['各轮末频率平均', f4(avg)],
         ['各轮末频率标准差', f4(sd)],
         ['与 p 的偏差', f4(avg - p)],
         ['结论', '伯努利大数定律：n → ∞ 时频率 n_A/n 依概率收敛到 p']
       ]);
     }
-    draw();
+    playback = UI.transport(ctrl, { total: FRAME_COUNT, speed: 450, onChange: k => {
+      visibleN = 1 + Math.round((N - 1) * k / (FRAME_COUNT - 1));
+      nControl.set(visibleN); draw();
+    } });
+    playback.go(FRAME_COUNT - 1);
   };
 
   /* ================================================================
@@ -683,20 +751,37 @@
   W.cltDice = function (host) {
     const { ctrl, out, scene } = UI.shell(host, 326);
     let n = 6, reps = 4000, seed = 20260910;
+    const MAX_N = 30;
+    let playback = null, nControl = null, cacheKey = '', cumulative = null;
 
-    UI.slider(ctrl, { label: '骰子个数 n', min: 1, max: 30, value: n, onInput: v => { n = v; draw(); } });
+    nControl = UI.slider(ctrl, { label: '骰子个数 n', min: 1, max: MAX_N, value: n, onInput: v => {
+      n = v;
+      if (playback) playback.set(n - 1);
+      draw();
+    } });
     UI.slider(ctrl, { label: '模拟次数', min: 1000, max: 8000, step: 500, value: reps, onInput: v => { reps = v; draw(); } });
     UI.slider(ctrl, { label: '随机种子', min: 1, max: 999, value: seed % 1000, onInput: v => { seed = v; draw(); } });
 
     function draw() {
       const T = D.Theme.cache;
-      const rand = S.rng(seed * 104729 + n * 31 + 7);
+      const nextCacheKey = `${reps}|${seed}`;
+      if (cacheKey !== nextCacheKey) {
+        cacheKey = nextCacheKey;
+        cumulative = new Float32Array(reps * MAX_N);
+        for (let t = 0; t < reps; t++) {
+          const trialRand = S.rng(seed * 104729 + t * 15485863 + 7);
+          let sum = 0;
+          for (let i = 0; i < MAX_N; i++) {
+            sum += 1 + Math.floor(trialRand() * 6);
+            cumulative[t * MAX_N + i] = sum;
+          }
+        }
+      }
       const mu = 3.5 * n, varr = 35 / 12 * n, sd = Math.sqrt(varr);
       const BINS = 61, R = 4.2;
       const hist = new Float64Array(BINS);
       for (let t = 0; t < reps; t++) {
-        let s = 0;
-        for (let i = 0; i < n; i++) s += 1 + Math.floor(rand() * 6);
+        const s = cumulative[t * MAX_N + n - 1];
         const z = (s - mu) / sd;
         const b = Math.floor((z + R) / (2 * R) * BINS);
         if (b >= 0 && b < BINS) hist[b]++;
@@ -778,7 +863,10 @@
         ['结论', '独立同分布、方差有限的总体，其和的标准化变量依分布收敛于 N(0,1)（列维-林德伯格）']
       ]);
     }
-    draw();
+    playback = UI.transport(ctrl, { total: MAX_N, speed: 450, onChange: k => {
+      n = k + 1; nControl.set(n); draw();
+    } });
+    playback.go(n - 1);
   };
 
   /* ================================================================

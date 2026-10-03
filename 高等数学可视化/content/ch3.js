@@ -199,7 +199,8 @@
             '<p class="tight"><b>要点：</b>上限代入乘上限导数，减去下限代入乘下限导数。</p>'
           },
           { t: 'card', kind: 'warn', tag: '易错', title: '被积函数含 x 时怎么办', html:
-            '<p class="tight">被积函数中含有积分变量之外的 \\( x \\) 时，<b>不能</b>直接套公式，必须先用换元或恒等变形把 \\( x \\) 从被积函数中分离出来：</p>' +
+            '<p class="tight">若被积函数本身还含参数 \\( x \\)，就不能只用“上限代入再乘上限导数”的简式；在函数及其对参数偏导连续等条件下，可用 Leibniz 公式（边界项加被积函数的参数偏导积分），也可像本例这样先作代数变形：</p>' +
+            '<div class="fml">若 \\( \\Phi(x)=\\displaystyle\\int_{a(x)}^{b(x)}G(x,t)\\,\\mathrm{d}t \\)，且 \\( G,\\partial G/\\partial x \\) 连续，则 \\( \\Phi^{\\prime}(x)=G(x,b(x))b^{\\prime}(x)-G(x,a(x))a^{\\prime}(x)+\\displaystyle\\int_{a(x)}^{b(x)}\\frac{\\partial G}{\\partial x}(x,t)\\,\\mathrm{d}t \\)。</div>' +
             '<div class="fml">\\( \\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\int_0^x (x-t)f(t)\\,\\mathrm{d}t=\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left[x\\int_0^x f(t)\\,\\mathrm{d}t-\\int_0^x t f(t)\\,\\mathrm{d}t\\right]=\\int_0^x f(t)\\,\\mathrm{d}t \\)</div>'
           },
           { t: 'h3', idx: '②', text: '牛顿-莱布尼茨公式' },
@@ -464,7 +465,7 @@
             '<div class="fml">' +
             '<div class="fml-row"><b>绕 x 轴体积（圆盘法）：</b>\\( V_x=\\pi\\displaystyle\\int_a^b y^{2}\\,\\mathrm{d}x \\)</div>' +
             '<div class="fml-row"><b>绕 y 轴体积（柱壳法）：</b>\\( V_y=2\\pi\\displaystyle\\int_a^b x\\,|y|\\,\\mathrm{d}x \\)（\\( 0\\leqslant a\\leqslant x\\leqslant b \\)）</div>' +
-            '<div class="fml-row"><b>参数方程绕 x 轴：</b>\\( V_x=\\pi\\displaystyle\\int_{\\alpha}^{\\beta}y^{2}(t)\\,x^{\\prime}(t)\\,\\mathrm{d}t \\)</div>' +
+            '<div class="fml-row"><b>参数方程绕 x 轴：</b>若 \\( x(t) \\) 在 \\([\\alpha,\\beta]\\) 上单调递增，\\( V_x=\\pi\\displaystyle\\int_{\\alpha}^{\\beta}y^{2}(t)\\,x^{\\prime}(t)\\,\\mathrm{d}t \\)；若单调递减，应反向参数或反转积分限，非单调时先按转折点分段。</div>' +
             '<div class="fml-row"><b>旋转体侧面积：</b>\\( S=2\\pi\\displaystyle\\int_a^b|y|\\sqrt{1+y^{\\prime 2}}\\,\\mathrm{d}x=2\\pi\\int|y|\\,\\mathrm{d}s \\)</div>' +
             '<div class="fml-row"><b>平行截面面积为已知的立体：</b>\\( V=\\displaystyle\\int_a^b A(x)\\,\\mathrm{d}x \\)</div>' +
             '</div>'
